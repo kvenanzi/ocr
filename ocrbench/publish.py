@@ -79,6 +79,12 @@ def publish(run_dir: Path, branch: str = "main", retries: int = 4) -> str:
         push = _git("push", "origin", f"HEAD:{branch}", auth=True, check=False)
         if push.returncode == 0:
             return _git("rev-parse", "--short", "HEAD").stdout.strip()
+        if not any(m in push.stderr for m in ("non-fast-forward", "fetch first", "[rejected]")):
+            hint = ""
+            if "403" in push.stderr or "not granted" in push.stderr:
+                hint = ("\nGITHUB_TOKEN can read but not write this repo. Give the token "
+                        "'Contents: Read and write' on the repository, then run publish again.")
+            raise RuntimeError(f"git push failed: {push.stderr.strip()[-400:]}{hint}")
         print(f"push rejected (attempt {attempt}/{retries}); someone else pushed, retrying")
         # Drop only the regenerated-leaderboard commit; it is rebuilt on the next attempt.
         if "leaderboard" in _git("log", "-1", "--format=%s").stdout:
