@@ -44,9 +44,10 @@ def load_runs(runs_dir: Path = config.RUNS_DIR, rescore: bool = False) -> tuple[
             except Exception as e:  # a half-written run shouldn't break the leaderboard
                 print(f"warning: could not score {run_dir.name}: {e}")
                 continue
-        if not (run_dir / "summary.csv").exists():
+        try:
+            s = pd.read_csv(run_dir / "summary.csv")
+        except (FileNotFoundError, pd.errors.EmptyDataError):
             continue
-        s = pd.read_csv(run_dir / "summary.csv")
         if s.empty:
             continue
         s["profile"] = meta["profile"]["name"]
@@ -309,6 +310,20 @@ def heat_md(tab: pd.DataFrame, names: dict[str, str], cols: list[str] | None = N
     return _md_table(["Engine", *cols], rows)
 
 
+def issues_md(summary: pd.DataFrame, metas: list[dict], names: dict[str, str]) -> str:
+    issues = []
+    for m in metas:
+        for p in m.get("plan", []):
+            if not p["run"] and p["skip_reason"] != "excluded" and not str(p["skip_reason"]).startswith("not_default"):
+                issues.append([m["hardware"]["tag"], names.get(p["id"], p["id"]), "skipped", p["skip_reason"]])
+    if not summary.empty:
+        failed = summary[summary["status"].isin(["error", "partial"])].drop_duplicates(["engine", "run_id"])
+        for _, r in failed.iterrows():
+            reason = next((str(x) for x in (r.get("error"), r.get("track_error")) if pd.notna(x) and x), "timed out on some pages")
+            issues.append([r["hardware"], names.get(r["engine"], r["engine"]), r["status"], reason[:140]])
+    return _md_table(["Hardware", "Engine", "Status", "Reason"], issues, align="llll") if issues else "_None._"
+
+
 # ------------------------------------------------------------------ charts
 
 def _style(ax):
@@ -403,11 +418,13 @@ def build(results_dir: Path = config.RESULTS_DIR, rescore: bool = False) -> Path
     charts = results_dir / "charts"
     charts.mkdir(parents=True, exist_ok=True)
     profile = headline_profile(summary) if not summary.empty else None
+    reg = _registry()
     if profile is None:
-        out_md.write_text("# OCR Leaderboard\n\n_No results yet. Run `notebooks/ocr_benchmark_colab.ipynb`._\n")
+        names = {k: v.get("name", k) for k, v in reg.items()}
+        out_md.write_text("# OCR Leaderboard\n\n_No results yet. Run `notebooks/ocr_benchmark_colab.ipynb`._\n"
+                          + (f"\n## Skipped and failed engines\n\n{issues_md(summary, metas, names)}\n" if metas else ""))
         return out_md
 
-    reg = _registry()
     lb = leaderboard(summary, profile)
     names = {**{k: v.get("name", k) for k, v in reg.items()}, **dict(zip(lb["engine"], lb["name"]))}
     tput = throughput_by_hw(summary)
@@ -490,17 +507,7 @@ def build(results_dir: Path = config.RESULTS_DIR, rescore: bool = False) -> Path
         "## Skipped and failed engines",
         "",
     ]
-    issues = []
-    for m in metas:
-        for p in m.get("plan", []):
-            if not p["run"] and p["skip_reason"] not in ("excluded",) and not str(p["skip_reason"]).startswith("not_default"):
-                issues.append([m["hardware"]["tag"], names.get(p["id"], p["id"]), "skipped", p["skip_reason"]])
-    if not summary.empty:
-        failed = summary[summary["status"].isin(["error", "partial"])].drop_duplicates(["engine", "run_id"])
-        for _, r in failed.iterrows():
-            issues.append([r["hardware"], names.get(r["engine"], r["engine"]), r["status"],
-                           str(r.get("error") or r.get("track_error") or "timed out on some pages")[:140]])
-    md.append(_md_table(["Hardware", "Engine", "Status", "Reason"], issues, align="llll") if issues else "_None._")
+    md.append(issues_md(summary, metas, names))
     out_md.write_text("\n".join(md) + "\n")
     _html(results_dir, "\n".join(md))
     return out_md

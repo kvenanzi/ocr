@@ -48,8 +48,12 @@ def trim_logs(run_dir: Path, max_lines: int = 1500) -> None:
 
 
 def publish(run_dir: Path, branch: str = "main", retries: int = 4) -> str:
+    from .score import score_run
+
     _ensure_identity()
     trim_logs(run_dir)
+    if not (run_dir / "summary.csv").exists():
+        score_run(run_dir)
     rel = run_dir.resolve().relative_to(config.REPO_ROOT)
     _git("add", str(rel))
     _git("commit", "-m", f"Add benchmark run {run_dir.name}", "--allow-empty")
@@ -58,7 +62,7 @@ def publish(run_dir: Path, branch: str = "main", retries: int = 4) -> str:
         _git("fetch", "origin", branch, auth=True)
         _git("rebase", f"origin/{branch}")
         report.build()
-        _git("add", "-A", *LEADERBOARD_FILES)
+        _git("add", "-A", *[f for f in LEADERBOARD_FILES if (config.REPO_ROOT / f).exists()])
         if _git("diff", "--cached", "--quiet", check=False).returncode != 0:
             _git("commit", "-m", f"Update leaderboard after {run_dir.name}")
         push = _git("push", "origin", f"HEAD:{branch}", auth=True, check=False)

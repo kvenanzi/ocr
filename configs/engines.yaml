@@ -48,7 +48,7 @@ engines:
     family: classic
     impl: easyocr_engine
     license: Apache-2.0
-    requires: {hardware: [cpu, gpu, tpu]}
+    requires: {hardware: [cpu, gpu]}   # torch on CPU is too slow for a TPU host's time budget
     caps: {boxes: true}
     params: {langs: [en, fr, de, la]}
 
@@ -58,7 +58,7 @@ engines:
     family: classic
     impl: doctr_engine
     license: Apache-2.0
-    requires: {hardware: [cpu, gpu, tpu]}
+    requires: {hardware: [cpu, gpu]}   # torch on CPU is too slow for a TPU host's time budget
     caps: {boxes: true}
     params: {det_arch: fast_base, reco_arch: parseq}
 
@@ -68,7 +68,9 @@ engines:
     family: paddle
     impl: paddle_classic
     license: Apache-2.0
-    requires: {hardware: [cpu, gpu, tpu]}
+    # GPU only: on CPU, Paddle 3.x needs oneDNN disabled and manages ~0.01 pages/s.
+    # The same PP-OCR models run fast on CPU via ONNX: see `rapidocr`.
+    requires: {hardware: [gpu]}
     caps: {boxes: true}
     params: {}
 
