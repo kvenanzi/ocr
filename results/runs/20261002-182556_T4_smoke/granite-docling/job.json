@@ -1,0 +1,66 @@
+{
+  "spec": {
+    "id": "granite-docling",
+    "name": "Granite-Docling 258M",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 0.26,
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 4
+    },
+    "caps": {
+      "layout": true,
+      "tables": true,
+      "math": true,
+      "boxes": true
+    },
+    "params": {
+      "model": "ibm-granite/granite-docling-258M",
+      "revision": "untied",
+      "prompt": "Convert this page to docling.",
+      "max_model_len": 8192,
+      "dtype_no_bf16": "float32",
+      "gpu_memory_utilization": 0.6,
+      "llm_kwargs": {
+        "max_num_seqs": 8
+      },
+      "batch_size": 8,
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 6144,
+        "skip_special_tokens": false
+      },
+      "postprocess": [
+        "doctags"
+      ]
+    }
+  },
+  "hardware": {
+    "tag": "T4",
+    "kind": "gpu",
+    "accelerator": "Tesla T4",
+    "vram_gb": 15.0,
+    "compute_capability": 7.5,
+    "num_devices": 1,
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "ram_gb": 51.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": false
+  },
+  "out": "/content/ocr/results/runs/20261002-182556_T4_smoke/granite-docling",
+  "latency_n": 2,
+  "tracks": {
+    "books": "/content/ocrbench_data/smoke/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/smoke/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/smoke/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/smoke/stress/manifest.jsonl"
+  },
+  "timeout_s": 600
+}

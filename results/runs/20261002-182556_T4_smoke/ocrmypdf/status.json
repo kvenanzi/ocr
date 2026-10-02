@@ -1,0 +1,59 @@
+{
+  "engine": "ocrmypdf",
+  "status": "ok",
+  "started": 1790965557.024127,
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "tracks": {
+    "books": {
+      "n": 4,
+      "n_planned": 4,
+      "partial": false,
+      "wall_s": 30.542,
+      "pages_per_s": 0.13096648094014116,
+      "latency_n": 2,
+      "latency_p50_s": 18.066889427000206,
+      "latency_p95_s": 21.663628090700332
+    },
+    "docs": {
+      "n": 5,
+      "n_planned": 5,
+      "partial": false,
+      "wall_s": 28.214,
+      "pages_per_s": 0.1772138918628627,
+      "latency_n": 2,
+      "latency_p50_s": 16.68056783799966,
+      "latency_p95_s": 24.908602460799283
+    },
+    "handwriting": {
+      "n": 6,
+      "n_planned": 6,
+      "partial": false,
+      "wall_s": 4.163,
+      "pages_per_s": 1.4411100065661782,
+      "latency_n": 2,
+      "latency_p50_s": 2.796247302499978,
+      "latency_p95_s": 2.82422783224938
+    },
+    "stress": {
+      "n": 11,
+      "n_planned": 11,
+      "partial": false,
+      "wall_s": 27.134,
+      "pages_per_s": 0.4053925989237309,
+      "latency_n": 2,
+      "latency_p50_s": 7.684456888000568,
+      "latency_p95_s": 9.30145165300146
+    }
+  },
+  "load_s": 0.85,
+  "versions": {
+    "ocrmypdf": "17.13.0"
+  },
+  "warmup_s": 14.92,
+  "peak_rss_gb": 1.43,
+  "peak_vram_gb": 0.0,
+  "finished": 1790965753.3743937,
+  "install_s": 0.0,
+  "wall_s": 196.5
+}
