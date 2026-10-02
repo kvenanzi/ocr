@@ -184,17 +184,25 @@ def docs_categories(summary: pd.DataFrame, profile: str) -> pd.DataFrame:
     return pd.DataFrame(rows).T if rows else pd.DataFrame()
 
 
+def _tied_names(names: list[str], show: int = 3) -> str:
+    if len(names) <= show:
+        return ", ".join(names)
+    return ", ".join(names[:show]) + f" (+{len(names) - show} more tied)"
+
+
 def winners(lb: pd.DataFrame, rob: pd.DataFrame) -> list[tuple[str, str, str]]:
     out = []
     if lb.empty:
         return out
 
-    def pick(df, col, label, fmt, largest=True, why=""):
+    def pick(df, col, label, fmt, largest=True, why="", tol=0.0005):
         d = df.dropna(subset=[col])
         if d.empty:
             return
         r = d.loc[d[col].idxmax() if largest else d[col].idxmin()]
-        out.append((label, r["name"], fmt(r) + why))
+        # Ties (within 0.05 points): name them all instead of picking one arbitrarily.
+        tied = d[(d[col] - r[col]).abs() <= tol * max(1.0, abs(r[col]))]
+        out.append((label, _tied_names([r["name"], *[n for n in tied["name"] if n != r["name"]]]), fmt(r) + why))
 
     pick(lb, "overall", "Most accurate overall", lambda r: f"{r['overall']:.1%} mean accuracy across the 4 tracks")
     for track in config.TRACKS:
@@ -214,15 +222,18 @@ def winners(lb: pd.DataFrame, rob: pd.DataFrame) -> list[tuple[str, str, str]]:
     if not rob.empty and "degradation" in rob:
         usable = rob[rob["clean"] < 0.10] if "clean" in rob else rob
         if not usable.empty:
-            eng = usable["degradation"].idxmin()
-            name = lb.set_index("engine")["name"].get(eng, eng)
-            out.append(("Most robust to bad scans", name,
-                        f"CER rises only {usable.loc[eng, 'degradation']:+.1%} from clean to degraded on average"))
+            best = usable["degradation"].min()
+            names = lb.set_index("engine")["name"]
+            tied = usable[usable["degradation"] <= best + 0.0005].sort_values("degradation").index
+            out.append(("Most robust to bad scans", _tied_names([names.get(e, e) for e in tied]),
+                        f"CER rises only {best:+.1%} from clean to degraded on average"))
     rel = lb.dropna(subset=["loop_rate"]).copy()
     if not rel.empty:
         rel["fail"] = rel["loop_rate"].fillna(0) + rel["empty_rate"].fillna(0)
-        r = rel.loc[rel["fail"].idxmin()]
-        out.append(("Most reliable (fewest loops/empty pages)", r["name"], f"{r['fail']:.1%} of pages looped or came back empty"))
+        best = rel["fail"].min()
+        tied = rel[rel["fail"] <= best + 0.0005].sort_values("overall", ascending=False)
+        out.append(("Most reliable (fewest loops/empty pages)", _tied_names(list(tied["name"])),
+                    f"{best:.1%} of pages looped or came back empty"))
     return out
 
 
@@ -311,16 +322,28 @@ def heat_md(tab: pd.DataFrame, names: dict[str, str], cols: list[str] | None = N
 
 
 def issues_md(summary: pd.DataFrame, metas: list[dict], names: dict[str, str]) -> str:
-    issues = []
-    for m in metas:
+    """Engines skipped on a runtime, or whose *latest* run there failed or was cut short.
+    Failures fixed by a later rerun on the same hardware are not listed."""
+    issues, seen = [], set()
+    for m in sorted(metas, key=lambda m: m.get("started", 0), reverse=True):
         for p in m.get("plan", []):
-            if not p["run"] and p["skip_reason"] != "excluded" and not str(p["skip_reason"]).startswith("not_default"):
-                issues.append([m["hardware"]["tag"], names.get(p["id"], p["id"]), "skipped", p["skip_reason"]])
+            key = (m["hardware"]["tag"], p["id"])
+            if (not p["run"] and key not in seen and p["skip_reason"] != "excluded"
+                    and not str(p["skip_reason"]).startswith("not_default")):
+                issues.append([key[0], names.get(p["id"], p["id"]), "skipped", p["skip_reason"]])
+            seen.add(key)
     if not summary.empty:
-        failed = summary[summary["status"].isin(["error", "partial"])].drop_duplicates(["engine", "run_id"])
-        for _, r in failed.iterrows():
-            reason = next((str(x) for x in (r.get("error"), r.get("track_error")) if pd.notna(x) and x), "timed out on some pages")
-            issues.append([r["hardware"], names.get(r["engine"], r["engine"]), r["status"], reason[:140]])
+        latest = summary.sort_values("started").groupby(["engine", "hardware"])["run_id"].last()
+        for (engine, hw), run_id in latest.items():
+            rows = summary[(summary["engine"] == engine) & (summary["hardware"] == hw) & (summary["run_id"] == run_id)]
+            status = rows["status"].iloc[0]
+            if status not in ("error", "partial"):
+                continue
+            err = next((str(x) for x in [*rows["error"], *rows.get("track_error", [])] if pd.notna(x) and x), None)
+            if err is None:
+                done, planned = rows["n"].sum(), rows["n_planned"].fillna(0).sum()
+                err = f"time budget ran out: {done:.0f} of {planned:.0f} pages scored"
+            issues.append([hw, names.get(engine, engine), status, err[:140]])
     return _md_table(["Hardware", "Engine", "Status", "Reason"], issues, align="llll") if issues else "_None._"
 
 
@@ -508,8 +531,10 @@ def build(results_dir: Path = config.RESULTS_DIR, rescore: bool = False) -> Path
         "",
     ]
     md.append(issues_md(summary, metas, names))
-    out_md.write_text("\n".join(md) + "\n")
-    _html(results_dir, "\n".join(md))
+    text = "\n".join(md) + "\n"
+    # Escape $ so GitHub/Colab don't render "$0.16 ... $36" as a math formula.
+    out_md.write_text(text.replace("$", "\\$"))
+    _html(results_dir, text)
     return out_md
 
 
