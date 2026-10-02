@@ -131,7 +131,7 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
     if engine.native_batch and latency_n:
         for k, p in enumerate(paths[:latency_n], 1):
             t = time.perf_counter()
-            engine.predict([p])
+            _predict_safely(engine, [p])   # a bad page is recorded in the throughput pass below
             latencies.append(time.perf_counter() - t)
             print(f"  [{track_dir.name}] latency page {k}/{min(latency_n, len(paths))}: {latencies[-1]:.1f}s", flush=True)
         print(f"  [{track_dir.name}] batch of {len(paths)} pages...", flush=True)

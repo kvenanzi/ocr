@@ -44,3 +44,16 @@ def test_slow_load_does_not_eat_page_budget(tmp_path):
     assert status["status"] == "ok", status
     assert status["load_s"] >= 3
     assert status["tracks"]["books"]["n"] == 4
+
+
+def test_bad_page_in_latency_pass_costs_one_page_not_the_track(tmp_path):
+    hw = HardwareInfo(tag="cpu", kind="cpu")
+    samples = [Sample(id=f"b{i}", track="books", image="bad.png" if i == 1 else "x.png", gt_text="x")
+               for i in range(4)]
+    tracks = {"books": write_manifest(tmp_path / "books", samples)}
+    status = runner.run_engine(_spec("x:BadPage"), hw, tracks, tmp_path / "out", latency_n=2,
+                               timeout_min=1, use_venvs=False)
+    assert status["status"] == "ok", status
+    assert status["tracks"]["books"]["n"] == 4
+    recs = [json.loads(l) for l in open(tmp_path / "out/books/preds.jsonl")]
+    assert [bool(r.get("error")) for r in recs] == [False, True, False, False]

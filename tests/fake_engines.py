@@ -31,3 +31,16 @@ class SlowLoad(Engine):
 
     def predict(self, paths):
         return [Prediction("The quick brown fox") for _ in paths]
+
+
+class BadPage(Engine):
+    """Fails on one specific page, like Tesseract erroring on one odd image."""
+    native_batch = True
+
+    def load(self):
+        pass
+
+    def predict(self, paths):
+        if any(p.endswith("bad.png") for p in paths):
+            raise RuntimeError("ocrmypdf exit 7: [tesseract] Error during processing.")
+        return [Prediction("The quick brown fox") for _ in paths]
