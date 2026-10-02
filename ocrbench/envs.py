@@ -83,15 +83,18 @@ def python_for(family: str, log: Path | None = None) -> str:
     print(f"  creating env '{family}' (one-time, a few minutes) -> {env_dir}", flush=True)
     shutil.rmtree(env_dir, ignore_errors=True)
     uv = shutil.which("uv")
+    site = ["--system-site-packages"] if recipe.get("system_site_packages") else []
+    if uv:
+        # `uv venv --seed` installs pip itself; `python -m venv` needs ensurepip, which
+        # Colab's system Python doesn't ship.
+        _run([uv, "venv", "--python", sys.executable, "--seed", *site, str(env_dir)], log)
+    else:
+        _run([sys.executable, "-m", "venv", *site, str(env_dir)], log)
     if recipe.get("uv") and uv:
-        _run([uv, "venv", "--python", sys.executable, "--seed", str(env_dir)], log)
         for step in recipe["steps"]:
             _run([uv, "pip", "install", "--python", str(py), *step], log)
     else:
-        args = [sys.executable, "-m", "venv", str(env_dir)]
-        if recipe.get("system_site_packages"):
-            args.insert(3, "--system-site-packages")
-        _run(args, log)
+        # pip (not uv) here: pip treats system site-packages (Colab's torch) as already installed.
         for step in recipe["steps"]:
             # torch-backend is a uv-only flag
             step = [s for s in step if not s.startswith("--torch-backend")]
