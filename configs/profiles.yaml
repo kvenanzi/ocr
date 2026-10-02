@@ -1,0 +1,26 @@
+# Run profiles. Sampling is deterministic (seeded), so two runs with the same
+# profile on different hardware score exactly the same pages.
+#
+#   pages:        pages sampled per track (stress = base pages, each rendered at
+#                 every degradation level, so it yields pages * len(levels) images)
+#   latency_n:    pages run one at a time to measure per-page latency
+#   timeout_min:  per-engine wall-clock budget; partial results are kept
+
+seed: 1234
+
+profiles:
+  smoke:
+    description: "~10 min sanity check: does every engine load and produce text?"
+    pages: {books: 4, docs: 5, handwriting: 6, stress: 1}
+    latency_n: 2
+    timeout_min: 10
+  standard:
+    description: "~1 hour on an A100: the default comparison run"
+    pages: {books: 50, docs: 50, handwriting: 60, stress: 5}
+    latency_n: 8
+    timeout_min: 25
+  full:
+    description: "several hours: tighter confidence intervals"
+    pages: {books: 250, docs: 250, handwriting: 300, stress: 20}
+    latency_n: 16
+    timeout_min: 90
