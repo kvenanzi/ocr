@@ -1,0 +1,52 @@
+{
+  "spec": {
+    "id": "ocrmypdf",
+    "name": "OCRmyPDF (Tesseract + cleanup)",
+    "kind": "classic",
+    "family": "classic",
+    "impl": "ocrmypdf_engine",
+    "license": "MPL-2.0",
+    "requires": {
+      "hardware": [
+        "cpu",
+        "gpu",
+        "tpu"
+      ]
+    },
+    "caps": {
+      "boxes": true
+    },
+    "params": {
+      "lang": "eng+fra+deu+lat",
+      "flags": [
+        "--deskew",
+        "--clean",
+        "--rotate-pages"
+      ],
+      "image_dpi": 300
+    }
+  },
+  "hardware": {
+    "tag": "A100-40GB",
+    "kind": "gpu",
+    "accelerator": "NVIDIA A100-SXM4-40GB",
+    "vram_gb": 40.0,
+    "compute_capability": 8.0,
+    "num_devices": 1,
+    "cpu_count": 12,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "ram_gb": 83.5,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261002-195503_A100-40GB_standard/ocrmypdf",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 1500
+}

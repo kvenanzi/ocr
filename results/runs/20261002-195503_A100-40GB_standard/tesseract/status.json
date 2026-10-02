@@ -1,0 +1,59 @@
+{
+  "engine": "tesseract",
+  "status": "ok",
+  "started": 1790970919.4275773,
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "tracks": {
+    "books": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 56.043,
+      "pages_per_s": 0.8921791963263169,
+      "latency_n": 8,
+      "latency_p50_s": 4.241451885000004,
+      "latency_p95_s": 6.176794217200035
+    },
+    "docs": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 55.7,
+      "pages_per_s": 0.8976677074250964,
+      "latency_n": 8,
+      "latency_p50_s": 3.282428520499991,
+      "latency_p95_s": 8.317253203450019
+    },
+    "handwriting": {
+      "n": 60,
+      "n_planned": 60,
+      "partial": false,
+      "wall_s": 5.754,
+      "pages_per_s": 10.426874642109214,
+      "latency_n": 8,
+      "latency_p50_s": 0.6468598260000249,
+      "latency_p95_s": 0.8982065377999959
+    },
+    "stress": {
+      "n": 55,
+      "n_planned": 55,
+      "partial": false,
+      "wall_s": 146.464,
+      "pages_per_s": 0.37551959064735074,
+      "latency_n": 8,
+      "latency_p50_s": 2.55077483849999,
+      "latency_p95_s": 4.587080860199956
+    }
+  },
+  "load_s": 0.41,
+  "versions": {
+    "tesseract": "tesseract 5.3.4"
+  },
+  "warmup_s": 4.57,
+  "peak_rss_gb": 2.2,
+  "peak_vram_gb": 0.0,
+  "finished": 1790971282.891332,
+  "install_s": 14.9,
+  "wall_s": 378.5
+}

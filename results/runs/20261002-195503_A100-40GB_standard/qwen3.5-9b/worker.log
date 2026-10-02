@@ -1,0 +1,231 @@
+INFO 10-02 22:23:12 [api_utils.py:286] non-default args: {'max_model_len': 16384, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'limit_mm_per_prompt': {'image': 1, 'video': 0}, 'model': 'Qwen/Qwen3.5-9B'}
+INFO 10-02 22:23:14 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 10-02 22:23:14 [model.py:2030] Using max model len 16384
+WARNING 10-02 22:23:15 [model.py:994] Model does not support mm_device_do_normalize, forcing mm_device_do_normalize = False.
+INFO 10-02 22:23:22 [scheduler.py:288] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 10-02 22:23:22 [config.py:625] Mamba cache mode is set to 'align' for Qwen3_5ForConditionalGeneration by default when prefix caching is enabled
+INFO 10-02 22:23:22 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+WARNING 10-02 22:23:42 [system_utils.py:157] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: CUDA is initialized
+(EngineCore pid=100902) INFO 10-02 22:23:51 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='Qwen/Qwen3.5-9B', speculative_config=None, tokenizer='Qwen/Qwen3.5-9B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=16384, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=Qwen/Qwen3.5-9B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=100902) INFO 10-02 22:23:54 [parallel_state.py:1827] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_40cfe3fd3f894329b4880356b951c132 backend=nccl
+(EngineCore pid=100902) INFO 10-02 22:23:54 [parallel_state.py:2267] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=100902) INFO 10-02 22:23:54 [gpu_worker.py:441] Using V2 Model Runner
+(EngineCore pid=100902) INFO 10-02 22:23:55 [model_runner.py:396] Loading model from scratch...
+(EngineCore pid=100902) INFO 10-02 22:23:55 [cuda.py:597] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+(EngineCore pid=100902) INFO 10-02 22:23:55 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+(EngineCore pid=100902) INFO 10-02 22:23:55 [qwen_gdn_linear_attn.py:176] Using Triton/FLA GDN prefill kernel (requested=auto, head_k_dim=128).
+(EngineCore pid=100902) INFO 10-02 22:23:55 [qwen_gdn_linear_attn.py:528] GDN decode kernel: cuda
+(EngineCore pid=100902) INFO 10-02 22:23:56 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=100902) INFO 10-02 22:23:56 [flash_attn.py:1116] Using FlashAttention version 2
+INFO 10-02 22:24:17 [base.py:261] Multi-modal warmup completed in 34.622s
+INFO 10-02 22:24:18 [base.py:261] Readonly multi-modal warmup completed in 1.078s
+(EngineCore pid=100902) INFO 10-02 22:24:56 [weight_utils.py:558] Time spent downloading weights for Qwen/Qwen3.5-9B: 58.631625 seconds
+(EngineCore pid=100902) INFO 10-02 22:24:56 [weight_utils.py:895] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 17.98 GiB. Available RAM: 77.26 GiB.
+(EngineCore pid=100902) INFO 10-02 22:24:56 [weight_utils.py:918] Auto-prefetch is disabled because the filesystem (OVERLAY) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=100902) 
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+(EngineCore pid=100902) 
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:04,  1.37s/it]
+(EngineCore pid=100902) 
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:02<00:02,  1.41s/it]
+(EngineCore pid=100902) 
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:04<00:01,  1.45s/it]
+(EngineCore pid=100902) 
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:05<00:00,  1.31s/it]
+(EngineCore pid=100902) 
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:05<00:00,  1.35s/it]
+(EngineCore pid=100902) 
+(EngineCore pid=100902) INFO 10-02 22:25:02 [default_loader.py:430] Loading weights took 5.49 seconds
+(EngineCore pid=100902) INFO 10-02 22:25:03 [model_runner.py:428] Model loading took 17.65 GiB memory and 67.709478 seconds
+(EngineCore pid=100902) INFO 10-02 22:25:03 [topk_topp_sampler.py:78] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=100902) INFO 10-02 22:25:03 [interface.py:933] Setting attention block size to 528 tokens to ensure that attention page size is >= mamba page size.
+(EngineCore pid=100902) INFO 10-02 22:25:03 [interface.py:957] Padding mamba page size by 0.76% to ensure that mamba page size and attention page size are exactly equal.
+(EngineCore pid=100902) INFO 10-02 22:25:03 [utils.py:320] Using LBNHC KV cache layout.
+(EngineCore pid=100902) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(EngineCore pid=100902) INFO 10-02 22:25:17 [encoder_runner.py:131] Encoder cache will be initialized with a budget of 16384 tokens, and profiled with 1 image items of the maximum feature size.
+(EngineCore pid=100902) INFO 10-02 22:25:29 [backends.py:1094] Using cache directory: /root/.cache/vllm/torch_compile_cache/77c29bc258/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=100902) INFO 10-02 22:25:29 [backends.py:1155] Dynamo bytecode transform time: 5.07 s
+(EngineCore pid=100902) INFO 10-02 22:25:44 [backends.py:393] Compiling a graph for compile range (1, 8192) takes 14.85 s
+(EngineCore pid=100902) INFO 10-02 22:25:47 [backends.py:920] collected artifacts: 33 entries, 13 artifacts, 13316699 bytes total
+(EngineCore pid=100902) INFO 10-02 22:25:47 [decorators.py:719] saved AOT compiled function to /root/.cache/vllm/torch_compile_cache/torch_aot_compile/0866e402e3110e6133674eea1e89b143476e32371ae0d11666fa8149980c66d4/rank_0_0/model
+(EngineCore pid=100902) INFO 10-02 22:25:47 [monitor.py:53] torch.compile took 23.18 s in total
+(EngineCore pid=100902) /content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/language/core.py:2284: UserWarning: tl.make_block_ptr is deprecated. Use TensorDescriptor or tl.make_tensor_descriptor instead.
+(EngineCore pid=100902)   warn("tl.make_block_ptr is deprecated. Use TensorDescriptor or tl.make_tensor_descriptor instead.")
+(EngineCore pid=100902) INFO 10-02 22:27:31 [monitor.py:81] Initial profiling/warmup run took 104.29 s
+(EngineCore pid=100902) 
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]
+Capturing CUDA graphs (PIECEWISE):   2%|▏         | 1/51 [00:01<01:11,  1.43s/it]
+Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:02<00:59,  1.22s/it]
+Capturing CUDA graphs (PIECEWISE):   6%|▌         | 3/51 [00:03<00:48,  1.01s/it]
+Capturing CUDA graphs (PIECEWISE):   8%|▊         | 4/51 [00:03<00:42,  1.12it/s]
+Capturing CUDA graphs (PIECEWISE):  10%|▉         | 5/51 [00:04<00:37,  1.24it/s]
+Capturing CUDA graphs (PIECEWISE):  12%|█▏        | 6/51 [00:05<00:33,  1.36it/s]
+Capturing CUDA graphs (PIECEWISE):  14%|█▎        | 7/51 [00:05<00:29,  1.49it/s]
+Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:06<00:26,  1.64it/s]
+Capturing CUDA graphs (PIECEWISE):  18%|█▊        | 9/51 [00:06<00:23,  1.80it/s]
+Capturing CUDA graphs (PIECEWISE):  20%|█▉        | 10/51 [00:07<00:20,  1.99it/s]
+Capturing CUDA graphs (PIECEWISE):  22%|██▏       | 11/51 [00:07<00:17,  2.24it/s]
+Capturing CUDA graphs (PIECEWISE):  24%|██▎       | 12/51 [00:07<00:15,  2.54it/s]
+Capturing CUDA graphs (PIECEWISE):  25%|██▌       | 13/51 [00:07<00:12,  2.93it/s]
+Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:08<00:11,  3.35it/s]
+Capturing CUDA graphs (PIECEWISE):  29%|██▉       | 15/51 [00:08<00:09,  3.79it/s]
+Capturing CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:08<00:08,  4.24it/s]
+Capturing CUDA graphs (PIECEWISE):  33%|███▎      | 17/51 [00:09<00:19,  1.75it/s]
+Capturing CUDA graphs (PIECEWISE):  35%|███▌      | 18/51 [00:10<00:15,  2.09it/s]
+Capturing CUDA graphs (PIECEWISE):  39%|███▉      | 20/51 [00:10<00:09,  3.38it/s]
+Capturing CUDA graphs (PIECEWISE):  43%|████▎     | 22/51 [00:10<00:06,  4.72it/s]
+Capturing CUDA graphs (PIECEWISE):  47%|████▋     | 24/51 [00:10<00:04,  6.05it/s]
+Capturing CUDA graphs (PIECEWISE):  51%|█████     | 26/51 [00:10<00:03,  7.29it/s]
+Capturing CUDA graphs (PIECEWISE):  55%|█████▍    | 28/51 [00:10<00:02,  8.32it/s]
+Capturing CUDA graphs (PIECEWISE):  59%|█████▉    | 30/51 [00:11<00:02,  9.17it/s]
+Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [00:11<00:01,  9.87it/s]
+Capturing CUDA graphs (PIECEWISE):  67%|██████▋   | 34/51 [00:11<00:01, 10.32it/s]
+Capturing CUDA graphs (PIECEWISE):  71%|███████   | 36/51 [00:11<00:01, 10.66it/s]
+Capturing CUDA graphs (PIECEWISE):  75%|███████▍  | 38/51 [00:11<00:01, 10.95it/s]
+Capturing CUDA graphs (PIECEWISE):  78%|███████▊  | 40/51 [00:11<00:00, 11.16it/s]
+Capturing CUDA graphs (PIECEWISE):  82%|████████▏ | 42/51 [00:12<00:00, 11.17it/s]
+Capturing CUDA graphs (PIECEWISE):  86%|████████▋ | 44/51 [00:12<00:00, 11.27it/s]
+Capturing CUDA graphs (PIECEWISE):  90%|█████████ | 46/51 [00:12<00:00, 11.42it/s]
+Capturing CUDA graphs (PIECEWISE):  94%|█████████▍| 48/51 [00:12<00:00,  8.63it/s]
+Capturing CUDA graphs (PIECEWISE):  96%|█████████▌| 49/51 [00:13<00:00,  7.27it/s]
+Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:14<00:00,  3.23it/s]
+Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:14<00:00,  3.56it/s]
+(EngineCore pid=100902) 
+Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]
+Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00, 16.24it/s]
+Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00, 16.21it/s]
+(EngineCore pid=100902) INFO 10-02 22:27:49 [model_runner.py:1066] Graph capturing finished in 16 secs, took 0.38 GiB
+(EngineCore pid=100902) INFO 10-02 22:27:49 [gpu_worker.py:640] Available KV cache memory: 10.88 GiB
+(EngineCore pid=100902) INFO 10-02 22:27:49 [gpu_worker.py:655] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.8500 is equivalent to --gpu-memory-utilization=0.8390 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.8610. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=100902) INFO 10-02 22:27:49 [kv_cache_utils.py:2395] GPU KV cache size: 291,031 tokens, Maximum concurrency for 16,384 tokens per request: 17.76x
+(EngineCore pid=100902) INFO 10-02 22:27:50 [kernel_warmup.py:172] JIT kernel warmup starting.
+(EngineCore pid=100902) INFO 10-02 22:27:50 [kernel_warmup.py:185] JIT kernel warmup finished in 0.00s.
+(EngineCore pid=100902) INFO 10-02 22:27:50 [qwen_triton_warmup.py:294] Warming up Qwen GDN Triton kernels for model_type=qwen3_5_text.
+(EngineCore pid=100902) INFO 10-02 22:27:51 [qwen_vl_triton_warmup.py:57] Warmed position embedding and vision rotary kernels on grids=[(1, 16, 16), (1, 16, 2), (1, 2, 16), (1, 2, 2)].
+(EngineCore pid=100902) INFO 10-02 22:27:51 [qwen_vl_triton_warmup.py:98] Warmed M-RoPE Triton kernels.
+(EngineCore pid=100902) INFO 10-02 22:27:51 [mamba_triton_warmup.py:42] Warmed Mamba batch_memcpy_kernel.
+(EngineCore pid=100902) 
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]
+Capturing CUDA graphs (PIECEWISE):   2%|▏         | 1/51 [00:00<00:43,  1.14it/s]
+Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:01<00:41,  1.18it/s]
+Capturing CUDA graphs (PIECEWISE):   6%|▌         | 3/51 [00:02<00:38,  1.24it/s]
+Capturing CUDA graphs (PIECEWISE):   8%|▊         | 4/51 [00:03<00:36,  1.30it/s]
+Capturing CUDA graphs (PIECEWISE):  10%|▉         | 5/51 [00:03<00:33,  1.38it/s]
+Capturing CUDA graphs (PIECEWISE):  12%|█▏        | 6/51 [00:04<00:30,  1.47it/s]
+Capturing CUDA graphs (PIECEWISE):  14%|█▎        | 7/51 [00:04<00:27,  1.58it/s]
+Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:05<00:25,  1.70it/s]
+Capturing CUDA graphs (PIECEWISE):  18%|█▊        | 9/51 [00:05<00:22,  1.86it/s]
+Capturing CUDA graphs (PIECEWISE):  20%|█▉        | 10/51 [00:06<00:20,  2.04it/s]
+Capturing CUDA graphs (PIECEWISE):  22%|██▏       | 11/51 [00:06<00:17,  2.28it/s]
+Capturing CUDA graphs (PIECEWISE):  24%|██▎       | 12/51 [00:06<00:15,  2.58it/s]
+Capturing CUDA graphs (PIECEWISE):  25%|██▌       | 13/51 [00:07<00:12,  2.97it/s]
+Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:07<00:10,  3.40it/s]
+Capturing CUDA graphs (PIECEWISE):  29%|██▉       | 15/51 [00:07<00:09,  3.85it/s]
+Capturing CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:07<00:08,  4.27it/s]
+Capturing CUDA graphs (PIECEWISE):  35%|███▌      | 18/51 [00:07<00:05,  6.12it/s]
+Capturing CUDA graphs (PIECEWISE):  39%|███▉      | 20/51 [00:07<00:04,  7.62it/s]
+Capturing CUDA graphs (PIECEWISE):  43%|████▎     | 22/51 [00:08<00:03,  8.78it/s]
+Capturing CUDA graphs (PIECEWISE):  47%|████▋     | 24/51 [00:08<00:02,  9.69it/s]
+Capturing CUDA graphs (PIECEWISE):  51%|█████     | 26/51 [00:08<00:02, 10.37it/s]
+Capturing CUDA graphs (PIECEWISE):  55%|█████▍    | 28/51 [00:08<00:02, 10.83it/s]
+Capturing CUDA graphs (PIECEWISE):  59%|█████▉    | 30/51 [00:08<00:01, 11.16it/s]
+Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [00:08<00:01, 11.42it/s]
+Capturing CUDA graphs (PIECEWISE):  67%|██████▋   | 34/51 [00:09<00:01, 11.47it/s]
+Capturing CUDA graphs (PIECEWISE):  71%|███████   | 36/51 [00:09<00:01, 11.56it/s]
+Capturing CUDA graphs (PIECEWISE):  75%|███████▍  | 38/51 [00:09<00:01, 11.55it/s]
+Capturing CUDA graphs (PIECEWISE):  78%|███████▊  | 40/51 [00:09<00:00, 11.65it/s]
+Capturing CUDA graphs (PIECEWISE):  82%|████████▏ | 42/51 [00:09<00:00, 11.76it/s]
+Capturing CUDA graphs (PIECEWISE):  86%|████████▋ | 44/51 [00:09<00:00, 11.77it/s]
+Capturing CUDA graphs (PIECEWISE):  90%|█████████ | 46/51 [00:10<00:00, 11.77it/s]
+Capturing CUDA graphs (PIECEWISE):  94%|█████████▍| 48/51 [00:10<00:00, 11.89it/s]
+Capturing CUDA graphs (PIECEWISE):  98%|█████████▊| 50/51 [00:10<00:00, 12.00it/s]
+Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:10<00:00,  4.84it/s]
+(EngineCore pid=100902) 
+Capturing CUDA graphs (FULL):   0%|          | 0/35 [00:00<?, ?it/s]
+Capturing CUDA graphs (FULL):   6%|▌         | 2/35 [00:00<00:02, 16.14it/s]
+Capturing CUDA graphs (FULL):  11%|█▏        | 4/35 [00:00<00:01, 16.08it/s]
+Capturing CUDA graphs (FULL):  17%|█▋        | 6/35 [00:00<00:01, 16.16it/s]
+Capturing CUDA graphs (FULL):  23%|██▎       | 8/35 [00:00<00:01, 16.24it/s]
+Capturing CUDA graphs (FULL):  29%|██▊       | 10/35 [00:00<00:01, 16.09it/s]
+Capturing CUDA graphs (FULL):  34%|███▍      | 12/35 [00:00<00:01, 16.06it/s]
+Capturing CUDA graphs (FULL):  40%|████      | 14/35 [00:00<00:01, 16.12it/s]
+Capturing CUDA graphs (FULL):  46%|████▌     | 16/35 [00:00<00:01, 16.23it/s]
+Capturing CUDA graphs (FULL):  51%|█████▏    | 18/35 [00:01<00:01, 16.14it/s]
+Capturing CUDA graphs (FULL):  57%|█████▋    | 20/35 [00:01<00:00, 16.03it/s]
+Capturing CUDA graphs (FULL):  63%|██████▎   | 22/35 [00:01<00:00, 15.71it/s]
+Capturing CUDA graphs (FULL):  69%|██████▊   | 24/35 [00:01<00:00, 15.91it/s]
+Capturing CUDA graphs (FULL):  74%|███████▍  | 26/35 [00:01<00:00, 16.02it/s]
+Capturing CUDA graphs (FULL):  80%|████████  | 28/35 [00:01<00:00, 16.14it/s]
+Capturing CUDA graphs (FULL):  86%|████████▌ | 30/35 [00:01<00:00, 16.23it/s]
+Capturing CUDA graphs (FULL):  91%|█████████▏| 32/35 [00:01<00:00, 16.27it/s]
+Capturing CUDA graphs (FULL):  97%|█████████▋| 34/35 [00:02<00:00, 16.32it/s]
+Capturing CUDA graphs (FULL): 100%|██████████| 35/35 [00:02<00:00, 16.16it/s]
+(EngineCore pid=100902) INFO 10-02 22:28:10 [model_runner.py:1066] Graph capturing finished in 14 secs, took 0.24 GiB
+(EngineCore pid=100902) INFO 10-02 22:28:10 [gpu_worker.py:825] CUDA graph pool memory: 0.24 GiB (actual), 0.44 GiB (estimated), difference: 0.2 GiB (81.3%).
+(EngineCore pid=100902) INFO 10-02 22:28:10 [gpu_worker.py:888] Free memory on device (39.08/39.49 GiB) on startup. Desired GPU memory utilization is (0.85, 33.57 GiB). Actual usage is 20.37 GiB for consumed memory (weights + non-torch), 2.32 GiB for peak activation, and 0.24 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=11266093364` (10.49 GiB) to fit into requested memory, or `--kv-cache-memory=17178246656` (16.0 GiB) to fully utilize gpu memory. Current kv cache memory in use is 10.88 GiB.
+(EngineCore pid=100902) INFO 10-02 22:28:11 [jit_monitor.py:85] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=100902) INFO 10-02 22:28:11 [torch_utils.py:287] Reducing Torch threads from 6 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=100902) INFO 10-02 22:28:11 [core.py:372] init engine (profile, create kv cache, warmup model) took 188.41 s (compilation: 23.18 s)
+(EngineCore pid=100902) INFO 10-02 22:28:11 [kv_cache_utils.py:748] kv cache group sizes [528, 528, 528, 528]
+(EngineCore pid=100902) INFO 10-02 22:28:11 [kv_cache_utils.py:749] kv lcm block sizes 528
+(EngineCore pid=100902) INFO 10-02 22:28:11 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+INFO 10-02 22:28:15 [hf.py:642] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+[qwen3.5-9b] track books
+  [books] latency page 1/8: 8.4s
+  [books] latency page 2/8: 11.0s
+  [books] latency page 3/8: 7.8s
+  [books] latency page 4/8: 10.8s
+  [books] latency page 5/8: 11.2s
+  [books] latency page 6/8: 7.4s
+  [books] latency page 7/8: 5.1s
+  [books] latency page 8/8: 8.5s
+  [books] batch of 50 pages...
+  [books] 32/50 pages  0.56 p/s
+  [books] 50/50 pages  0.56 p/s
+[qwen3.5-9b] track docs
+  [docs] latency page 1/8: 5.6s
+  [docs] latency page 2/8: 10.5s
+  [docs] latency page 3/8: 3.9s
+  [docs] latency page 4/8: 17.3s
+  [docs] latency page 5/8: 11.1s
+  [docs] latency page 6/8: 11.8s
+  [docs] latency page 7/8: 10.0s
+  [docs] latency page 8/8: 6.7s
+  [docs] batch of 50 pages...
+  [docs] 32/50 pages  0.44 p/s
+  [docs] 50/50 pages  0.46 p/s
+[qwen3.5-9b] track handwriting
+  [handwriting] latency page 1/8: 0.2s
+  [handwriting] latency page 2/8: 0.3s
+  [handwriting] latency page 3/8: 0.2s
+  [handwriting] latency page 4/8: 0.3s
+  [handwriting] latency page 5/8: 0.2s
+  [handwriting] latency page 6/8: 0.2s
+  [handwriting] latency page 7/8: 0.3s
+  [handwriting] latency page 8/8: 0.2s
+  [handwriting] batch of 60 pages...
+  [handwriting] 32/60 pages  24.31 p/s
+  [handwriting] 60/60 pages  24.94 p/s
+[qwen3.5-9b] track stress
+  [stress] latency page 1/8: 8.1s
+  [stress] latency page 2/8: 7.3s
+  [stress] latency page 3/8: 7.0s
+  [stress] latency page 4/8: 8.1s
+  [stress] latency page 5/8: 8.1s
+  [stress] latency page 6/8: 8.1s
+  [stress] latency page 7/8: 8.2s
+  [stress] latency page 8/8: 7.3s
+  [stress] batch of 55 pages...
+  [stress] 32/55 pages  1.07 p/s
+  [stress] 55/55 pages  1.01 p/s
+INFO 10-02 22:36:10 [core_client.py:744] [shutdown] MPClient: start timeout=default
+INFO 10-02 22:36:10 [core_client.py:746] [shutdown] MPClient: stopping engine manager
+INFO 10-02 22:36:10 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=100902) INFO 10-02 22:36:10 [core.py:1342] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=100902) INFO 10-02 22:36:10 [core.py:1493] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=100902) INFO 10-02 22:36:10 [core.py:1524] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=100902) INFO 10-02 22:36:10 [core.py:1355] [shutdown] EngineCore: exiting busy loop
+INFO 10-02 22:36:15 [core_client.py:748] [shutdown] MPClient: engine manager stopped
+INFO 10-02 22:36:15 [core_client.py:749] [shutdown] MPClient: cleaning up background resources
+INFO 10-02 22:36:15 [core_client.py:751] [shutdown] MPClient: complete

@@ -1,0 +1,10 @@
+{
+  "n": 60,
+  "n_planned": 60,
+  "partial": false,
+  "wall_s": 3.272,
+  "pages_per_s": 18.337276987343863,
+  "latency_n": 8,
+  "latency_p50_s": 0.4832364254998538,
+  "latency_p95_s": 0.5197129226502512
+}

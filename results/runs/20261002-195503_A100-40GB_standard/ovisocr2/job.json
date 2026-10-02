@@ -1,0 +1,66 @@
+{
+  "spec": {
+    "id": "ovisocr2",
+    "name": "OvisOCR2",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 0.85,
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 6
+    },
+    "caps": {
+      "layout": true,
+      "tables": true,
+      "math": true
+    },
+    "params": {
+      "model": "ATH-MaaS/OvisOCR2",
+      "prompt": "OVIS_OCR2",
+      "max_pixels": 8294400,
+      "llm_kwargs": {
+        "gdn_prefill_backend": "triton"
+      },
+      "chat_kwargs": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 8192
+      },
+      "postprocess": [
+        "drop_bbox_img_tags",
+        "trim_repeats"
+      ]
+    }
+  },
+  "hardware": {
+    "tag": "A100-40GB",
+    "kind": "gpu",
+    "accelerator": "NVIDIA A100-SXM4-40GB",
+    "vram_gb": 40.0,
+    "compute_capability": 8.0,
+    "num_devices": 1,
+    "cpu_count": 12,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "ram_gb": 83.5,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261002-195503_A100-40GB_standard/ovisocr2",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 1500
+}

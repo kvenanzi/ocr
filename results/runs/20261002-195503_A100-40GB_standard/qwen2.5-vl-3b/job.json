@@ -1,0 +1,70 @@
+{
+  "spec": {
+    "id": "qwen2.5-vl-3b",
+    "name": "Qwen2.5-VL 3B",
+    "kind": "vlm",
+    "family": "vllm",
+    "family_tpu": "vllm-tpu",
+    "impl": "vllm_engine",
+    "size_b": 3.75,
+    "license": "Qwen Research (non-commercial)",
+    "requires": {
+      "hardware": [
+        "gpu",
+        "tpu"
+      ],
+      "min_vram_gb": 10,
+      "min_hbm_gb": 16
+    },
+    "caps": {
+      "tables": true
+    },
+    "params": {
+      "model": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "prompt": "GENERAL_OCR",
+      "max_pixels": 1003520,
+      "max_model_len": 8192,
+      "limit_mm_per_prompt": {
+        "image": 1,
+        "video": 0
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 4096
+      },
+      "tpu_llm_kwargs": {
+        "enable_chunked_prefill": false,
+        "max_num_seqs": 8,
+        "dtype": "bfloat16",
+        "gpu_memory_utilization": 0.95,
+        "mm_processor_kwargs": {
+          "max_pixels": 1003520
+        }
+      },
+      "batch_size": 16
+    }
+  },
+  "hardware": {
+    "tag": "A100-40GB",
+    "kind": "gpu",
+    "accelerator": "NVIDIA A100-SXM4-40GB",
+    "vram_gb": 40.0,
+    "compute_capability": 8.0,
+    "num_devices": 1,
+    "cpu_count": 12,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "ram_gb": 83.5,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261002-195503_A100-40GB_standard/qwen2.5-vl-3b",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 1500
+}
