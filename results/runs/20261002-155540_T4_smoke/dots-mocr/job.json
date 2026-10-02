@@ -1,0 +1,60 @@
+{
+  "spec": {
+    "id": "dots-mocr",
+    "name": "dots.mocr",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 3.04,
+    "license": "MIT",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 12
+    },
+    "caps": {
+      "layout": true,
+      "tables": true,
+      "math": true
+    },
+    "params": {
+      "model": "dots-studio/dots.mocr",
+      "trust_remote_code": true,
+      "prompt": "Extract the text content from this image.",
+      "text_prefix": "<|img|><|imgpad|><|endofimg|>",
+      "max_pixels": 11289600,
+      "chat_kwargs": {
+        "chat_template_content_format": "string"
+      },
+      "sampling": {
+        "temperature": 0.1,
+        "top_p": 0.9,
+        "max_tokens": 8192
+      }
+    }
+  },
+  "hardware": {
+    "tag": "T4",
+    "kind": "gpu",
+    "accelerator": "Tesla T4",
+    "vram_gb": 15.0,
+    "compute_capability": 7.5,
+    "num_devices": 1,
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "ram_gb": 51.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": false
+  },
+  "out": "/content/ocr/results/runs/20261002-155540_T4_smoke/dots-mocr",
+  "latency_n": 2,
+  "tracks": {
+    "books": "/content/ocrbench_data/smoke/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/smoke/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/smoke/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/smoke/stress/manifest.jsonl"
+  },
+  "deadline": 1790960932.3601258
+}

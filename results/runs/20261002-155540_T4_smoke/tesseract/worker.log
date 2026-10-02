@@ -1,0 +1,8 @@
+[tesseract] track books
+  [books] 4/4 pages  0.47 p/s
+[tesseract] track docs
+  [docs] 5/5 pages  0.40 p/s
+[tesseract] track handwriting
+  [handwriting] 6/6 pages  7.15 p/s
+[tesseract] track stress
+  [stress] 11/11 pages  1.60 p/s

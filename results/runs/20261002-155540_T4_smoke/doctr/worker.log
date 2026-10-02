@@ -1,0 +1,34 @@
+Downloading https://doctr-static.mindee.com/models?id=v0.8.1/fast_base-688a8b34.pt&src=0 to /root/.cache/doctr/models/fast_base-688a8b34.pt
+
+  0%|          | 0/65814772 [00:00<?, ?it/s]
+ 16%|█▌        | 10486784/65814772 [00:00<00:01, 40371065.28it/s]
+ 32%|███▏      | 20972544/65814772 [00:00<00:01, 39781296.01it/s]
+ 48%|████▊     | 31458304/65814772 [00:00<00:00, 39402512.63it/s]
+ 64%|██████▎   | 41944064/65814772 [00:01<00:00, 38875931.16it/s]
+ 80%|███████▉  | 52429824/65814772 [00:01<00:00, 39603421.18it/s]
+ 96%|█████████▌| 62915584/65814772 [00:01<00:00, 37333681.63it/s]
+65815552it [00:01, 39515823.91it/s]                              
+Downloading https://doctr-static.mindee.com/models?id=v0.7.0/parseq-56125471.pt&src=0 to /root/.cache/doctr/models/parseq-56125471.pt
+
+  0%|          | 0/95457349 [00:00<?, ?it/s]
+ 24%|██▍       | 23054336/95457349 [00:00<00:00, 230513902.08it/s]
+ 48%|████▊     | 46106624/95457349 [00:00<00:00, 202381366.69it/s]
+ 74%|███████▍  | 70867968/95457349 [00:00<00:00, 221582909.16it/s]
+95458304it [00:00, 228437563.15it/s]                              
+Downloading https://doctr-static.mindee.com/models?id=v0.8.1/mobilenet_v3_small_crop_orientation-f0847a18.pt&src=0 to /root/.cache/doctr/models/mobilenet_v3_small_crop_orientation-f0847a18.pt
+
+  0%|          | 0/6233146 [00:00<?, ?it/s]
+6234112it [00:00, 264466075.64it/s]        
+Downloading https://doctr-static.mindee.com/models?id=v0.8.1/mobilenet_v3_small_page_orientation-8e60325c.pt&src=0 to /root/.cache/doctr/models/mobilenet_v3_small_page_orientation-8e60325c.pt
+
+  0%|          | 0/6233146 [00:00<?, ?it/s]
+6234112it [00:00, 204231515.25it/s]        
+[doctr] track books
+  [books] 4/4 pages  0.36 p/s
+[doctr] track docs
+  [docs] 5/5 pages  0.26 p/s
+[doctr] track handwriting
+  [handwriting] 6/6 pages  6.80 p/s
+[doctr] track stress
+  [stress] 8/11 pages  0.42 p/s
+  [stress] 11/11 pages  0.42 p/s

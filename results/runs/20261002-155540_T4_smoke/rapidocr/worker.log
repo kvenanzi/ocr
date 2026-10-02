@@ -1,0 +1,19 @@
+[32m[INFO] 2026-10-02 15:57:00,608 [RapidOCR] base.py:23: Using engine_name: onnxruntime[0m
+[32m[INFO] 2026-10-02 15:57:00,688 [RapidOCR] download_file.py:60: File exists and is valid: /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/PP-OCRv6_det_small.onnx[0m
+[32m[INFO] 2026-10-02 15:57:00,688 [RapidOCR] main.py:63: Using /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/PP-OCRv6_det_small.onnx[0m
+[32m[INFO] 2026-10-02 15:57:00,749 [RapidOCR] base.py:23: Using engine_name: onnxruntime[0m
+[32m[INFO] 2026-10-02 15:57:00,751 [RapidOCR] download_file.py:60: File exists and is valid: /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/ch_ppocr_mobile_v2.0_cls_mobile.onnx[0m
+[32m[INFO] 2026-10-02 15:57:00,751 [RapidOCR] main.py:63: Using /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/ch_ppocr_mobile_v2.0_cls_mobile.onnx[0m
+[32m[INFO] 2026-10-02 15:57:00,793 [RapidOCR] base.py:23: Using engine_name: onnxruntime[0m
+[32m[INFO] 2026-10-02 15:57:00,850 [RapidOCR] download_file.py:60: File exists and is valid: /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/PP-OCRv6_rec_small.onnx[0m
+[32m[INFO] 2026-10-02 15:57:00,850 [RapidOCR] main.py:63: Using /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/PP-OCRv6_rec_small.onnx[0m
+[rapidocr] track books
+  [books] 4/4 pages  0.32 p/s
+[rapidocr] track docs
+  [docs] 5/5 pages  0.26 p/s
+[rapidocr] track handwriting
+[33m[WARNING] 2026-10-02 15:58:14,766 [RapidOCR] main.py:132: The text detection result is empty[0m
+  [handwriting] 6/6 pages  1.02 p/s
+[rapidocr] track stress
+  [stress] 8/11 pages  0.45 p/s
+  [stress] 11/11 pages  0.42 p/s
