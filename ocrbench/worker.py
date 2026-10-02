@@ -129,10 +129,12 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
     latencies: list[float] = []
 
     if engine.native_batch and latency_n:
-        for p in paths[:latency_n]:
+        for k, p in enumerate(paths[:latency_n], 1):
             t = time.perf_counter()
             engine.predict([p])
             latencies.append(time.perf_counter() - t)
+            print(f"  [{track_dir.name}] latency page {k}/{min(latency_n, len(paths))}: {latencies[-1]:.1f}s", flush=True)
+        print(f"  [{track_dir.name}] batch of {len(paths)} pages...", flush=True)
 
     done, partial, wall = 0, False, 0.0
     with open(track_dir / "preds.jsonl", "w", encoding="utf-8") as out:
