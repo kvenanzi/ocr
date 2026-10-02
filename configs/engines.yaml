@@ -135,6 +135,7 @@ engines:
       model: lightonai/LightOnOCR-2-1B
       prompt: null            # image only
       max_side: 1540
+      dtype_no_bf16: float32  # fp16 on T4 produced runaway garbage (0% accuracy, max_tokens every page)
       llm_kwargs: {mm_processor_cache_gb: 0, enable_prefix_caching: false}
       sampling: {temperature: 0.2, top_p: 0.9, max_tokens: 4096}
 
@@ -169,6 +170,10 @@ engines:
       prompt: "Convert this page to docling."
       max_model_len: 8192     # the model's context limit
       dtype_no_bf16: float32  # fp16 on T4 outputs "!!!!" (model card)
+      # fp32 vision activations on full-page 300-dpi scans OOM'd a T4 at the default 0.85
+      gpu_memory_utilization: 0.6
+      llm_kwargs: {max_num_seqs: 8}
+      batch_size: 8
       sampling: {temperature: 0.0, max_tokens: 6144, skip_special_tokens: false}
       postprocess: [doctags]
 

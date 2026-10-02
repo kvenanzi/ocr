@@ -47,6 +47,15 @@ def trim_logs(run_dir: Path, max_lines: int = 1500) -> None:
             log.write_text("\n".join([f"... [{len(lines) - max_lines} earlier lines trimmed]", *lines[-max_lines:]]) + "\n")
 
 
+def _discard_generated() -> None:
+    """Drop local copies of the generated leaderboard files. The notebook rebuilds them for
+    display, and those edits would block the rebase; they are rebuilt after it anyway."""
+    for f in LEADERBOARD_FILES:
+        if _git("ls-files", "--error-unmatch", f, check=False).returncode == 0:
+            _git("checkout", "HEAD", "--", f)
+        _git("clean", "-fdq", "--", f)
+
+
 def publish(run_dir: Path, branch: str = "main", retries: int = 4) -> str:
     from .score import score_run
 
@@ -56,11 +65,13 @@ def publish(run_dir: Path, branch: str = "main", retries: int = 4) -> str:
         score_run(run_dir)
     rel = run_dir.resolve().relative_to(config.REPO_ROOT)
     _git("add", str(rel))
-    _git("commit", "-m", f"Add benchmark run {run_dir.name}", "--allow-empty")
+    if _git("diff", "--cached", "--quiet", check=False).returncode != 0:   # not already committed
+        _git("commit", "-m", f"Add benchmark run {run_dir.name}")
 
     for attempt in range(1, retries + 1):
+        _discard_generated()
         _git("fetch", "origin", branch, auth=True)
-        _git("rebase", f"origin/{branch}")
+        _git("rebase", "--autostash", f"origin/{branch}")
         report.build()
         _git("add", "-A", *[f for f in LEADERBOARD_FILES if (config.REPO_ROOT / f).exists()])
         if _git("diff", "--cached", "--quiet", check=False).returncode != 0:

@@ -112,5 +112,9 @@ def worker_env(spec: dict) -> dict:
     env.setdefault("TOKENIZERS_PARALLELISM", "false")
     env.setdefault("HF_XET_HIGH_PERFORMANCE", "1")
     env.setdefault("VLLM_CONFIGURE_LOGGING", "1")
+    # A vLLM Triton kernel (hit by DeepSeek-OCR 2 on T4) reads a non-constexpr global;
+    # Triton's own error message suggests this switch.
+    env.setdefault("TRITON_ALLOW_NON_CONSTEXPR_GLOBALS", "1")
+    env.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
     env.update({k: str(v) for k, v in spec.get("env", {}).items()})
     return env

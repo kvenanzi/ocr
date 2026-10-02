@@ -15,6 +15,9 @@ from . import config, envs
 from .hardware import HardwareInfo, detect
 
 
+LOAD_BUDGET_S = 30 * 60
+
+
 def load_registry() -> list[dict]:
     return config.load_yaml("engines.yaml")["engines"]
 
@@ -130,7 +133,7 @@ def run_engine(spec: dict, hw: HardwareInfo, tracks: dict[str, Path], out: Path,
     install_s = time.time() - started
 
     job = {"spec": spec, "hardware": hw.to_dict(), "out": str(out), "latency_n": latency_n,
-           "tracks": {k: str(v) for k, v in tracks.items()}, "deadline": time.time() + timeout_min * 60}
+           "tracks": {k: str(v) for k, v in tracks.items()}, "timeout_s": timeout_min * 60}
     (out / "job.json").write_text(json.dumps(job, indent=2))
     env = envs.worker_env(spec)
     # Console scripts installed in the engine's venv (ocrmypdf, ...) must be on PATH.
@@ -141,7 +144,8 @@ def run_engine(spec: dict, hw: HardwareInfo, tracks: dict[str, Path], out: Path,
                             cwd=config.REPO_ROOT, env=env, stdout=subprocess.PIPE,
                             stderr=subprocess.STDOUT, text=True, errors="replace", start_new_session=True)
     pump = _tee(proc, out / "worker.log", prefix="    ")
-    hard_limit = timeout_min * 60 + 600   # grace for model download/load overrun
+    # Load (download + kernel compilation) gets its own allowance on top of the page budget.
+    hard_limit = LOAD_BUDGET_S + timeout_min * 60 + 300
     try:
         proc.wait(timeout=hard_limit)
     except subprocess.TimeoutExpired:

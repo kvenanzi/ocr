@@ -54,5 +54,6 @@ def pkg_version(name: str) -> str | None:
 
 def create(spec: dict, hardware: dict) -> Engine:
     module, _, cls = spec["impl"].partition(":")
-    mod = importlib.import_module(f"ocrbench.engines.{module}")
+    # bare names live in ocrbench.engines; dotted paths are imported as-is (used by tests)
+    mod = importlib.import_module(module if "." in module else f"ocrbench.engines.{module}")
     return getattr(mod, cls or "ENGINE")(spec, hardware)

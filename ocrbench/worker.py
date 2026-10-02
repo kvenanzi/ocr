@@ -90,6 +90,17 @@ def _write_json(path: Path, obj: dict) -> None:
     path.write_text(json.dumps(obj, indent=2, default=str))
 
 
+# Errors that mean the engine process is dead (e.g. vLLM after a CUDA OOM). Every later
+# call would fail instantly, so stop the engine and report an error instead of scoring
+# a run of empty pages as 0% accuracy.
+_FATAL = ("EngineDeadError", "OutOfMemoryError", "CUDA out of memory", "CUDA error")
+
+
+def _is_fatal(e: BaseException) -> bool:
+    text = f"{type(e).__name__}: {e}"
+    return any(f in text for f in _FATAL)
+
+
 def _predict_safely(engine, paths: list[str]):
     """Predict a chunk; if it fails, retry page by page so one bad page doesn't lose the chunk.
     Failed pages come back as empty text and are scored as errors."""
@@ -98,7 +109,9 @@ def _predict_safely(engine, paths: list[str]):
         if len(preds) != len(paths):
             raise RuntimeError(f"engine returned {len(preds)} predictions for {len(paths)} pages")
         return preds, [None] * len(paths)
-    except Exception:
+    except Exception as e:
+        if _is_fatal(e):
+            raise   # the engine itself is gone; retrying page by page would only record empty pages
         if len(paths) == 1:
             traceback.print_exc()
             return [Prediction(text="")], [traceback.format_exc(limit=2)[-500:]]
@@ -180,17 +193,24 @@ def main(argv=None) -> int:
         engine.predict([str(first_manifest.parent / read_manifest(first_manifest)[0].image)])
         status["warmup_s"] = round(time.perf_counter() - t, 2)
 
+        # The time budget covers inference only: slow cold starts (kernel compilation on
+        # older GPUs) are reported as load_s instead of eating the page budget.
+        deadline = time.time() + job["timeout_s"] if "timeout_s" in job else job["deadline"]
         for track, manifest in job["tracks"].items():
             manifest = Path(manifest)
             print(f"[{spec['id']}] track {track}", flush=True)
             try:
                 status["tracks"][track] = run_track(
                     engine, read_manifest(manifest), out / track, manifest.parent,
-                    job.get("latency_n", 0), job["deadline"])
-            except Exception as e:  # one bad track shouldn't sink the others
+                    job.get("latency_n", 0), deadline)
+            except Exception as e:  # one bad track shouldn't sink the others...
                 traceback.print_exc()
-                status["tracks"][track] = {"error": f"{type(e).__name__}: {e}"}
-        partial = any(t.get("partial") or "error" in t for t in status["tracks"].values())
+                status["tracks"][track] = {"error": f"{type(e).__name__}: {str(e)[:300]}"}
+                if _is_fatal(e):    # ...unless the engine itself died
+                    status["error"] = status["tracks"][track]["error"]
+                    break
+        partial = len(status["tracks"]) < len(job["tracks"]) or any(
+            t.get("partial") or "error" in t for t in status["tracks"].values())
         status["status"] = "partial" if partial else "ok"
     except Exception as e:
         traceback.print_exc()
