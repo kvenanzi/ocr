@@ -360,6 +360,25 @@ def _style(ax):
     ax.set_axisbelow(True)
 
 
+def _place_labels(fig, ax, points) -> None:
+    """Direct labels that try a few positions around each point to avoid overlapping."""
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    placed = []
+    offsets = [(6, 4, "left"), (6, -11, "left"), (-6, 4, "right"), (-6, -11, "right"), (6, 14, "left"), (6, -21, "left")]
+    for name, x, y in sorted(points, key=lambda p: -p[2]):
+        for dx, dy, ha in offsets:
+            t = ax.annotate(name, (x, y), xytext=(dx, dy), textcoords="offset points", fontsize=8, color=INK, ha=ha)
+            box = t.get_window_extent(renderer).expanded(1.05, 1.15)
+            if not any(box.overlaps(b) for b in placed):
+                break
+            t.remove()
+        else:   # nowhere free: keep the default position
+            t = ax.annotate(name, (x, y), xytext=offsets[0][:2], textcoords="offset points", fontsize=8, color=INK)
+            box = t.get_window_extent(renderer)
+        placed.append(box)
+
+
 def pareto_chart(lb: pd.DataFrame, path: Path) -> bool:
     import matplotlib
     matplotlib.use("Agg")
@@ -374,9 +393,7 @@ def pareto_chart(lb: pd.DataFrame, path: Path) -> bool:
         ax.scatter(g["best_pps"], g["overall"] * 100, s=70, color=KIND_COLOR.get(kind, INK_2),
                    marker=KIND_MARKER.get(kind, "o"), edgecolor=SURFACE, linewidth=2,
                    label=KIND_LABEL.get(kind, kind), zorder=3)
-    for _, r in d.iterrows():
-        ax.annotate(r["name"], (r["best_pps"], r["overall"] * 100), xytext=(6, 4), textcoords="offset points",
-                    fontsize=8, color=INK)
+    _place_labels(fig, ax, [(r["name"], r["best_pps"], r["overall"] * 100) for _, r in d.iterrows()])
     # Pareto frontier: nothing else is both faster and more accurate.
     front, best = [], -1
     for _, r in d.sort_values("best_pps", ascending=False).iterrows():
