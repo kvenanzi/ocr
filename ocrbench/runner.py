@@ -133,6 +133,8 @@ def run_engine(spec: dict, hw: HardwareInfo, tracks: dict[str, Path], out: Path,
            "tracks": {k: str(v) for k, v in tracks.items()}, "deadline": time.time() + timeout_min * 60}
     (out / "job.json").write_text(json.dumps(job, indent=2))
     env = envs.worker_env(spec)
+    # Console scripts installed in the engine's venv (ocrmypdf, ...) must be on PATH.
+    env["PATH"] = str(Path(python).parent) + os.pathsep + env.get("PATH", "")
     gpu_baseline = _gpu_used_mib()
     # Own process group, so vLLM's EngineCore child processes can be killed with the worker.
     proc = subprocess.Popen([python, "-u", "-m", "ocrbench.worker", "--job", str(out / "job.json")],

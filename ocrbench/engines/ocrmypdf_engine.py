@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -24,11 +25,13 @@ class ENGINE(Engine):
         self.workers = cpu_workers(self.params)
         self.batch_size = self.workers * 2
         self.tmp = Path(tempfile.mkdtemp(prefix="ocrmypdf_"))
-        subprocess.run(["ocrmypdf", "--version"], check=True, capture_output=True)
+        # Run through this venv's interpreter: the venv's bin/ may not be on PATH.
+        self.cmd = [sys.executable, "-m", "ocrmypdf"]
+        subprocess.run([*self.cmd, "--version"], check=True, capture_output=True)
 
     def _one(self, path: str) -> Prediction:
         stem = self.tmp / f"{Path(path).stem}_{os.getpid()}_{id(path)}"
-        cmd = ["ocrmypdf", "-q", "--force-ocr", "--image-dpi", str(self.params.get("image_dpi", 300)),
+        cmd = [*self.cmd, "-q", "--force-ocr", "--image-dpi", str(self.params.get("image_dpi", 300)),
                "-l", self.lang, "--jobs", "1", "--output-type", "pdf", *self.flags,
                "--sidecar", f"{stem}.txt", path, f"{stem}.pdf"]
         res = subprocess.run(cmd, capture_output=True, text=True, env={**os.environ, "OMP_THREAD_LIMIT": "1"})
