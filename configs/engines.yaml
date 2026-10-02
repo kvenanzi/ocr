@@ -167,8 +167,9 @@ engines:
       model: ibm-granite/granite-docling-258M
       revision: untied
       prompt: "Convert this page to docling."
+      max_model_len: 8192     # the model's context limit
       dtype_no_bf16: float32  # fp16 on T4 outputs "!!!!" (model card)
-      sampling: {temperature: 0.0, max_tokens: 8192, skip_special_tokens: false}
+      sampling: {temperature: 0.0, max_tokens: 6144, skip_special_tokens: false}
       postprocess: [doctags]
 
   - id: dots-mocr

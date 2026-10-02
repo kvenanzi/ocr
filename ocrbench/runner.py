@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 import shutil
+import signal
 import subprocess
 import sys
 import threading
@@ -80,6 +81,42 @@ def _tee(proc: subprocess.Popen, log_path: Path, prefix: str) -> threading.Threa
     return t
 
 
+def _gpu_used_mib() -> int | None:
+    if not shutil.which("nvidia-smi"):
+        return None
+    try:
+        out = subprocess.run(["nvidia-smi", "--query-gpu=memory.used", "--format=csv,noheader,nounits"],
+                             capture_output=True, text=True, timeout=10).stdout
+        return sum(int(x) for x in out.split())
+    except Exception:
+        return None
+
+
+def _kill_group(proc: subprocess.Popen) -> None:
+    """Kill the worker and everything it spawned. A worker that exits without shutting down
+    vLLM leaves an orphaned EngineCore holding most of the GPU, and every later engine fails."""
+    try:
+        os.killpg(proc.pid, signal.SIGKILL)
+    except (ProcessLookupError, PermissionError):
+        pass
+    try:
+        proc.wait(timeout=30)
+    except subprocess.TimeoutExpired:
+        pass
+
+
+def _wait_for_gpu_release(baseline: int | None, timeout_s: float = 90) -> None:
+    if baseline is None:
+        return
+    deadline = time.time() + timeout_s
+    while time.time() < deadline:
+        used = _gpu_used_mib()
+        if used is None or used <= baseline + 512:
+            return
+        time.sleep(2)
+    print(f"  warning: GPU memory still in use after engine exit ({_gpu_used_mib()} MiB)", flush=True)
+
+
 def run_engine(spec: dict, hw: HardwareInfo, tracks: dict[str, Path], out: Path,
                latency_n: int, timeout_min: float, use_venvs: bool = True) -> dict:
     out.mkdir(parents=True, exist_ok=True)
@@ -96,17 +133,20 @@ def run_engine(spec: dict, hw: HardwareInfo, tracks: dict[str, Path], out: Path,
            "tracks": {k: str(v) for k, v in tracks.items()}, "deadline": time.time() + timeout_min * 60}
     (out / "job.json").write_text(json.dumps(job, indent=2))
     env = envs.worker_env(spec)
+    gpu_baseline = _gpu_used_mib()
+    # Own process group, so vLLM's EngineCore child processes can be killed with the worker.
     proc = subprocess.Popen([python, "-u", "-m", "ocrbench.worker", "--job", str(out / "job.json")],
                             cwd=config.REPO_ROOT, env=env, stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT, text=True, errors="replace")
+                            stderr=subprocess.STDOUT, text=True, errors="replace", start_new_session=True)
     pump = _tee(proc, out / "worker.log", prefix="    ")
     hard_limit = timeout_min * 60 + 600   # grace for model download/load overrun
     try:
         proc.wait(timeout=hard_limit)
     except subprocess.TimeoutExpired:
-        proc.kill()
-        proc.wait()
-    pump.join(timeout=10)
+        pass
+    _kill_group(proc)
+    pump.join(timeout=30)
+    _wait_for_gpu_release(gpu_baseline)
 
     status_path = out / "status.json"
     status = json.loads(status_path.read_text()) if status_path.exists() else {"engine": spec["id"]}

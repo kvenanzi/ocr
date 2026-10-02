@@ -166,6 +166,7 @@ def main(argv=None) -> int:
 
     mon = ResourceMonitor()
     mon.start()
+    engine = None
     try:
         engine = create(spec, hardware)
         t = time.perf_counter()
@@ -195,6 +196,8 @@ def main(argv=None) -> int:
         traceback.print_exc()
         status.update(status="error", error=f"{type(e).__name__}: {e}", traceback=traceback.format_exc()[-4000:])
     finally:
+        if engine is not None:
+            engine.close()
         status.update(mon.stop())
         status["finished"] = time.time()
         _write_json(out / "status.json", status)

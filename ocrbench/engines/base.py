@@ -39,6 +39,9 @@ class Engine:
         """Package versions worth recording next to the results."""
         return {}
 
+    def close(self) -> None:
+        """Release accelerator memory and child processes (best effort)."""
+
 
 def pkg_version(name: str) -> str | None:
     try:

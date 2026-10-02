@@ -154,3 +154,10 @@ class ENGINE(Engine):
 
     def versions(self):
         return {k: pkg_version(k) for k in ("vllm", "vllm-tpu", "torch", "transformers")}
+
+    def close(self):
+        # Stop the EngineCore process; the runner also kills the process group as a backstop.
+        try:
+            self.llm.llm_engine.engine_core.shutdown()
+        except Exception:
+            pass

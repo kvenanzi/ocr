@@ -44,7 +44,10 @@ RECIPES: dict[str, dict] = {
     },
     "vllm": {
         "uv": True,
-        "steps": [[f"vllm=={VLLM_VERSION}", "docling-core>=2.40", "pillow", "psutil", "--torch-backend=auto"]],
+        # transformers 5.17 (released after vLLM 0.30) removed PixtralRotaryEmbedding, which
+        # vLLM 0.30's Pixtral/LightOnOCR code imports.
+        "steps": [[f"vllm=={VLLM_VERSION}", "transformers>=5.10.4,<5.17", "docling-core>=2.40", "pillow", "psutil",
+                   "--torch-backend=auto"]],
     },
     "vllm-tpu": {
         "uv": True,

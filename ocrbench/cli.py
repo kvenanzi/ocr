@@ -74,7 +74,9 @@ def main(argv=None) -> None:
         if run_dir:
             from .score import score_run
 
-            print(score_run(run_dir).to_string(max_cols=12))
+            s = score_run(run_dir)
+            cols = [c for c in ("engine", "track", "status", "n", "accuracy", "pages_per_s") if c in s]
+            print("\n" + s[cols].to_string(index=False, float_format=lambda v: f"{v:.3f}"))
             print(f"\nrun saved to {run_dir}")
     elif a.cmd == "score":
         from .score import score_run
