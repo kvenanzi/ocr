@@ -1,0 +1,71 @@
+{
+  "spec": {
+    "id": "qwen2.5-vl-7b",
+    "name": "Qwen2.5-VL 7B",
+    "kind": "vlm",
+    "family": "vllm",
+    "family_tpu": "vllm-tpu",
+    "impl": "vllm_engine",
+    "size_b": 8.29,
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "gpu",
+        "tpu"
+      ],
+      "min_vram_gb": 22,
+      "min_hbm_gb": 32
+    },
+    "caps": {
+      "tables": true
+    },
+    "params": {
+      "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "prompt": "GENERAL_OCR",
+      "max_pixels": 1003520,
+      "max_model_len": 8192,
+      "limit_mm_per_prompt": {
+        "image": 1,
+        "video": 0
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 4096
+      },
+      "tpu_llm_kwargs": {
+        "enable_chunked_prefill": false,
+        "max_num_seqs": 8,
+        "dtype": "bfloat16",
+        "gpu_memory_utilization": 0.95,
+        "mm_processor_kwargs": {
+          "max_pixels": 1003520
+        }
+      },
+      "batch_size": 16,
+      "gpu_memory_utilization": 0.92
+    }
+  },
+  "hardware": {
+    "tag": "L4",
+    "kind": "gpu",
+    "accelerator": "NVIDIA L4",
+    "vram_gb": 22.5,
+    "compute_capability": 8.9,
+    "num_devices": 1,
+    "cpu_count": 12,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "ram_gb": 53.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261003-140718_L4_standard/qwen2.5-vl-7b",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 2700.0
+}

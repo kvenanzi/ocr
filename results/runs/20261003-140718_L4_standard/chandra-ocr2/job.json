@@ -1,0 +1,63 @@
+{
+  "spec": {
+    "id": "chandra-ocr2",
+    "name": "Chandra OCR 2",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 5.3,
+    "license": "OpenRAIL-M (modified)",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 20
+    },
+    "caps": {
+      "layout": true,
+      "tables": true,
+      "math": true,
+      "boxes": true
+    },
+    "params": {
+      "model": "datalab-to/chandra-ocr-2",
+      "prompt": "CHANDRA_OCR",
+      "max_model_len": 18000,
+      "max_pixels": 6291456,
+      "llm_kwargs": {
+        "mm_processor_kwargs": {
+          "min_pixels": 3136,
+          "max_pixels": 6291456
+        }
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 0.1,
+        "max_tokens": 8192
+      }
+    }
+  },
+  "hardware": {
+    "tag": "L4",
+    "kind": "gpu",
+    "accelerator": "NVIDIA L4",
+    "vram_gb": 22.5,
+    "compute_capability": 8.9,
+    "num_devices": 1,
+    "cpu_count": 12,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "ram_gb": 53.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261003-140718_L4_standard/chandra-ocr2",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 2700.0
+}
