@@ -144,12 +144,19 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
         print(f"  [{track_dir.name}] batch of {len(paths)} pages...", flush=True)
 
     done, partial, wall = (resume["n"], False, resume["wall_s"]) if resume else (0, False, 0.0)
+    # Seconds per page so far (single-page timing until a batch has run), used to size batches.
+    sec_per_page = wall / done if done else (statistics.median(latencies) if latencies else None)
     with open(track_dir / "preds.jsonl", "a" if resume else "w", encoding="utf-8") as out:
-        step = max(engine.batch_size, 1)
-        for i in range(done, len(paths), step):
+        i = done
+        while i < len(paths):
             if time.time() > deadline:
                 partial = True
                 break
+            step = max(engine.batch_size, 1)
+            if sec_per_page:
+                # Don't start a batch that runs far past the deadline: on a T4 one 32-page
+                # DeepSeek-OCR 2 batch took 38 minutes.
+                step = max(1, min(step, int((deadline - time.time()) / sec_per_page)))
             chunk = paths[i:i + step]
             t = time.perf_counter()
             preds, errors = _predict_safely(engine, chunk)
@@ -157,7 +164,7 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
             wall += dt
             if not engine.native_batch:
                 latencies.append(dt / len(chunk))
-            for s, pred, err in zip(samples[i:i + step], preds, errors):
+            for s, pred, err in zip(samples[i:i + len(chunk)], preds, errors):
                 rec = {"id": s.id, "text": pred.text, "finish_reason": pred.finish_reason,
                        "n_tokens": pred.n_tokens, "seconds": dt / len(chunk)}
                 if err:
@@ -165,6 +172,8 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
                 out.write(json.dumps(rec, ensure_ascii=False) + "\n")
             out.flush()
             done += len(chunk)
+            i += len(chunk)
+            sec_per_page = wall / done
             print(f"  [{track_dir.name}] {done}/{len(paths)} pages  {done / wall if wall else 0:.2f} p/s", flush=True)
 
     timing = {
@@ -220,6 +229,8 @@ def main(argv=None) -> int:
                 if _is_fatal(e):    # ...unless the engine itself died
                     status["error"] = status["tracks"][track]["error"]
                     return False
+            finally:
+                _write_json(out / "status.json", status)   # keep finished tracks if the runner kills us
             return True
 
         alive = True

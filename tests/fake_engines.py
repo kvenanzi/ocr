@@ -56,3 +56,9 @@ class SlowPages(Engine):
     def predict(self, paths):
         time.sleep(0.3 * sum(not os.path.basename(p).startswith("fast") for p in paths))
         return [Prediction("The quick brown fox") for _ in paths]
+
+
+class SlowBatches(SlowPages):
+    """Batches like vLLM (32 pages per call) but still 0.3 s per page."""
+    native_batch = True
+    batch_size = 32

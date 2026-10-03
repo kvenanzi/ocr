@@ -85,3 +85,16 @@ def test_time_left_by_fast_tracks_goes_back_to_cut_tracks(tmp_path):
     assert status["status"] == "ok"
     ids = [json.loads(l)["id"] for l in open(tmp_path / "out/books/preds.jsonl")]
     assert ids == [f"b{i}" for i in range(8)]
+
+
+def test_batches_shrink_to_fit_the_time_left(tmp_path):
+    hw = HardwareInfo(tag="cpu", kind="cpu")
+    tracks = {"books": write_manifest(tmp_path / "books", [Sample(id=f"b{i}", track="books", image="x.png",
+                                                                  gt_text="x") for i in range(20)])}
+    t = time.time()
+    status = runner.run_engine(_spec("x:SlowBatches"), hw, tracks, tmp_path / "out", latency_n=2,
+                               timeout_min=2.0 / 60, use_venvs=False)
+    # one 32-page batch would take 6 s; sized batches stop near the 2 s budget instead
+    assert status["status"] == "partial", status
+    assert 3 <= status["tracks"]["books"]["n"] < 20
+    assert status["wall_s"] < 6, status["wall_s"]
