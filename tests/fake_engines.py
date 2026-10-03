@@ -1,4 +1,5 @@
 """Fake engines for exercising the worker/runner subprocess path."""
+import os
 import subprocess
 import sys
 import time
@@ -47,11 +48,11 @@ class BadPage(Engine):
 
 
 class SlowPages(Engine):
-    """0.3 s per page: too slow to finish every track inside the budget."""
+    """0.3 s per page (pages named fast*.png are instant): too slow to finish every track inside the budget."""
 
     def load(self):
         pass
 
     def predict(self, paths):
-        time.sleep(0.3 * len(paths))
+        time.sleep(0.3 * sum(not os.path.basename(p).startswith("fast") for p in paths))
         return [Prediction("The quick brown fox") for _ in paths]

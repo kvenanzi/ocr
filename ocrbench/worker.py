@@ -123,12 +123,15 @@ def _predict_safely(engine, paths: list[str]):
     return preds, errors
 
 
-def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int, deadline: float) -> dict:
+def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int, deadline: float,
+              resume: dict | None = None) -> dict:
+    """Latency pass, then the batch pass. `resume` (a previous timing dict) continues a track
+    that was cut short, appending to its predictions."""
     track_dir.mkdir(parents=True, exist_ok=True)
     paths = [str(image_root / s.image) for s in samples]
-    latencies: list[float] = []
+    latencies: list[float] = list(resume.get("latencies_s", [])) if resume else []
 
-    if engine.native_batch and latency_n:
+    if engine.native_batch and latency_n and not resume:
         # Single-page timing gets at most half the track's time, so the batch pass always runs.
         latency_stop = time.time() + max(deadline - time.time(), 0) / 2
         for k, p in enumerate(paths[:latency_n], 1):
@@ -140,10 +143,10 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
             print(f"  [{track_dir.name}] latency page {k}/{min(latency_n, len(paths))}: {latencies[-1]:.1f}s", flush=True)
         print(f"  [{track_dir.name}] batch of {len(paths)} pages...", flush=True)
 
-    done, partial, wall = 0, False, 0.0
-    with open(track_dir / "preds.jsonl", "w", encoding="utf-8") as out:
+    done, partial, wall = (resume["n"], False, resume["wall_s"]) if resume else (0, False, 0.0)
+    with open(track_dir / "preds.jsonl", "a" if resume else "w", encoding="utf-8") as out:
         step = max(engine.batch_size, 1)
-        for i in range(0, len(paths), step):
+        for i in range(done, len(paths), step):
             if time.time() > deadline:
                 partial = True
                 break
@@ -168,6 +171,7 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
         "n": done, "n_planned": len(paths), "partial": partial, "wall_s": round(wall, 3),
         "pages_per_s": done / wall if wall else None,
         "latency_n": len(latencies), "latency_p50_s": _pct(latencies, 50), "latency_p95_s": _pct(latencies, 95),
+        "latencies_s": [round(x, 4) for x in latencies],
     }
     _write_json(track_dir / "timing.json", timing)
     return timing
@@ -202,23 +206,39 @@ def main(argv=None) -> int:
         # The time budget covers inference only: slow cold starts (kernel compilation on
         # older GPUs) are reported as load_s instead of eating the page budget.
         deadline = time.time() + job["timeout_s"] if "timeout_s" in job else job["deadline"]
-        for i, (track, manifest) in enumerate(job["tracks"].items()):
-            manifest = Path(manifest)
-            print(f"[{spec['id']}] track {track}", flush=True)
-            # Split what's left of the budget evenly over the remaining tracks (time a fast track
-            # doesn't use rolls forward), so a slow engine gets a sample of every track instead of
-            # all of the first ones and none of the last.
-            track_deadline = time.time() + max(deadline - time.time(), 0) / (len(job["tracks"]) - i)
+
+        def run(track, track_deadline, resume=None) -> bool:
+            """Run one track; False if the engine died and nothing more should run."""
+            manifest = Path(job["tracks"][track])
             try:
                 status["tracks"][track] = run_track(
                     engine, read_manifest(manifest), out / track, manifest.parent,
-                    job.get("latency_n", 0), track_deadline)
+                    job.get("latency_n", 0), track_deadline, resume)
             except Exception as e:  # one bad track shouldn't sink the others...
                 traceback.print_exc()
                 status["tracks"][track] = {"error": f"{type(e).__name__}: {str(e)[:300]}"}
                 if _is_fatal(e):    # ...unless the engine itself died
                     status["error"] = status["tracks"][track]["error"]
-                    break
+                    return False
+            return True
+
+        alive = True
+        for i, track in enumerate(job["tracks"]):
+            print(f"[{spec['id']}] track {track}", flush=True)
+            # Split what's left of the budget evenly over the remaining tracks (time a fast track
+            # doesn't use rolls forward), so a slow engine gets a sample of every track instead of
+            # all of the first ones and none of the last.
+            alive = run(track, time.time() + max(deadline - time.time(), 0) / (len(job["tracks"]) - i))
+            if not alive:
+                break
+        # Time left over because later tracks finished early goes back to tracks that were cut short.
+        for track in job["tracks"]:
+            prev = status["tracks"].get(track, {})
+            if not alive or time.time() >= deadline:
+                break
+            if prev.get("partial") and "error" not in prev:
+                print(f"[{spec['id']}] track {track}: resuming at page {prev['n'] + 1}", flush=True)
+                alive = run(track, deadline, resume=prev)
         partial = len(status["tracks"]) < len(job["tracks"]) or any(
             t.get("partial") or "error" in t for t in status["tracks"].values())
         status["status"] = "partial" if partial else "ok"

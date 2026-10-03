@@ -70,3 +70,18 @@ def test_slow_engine_gets_a_sample_of_every_track(tmp_path):
     n = {t: status["tracks"][t]["n"] for t in tracks}
     assert all(v > 0 for v in n.values()), n      # the last track isn't starved
     assert n["books"] < 5, n                       # the first track doesn't take the whole budget
+
+
+def test_time_left_by_fast_tracks_goes_back_to_cut_tracks(tmp_path):
+    hw = HardwareInfo(tag="cpu", kind="cpu")
+    tracks = {"books": write_manifest(tmp_path / "books", [Sample(id=f"b{i}", track="books", image="x.png",
+                                                                  gt_text="x") for i in range(8)]),
+              "stress": write_manifest(tmp_path / "stress", [Sample(id=f"s{i}", track="stress", image="fast.png",
+                                                                    gt_text="x") for i in range(8)])}
+    # books needs 2.4 s but its even share is 1.35 s; stress is instant, so books resumes and finishes
+    status = runner.run_engine(_spec("x:SlowPages"), hw, tracks, tmp_path / "out", latency_n=0,
+                               timeout_min=2.7 / 60, use_venvs=False)
+    assert status["tracks"]["books"]["n"] == 8, status["tracks"]
+    assert status["status"] == "ok"
+    ids = [json.loads(l)["id"] for l in open(tmp_path / "out/books/preds.jsonl")]
+    assert ids == [f"b{i}" for i in range(8)]
