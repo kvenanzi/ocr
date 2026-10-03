@@ -44,3 +44,14 @@ class BadPage(Engine):
         if any(p.endswith("bad.png") for p in paths):
             raise RuntimeError("ocrmypdf exit 7: [tesseract] Error during processing.")
         return [Prediction("The quick brown fox") for _ in paths]
+
+
+class SlowPages(Engine):
+    """0.3 s per page: too slow to finish every track inside the budget."""
+
+    def load(self):
+        pass
+
+    def predict(self, paths):
+        time.sleep(0.3 * len(paths))
+        return [Prediction("The quick brown fox") for _ in paths]

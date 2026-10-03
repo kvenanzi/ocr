@@ -397,3 +397,4 @@ engines:
     params:
       <<: *qwen25
       model: Qwen/Qwen2.5-VL-7B-Instruct
+      gpu_memory_utilization: 0.92  # at 0.85 an L4 (22.5 GB) had 0.28 GiB left for KV cache, < one 8k request

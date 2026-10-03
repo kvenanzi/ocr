@@ -57,3 +57,16 @@ def test_bad_page_in_latency_pass_costs_one_page_not_the_track(tmp_path):
     assert status["tracks"]["books"]["n"] == 4
     recs = [json.loads(l) for l in open(tmp_path / "out/books/preds.jsonl")]
     assert [bool(r.get("error")) for r in recs] == [False, True, False, False]
+
+
+def test_slow_engine_gets_a_sample_of_every_track(tmp_path):
+    hw = HardwareInfo(tag="cpu", kind="cpu")
+    tracks = {t: write_manifest(tmp_path / t, [Sample(id=f"{t}{i}", track=t, image="x.png", gt_text="x")
+                                               for i in range(5)])
+              for t in ("books", "docs", "stress")}
+    status = runner.run_engine(_spec("x:SlowPages"), hw, tracks, tmp_path / "out", latency_n=0,
+                               timeout_min=1.8 / 60, use_venvs=False)
+    assert status["status"] == "partial"
+    n = {t: status["tracks"][t]["n"] for t in tracks}
+    assert all(v > 0 for v in n.values()), n      # the last track isn't starved
+    assert n["books"] < 5, n                       # the first track doesn't take the whole budget

@@ -129,7 +129,11 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
     latencies: list[float] = []
 
     if engine.native_batch and latency_n:
+        # Single-page timing gets at most half the track's time, so the batch pass always runs.
+        latency_stop = time.time() + max(deadline - time.time(), 0) / 2
         for k, p in enumerate(paths[:latency_n], 1):
+            if k > 1 and time.time() > latency_stop:
+                break
             t = time.perf_counter()
             _predict_safely(engine, [p])   # a bad page is recorded in the throughput pass below
             latencies.append(time.perf_counter() - t)
@@ -198,13 +202,17 @@ def main(argv=None) -> int:
         # The time budget covers inference only: slow cold starts (kernel compilation on
         # older GPUs) are reported as load_s instead of eating the page budget.
         deadline = time.time() + job["timeout_s"] if "timeout_s" in job else job["deadline"]
-        for track, manifest in job["tracks"].items():
+        for i, (track, manifest) in enumerate(job["tracks"].items()):
             manifest = Path(manifest)
             print(f"[{spec['id']}] track {track}", flush=True)
+            # Split what's left of the budget evenly over the remaining tracks (time a fast track
+            # doesn't use rolls forward), so a slow engine gets a sample of every track instead of
+            # all of the first ones and none of the last.
+            track_deadline = time.time() + max(deadline - time.time(), 0) / (len(job["tracks"]) - i)
             try:
                 status["tracks"][track] = run_track(
                     engine, read_manifest(manifest), out / track, manifest.parent,
-                    job.get("latency_n", 0), deadline)
+                    job.get("latency_n", 0), track_deadline)
             except Exception as e:  # one bad track shouldn't sink the others...
                 traceback.print_exc()
                 status["tracks"][track] = {"error": f"{type(e).__name__}: {str(e)[:300]}"}
