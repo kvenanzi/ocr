@@ -1,0 +1,61 @@
+{
+  "spec": {
+    "id": "olmocr2",
+    "name": "olmOCR 2 7B (FP8)",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 8.3,
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 20
+    },
+    "caps": {
+      "tables": true,
+      "math": true
+    },
+    "params": {
+      "model": "allenai/olmOCR-2-7B-1025-FP8",
+      "prompt": "OLMOCR_V4",
+      "text_first": true,
+      "max_side": 1288,
+      "limit_mm_per_prompt": {
+        "image": 1,
+        "video": 0
+      },
+      "sampling": {
+        "temperature": 0.1,
+        "max_tokens": 8000
+      },
+      "postprocess": [
+        "strip_front_matter"
+      ]
+    }
+  },
+  "hardware": {
+    "tag": "L4",
+    "kind": "gpu",
+    "accelerator": "NVIDIA L4",
+    "vram_gb": 22.5,
+    "compute_capability": 8.9,
+    "num_devices": 1,
+    "cpu_count": 12,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "ram_gb": 53.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261002-231955_L4_standard/olmocr2",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 1500
+}
