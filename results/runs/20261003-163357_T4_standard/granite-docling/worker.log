@@ -1,0 +1,200 @@
+INFO 10-03 18:43:50 [api_utils.py:286] non-default args: {'dtype': 'float32', 'max_model_len': 8192, 'gpu_memory_utilization': 0.6, 'max_num_seqs': 8, 'disable_log_stats': True, 'revision': 'untied', 'limit_mm_per_prompt': {'image': 1}, 'model': 'ibm-granite/granite-docling-258M'}
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+INFO 10-03 18:44:01 [model.py:692] Resolved architecture: Idefics3ForConditionalGeneration
+INFO 10-03 18:44:01 [model.py:2358] Upcasting torch.bfloat16 to torch.float32.
+INFO 10-03 18:44:01 [model.py:2030] Using max model len 8192
+WARNING 10-03 18:44:02 [model.py:994] Model does not support mm_device_do_normalize, forcing mm_device_do_normalize = False.
+INFO 10-03 18:44:06 [scheduler.py:288] Chunked prefill is enabled with max_num_batched_tokens=8192.
+WARNING 10-03 18:44:06 [vllm.py:1540] Turing devices tensor cores do not support float32 matmul. To workaround this limitation, vLLM will set 'ieee' input precision for chunked prefill triton kernels.
+INFO 10-03 18:44:06 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(EngineCore pid=85345) INFO 10-03 18:44:13 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='ibm-granite/granite-docling-258M', speculative_config=None, tokenizer='ibm-granite/granite-docling-258M', skip_tokenizer_init=False, tokenizer_mode=auto, revision=untied, tokenizer_revision=untied, trust_remote_code=False, dtype=torch.float32, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=ibm-granite/granite-docling-258M, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 16, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=85345) INFO 10-03 18:44:14 [parallel_state.py:1827] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_0c8e84fc9a81460b918017b4024ee89f backend=nccl
+(EngineCore pid=85345) INFO 10-03 18:44:14 [parallel_state.py:2267] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=85345) INFO 10-03 18:44:14 [gpu_worker.py:441] Using V2 Model Runner
+(EngineCore pid=85345) INFO 10-03 18:44:15 [model_runner.py:396] Loading model from scratch...
+(EngineCore pid=85345) ERROR 10-03 18:44:15 [fa_utils.py:212] Cannot use FA version 2 is not supported due to FA2 is only supported on devices with compute capability >= 8
+(EngineCore pid=85345) INFO 10-03 18:44:15 [mm_encoder_attention.py:372] Using AttentionBackendEnum.TORCH_SDPA for MMEncoderAttention.
+(EngineCore pid=85345) INFO 10-03 18:44:15 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(EngineCore pid=85345) INFO 10-03 18:44:16 [cuda.py:538] Using TRITON_ATTN attention backend out of potential backends: ['TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=85345) INFO 10-03 18:44:20 [weight_utils.py:558] Time spent downloading weights for ibm-granite/granite-docling-258M: 3.714631 seconds
+(EngineCore pid=85345) INFO 10-03 18:44:20 [weight_utils.py:895] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 0.70 GiB. Available RAM: 47.45 GiB.
+(EngineCore pid=85345) INFO 10-03 18:44:20 [weight_utils.py:918] Auto-prefetch is disabled because the filesystem (OVERLAY) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=85345) 
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+(EngineCore pid=85345) 
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.10it/s]
+(EngineCore pid=85345) 
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.10it/s]
+(EngineCore pid=85345) 
+(EngineCore pid=85345) INFO 10-03 18:44:21 [default_loader.py:430] Loading weights took 0.51 seconds
+(EngineCore pid=85345) INFO 10-03 18:44:22 [model_runner.py:428] Model loading took 1.18 GiB memory and 7.098212 seconds
+(EngineCore pid=85345) WARNING 10-03 18:44:22 [topk_topp_sampler.py:85] FlashInfer top-p/top-k sampling unavailable: unsupported compute capability 7.5; falling back. Set VLLM_USE_FLASHINFER_SAMPLER=0 to silence.
+(EngineCore pid=85345) INFO 10-03 18:44:22 [utils.py:320] Using LBNHC KV cache layout.
+(EngineCore pid=85345) INFO 10-03 18:44:23 [encoder_runner.py:131] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 7 image items of the maximum feature size.
+INFO 10-03 18:44:23 [base.py:261] Multi-modal warmup completed in 10.058s
+INFO 10-03 18:44:23 [base.py:261] Readonly multi-modal warmup completed in 0.095s
+(EngineCore pid=85345) INFO 10-03 18:44:39 [backends.py:1094] Using cache directory: /root/.cache/vllm/torch_compile_cache/dd30216da9/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=85345) INFO 10-03 18:44:39 [backends.py:1155] Dynamo bytecode transform time: 6.96 s
+(EngineCore pid=85345) [rank0]:W1003 18:44:40.987000 85345 torch/_inductor/utils.py:1953] Not enough SMs to use max_autotune_gemm mode
+(EngineCore pid=85345) INFO 10-03 18:44:48 [backends.py:393] Compiling a graph for compile range (1, 8192) takes 8.56 s
+(EngineCore pid=85345) INFO 10-03 18:44:52 [backends.py:920] collected artifacts: 31 entries, 4 artifacts, 5904285 bytes total
+(EngineCore pid=85345) INFO 10-03 18:44:52 [decorators.py:719] saved AOT compiled function to /root/.cache/vllm/torch_compile_cache/torch_aot_compile/e5b9afab357ee15e879e7d0411a627656d40c37b7e8bf26ce9c4b4f1b135ebba/rank_0_0/model
+(EngineCore pid=85345) INFO 10-03 18:44:52 [monitor.py:53] torch.compile took 20.00 s in total
+(EngineCore pid=85345) INFO 10-03 18:44:52 [monitor.py:81] Initial profiling/warmup run took 0.01 s
+(EngineCore pid=85345) 
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/5 [00:00<?, ?it/s]
+Capturing CUDA graphs (PIECEWISE):  20%|██        | 1/5 [00:00<00:03,  1.22it/s]
+Capturing CUDA graphs (PIECEWISE):  40%|████      | 2/5 [00:01<00:02,  1.33it/s]
+Capturing CUDA graphs (PIECEWISE):  80%|████████  | 4/5 [00:01<00:00,  3.18it/s]
+Capturing CUDA graphs (PIECEWISE): 100%|██████████| 5/5 [00:02<00:00,  2.39it/s]
+Capturing CUDA graphs (PIECEWISE): 100%|██████████| 5/5 [00:02<00:00,  2.19it/s]
+(EngineCore pid=85345) 
+Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]
+Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00, 21.10it/s]
+(EngineCore pid=85345) INFO 10-03 18:44:58 [model_runner.py:1066] Graph capturing finished in 3 secs, took 0.05 GiB
+(EngineCore pid=85345) INFO 10-03 18:44:59 [gpu_worker.py:640] Available KV cache memory: 2.28 GiB
+(EngineCore pid=85345) INFO 10-03 18:44:59 [gpu_worker.py:655] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.6000 is equivalent to --gpu-memory-utilization=0.5957 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.6043. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=85345) INFO 10-03 18:44:59 [kv_cache_utils.py:2395] GPU KV cache size: 53,232 tokens, Maximum concurrency for 8,192 tokens per request: 6.50x
+(EngineCore pid=85345) INFO 10-03 18:44:59 [kernel_warmup.py:172] JIT kernel warmup starting.
+(EngineCore pid=85345) INFO 10-03 18:44:59 [kernel_warmup.py:185] JIT kernel warmup finished in 0.00s.
+(EngineCore pid=85345) 
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/5 [00:00<?, ?it/s]
+Capturing CUDA graphs (PIECEWISE):  40%|████      | 2/5 [00:00<00:00, 17.06it/s]
+Capturing CUDA graphs (PIECEWISE):  80%|████████  | 4/5 [00:00<00:00, 17.13it/s]
+Capturing CUDA graphs (PIECEWISE): 100%|██████████| 5/5 [00:00<00:00, 17.01it/s]
+(EngineCore pid=85345) 
+Capturing CUDA graphs (FULL):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing CUDA graphs (FULL):  50%|█████     | 2/4 [00:00<00:00, 16.18it/s]
+Capturing CUDA graphs (FULL): 100%|██████████| 4/4 [00:00<00:00, 18.20it/s]
+(EngineCore pid=85345) INFO 10-03 18:45:20 [model_runner.py:1066] Graph capturing finished in 2 secs, took 0.03 GiB
+(EngineCore pid=85345) INFO 10-03 18:45:20 [gpu_worker.py:825] CUDA graph pool memory: 0.03 GiB (actual), 0.06 GiB (estimated), difference: 0.03 GiB (100.0%).
+(EngineCore pid=85345) INFO 10-03 18:45:20 [gpu_worker.py:888] Free memory on device (14.46/14.56 GiB) on startup. Desired GPU memory utilization is (0.6, 8.74 GiB). Actual usage is 1.28 GiB for consumed memory (weights + non-torch), 5.18 GiB for peak activation, and 0.03 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=2262298317` (2.11 GiB) to fit into requested memory, or `--kv-cache-memory=8407163392` (7.83 GiB) to fully utilize gpu memory. Current kv cache memory in use is 2.28 GiB.
+(EngineCore pid=85345) INFO 10-03 18:45:20 [jit_monitor.py:85] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=85345) INFO 10-03 18:45:21 [torch_utils.py:287] Reducing Torch threads from 4 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=85345) INFO 10-03 18:45:21 [core.py:372] init engine (profile, create kv cache, warmup model) took 59.01 s (compilation: 20.00 s)
+(EngineCore pid=85345) INFO 10-03 18:45:21 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+INFO 10-03 18:45:22 [hf.py:642] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+(EngineCore pid=85345) WARNING 10-03 18:45:24 [jit_monitor.py:141] Triton kernel JIT compilation during inference: kernel_unified_attention. This causes a latency spike; consider extending warmup to cover this shape/config.
+[granite-docling] track books
+  [books] latency page 1/8: 4.3s
+  [books] latency page 2/8: 6.2s
+  [books] latency page 3/8: 5.2s
+  [books] latency page 4/8: 5.9s
+  [books] latency page 5/8: 6.6s
+  [books] latency page 6/8: 5.6s
+  [books] latency page 7/8: 5.6s
+  [books] latency page 8/8: 5.2s
+  [books] batch of 50 pages...
+  [books] 8/50 pages  0.48 p/s
+  [books] 16/50 pages  0.27 p/s
+  [books] 24/50 pages  0.24 p/s
+  [books] 32/50 pages  0.26 p/s
+  [books] 40/50 pages  0.20 p/s
+  [books] 48/50 pages  0.18 p/s
+  [books] 50/50 pages  0.18 p/s
+[granite-docling] track docs
+  [docs] latency page 1/8: 4.1s
+  [docs] latency page 2/8: 13.3s
+  [docs] latency page 3/8: 3.2s
+  [docs] latency page 4/8: 13.0s
+  [docs] latency page 5/8: 6.7s
+  [docs] latency page 6/8: 8.8s
+  [docs] latency page 7/8: 6.1s
+  [docs] latency page 8/8: 5.2s
+  [docs] batch of 50 pages...
+  [docs] 8/50 pages  0.31 p/s
+  [docs] 16/50 pages  0.15 p/s
+  [docs] 24/50 pages  0.13 p/s
+  [docs] 32/50 pages  0.11 p/s
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2117.632 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2117.632 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2088.96 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2129.92 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2174.976 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2097.152 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2097.152 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2138.112 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2138.112 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2179.072 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2179.072 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2220.032 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2220.032 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2260.992 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2260.992 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2306.048 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2306.048 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2342.912 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2342.912 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2375.68 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate t on page 1 is outside page bounds: value=2375.68 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+/content/ocrbench_envs/vllm/lib/python3.13/site-packages/docling_core/types/doc/document.py:302: UserWarning: Provenance bbox coordinate b on page 1 is outside page bounds: value=2404.352 > hi=2048.0; clamping to 2048.0
+  prov.bbox = cls._clamp_bbox_to_page(
+  [docs] 40/50 pages  0.09 p/s
+  [docs] 48/50 pages  0.09 p/s
+  [docs] 50/50 pages  0.09 p/s
+[granite-docling] track handwriting
+  [handwriting] latency page 1/8: 0.5s
+  [handwriting] latency page 2/8: 0.5s
+  [handwriting] latency page 3/8: 0.5s
+  [handwriting] latency page 4/8: 0.5s
+  [handwriting] latency page 5/8: 0.5s
+  [handwriting] latency page 6/8: 0.5s
+  [handwriting] latency page 7/8: 0.5s
+  [handwriting] latency page 8/8: 0.5s
+  [handwriting] batch of 60 pages...
+  [handwriting] 8/60 pages  13.22 p/s
+  [handwriting] 16/60 pages  3.86 p/s
+  [handwriting] 24/60 pages  3.03 p/s
+  [handwriting] 32/60 pages  2.77 p/s
+  [handwriting] 40/60 pages  2.52 p/s
+  [handwriting] 48/60 pages  2.48 p/s
+  [handwriting] 56/60 pages  2.46 p/s
+  [handwriting] 60/60 pages  2.45 p/s
+[granite-docling] track stress
+  [stress] latency page 1/8: 5.4s
+  [stress] latency page 2/8: 5.0s
+  [stress] latency page 3/8: 4.9s
+  [stress] latency page 4/8: 5.5s
+  [stress] latency page 5/8: 7.0s
+  [stress] latency page 6/8: 6.4s
+  [stress] latency page 7/8: 5.1s
+  [stress] latency page 8/8: 5.0s
+  [stress] batch of 55 pages...
+  [stress] 8/55 pages  0.54 p/s
+  [stress] 16/55 pages  0.41 p/s
+  [stress] 24/55 pages  0.24 p/s
+  [stress] 32/55 pages  0.27 p/s
+  [stress] 40/55 pages  0.28 p/s
+  [stress] 48/55 pages  0.29 p/s
+  [stress] 55/55 pages  0.24 p/s
+INFO 10-03 19:05:45 [core_client.py:744] [shutdown] MPClient: start timeout=default
+INFO 10-03 19:05:45 [core_client.py:746] [shutdown] MPClient: stopping engine manager
+INFO 10-03 19:05:45 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=85345) INFO 10-03 19:05:45 [core.py:1342] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=85345) INFO 10-03 19:05:45 [core.py:1493] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=85345) INFO 10-03 19:05:45 [core.py:1524] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=85345) INFO 10-03 19:05:45 [core.py:1355] [shutdown] EngineCore: exiting busy loop
+INFO 10-03 19:05:47 [core_client.py:748] [shutdown] MPClient: engine manager stopped
+INFO 10-03 19:05:47 [core_client.py:749] [shutdown] MPClient: cleaning up background resources
+INFO 10-03 19:05:47 [core_client.py:751] [shutdown] MPClient: complete
