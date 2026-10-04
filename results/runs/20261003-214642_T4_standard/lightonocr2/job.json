@@ -1,0 +1,60 @@
+{
+  "spec": {
+    "id": "lightonocr2",
+    "name": "LightOnOCR-2 1B",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 1.0,
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 6
+    },
+    "caps": {
+      "layout": true,
+      "tables": true,
+      "math": true
+    },
+    "params": {
+      "model": "lightonai/LightOnOCR-2-1B",
+      "prompt": null,
+      "max_side": 1540,
+      "dtype_no_bf16": "float32",
+      "llm_kwargs": {
+        "mm_processor_cache_gb": 0,
+        "enable_prefix_caching": false
+      },
+      "sampling": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 4096
+      }
+    }
+  },
+  "hardware": {
+    "tag": "T4",
+    "kind": "gpu",
+    "accelerator": "Tesla T4",
+    "vram_gb": 15.0,
+    "compute_capability": 7.5,
+    "num_devices": 1,
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "ram_gb": 51.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": false
+  },
+  "out": "/content/ocr/results/runs/20261003-214642_T4_standard/lightonocr2",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 3600.0
+}
