@@ -161,6 +161,11 @@ in the current interpreter (handy for local development).
   dots 0.1, olmOCR 0.1). Seeds are fixed, but results can vary slightly between runs.
 - **Small samples.** The standard profile uses ~50 pages per track. Differences under ~1 CER point
   are within noise.
+- **VLM speeds from runs before commit `670efe5`+1 had vLLM's prefix cache on.** The first 8 pages
+  of each batch pass repeated the single-page latency pass and could reuse its work. On A100 and L4
+  the first batch was not consistently faster than the second (within page-to-page noise). On T4,
+  where reading the image dominates, prefill-heavy models (dots.mocr) look faster than they are.
+  A run's code version is in its `env.json` (`git_sha`).
 
 ## Repo layout
 

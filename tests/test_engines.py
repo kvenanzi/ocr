@@ -153,3 +153,9 @@ def test_gating():
     assert gate(REGISTRY["qwen2.5-vl-7b"], v5e).startswith("insufficient_hbm")
     assert gate(REGISTRY["dots-mocr"], v5e).startswith("unsupported_hardware")
     assert gate(REGISTRY["tesseract"], v5e) is None
+
+
+def test_prefix_caching_off(fake_vllm, page):
+    """The batch pass re-reads the latency pass's pages; cache hits would inflate throughput."""
+    _engine("glm-ocr").predict([page])
+    assert FakeLLM.last.kw["enable_prefix_caching"] is False

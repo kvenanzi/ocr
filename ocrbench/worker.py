@@ -135,7 +135,7 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
         # Single-page timing gets at most half the track's time, so the batch pass always runs.
         latency_stop = time.time() + max(deadline - time.time(), 0) / 2
         for k, p in enumerate(paths[:latency_n], 1):
-            if k > 1 and time.time() > latency_stop:
+            if time.time() > latency_stop:
                 break
             t = time.perf_counter()
             _predict_safely(engine, [p])   # a bad page is recorded in the throughput pass below
@@ -144,8 +144,14 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
         print(f"  [{track_dir.name}] batch of {len(paths)} pages...", flush=True)
 
     done, partial, wall = (resume["n"], False, resume["wall_s"]) if resume else (0, False, 0.0)
-    # Seconds per page so far (single-page timing until a batch has run), used to size batches.
-    sec_per_page = wall / done if done else (statistics.median(latencies) if latencies else None)
+    # Seconds per page, used to size batches. Take the slower of single-page and batched timing:
+    # on a small GPU a big batch can be slower per page than one page at a time (dots.mocr on a
+    # T4: 93 s single, 112 s per page in a 32-page batch).
+    def sec_per_page():
+        rates = [r for r in (wall / done if done else None,
+                             statistics.median(latencies) if latencies else None) if r]
+        return max(rates) if rates else None
+
     with open(track_dir / "preds.jsonl", "a" if resume else "w", encoding="utf-8") as out:
         i = done
         while i < len(paths):
@@ -153,10 +159,10 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
                 partial = True
                 break
             step = max(engine.batch_size, 1)
-            if sec_per_page:
+            if sec_per_page():
                 # Don't start a batch that runs far past the deadline: on a T4 one 32-page
                 # DeepSeek-OCR 2 batch took 38 minutes.
-                step = max(1, min(step, int((deadline - time.time()) / sec_per_page)))
+                step = max(1, min(step, int((deadline - time.time()) / sec_per_page())))
             chunk = paths[i:i + step]
             t = time.perf_counter()
             preds, errors = _predict_safely(engine, chunk)
@@ -173,7 +179,6 @@ def run_track(engine, samples, track_dir: Path, image_root: Path, latency_n: int
             out.flush()
             done += len(chunk)
             i += len(chunk)
-            sec_per_page = wall / done
             print(f"  [{track_dir.name}] {done}/{len(paths)} pages  {done / wall if wall else 0:.2f} p/s", flush=True)
 
     timing = {

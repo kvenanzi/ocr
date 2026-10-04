@@ -62,3 +62,17 @@ class SlowBatches(SlowPages):
     """Batches like vLLM (32 pages per call) but still 0.3 s per page."""
     native_batch = True
     batch_size = 32
+
+
+class CachedRepeats(Engine):
+    """0.3 s per new page, instant for pages seen before (like vLLM's prefix cache)."""
+    native_batch = True
+    batch_size = 32
+
+    def load(self):
+        self.seen = set()
+
+    def predict(self, paths):
+        time.sleep(0.3 * len(set(paths) - self.seen))
+        self.seen |= set(paths)
+        return [Prediction("The quick brown fox") for _ in paths]

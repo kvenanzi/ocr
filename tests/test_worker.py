@@ -98,3 +98,14 @@ def test_batches_shrink_to_fit_the_time_left(tmp_path):
     assert status["status"] == "partial", status
     assert 3 <= status["tracks"]["books"]["n"] < 20
     assert status["wall_s"] < 6, status["wall_s"]
+
+
+def test_cheap_repeat_pages_do_not_inflate_batch_size(tmp_path):
+    hw = HardwareInfo(tag="cpu", kind="cpu")
+    samples = [Sample(id=f"b{i}", track="books", image=f"p{i}.png", gt_text="x") for i in range(20)]
+    tracks = {"books": write_manifest(tmp_path / "books", samples)}
+    status = runner.run_engine(_spec("x:CachedRepeats"), hw, tracks, tmp_path / "out", latency_n=4,
+                               timeout_min=3.0 / 60, use_venvs=False)
+    # The first batch repeats the 4 latency pages, so it looks 3x faster than it is. Sizing the
+    # next batch from that rate would start ~12 new pages (3.6 s) with ~1.2 s left.
+    assert status["tracks"]["books"]["wall_s"] < 3, status["tracks"]["books"]

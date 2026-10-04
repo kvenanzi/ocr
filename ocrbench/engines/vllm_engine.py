@@ -107,6 +107,10 @@ class ENGINE(Engine):
             "gpu_memory_utilization": p.get("gpu_memory_utilization", 0.85),
             "limit_mm_per_prompt": p.get("limit_mm_per_prompt", {"image": 1}),
             "seed": 0,
+            # Every page is new in real use. With caching on, the batch pass reuses the latency
+            # pass's work on its first pages and overstates throughput (dots.mocr on a T4:
+            # 9 s/page for the repeats vs 93 s/page fresh).
+            "enable_prefix_caching": False,
         }
         if p.get("revision"):
             kw["revision"] = p["revision"]
