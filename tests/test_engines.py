@@ -159,3 +159,14 @@ def test_prefix_caching_off(fake_vllm, page):
     """The batch pass re-reads the latency pass's pages; cache hits would inflate throughput."""
     _engine("glm-ocr").predict([page])
     assert FakeLLM.last.kw["enable_prefix_caching"] is False
+
+
+def test_paddle_build_follows_gpu_generation(monkeypatch):
+    from ocrbench import envs
+    from ocrbench.hardware import HardwareInfo
+
+    def steps(cc):
+        monkeypatch.setattr(envs, "detect", lambda: HardwareInfo(tag="x", kind="gpu", compute_capability=cc))
+        return " ".join(envs._recipe("paddle")["steps"][0])
+    assert "/cu126/" in steps(7.5) and "/cu126/" in steps(8.0)
+    assert "/cu129/" in steps(12.0)     # G4, RTX PRO 6000 Blackwell

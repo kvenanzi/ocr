@@ -69,3 +69,19 @@ def test_leaderboard_end_to_end(tmp_path):
     assert "insufficient_vram" in md and "CUDA out of memory" in md
     assert (tmp_path / "results" / "report.html").exists()
     assert (tmp_path / "results" / "charts" / "pareto.png").exists()
+
+
+def test_result_far_below_other_hardware_is_flagged_and_excluded(tmp_path):
+    data = _make_data(tmp_path / "data")
+    runs = tmp_path / "results" / "runs"
+    _make_run(runs, data, "r1", "A100-40GB", {"good": (GT, 2.0, "ok")})
+    _make_run(runs, data, "r2", "G4", {"good": ("額俞臺姓W逻裔0逮哥", 50.0, "ok")})   # garbage, but "fast"
+    for rd in runs.iterdir():
+        score_run(rd)
+    summary = report.load_runs(runs)[0]
+    sus = report.suspect_results(summary)
+    assert set(sus["hardware"]) == {"G4"} and "books" in set(sus["track"])
+    lb = report.leaderboard(summary, "standard").set_index("engine")
+    assert lb.loc["good", "best_pps_hw"] == "A100-40GB"      # the garbage run's speed doesn't count
+    md = report.build(tmp_path / "results").read_text()
+    assert "suspect" in md and "likely a broken build" in md

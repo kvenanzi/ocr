@@ -75,8 +75,43 @@ def headline_profile(summary: pd.DataFrame) -> str | None:
     return max(ok["profile"].unique(), key=lambda p: PROFILE_RANK.get(p, 0))
 
 
+# An engine scoring this much lower on one runtime than on another is broken there (a build
+# without kernels for that GPU), not slower or worse: PaddlePaddle's CUDA 12.6 build on a
+# Blackwell G4 returned random characters, 0% vs 84% elsewhere.
+SUSPECT_DROP = 0.25
+
+
+def suspect_results(summary: pd.DataFrame) -> pd.DataFrame:
+    """Rows (run x engine x track) whose accuracy is SUSPECT_DROP below the same engine's best
+    accuracy on that track on other hardware, with that best for reference."""
+    cols = ["run_id", "engine", "hardware", "track", "accuracy", "best", "best_hw"]
+    if summary.empty:
+        return pd.DataFrame(columns=cols)
+    s = summary[(summary["n"] > 0) & summary["accuracy"].notna()]
+    out = []
+    for (_, _), g in s.groupby(["engine", "track"]):
+        for _, r in g.iterrows():
+            others = g[g["hardware"] != r["hardware"]]
+            if others.empty:
+                continue
+            top = others.loc[others["accuracy"].idxmax()]
+            if r["accuracy"] < top["accuracy"] - SUSPECT_DROP:
+                out.append({**r[cols[:5]].to_dict(), "best": top["accuracy"], "best_hw": top["hardware"]})
+    return pd.DataFrame(out, columns=cols)
+
+
+def _trusted(summary: pd.DataFrame) -> pd.DataFrame:
+    """Drop every track of an engine's run that has a suspect track: its speed is not real either."""
+    bad = suspect_results(summary)[["run_id", "engine"]].drop_duplicates()
+    if bad.empty:
+        return summary
+    keys = set(map(tuple, bad.values))
+    return summary[[(r, e) not in keys for r, e in zip(summary["run_id"], summary["engine"])]]
+
+
 def best_rows(summary: pd.DataFrame, profile: str) -> pd.DataFrame:
     """One row per engine x track: the run with the most scored pages, latest first."""
+    summary = _trusted(summary)
     s = summary[(summary["profile"] == profile) & (summary["n"] > 0)]
     s = s.sort_values(["n", "started"], ascending=False)
     return s.drop_duplicates(["engine", "track"])
@@ -85,6 +120,7 @@ def best_rows(summary: pd.DataFrame, profile: str) -> pd.DataFrame:
 def throughput_by_hw(summary: pd.DataFrame) -> pd.DataFrame:
     """Overall pages/s per engine x hardware (total pages / total time across tracks), latest run."""
     rows = []
+    summary = _trusted(summary)
     s = summary[(summary["n"] > 0) & summary["pages_per_s"].notna()]
     for (engine, hw, run_id), g in s.groupby(["engine", "hardware", "run_id"]):
         secs = (g["n"] / g["pages_per_s"]).sum()
@@ -226,7 +262,8 @@ def winners(lb: pd.DataFrame, rob: pd.DataFrame) -> list[tuple[str, str, str]]:
             names = lb.set_index("engine")["name"]
             tied = usable[usable["degradation"] <= best + 0.0005].sort_values("degradation").index
             out.append(("Most robust to bad scans", _tied_names([names.get(e, e) for e in tied]),
-                        f"CER rises only {best:+.1%} from clean to degraded on average"))
+                        f"CER rises only {best:.1%} from clean to degraded on average" if best > 0 else
+                        f"CER no higher on degraded scans than on clean ones ({best:+.1%} on average)"))
     rel = lb.dropna(subset=["loop_rate"]).copy()
     if not rel.empty:
         rel["fail"] = rel["loop_rate"].fillna(0) + rel["empty_rate"].fillna(0)
@@ -344,6 +381,17 @@ def issues_md(summary: pd.DataFrame, metas: list[dict], names: dict[str, str]) -
                 done, planned = rows["n"].sum(), rows["n_planned"].fillna(0).sum()
                 err = f"time budget ran out: {done:.0f} of {planned:.0f} pages scored"
             issues.append([hw, names.get(engine, engine), status, err[:140]])
+    sus = suspect_results(summary)
+    if not sus.empty:
+        latest_runs = set(latest.items()) if not summary.empty else set()
+        for (engine, hw, run_id), g in sus.groupby(["engine", "hardware", "run_id"]):
+            if ((engine, hw), run_id) not in latest_runs:
+                continue
+            what = ", ".join(f"{t} {a:.0%} vs {b:.0%} on {bh}"
+                             for t, a, b, bh in zip(g["track"], g["accuracy"], g["best"], g["best_hw"]))
+            issues.append([hw, names.get(engine, engine), "suspect",
+                           f"accuracy far below other hardware ({what}); likely a broken build here, "
+                           "results excluded"])
     return _md_table(["Hardware", "Engine", "Status", "Reason"], issues, align="llll") if issues else "_None._"
 
 

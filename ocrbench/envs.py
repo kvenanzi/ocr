@@ -35,6 +35,11 @@ RECIPES: dict[str, dict] = {
     "paddle": {
         "steps_gpu": [["paddlepaddle-gpu==3.3.1", "--index-url", "https://www.paddlepaddle.org.cn/packages/stable/cu126/"],
                       ["paddleocr==3.7.0"]],
+        # Blackwell (compute capability 10+) needs CUDA >= 12.8. The cu126 build runs there
+        # without error but returns random characters.
+        "steps_gpu_cc10": [["paddlepaddle-gpu==3.3.1", "--index-url",
+                            "https://www.paddlepaddle.org.cn/packages/stable/cu129/"],
+                           ["paddleocr==3.7.0"]],
         "steps_cpu": [["paddlepaddle==3.3.1", "--index-url", "https://www.paddlepaddle.org.cn/packages/stable/cpu/"],
                       ["paddleocr==3.7.0"]],
     },
@@ -59,7 +64,13 @@ RECIPES: dict[str, dict] = {
 def _recipe(family: str) -> dict:
     r = dict(RECIPES[family])
     if "steps" not in r:
-        r["steps"] = r["steps_gpu"] if detect().kind == "gpu" else r["steps_cpu"]
+        hw = detect()
+        if hw.kind != "gpu":
+            r["steps"] = r["steps_cpu"]
+        elif hw.compute_capability >= 10 and "steps_gpu_cc10" in r:
+            r["steps"] = r["steps_gpu_cc10"]
+        else:
+            r["steps"] = r["steps_gpu"]
     return r
 
 
