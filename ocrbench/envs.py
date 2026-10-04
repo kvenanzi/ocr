@@ -56,7 +56,9 @@ RECIPES: dict[str, dict] = {
     },
     "vllm-tpu": {
         "uv": True,
-        "steps": [[f"vllm-tpu=={VLLM_VERSION}", "pillow", "psutil"]],
+        "python": "3.12",   # vllm-tpu 0.30 and its nixl dependency ship cp312 wheels only
+        # tpu-inference 0.30 pins a pre-release of tokamax; naming it lets uv accept just that one.
+        "steps": [[f"vllm-tpu=={VLLM_VERSION}", "tokamax==0.0.15.dev20260924", "pillow", "psutil"]],
     },
 }
 
@@ -101,7 +103,8 @@ def python_for(family: str, log: Path | None = None) -> str:
     if uv:
         # `uv venv --seed` installs pip itself; `python -m venv` needs ensurepip, which
         # Colab's system Python doesn't ship.
-        _run([uv, "venv", "--python", sys.executable, "--seed", *site, str(env_dir)], log)
+        # uv downloads a standalone CPython if the recipe needs a version the system lacks.
+        _run([uv, "venv", "--python", recipe.get("python", sys.executable), "--seed", *site, str(env_dir)], log)
     else:
         _run([sys.executable, "-m", "venv", *site, str(env_dir)], log)
     if recipe.get("uv") and uv:

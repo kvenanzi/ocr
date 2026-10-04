@@ -48,7 +48,7 @@ engines:
     family: classic
     impl: easyocr_engine
     license: Apache-2.0
-    requires: {hardware: [cpu, gpu]}   # torch on CPU is too slow for a TPU host's time budget
+    requires: {hardware: [cpu, gpu, tpu]}   # on a TPU VM: torch on the host CPU
     caps: {boxes: true}
     params: {langs: [en, fr, de, la]}
 
@@ -58,7 +58,7 @@ engines:
     family: classic
     impl: doctr_engine
     license: Apache-2.0
-    requires: {hardware: [cpu, gpu]}   # torch on CPU is too slow for a TPU host's time budget
+    requires: {hardware: [cpu, gpu, tpu]}   # on a TPU VM: torch on the host CPU
     caps: {boxes: true}
     params: {det_arch: fast_base, reco_arch: parseq}
 

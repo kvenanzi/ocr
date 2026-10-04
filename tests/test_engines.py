@@ -170,3 +170,17 @@ def test_paddle_build_follows_gpu_generation(monkeypatch):
         return " ".join(envs._recipe("paddle")["steps"][0])
     assert "/cu126/" in steps(7.5) and "/cu126/" in steps(8.0)
     assert "/cu129/" in steps(12.0)     # G4, RTX PRO 6000 Blackwell
+
+
+def test_tpu_plan_runs_cpu_engines_and_qwen25():
+    from ocrbench.hardware import HardwareInfo
+    from ocrbench.runner import plan
+    rows = {r["id"]: r for r in plan(HardwareInfo(tag="TPU-v6e-1", kind="tpu", vram_gb=32.0))}
+    for eid in ("tesseract", "ocrmypdf", "rapidocr", "easyocr", "doctr", "qwen2.5-vl-3b", "qwen2.5-vl-7b"):
+        assert rows[eid]["run"], (eid, rows[eid]["skip_reason"])
+    assert rows["qwen2.5-vl-7b"]["family"] == "vllm-tpu"
+
+
+def test_vllm_tpu_env_uses_python_312():
+    from ocrbench import envs
+    assert envs.RECIPES["vllm-tpu"]["python"] == "3.12"
