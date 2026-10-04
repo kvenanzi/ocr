@@ -1,0 +1,102 @@
+{
+  "engine": "paddleocr-vl",
+  "status": "ok",
+  "started": 1791133580.9873502,
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "tracks": {
+    "books": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 12.017,
+      "pages_per_s": 4.160869269607956,
+      "latency_n": 8,
+      "latency_p50_s": 1.1387385904999974,
+      "latency_p95_s": 1.4485950426500267,
+      "latencies_s": [
+        1.1969,
+        1.4613,
+        0.9973,
+        1.3488,
+        1.425,
+        0.9493,
+        0.6582,
+        1.0806
+      ]
+    },
+    "docs": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 17.384,
+      "pages_per_s": 2.876214351116529,
+      "latency_n": 8,
+      "latency_p50_s": 1.2621776664998379,
+      "latency_p95_s": 2.0516063457500424,
+      "latencies_s": [
+        0.7122,
+        2.0874,
+        0.4561,
+        1.5544,
+        1.2368,
+        1.9852,
+        1.2876,
+        0.8389
+      ]
+    },
+    "handwriting": {
+      "n": 60,
+      "n_planned": 60,
+      "partial": false,
+      "wall_s": 0.936,
+      "pages_per_s": 64.08565069429925,
+      "latency_n": 8,
+      "latency_p50_s": 0.044646378000152254,
+      "latency_p95_s": 0.05047988449987315,
+      "latencies_s": [
+        0.0442,
+        0.0508,
+        0.0451,
+        0.0499,
+        0.0377,
+        0.0395,
+        0.0465,
+        0.0375
+      ]
+    },
+    "stress": {
+      "n": 55,
+      "n_planned": 55,
+      "partial": false,
+      "wall_s": 6.503,
+      "pages_per_s": 8.458213777134677,
+      "latency_n": 8,
+      "latency_p50_s": 1.003830977000007,
+      "latency_p95_s": 1.038598958150078,
+      "latencies_s": [
+        1.002,
+        0.9312,
+        0.8836,
+        1.0056,
+        1.0234,
+        1.0299,
+        1.0433,
+        0.9294
+      ]
+    }
+  },
+  "load_s": 153.46,
+  "versions": {
+    "vllm": "0.30.0",
+    "vllm-tpu": null,
+    "torch": "2.13.0+cu132",
+    "transformers": "5.16.1"
+  },
+  "warmup_s": 1.28,
+  "peak_rss_gb": 6.68,
+  "peak_vram_gb": 81.37,
+  "finished": 1791133801.7447262,
+  "install_s": 16.9,
+  "wall_s": 237.7
+}

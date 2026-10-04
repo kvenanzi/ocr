@@ -1,0 +1,75 @@
+[ocrmypdf] track books
+  [books] latency page 1/8: 8.2s
+  [books] latency page 2/8: 9.2s
+  [books] latency page 3/8: 7.4s
+  [books] latency page 4/8: 8.9s
+  [books] latency page 5/8: 9.4s
+  [books] latency page 6/8: 6.9s
+  [books] latency page 7/8: 5.8s
+  [books] latency page 8/8: 7.4s
+  [books] batch of 50 pages...
+  [books] 39/50 pages  1.84 p/s
+  [books] 50/50 pages  1.34 p/s
+[ocrmypdf] track docs
+  [docs] latency page 1/8: 3.7s
+  [docs] latency page 2/8: 7.7s
+  [docs] latency page 3/8: 2.8s
+  [docs] latency page 4/8: 5.1s
+  [docs] latency page 5/8: 4.8s
+  [docs] latency page 6/8: 5.4s
+  [docs] latency page 7/8: 4.2s
+  [docs] latency page 8/8: 4.4s
+  [docs] batch of 50 pages...
+  [docs] 50/50 pages  2.70 p/s
+[ocrmypdf] track handwriting
+Traceback (most recent call last):
+  File "/content/ocr/ocrbench/worker.py", line 108, in _predict_safely
+    preds = engine.predict(paths)
+  File "/content/ocr/ocrbench/engines/ocrmypdf_engine.py", line 47, in predict
+    return pmap(self._one, image_paths, self.workers)
+  File "/content/ocr/ocrbench/engines/_parallel.py", line 14, in pmap
+    return [fn(x) for x in items]
+            ~~^^^
+  File "/content/ocr/ocrbench/engines/ocrmypdf_engine.py", line 39, in _one
+    raise RuntimeError(f"ocrmypdf exit {res.returncode}: {res.stderr[-400:]}")
+RuntimeError: ocrmypdf exit 7: 
+    1 [tesseract] Error during processing.
+
+SubprocessOutputError
+
+  [handwriting] latency page 1/8: 0.6s
+  [handwriting] latency page 2/8: 1.4s
+  [handwriting] latency page 3/8: 1.5s
+  [handwriting] latency page 4/8: 1.6s
+  [handwriting] latency page 5/8: 1.4s
+  [handwriting] latency page 6/8: 1.4s
+  [handwriting] latency page 7/8: 1.6s
+  [handwriting] latency page 8/8: 1.4s
+  [handwriting] batch of 60 pages...
+Traceback (most recent call last):
+  File "/content/ocr/ocrbench/worker.py", line 108, in _predict_safely
+    preds = engine.predict(paths)
+  File "/content/ocr/ocrbench/engines/ocrmypdf_engine.py", line 47, in predict
+    return pmap(self._one, image_paths, self.workers)
+  File "/content/ocr/ocrbench/engines/_parallel.py", line 14, in pmap
+    return [fn(x) for x in items]
+            ~~^^^
+  File "/content/ocr/ocrbench/engines/ocrmypdf_engine.py", line 39, in _one
+    raise RuntimeError(f"ocrmypdf exit {res.returncode}: {res.stderr[-400:]}")
+RuntimeError: ocrmypdf exit 7: 
+    1 [tesseract] Error during processing.
+
+SubprocessOutputError
+
+  [handwriting] 60/60 pages  0.67 p/s
+[ocrmypdf] track stress
+  [stress] latency page 1/8: 4.3s
+  [stress] latency page 2/8: 2.8s
+  [stress] latency page 3/8: 2.3s
+  [stress] latency page 4/8: 5.0s
+  [stress] latency page 5/8: 9.1s
+  [stress] latency page 6/8: 4.9s
+  [stress] latency page 7/8: 3.9s
+  [stress] latency page 8/8: 3.0s
+  [stress] batch of 55 pages...
+  [stress] 55/55 pages  0.70 p/s

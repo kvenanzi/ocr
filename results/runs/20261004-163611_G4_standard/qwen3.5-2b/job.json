@@ -1,0 +1,65 @@
+{
+  "spec": {
+    "id": "qwen3.5-2b",
+    "name": "Qwen3.5 2B",
+    "kind": "vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 2.27,
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 10
+    },
+    "caps": {
+      "tables": true,
+      "math": true
+    },
+    "params": {
+      "model": "Qwen/Qwen3.5-2B",
+      "prompt": "GENERAL_OCR",
+      "max_pixels": 4718592,
+      "limit_mm_per_prompt": {
+        "image": 1,
+        "video": 0
+      },
+      "chat_kwargs": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 8192
+      },
+      "postprocess": [
+        "strip_think"
+      ]
+    }
+  },
+  "hardware": {
+    "tag": "G4",
+    "kind": "gpu",
+    "accelerator": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "vram_gb": 95.6,
+    "compute_capability": 12.0,
+    "num_devices": 1,
+    "cpu_count": 48,
+    "cpu_model": "AMD EPYC 9B45",
+    "ram_gb": 176.9,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261004-163611_G4_standard/qwen3.5-2b",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 1500
+}

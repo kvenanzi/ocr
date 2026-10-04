@@ -1,0 +1,100 @@
+{
+  "engine": "paddleocr",
+  "status": "ok",
+  "started": 1791133224.9287105,
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "tracks": {
+    "books": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 10.212,
+      "pages_per_s": 4.896158230551067,
+      "latency_n": 8,
+      "latency_p50_s": 0.18604270649984755,
+      "latency_p95_s": 0.19076635499977784,
+      "latencies_s": [
+        0.1859,
+        0.1869,
+        0.1834,
+        0.1895,
+        0.1915,
+        0.1828,
+        0.1804,
+        0.1862
+      ]
+    },
+    "docs": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 3.394,
+      "pages_per_s": 14.732125220551952,
+      "latency_n": 8,
+      "latency_p50_s": 0.06301523799993447,
+      "latency_p95_s": 0.07182797284999651,
+      "latencies_s": [
+        0.0644,
+        0.0596,
+        0.0609,
+        0.0648,
+        0.0728,
+        0.0555,
+        0.0616,
+        0.07
+      ]
+    },
+    "handwriting": {
+      "n": 60,
+      "n_planned": 60,
+      "partial": false,
+      "wall_s": 1.295,
+      "pages_per_s": 46.34529933403075,
+      "latency_n": 8,
+      "latency_p50_s": 0.024044981499628193,
+      "latency_p95_s": 5.890103169449913,
+      "latencies_s": [
+        8.8368,
+        0.4176,
+        0.025,
+        0.0241,
+        0.0234,
+        0.0232,
+        0.024,
+        0.0219
+      ]
+    },
+    "stress": {
+      "n": 55,
+      "n_planned": 55,
+      "partial": false,
+      "wall_s": 5.518,
+      "pages_per_s": 9.966727517203221,
+      "latency_n": 8,
+      "latency_p50_s": 0.16485467949996746,
+      "latency_p95_s": 0.1892607470001167,
+      "latencies_s": [
+        0.1703,
+        0.0402,
+        0.0216,
+        0.1795,
+        0.1923,
+        0.1594,
+        0.1836,
+        0.0346
+      ]
+    }
+  },
+  "load_s": 8.06,
+  "versions": {
+    "paddleocr": "3.7.0",
+    "paddlepaddle": "3.3.1"
+  },
+  "warmup_s": 70.55,
+  "peak_rss_gb": 2.19,
+  "peak_vram_gb": 9.4,
+  "finished": 1791133336.359218,
+  "install_s": 571.1,
+  "wall_s": 682.7
+}
