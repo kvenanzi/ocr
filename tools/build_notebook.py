@@ -95,8 +95,9 @@ code("""%%bash
 set -e
 if ! tesseract --version 2>/dev/null | head -1 | grep -q "tesseract 5"; then
   add-apt-repository -y ppa:alex-p/tesseract-ocr5 > /dev/null 2>&1 || true
-  apt-get -qq update > /dev/null
 fi
+# Always refresh: a runtime image's package index can point at versions Ubuntu has since removed (404).
+apt-get -qq update > /dev/null
 apt-get -qq install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-fra tesseract-ocr-deu tesseract-ocr-lat \\
     tesseract-ocr-osd unpaper ghostscript > /dev/null
 tesseract --version | head -1
