@@ -222,10 +222,6 @@ Same pages, progressively degraded. `degradation` = mean CER over degraded level
 | L4 | Chandra OCR 2 | partial | time budget ran out: 197 of 215 pages scored |
 | T4 | DeepSeek-OCR 2 | partial | time budget ran out: 64 of 215 pages scored |
 | T4 | dots.mocr | partial | time budget ran out: 36 of 215 pages scored |
-| A100-40GB | OCRmyPDF (Tesseract + cleanup) | partial | RuntimeError: ocrmypdf exit 7: 
-    1 [tesseract] Error during processing.
-
-SubprocessOutputError
- |
+| A100-40GB | OCRmyPDF (Tesseract + cleanup) | partial | RuntimeError: ocrmypdf exit 7: 1 [tesseract] Error during processing. SubprocessOutputError |
 | L4 | Qwen2.5-VL 7B | partial | time budget ran out: 195 of 215 pages scored |
 | TPU-v6e-1 | Qwen2.5-VL 7B | partial | time budget ran out: 214 of 215 pages scored |

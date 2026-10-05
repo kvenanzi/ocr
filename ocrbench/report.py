@@ -380,7 +380,7 @@ def issues_md(summary: pd.DataFrame, metas: list[dict], names: dict[str, str]) -
             if err is None:
                 done, planned = rows["n"].sum(), rows["n_planned"].fillna(0).sum()
                 err = f"time budget ran out: {done:.0f} of {planned:.0f} pages scored"
-            issues.append([hw, names.get(engine, engine), status, err[:140]])
+            issues.append([hw, names.get(engine, engine), status, " ".join(err.split())[:140]])  # one table row
     sus = suspect_results(summary)
     if not sus.empty:
         latest_runs = set(latest.items()) if not summary.empty else set()
