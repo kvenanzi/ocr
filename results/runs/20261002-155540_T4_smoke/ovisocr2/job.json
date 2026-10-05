@@ -1,0 +1,66 @@
+{
+  "spec": {
+    "id": "ovisocr2",
+    "name": "OvisOCR2",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 0.85,
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 6
+    },
+    "caps": {
+      "layout": true,
+      "tables": true,
+      "math": true
+    },
+    "params": {
+      "model": "ATH-MaaS/OvisOCR2",
+      "prompt": "OVIS_OCR2",
+      "max_pixels": 8294400,
+      "llm_kwargs": {
+        "gdn_prefill_backend": "triton"
+      },
+      "chat_kwargs": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 8192
+      },
+      "postprocess": [
+        "drop_bbox_img_tags",
+        "trim_repeats"
+      ]
+    }
+  },
+  "hardware": {
+    "tag": "T4",
+    "kind": "gpu",
+    "accelerator": "Tesla T4",
+    "vram_gb": 15.0,
+    "compute_capability": 7.5,
+    "num_devices": 1,
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "ram_gb": 51.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": false
+  },
+  "out": "/content/ocr/results/runs/20261002-155540_T4_smoke/ovisocr2",
+  "latency_n": 2,
+  "tracks": {
+    "books": "/content/ocrbench_data/smoke/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/smoke/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/smoke/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/smoke/stress/manifest.jsonl"
+  },
+  "deadline": 1790958564.0754757
+}

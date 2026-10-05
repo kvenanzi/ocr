@@ -1,0 +1,15 @@
+{
+  "engine": "ocrmypdf",
+  "status": "error",
+  "started": 1790956619.540373,
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "tracks": {},
+  "error": "FileNotFoundError: [Errno 2] No such file or directory: 'ocrmypdf'",
+  "traceback": "Traceback (most recent call last):\n  File \"/content/ocr/ocrbench/worker.py\", line 173, in main\n    engine.load()\n    ~~~~~~~~~~~^^\n  File \"/content/ocr/ocrbench/engines/ocrmypdf_engine.py\", line 27, in load\n    subprocess.run([\"ocrmypdf\", \"--version\"], check=True, capture_output=True)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 554, in run\n    with Popen(*popenargs, **kwargs) as process:\n         ~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1039, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                        pass_fds, cwd, env,\n                        ^^^^^^^^^^^^^^^^^^^\n    ...<5 lines>...\n                        gid, gids, uid, umask,\n                        ^^^^^^^^^^^^^^^^^^^^^^\n                        start_new_session, process_group)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1991, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'ocrmypdf'\n",
+  "peak_rss_gb": 0.02,
+  "peak_vram_gb": 0.0,
+  "finished": 1790956619.5940573,
+  "install_s": 0.0,
+  "wall_s": 0.2
+}

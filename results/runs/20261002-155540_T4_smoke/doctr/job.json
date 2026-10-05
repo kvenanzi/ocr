@@ -1,0 +1,46 @@
+{
+  "spec": {
+    "id": "doctr",
+    "name": "docTR",
+    "kind": "classic",
+    "family": "classic",
+    "impl": "doctr_engine",
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "cpu",
+        "gpu"
+      ]
+    },
+    "caps": {
+      "boxes": true
+    },
+    "params": {
+      "det_arch": "fast_base",
+      "reco_arch": "parseq"
+    }
+  },
+  "hardware": {
+    "tag": "T4",
+    "kind": "gpu",
+    "accelerator": "Tesla T4",
+    "vram_gb": 15.0,
+    "compute_capability": 7.5,
+    "num_devices": 1,
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "ram_gb": 51.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": false
+  },
+  "out": "/content/ocr/results/runs/20261002-155540_T4_smoke/doctr",
+  "latency_n": 2,
+  "tracks": {
+    "books": "/content/ocrbench_data/smoke/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/smoke/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/smoke/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/smoke/stress/manifest.jsonl"
+  },
+  "deadline": 1790957438.1464214
+}

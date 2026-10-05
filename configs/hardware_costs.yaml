@@ -1,0 +1,29 @@
+# Approximate Google Colab pricing, used to turn throughput into $ per 1k pages.
+#
+# Colab bills in compute units (CU). Pay-as-you-go is $9.99 per 100 CU.
+# CU/hour rates were measured by third parties (March 2026) and drift over time.
+# Check the "Resources" panel in Colab and override these values (or set
+# `cu_per_hour_override` in the notebook) for your own runs.
+# `null` means unknown, and cost is then reported as n/a instead of guessed.
+
+usd_per_cu: 0.0999
+
+runtimes:
+  cpu:
+    cu_per_hour: 0.08
+  T4:
+    cu_per_hour: 1.19
+  L4:
+    cu_per_hour: 1.71
+  A100-40GB:
+    cu_per_hour: 5.40
+  A100-80GB:
+    cu_per_hour: 7.52
+  G4:            # NVIDIA RTX PRO 6000 Blackwell, 96 GB
+    cu_per_hour: 8.71
+  H100:
+    cu_per_hour: null
+  TPU-v5e-1:
+    cu_per_hour: null
+  TPU-v6e-1:
+    cu_per_hour: null

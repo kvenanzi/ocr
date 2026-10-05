@@ -1,0 +1,76 @@
+{
+  "spec": {
+    "id": "deepseek-ocr2",
+    "name": "DeepSeek-OCR 2",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 3.39,
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 14
+    },
+    "caps": {
+      "layout": true,
+      "tables": true,
+      "math": true,
+      "boxes": true
+    },
+    "params": {
+      "model": "deepseek-ai/DeepSeek-OCR-2",
+      "trust_remote_code": true,
+      "mode": "generate",
+      "raw_prompt": "<image>\n<|grounding|>Convert the document to markdown. ",
+      "max_model_len": 8192,
+      "llm_kwargs": {
+        "logits_processors": [
+          "vllm.model_executor.models.deepseek_ocr:NGramPerReqLogitsProcessor"
+        ],
+        "enable_prefix_caching": false,
+        "mm_processor_cache_gb": 0
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 6144,
+        "skip_special_tokens": false,
+        "extra_args": {
+          "ngram_size": 30,
+          "window_size": 90,
+          "whitelist_token_ids": [
+            128821,
+            128822
+          ]
+        }
+      },
+      "postprocess": [
+        "deepseek"
+      ]
+    }
+  },
+  "hardware": {
+    "tag": "T4",
+    "kind": "gpu",
+    "accelerator": "Tesla T4",
+    "vram_gb": 15.0,
+    "compute_capability": 7.5,
+    "num_devices": 1,
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "ram_gb": 51.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": false
+  },
+  "out": "/content/ocr/results/runs/20261002-182556_T4_smoke/deepseek-ocr2",
+  "latency_n": 2,
+  "tracks": {
+    "books": "/content/ocrbench_data/smoke/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/smoke/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/smoke/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/smoke/stress/manifest.jsonl"
+  },
+  "timeout_s": 600
+}

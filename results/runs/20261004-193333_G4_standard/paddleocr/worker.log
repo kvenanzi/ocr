@@ -1,0 +1,75 @@
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/root/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+/content/ocrbench_envs/paddle/lib/python3.13/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/root/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[paddleocr] track books
+  [books] latency page 1/8: 0.4s
+  [books] latency page 2/8: 0.5s
+  [books] latency page 3/8: 0.4s
+  [books] latency page 4/8: 0.4s
+  [books] latency page 5/8: 0.5s
+  [books] latency page 6/8: 0.4s
+  [books] latency page 7/8: 0.3s
+  [books] latency page 8/8: 0.4s
+  [books] batch of 50 pages...
+  [books] 8/50 pages  2.71 p/s
+  [books] 16/50 pages  2.42 p/s
+  [books] 24/50 pages  2.23 p/s
+  [books] 32/50 pages  2.41 p/s
+  [books] 40/50 pages  2.50 p/s
+  [books] 48/50 pages  2.55 p/s
+  [books] 50/50 pages  2.56 p/s
+[paddleocr] track docs
+  [docs] latency page 1/8: 0.2s
+  [docs] latency page 2/8: 0.3s
+  [docs] latency page 3/8: 0.2s
+  [docs] latency page 4/8: 0.5s
+  [docs] latency page 5/8: 0.3s
+  [docs] latency page 6/8: 0.4s
+  [docs] latency page 7/8: 0.2s
+  [docs] latency page 8/8: 0.3s
+  [docs] batch of 50 pages...
+  [docs] 8/50 pages  3.92 p/s
+  [docs] 16/50 pages  2.42 p/s
+  [docs] 24/50 pages  2.22 p/s
+  [docs] 32/50 pages  2.29 p/s
+  [docs] 40/50 pages  2.56 p/s
+  [docs] 48/50 pages  2.62 p/s
+  [docs] 50/50 pages  2.65 p/s
+[paddleocr] track handwriting
+  [handwriting] latency page 1/8: 0.0s
+  [handwriting] latency page 2/8: 0.0s
+  [handwriting] latency page 3/8: 0.0s
+  [handwriting] latency page 4/8: 0.0s
+  [handwriting] latency page 5/8: 0.0s
+  [handwriting] latency page 6/8: 0.0s
+  [handwriting] latency page 7/8: 0.0s
+  [handwriting] latency page 8/8: 0.0s
+  [handwriting] batch of 60 pages...
+  [handwriting] 8/60 pages  72.54 p/s
+  [handwriting] 16/60 pages  44.68 p/s
+  [handwriting] 24/60 pages  43.06 p/s
+  [handwriting] 32/60 pages  41.62 p/s
+  [handwriting] 40/60 pages  41.67 p/s
+  [handwriting] 48/60 pages  42.75 p/s
+  [handwriting] 56/60 pages  44.09 p/s
+  [handwriting] 60/60 pages  44.68 p/s
+[paddleocr] track stress
+  [stress] latency page 1/8: 0.3s
+  [stress] latency page 2/8: 0.2s
+  [stress] latency page 3/8: 0.2s
+  [stress] latency page 4/8: 0.3s
+  [stress] latency page 5/8: 0.3s
+  [stress] latency page 6/8: 0.3s
+  [stress] latency page 7/8: 0.4s
+  [stress] latency page 8/8: 0.2s
+  [stress] batch of 55 pages...
+  [stress] 8/55 pages  3.85 p/s
+  [stress] 16/55 pages  3.90 p/s
+  [stress] 24/55 pages  4.00 p/s
+  [stress] 32/55 pages  4.28 p/s
+  [stress] 40/55 pages  4.54 p/s
+  [stress] 48/55 pages  4.64 p/s
+  [stress] 55/55 pages  4.46 p/s

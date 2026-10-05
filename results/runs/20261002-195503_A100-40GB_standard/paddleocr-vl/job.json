@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "id": "paddleocr-vl",
+    "name": "PaddleOCR-VL 1.6",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 0.96,
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 6
+    },
+    "caps": {
+      "layout": true,
+      "tables": true,
+      "math": true
+    },
+    "env": {
+      "VLLM_USE_FLASHINFER_SAMPLER": "0"
+    },
+    "params": {
+      "model": "PaddlePaddle/PaddleOCR-VL-1.6",
+      "trust_remote_code": true,
+      "prompt": "OCR:",
+      "llm_kwargs": {
+        "max_num_batched_tokens": 16384,
+        "enable_prefix_caching": false,
+        "mm_processor_cache_gb": 0
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 6144
+      }
+    }
+  },
+  "hardware": {
+    "tag": "A100-40GB",
+    "kind": "gpu",
+    "accelerator": "NVIDIA A100-SXM4-40GB",
+    "vram_gb": 40.0,
+    "compute_capability": 8.0,
+    "num_devices": 1,
+    "cpu_count": 12,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "ram_gb": 83.5,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261002-195503_A100-40GB_standard/paddleocr-vl",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 1500
+}

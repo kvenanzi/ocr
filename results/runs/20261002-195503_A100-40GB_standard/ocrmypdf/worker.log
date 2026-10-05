@@ -1,0 +1,63 @@
+[ocrmypdf] track books
+  [books] latency page 1/8: 17.5s
+  [books] latency page 2/8: 19.5s
+  [books] latency page 3/8: 15.8s
+  [books] latency page 4/8: 18.8s
+  [books] latency page 5/8: 20.0s
+  [books] latency page 6/8: 14.8s
+  [books] latency page 7/8: 12.8s
+  [books] latency page 8/8: 15.8s
+  [books] batch of 50 pages...
+  [books] 24/50 pages  0.29 p/s
+  [books] 48/50 pages  0.28 p/s
+  [books] 50/50 pages  0.25 p/s
+[ocrmypdf] track docs
+  [docs] latency page 1/8: 8.2s
+  [docs] latency page 2/8: 16.6s
+  [docs] latency page 3/8: 6.4s
+  [docs] latency page 4/8: 11.0s
+  [docs] latency page 5/8: 10.4s
+  [docs] latency page 6/8: 11.7s
+  [docs] latency page 7/8: 9.2s
+  [docs] latency page 8/8: 9.6s
+  [docs] batch of 50 pages...
+  [docs] 24/50 pages  0.41 p/s
+  [docs] 48/50 pages  0.43 p/s
+  [docs] 50/50 pages  0.41 p/s
+[ocrmypdf] track handwriting
+Traceback (most recent call last):
+  File "/content/ocr/ocrbench/worker.py", line 205, in main
+    status["tracks"][track] = run_track(
+                              ~~~~~~~~~^
+        engine, read_manifest(manifest), out / track, manifest.parent,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        job.get("latency_n", 0), deadline)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/ocr/ocrbench/worker.py", line 134, in run_track
+    engine.predict([p])
+    ~~~~~~~~~~~~~~^^^^^
+  File "/content/ocr/ocrbench/engines/ocrmypdf_engine.py", line 47, in predict
+    return pmap(self._one, image_paths, self.workers)
+  File "/content/ocr/ocrbench/engines/_parallel.py", line 14, in pmap
+    return [fn(x) for x in items]
+            ~~^^^
+  File "/content/ocr/ocrbench/engines/ocrmypdf_engine.py", line 39, in _one
+    raise RuntimeError(f"ocrmypdf exit {res.returncode}: {res.stderr[-400:]}")
+RuntimeError: ocrmypdf exit 7: 
+    1 [tesseract] Error during processing.
+
+SubprocessOutputError
+
+[ocrmypdf] track stress
+  [stress] latency page 1/8: 9.9s
+  [stress] latency page 2/8: 6.2s
+  [stress] latency page 3/8: 5.0s
+  [stress] latency page 4/8: 11.1s
+  [stress] latency page 5/8: 18.8s
+  [stress] latency page 6/8: 11.0s
+  [stress] latency page 7/8: 9.2s
+  [stress] latency page 8/8: 6.4s
+  [stress] batch of 55 pages...
+  [stress] 24/55 pages  0.59 p/s
+  [stress] 48/55 pages  0.18 p/s
+  [stress] 55/55 pages  0.19 p/s

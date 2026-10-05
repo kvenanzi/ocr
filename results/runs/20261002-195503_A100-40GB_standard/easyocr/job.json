@@ -1,0 +1,50 @@
+{
+  "spec": {
+    "id": "easyocr",
+    "name": "EasyOCR",
+    "kind": "classic",
+    "family": "classic",
+    "impl": "easyocr_engine",
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "cpu",
+        "gpu"
+      ]
+    },
+    "caps": {
+      "boxes": true
+    },
+    "params": {
+      "langs": [
+        "en",
+        "fr",
+        "de",
+        "la"
+      ]
+    }
+  },
+  "hardware": {
+    "tag": "A100-40GB",
+    "kind": "gpu",
+    "accelerator": "NVIDIA A100-SXM4-40GB",
+    "vram_gb": 40.0,
+    "compute_capability": 8.0,
+    "num_devices": 1,
+    "cpu_count": 12,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "ram_gb": 83.5,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261002-195503_A100-40GB_standard/easyocr",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 1500
+}

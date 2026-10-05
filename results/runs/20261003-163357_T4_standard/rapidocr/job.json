@@ -1,0 +1,44 @@
+{
+  "spec": {
+    "id": "rapidocr",
+    "name": "RapidOCR (PP-OCRv6, ONNX)",
+    "kind": "classic",
+    "family": "classic",
+    "impl": "rapidocr_engine",
+    "license": "Apache-2.0",
+    "requires": {
+      "hardware": [
+        "cpu",
+        "gpu",
+        "tpu"
+      ]
+    },
+    "caps": {
+      "boxes": true
+    },
+    "params": {}
+  },
+  "hardware": {
+    "tag": "T4",
+    "kind": "gpu",
+    "accelerator": "Tesla T4",
+    "vram_gb": 15.0,
+    "compute_capability": 7.5,
+    "num_devices": 1,
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "ram_gb": 51.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": false
+  },
+  "out": "/content/ocr/results/runs/20261003-163357_T4_standard/rapidocr",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 3600.0
+}

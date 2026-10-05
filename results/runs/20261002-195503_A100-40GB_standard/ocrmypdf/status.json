@@ -1,0 +1,52 @@
+{
+  "engine": "ocrmypdf",
+  "status": "partial",
+  "started": 1790971283.049894,
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "tracks": {
+    "books": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 198.832,
+      "pages_per_s": 0.25146851144675053,
+      "latency_n": 8,
+      "latency_p50_s": 16.667267832999983,
+      "latency_p95_s": 19.800241405549933
+    },
+    "docs": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 122.62,
+      "pages_per_s": 0.40776482577564466,
+      "latency_n": 8,
+      "latency_p50_s": 10.01064061650004,
+      "latency_p95_s": 14.927168003000157
+    },
+    "handwriting": {
+      "error": "RuntimeError: ocrmypdf exit 7: \n    1 [tesseract] Error during processing.\n\nSubprocessOutputError\n"
+    },
+    "stress": {
+      "n": 55,
+      "n_planned": 55,
+      "partial": false,
+      "wall_s": 283.78,
+      "pages_per_s": 0.19381220773664748,
+      "latency_n": 8,
+      "latency_p50_s": 9.564329172000043,
+      "latency_p95_s": 16.1016691487
+    }
+  },
+  "load_s": 0.64,
+  "versions": {
+    "ocrmypdf": "17.13.0"
+  },
+  "warmup_s": 18.25,
+  "peak_rss_gb": 2.88,
+  "peak_vram_gb": 0.0,
+  "finished": 1790972204.1495006,
+  "install_s": 0.0,
+  "wall_s": 921.2
+}

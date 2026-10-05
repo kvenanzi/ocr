@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.pytest_cache/
+/data/
+/envs/
+/scratch/
+.ipynb_checkpoints/
+results/runs/*/*/install.log

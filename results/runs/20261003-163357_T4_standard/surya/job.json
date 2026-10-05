@@ -1,0 +1,43 @@
+{
+  "spec": {
+    "id": "surya",
+    "name": "Surya 0.17 (classic)",
+    "kind": "classic",
+    "family": "surya",
+    "impl": "surya_classic",
+    "license": "GPL-3.0 code / OpenRAIL model",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 8
+    },
+    "caps": {
+      "boxes": true
+    },
+    "params": {}
+  },
+  "hardware": {
+    "tag": "T4",
+    "kind": "gpu",
+    "accelerator": "Tesla T4",
+    "vram_gb": 15.0,
+    "compute_capability": 7.5,
+    "num_devices": 1,
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "ram_gb": 51.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": false
+  },
+  "out": "/content/ocr/results/runs/20261003-163357_T4_standard/surya",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 3600.0
+}

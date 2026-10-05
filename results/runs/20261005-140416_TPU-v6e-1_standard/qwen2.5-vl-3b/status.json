@@ -1,0 +1,102 @@
+{
+  "engine": "qwen2.5-vl-3b",
+  "status": "ok",
+  "started": 1791211244.8836157,
+  "python": "3.12.3",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "tracks": {
+    "books": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 162.23,
+      "pages_per_s": 0.30820483178120384,
+      "latency_n": 8,
+      "latency_p50_s": 3.3497196569999232,
+      "latency_p95_s": 4.3842634001998935,
+      "latencies_s": [
+        3.5189,
+        4.334,
+        2.9988,
+        4.2439,
+        4.4113,
+        2.7582,
+        2.0231,
+        3.1805
+      ]
+    },
+    "docs": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 229.583,
+      "pages_per_s": 0.2177859423552807,
+      "latency_n": 8,
+      "latency_p50_s": 3.4707260049999604,
+      "latency_p95_s": 16.064442550800162,
+      "latencies_s": [
+        2.1878,
+        21.2997,
+        0.98,
+        1.8033,
+        4.189,
+        6.3418,
+        4.2416,
+        2.7524
+      ]
+    },
+    "handwriting": {
+      "n": 60,
+      "n_planned": 60,
+      "partial": false,
+      "wall_s": 520.566,
+      "pages_per_s": 0.11525906160173702,
+      "latency_n": 8,
+      "latency_p50_s": 16.256800000000002,
+      "latency_p95_s": 21.14643,
+      "latencies_s": [
+        16.9201,
+        15.1099,
+        21.1099,
+        21.1661,
+        14.6832,
+        15.5935,
+        20.9452,
+        13.0119
+      ]
+    },
+    "stress": {
+      "n": 55,
+      "n_planned": 55,
+      "partial": false,
+      "wall_s": 33.044,
+      "pages_per_s": 1.6644413601658168,
+      "latency_n": 8,
+      "latency_p50_s": 3.184415052499844,
+      "latency_p95_s": 18.745758003549987,
+      "latencies_s": [
+        3.1738,
+        3.0863,
+        17.9425,
+        3.1788,
+        3.1901,
+        3.1969,
+        19.1783,
+        3.0858
+      ]
+    }
+  },
+  "load_s": 273.54,
+  "versions": {
+    "vllm": null,
+    "vllm-tpu": "0.30.0",
+    "torch": "2.10.0",
+    "transformers": "5.18.0"
+  },
+  "warmup_s": 19.87,
+  "peak_rss_gb": 38.11,
+  "peak_vram_gb": 0.0,
+  "finished": 1791212753.395908,
+  "install_s": 24.0,
+  "wall_s": 1532.6
+}

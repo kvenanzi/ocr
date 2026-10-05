@@ -1,0 +1,94 @@
+Downloading https://doctr-static.mindee.com/models?id=v0.8.1/fast_base-688a8b34.pt&src=0 to /root/.cache/doctr/models/fast_base-688a8b34.pt
+
+  0%|          | 0/65814772 [00:00<?, ?it/s]
+ 11%|█▏        | 7468032/65814772 [00:00<00:00, 74679679.02it/s]
+ 24%|██▎       | 15528960/65814772 [00:00<00:00, 78081639.23it/s]
+ 37%|███▋      | 24657920/65814772 [00:00<00:00, 84089600.52it/s]
+ 73%|███████▎  | 47756288/65814772 [00:00<00:00, 140186311.16it/s]
+65815552it [00:00, 141231163.93it/s]                              
+Downloading https://doctr-static.mindee.com/models?id=v0.7.0/parseq-56125471.pt&src=0 to /root/.cache/doctr/models/parseq-56125471.pt
+
+  0%|          | 0/95457349 [00:00<?, ?it/s]
+ 17%|█▋        | 16088064/95457349 [00:00<00:00, 159872987.17it/s]
+ 34%|███▎      | 32075776/95457349 [00:00<00:00, 158481739.95it/s]
+ 50%|█████     | 47925248/95457349 [00:00<00:00, 121631629.70it/s]
+ 64%|██████▍   | 60876800/95457349 [00:00<00:00, 111628585.47it/s]
+ 92%|█████████▏| 87361536/95457349 [00:00<00:00, 157431323.11it/s]
+95458304it [00:00, 151366481.90it/s]                              
+Downloading https://doctr-static.mindee.com/models?id=v0.8.1/mobilenet_v3_small_crop_orientation-f0847a18.pt&src=0 to /root/.cache/doctr/models/mobilenet_v3_small_crop_orientation-f0847a18.pt
+
+  0%|          | 0/6233146 [00:00<?, ?it/s]
+6234112it [00:00, 90101932.10it/s]         
+Downloading https://doctr-static.mindee.com/models?id=v0.8.1/mobilenet_v3_small_page_orientation-8e60325c.pt&src=0 to /root/.cache/doctr/models/mobilenet_v3_small_page_orientation-8e60325c.pt
+
+  0%|          | 0/6233146 [00:00<?, ?it/s]
+6234112it [00:00, 89946030.85it/s]         
+[doctr] track books
+  [books] latency page 1/8: 0.5s
+  [books] latency page 2/8: 0.6s
+  [books] latency page 3/8: 0.4s
+  [books] latency page 4/8: 0.6s
+  [books] latency page 5/8: 0.7s
+  [books] latency page 6/8: 0.4s
+  [books] latency page 7/8: 0.3s
+  [books] latency page 8/8: 0.5s
+  [books] batch of 50 pages...
+  [books] 8/50 pages  2.17 p/s
+  [books] 16/50 pages  2.01 p/s
+  [books] 24/50 pages  1.87 p/s
+  [books] 32/50 pages  2.07 p/s
+  [books] 40/50 pages  2.19 p/s
+  [books] 48/50 pages  2.27 p/s
+  [books] 50/50 pages  2.29 p/s
+[doctr] track docs
+  [docs] latency page 1/8: 0.3s
+  [docs] latency page 2/8: 0.4s
+  [docs] latency page 3/8: 0.2s
+  [docs] latency page 4/8: 0.8s
+  [docs] latency page 5/8: 0.5s
+  [docs] latency page 6/8: 0.6s
+  [docs] latency page 7/8: 0.3s
+  [docs] latency page 8/8: 0.4s
+  [docs] batch of 50 pages...
+  [docs] 8/50 pages  2.60 p/s
+  [docs] 16/50 pages  1.41 p/s
+  [docs] 24/50 pages  1.34 p/s
+  [docs] 32/50 pages  1.41 p/s
+  [docs] 40/50 pages  1.61 p/s
+  [docs] 48/50 pages  1.67 p/s
+  [docs] 50/50 pages  1.69 p/s
+[doctr] track handwriting
+  [handwriting] latency page 1/8: 0.0s
+  [handwriting] latency page 2/8: 0.1s
+  [handwriting] latency page 3/8: 0.1s
+  [handwriting] latency page 4/8: 0.0s
+  [handwriting] latency page 5/8: 0.0s
+  [handwriting] latency page 6/8: 0.0s
+  [handwriting] latency page 7/8: 0.0s
+  [handwriting] latency page 8/8: 0.0s
+  [handwriting] batch of 60 pages...
+  [handwriting] 8/60 pages  39.98 p/s
+  [handwriting] 16/60 pages  39.79 p/s
+  [handwriting] 24/60 pages  40.98 p/s
+  [handwriting] 32/60 pages  41.02 p/s
+  [handwriting] 40/60 pages  41.09 p/s
+  [handwriting] 48/60 pages  40.83 p/s
+  [handwriting] 56/60 pages  40.28 p/s
+  [handwriting] 60/60 pages  39.87 p/s
+[doctr] track stress
+  [stress] latency page 1/8: 0.4s
+  [stress] latency page 2/8: 0.4s
+  [stress] latency page 3/8: 0.4s
+  [stress] latency page 4/8: 0.4s
+  [stress] latency page 5/8: 0.4s
+  [stress] latency page 6/8: 0.5s
+  [stress] latency page 7/8: 0.5s
+  [stress] latency page 8/8: 0.4s
+  [stress] batch of 55 pages...
+  [stress] 8/55 pages  2.45 p/s
+  [stress] 16/55 pages  2.52 p/s
+  [stress] 24/55 pages  2.70 p/s
+  [stress] 32/55 pages  3.28 p/s
+  [stress] 40/55 pages  3.76 p/s
+  [stress] 48/55 pages  3.80 p/s
+  [stress] 55/55 pages  3.54 p/s

@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "id": "surya-ocr2",
+    "name": "Surya OCR 2 (VLM)",
+    "kind": "ocr_vlm",
+    "family": "vllm",
+    "impl": "vllm_engine",
+    "size_b": 0.69,
+    "license": "OpenRAIL",
+    "requires": {
+      "hardware": [
+        "gpu"
+      ],
+      "min_vram_gb": 6
+    },
+    "caps": {
+      "layout": true,
+      "tables": true,
+      "math": true,
+      "boxes": true
+    },
+    "params": {
+      "model": "datalab-to/surya-ocr-2",
+      "prompt": "SURYA2_FULL_PAGE",
+      "max_model_len": 18000,
+      "max_pixels": 6291456,
+      "llm_kwargs": {
+        "mm_processor_kwargs": {
+          "min_pixels": 3136,
+          "max_pixels": 6291456
+        }
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 8192
+      }
+    }
+  },
+  "hardware": {
+    "tag": "G4",
+    "kind": "gpu",
+    "accelerator": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "vram_gb": 95.6,
+    "compute_capability": 12.0,
+    "num_devices": 1,
+    "cpu_count": 48,
+    "cpu_model": "AMD EPYC 9B45",
+    "ram_gb": 176.9,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261004-163611_G4_standard/surya-ocr2",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 1500
+}

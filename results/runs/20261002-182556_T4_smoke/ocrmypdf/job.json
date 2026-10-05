@@ -1,0 +1,52 @@
+{
+  "spec": {
+    "id": "ocrmypdf",
+    "name": "OCRmyPDF (Tesseract + cleanup)",
+    "kind": "classic",
+    "family": "classic",
+    "impl": "ocrmypdf_engine",
+    "license": "MPL-2.0",
+    "requires": {
+      "hardware": [
+        "cpu",
+        "gpu",
+        "tpu"
+      ]
+    },
+    "caps": {
+      "boxes": true
+    },
+    "params": {
+      "lang": "eng+fra+deu+lat",
+      "flags": [
+        "--deskew",
+        "--clean",
+        "--rotate-pages"
+      ],
+      "image_dpi": 300
+    }
+  },
+  "hardware": {
+    "tag": "T4",
+    "kind": "gpu",
+    "accelerator": "Tesla T4",
+    "vram_gb": 15.0,
+    "compute_capability": 7.5,
+    "num_devices": 1,
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "ram_gb": 51.0,
+    "driver": "580.82.07",
+    "in_colab": true,
+    "bf16": false
+  },
+  "out": "/content/ocr/results/runs/20261002-182556_T4_smoke/ocrmypdf",
+  "latency_n": 2,
+  "tracks": {
+    "books": "/content/ocrbench_data/smoke/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/smoke/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/smoke/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/smoke/stress/manifest.jsonl"
+  },
+  "timeout_s": 600
+}

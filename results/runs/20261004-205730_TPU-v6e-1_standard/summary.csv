@@ -1,0 +1,149 @@
+run_id,hardware,engine,engine_name,family,kind,status,error,load_s,peak_vram_gb,peak_rss_gb,size_b,license,track,n,n_planned,partial,track_error,pages_per_s,latency_p50_s,latency_p95_s,empty_rate,page_error_rate,cer,cer_dip,wer,cer_micro,bow_recall,bow_precision,over_extraction,loop_rate,accuracy,usd_per_hour,usd_per_1k_pages,docs_pass,docs_categories
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,ocrmypdf,OCRmyPDF (Tesseract + cleanup),classic,classic,ok,,0.52,0.0,7.22,,MPL-2.0,books,50,50.0,False,,1.0815280867179962,10.492975918500065,12.524981013000001,0.0,0.0,0.043371304364928386,0.050299159007527676,0.15253925464572582,0.03835059887085143,0.8796144116307828,0.8841088473944474,0.11589115260555255,0.0,0.9566286956350716,0.407592,0.10468521473499341,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,ocrmypdf,OCRmyPDF (Tesseract + cleanup),classic,classic,ok,,0.52,0.0,7.22,,MPL-2.0,docs,50,50.0,False,,2.053552630009615,6.197708251499932,9.398079136849947,0.06,0.0,,,,,,,,,0.48308047710684626,0.407592,0.05513372208993246,0.48308047710684626,"{""baseline"": 0.94, ""headers_footers"": 0.5, ""long_tiny_text"": 0.7356, ""multi_column"": 0.5882, ""old_scans"": 0.1346, ""table_tests"": 0.0}"
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,ocrmypdf,OCRmyPDF (Tesseract + cleanup),classic,classic,ok,,0.52,0.0,7.22,,MPL-2.0,handwriting,60,60.0,False,,0.5013704728194095,1.8892512495000346,2.145428477350026,0.11666666666666667,0.016666666666666666,0.5502884271772042,0.5509855949331954,0.8767249879749879,0.5245838172667441,0.19380050505050506,0.18714165464165466,0.6961916786916788,0.0,0.44971157282279584,0.407592,0.2258210368139911,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,ocrmypdf,OCRmyPDF (Tesseract + cleanup),classic,classic,ok,,0.52,0.0,7.22,,MPL-2.0,stress,55,55.0,False,,0.46455892174355273,5.6367680704998975,9.98387642730005,0.09090909090909091,0.0,0.21575629458721593,0.21607631994852766,0.277279290396156,0.18385373616748293,0.8099084562179493,0.8462249147219959,0.06286599436891345,0.0,0.7842437054127841,0.407592,0.243715048190378,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,qwen2.5-vl-3b,qwen2.5-vl-3b,,,error,"env install failed: command failed (1): /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 ...
+
+$ /usr/local/bin/uv venv --python /usr/bin/python3 --seed /content/ocrbench_envs/vllm-tpu
+warning: The `--system` flag has no effect, `uv venv` always ignores virtual environments when finding a Python interpreter; did you mean `--no-managed-python`?
+Using CPython 3.13.15 interpreter at: /usr/bin/python3
+Creating virtual environment with seed packages at: /content/ocrbench_envs/vllm-tpu
+ + pip==26.2.1
+Activate with: source /content/ocrbench_envs/vllm-tpu/bin/activate
+
+$ /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 pillow psutil
+Using Python 3.13.15 environment at: /content/ocrbench_envs/vllm-tpu
+error: No solution found when resolving dependencies
+  cause: Because nixl==0.3.0 has no wheels with a matching Python ABI tag (e.g., `cp313`) and vllm-tpu>=0.30.0 depends on nixl==0.3.0, we can conclude that vllm-tpu>=0.30.0 cannot be used.
+         And because you require vllm-tpu==0.30.0, we can conclude that your requirements are unsatisfiable.
+
+hint: You require CPython 3.13 (`cp313`), but we only found wheels for `nixl` (v0.3.0) with the following Python ABI tags: `cp39`, `cp310`, `cp311`, `cp312`
+",,,,,,books,0,,False,,,,,,,,,,,,,,,,0.407592,,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,qwen2.5-vl-3b,qwen2.5-vl-3b,,,error,"env install failed: command failed (1): /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 ...
+
+$ /usr/local/bin/uv venv --python /usr/bin/python3 --seed /content/ocrbench_envs/vllm-tpu
+warning: The `--system` flag has no effect, `uv venv` always ignores virtual environments when finding a Python interpreter; did you mean `--no-managed-python`?
+Using CPython 3.13.15 interpreter at: /usr/bin/python3
+Creating virtual environment with seed packages at: /content/ocrbench_envs/vllm-tpu
+ + pip==26.2.1
+Activate with: source /content/ocrbench_envs/vllm-tpu/bin/activate
+
+$ /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 pillow psutil
+Using Python 3.13.15 environment at: /content/ocrbench_envs/vllm-tpu
+error: No solution found when resolving dependencies
+  cause: Because nixl==0.3.0 has no wheels with a matching Python ABI tag (e.g., `cp313`) and vllm-tpu>=0.30.0 depends on nixl==0.3.0, we can conclude that vllm-tpu>=0.30.0 cannot be used.
+         And because you require vllm-tpu==0.30.0, we can conclude that your requirements are unsatisfiable.
+
+hint: You require CPython 3.13 (`cp313`), but we only found wheels for `nixl` (v0.3.0) with the following Python ABI tags: `cp39`, `cp310`, `cp311`, `cp312`
+",,,,,,docs,0,,False,,,,,,,,,,,,,,,,0.407592,,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,qwen2.5-vl-3b,qwen2.5-vl-3b,,,error,"env install failed: command failed (1): /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 ...
+
+$ /usr/local/bin/uv venv --python /usr/bin/python3 --seed /content/ocrbench_envs/vllm-tpu
+warning: The `--system` flag has no effect, `uv venv` always ignores virtual environments when finding a Python interpreter; did you mean `--no-managed-python`?
+Using CPython 3.13.15 interpreter at: /usr/bin/python3
+Creating virtual environment with seed packages at: /content/ocrbench_envs/vllm-tpu
+ + pip==26.2.1
+Activate with: source /content/ocrbench_envs/vllm-tpu/bin/activate
+
+$ /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 pillow psutil
+Using Python 3.13.15 environment at: /content/ocrbench_envs/vllm-tpu
+error: No solution found when resolving dependencies
+  cause: Because nixl==0.3.0 has no wheels with a matching Python ABI tag (e.g., `cp313`) and vllm-tpu>=0.30.0 depends on nixl==0.3.0, we can conclude that vllm-tpu>=0.30.0 cannot be used.
+         And because you require vllm-tpu==0.30.0, we can conclude that your requirements are unsatisfiable.
+
+hint: You require CPython 3.13 (`cp313`), but we only found wheels for `nixl` (v0.3.0) with the following Python ABI tags: `cp39`, `cp310`, `cp311`, `cp312`
+",,,,,,handwriting,0,,False,,,,,,,,,,,,,,,,0.407592,,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,qwen2.5-vl-3b,qwen2.5-vl-3b,,,error,"env install failed: command failed (1): /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 ...
+
+$ /usr/local/bin/uv venv --python /usr/bin/python3 --seed /content/ocrbench_envs/vllm-tpu
+warning: The `--system` flag has no effect, `uv venv` always ignores virtual environments when finding a Python interpreter; did you mean `--no-managed-python`?
+Using CPython 3.13.15 interpreter at: /usr/bin/python3
+Creating virtual environment with seed packages at: /content/ocrbench_envs/vllm-tpu
+ + pip==26.2.1
+Activate with: source /content/ocrbench_envs/vllm-tpu/bin/activate
+
+$ /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 pillow psutil
+Using Python 3.13.15 environment at: /content/ocrbench_envs/vllm-tpu
+error: No solution found when resolving dependencies
+  cause: Because nixl==0.3.0 has no wheels with a matching Python ABI tag (e.g., `cp313`) and vllm-tpu>=0.30.0 depends on nixl==0.3.0, we can conclude that vllm-tpu>=0.30.0 cannot be used.
+         And because you require vllm-tpu==0.30.0, we can conclude that your requirements are unsatisfiable.
+
+hint: You require CPython 3.13 (`cp313`), but we only found wheels for `nixl` (v0.3.0) with the following Python ABI tags: `cp39`, `cp310`, `cp311`, `cp312`
+",,,,,,stress,0,,False,,,,,,,,,,,,,,,,0.407592,,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,qwen2.5-vl-7b,qwen2.5-vl-7b,,,error,"env install failed: command failed (1): /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 ...
+
+$ /usr/local/bin/uv venv --python /usr/bin/python3 --seed /content/ocrbench_envs/vllm-tpu
+warning: The `--system` flag has no effect, `uv venv` always ignores virtual environments when finding a Python interpreter; did you mean `--no-managed-python`?
+Using CPython 3.13.15 interpreter at: /usr/bin/python3
+Creating virtual environment with seed packages at: /content/ocrbench_envs/vllm-tpu
+ + pip==26.2.1
+Activate with: source /content/ocrbench_envs/vllm-tpu/bin/activate
+
+$ /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 pillow psutil
+Using Python 3.13.15 environment at: /content/ocrbench_envs/vllm-tpu
+error: No solution found when resolving dependencies
+  cause: Because nixl==0.3.0 has no wheels with a matching Python ABI tag (e.g., `cp313`) and vllm-tpu>=0.30.0 depends on nixl==0.3.0, we can conclude that vllm-tpu>=0.30.0 cannot be used.
+         And because you require vllm-tpu==0.30.0, we can conclude that your requirements are unsatisfiable.
+
+hint: You require CPython 3.13 (`cp313`), but we only found wheels for `nixl` (v0.3.0) with the following Python ABI tags: `cp39`, `cp310`, `cp311`, `cp312`
+",,,,,,books,0,,False,,,,,,,,,,,,,,,,0.407592,,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,qwen2.5-vl-7b,qwen2.5-vl-7b,,,error,"env install failed: command failed (1): /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 ...
+
+$ /usr/local/bin/uv venv --python /usr/bin/python3 --seed /content/ocrbench_envs/vllm-tpu
+warning: The `--system` flag has no effect, `uv venv` always ignores virtual environments when finding a Python interpreter; did you mean `--no-managed-python`?
+Using CPython 3.13.15 interpreter at: /usr/bin/python3
+Creating virtual environment with seed packages at: /content/ocrbench_envs/vllm-tpu
+ + pip==26.2.1
+Activate with: source /content/ocrbench_envs/vllm-tpu/bin/activate
+
+$ /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 pillow psutil
+Using Python 3.13.15 environment at: /content/ocrbench_envs/vllm-tpu
+error: No solution found when resolving dependencies
+  cause: Because nixl==0.3.0 has no wheels with a matching Python ABI tag (e.g., `cp313`) and vllm-tpu>=0.30.0 depends on nixl==0.3.0, we can conclude that vllm-tpu>=0.30.0 cannot be used.
+         And because you require vllm-tpu==0.30.0, we can conclude that your requirements are unsatisfiable.
+
+hint: You require CPython 3.13 (`cp313`), but we only found wheels for `nixl` (v0.3.0) with the following Python ABI tags: `cp39`, `cp310`, `cp311`, `cp312`
+",,,,,,docs,0,,False,,,,,,,,,,,,,,,,0.407592,,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,qwen2.5-vl-7b,qwen2.5-vl-7b,,,error,"env install failed: command failed (1): /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 ...
+
+$ /usr/local/bin/uv venv --python /usr/bin/python3 --seed /content/ocrbench_envs/vllm-tpu
+warning: The `--system` flag has no effect, `uv venv` always ignores virtual environments when finding a Python interpreter; did you mean `--no-managed-python`?
+Using CPython 3.13.15 interpreter at: /usr/bin/python3
+Creating virtual environment with seed packages at: /content/ocrbench_envs/vllm-tpu
+ + pip==26.2.1
+Activate with: source /content/ocrbench_envs/vllm-tpu/bin/activate
+
+$ /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 pillow psutil
+Using Python 3.13.15 environment at: /content/ocrbench_envs/vllm-tpu
+error: No solution found when resolving dependencies
+  cause: Because nixl==0.3.0 has no wheels with a matching Python ABI tag (e.g., `cp313`) and vllm-tpu>=0.30.0 depends on nixl==0.3.0, we can conclude that vllm-tpu>=0.30.0 cannot be used.
+         And because you require vllm-tpu==0.30.0, we can conclude that your requirements are unsatisfiable.
+
+hint: You require CPython 3.13 (`cp313`), but we only found wheels for `nixl` (v0.3.0) with the following Python ABI tags: `cp39`, `cp310`, `cp311`, `cp312`
+",,,,,,handwriting,0,,False,,,,,,,,,,,,,,,,0.407592,,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,qwen2.5-vl-7b,qwen2.5-vl-7b,,,error,"env install failed: command failed (1): /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 ...
+
+$ /usr/local/bin/uv venv --python /usr/bin/python3 --seed /content/ocrbench_envs/vllm-tpu
+warning: The `--system` flag has no effect, `uv venv` always ignores virtual environments when finding a Python interpreter; did you mean `--no-managed-python`?
+Using CPython 3.13.15 interpreter at: /usr/bin/python3
+Creating virtual environment with seed packages at: /content/ocrbench_envs/vllm-tpu
+ + pip==26.2.1
+Activate with: source /content/ocrbench_envs/vllm-tpu/bin/activate
+
+$ /usr/local/bin/uv pip install --python /content/ocrbench_envs/vllm-tpu/bin/python vllm-tpu==0.30.0 pillow psutil
+Using Python 3.13.15 environment at: /content/ocrbench_envs/vllm-tpu
+error: No solution found when resolving dependencies
+  cause: Because nixl==0.3.0 has no wheels with a matching Python ABI tag (e.g., `cp313`) and vllm-tpu>=0.30.0 depends on nixl==0.3.0, we can conclude that vllm-tpu>=0.30.0 cannot be used.
+         And because you require vllm-tpu==0.30.0, we can conclude that your requirements are unsatisfiable.
+
+hint: You require CPython 3.13 (`cp313`), but we only found wheels for `nixl` (v0.3.0) with the following Python ABI tags: `cp39`, `cp310`, `cp311`, `cp312`
+",,,,,,stress,0,,False,,,,,,,,,,,,,,,,0.407592,,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,rapidocr,"RapidOCR (PP-OCRv6, ONNX)",classic,classic,ok,,1.32,0.0,2.98,,Apache-2.0,books,50,50.0,False,,1.6953102867051322,1.4005137965000358,1.765808250200098,0.0,0.0,0.1630455999427131,0.16857003865104697,0.2816030502523788,0.23610109573139632,0.8950989662973994,0.8972203139541408,0.10277968604585905,0.0,0.8369544000572869,0.407592,0.06678423465479304,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,rapidocr,"RapidOCR (PP-OCRv6, ONNX)",classic,classic,ok,,1.32,0.0,2.98,,Apache-2.0,docs,50,50.0,False,,1.0584329776893941,1.201804974999959,1.9278826178998543,0.0,0.0,,,,,,,,,0.33435821784706166,0.407592,0.10696945615504559,0.33435821784706166,"{""baseline"": 0.98, ""headers_footers"": 0.2273, ""long_tiny_text"": 0.5862, ""multi_column"": 0.0588, ""old_scans"": 0.1538, ""table_tests"": 0.0}"
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,rapidocr,"RapidOCR (PP-OCRv6, ONNX)",classic,classic,ok,,1.32,0.0,2.98,,Apache-2.0,handwriting,60,60.0,False,,7.5374566303837724,0.31542206599999645,0.32390273000009984,0.1,0.0,0.35847522059995046,0.35847522059995046,0.6249326599326598,0.3604336043360434,0.4228944203944204,0.46641714766714754,0.43358285233285243,0.0,0.6415247794000496,0.407592,0.015020981950808964,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,rapidocr,"RapidOCR (PP-OCRv6, ONNX)",classic,classic,ok,,1.32,0.0,2.98,,Apache-2.0,stress,55,55.0,False,,2.612976714182643,1.0654059909999205,1.1395467241500796,0.0,0.0,0.16668449645567046,0.16668933968288435,0.21595890415050112,0.19607939895631576,0.9876284921611879,0.9920354942845574,0.007964505715442669,0.0,0.8333155035443296,0.407592,0.04332989245004275,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,tesseract,Tesseract 5,classic,classic,ok,,0.24,0.0,7.22,,Apache-2.0,books,50,50.0,False,,5.118556064146453,2.784178256500013,4.028273297000015,0.0,0.0,0.04309641334166375,0.04989465363492879,0.15164008798576392,0.03834180487890673,0.8811607788033868,0.8870852010961815,0.11291479890381849,0.0,0.9569035866583362,0.407592,0.022119519368570213,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,tesseract,Tesseract 5,classic,classic,ok,,0.24,0.0,7.22,,Apache-2.0,docs,50,50.0,False,,3.9265679004414697,2.142709775999947,5.349854906299993,0.02,0.0,,,,,,,,,0.5069871440256836,0.407592,0.028834341560035295,0.5069871440256836,"{""baseline"": 0.98, ""headers_footers"": 0.4091, ""long_tiny_text"": 0.7931, ""multi_column"": 0.7059, ""old_scans"": 0.1538, ""table_tests"": 0.0}"
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,tesseract,Tesseract 5,classic,classic,ok,,0.24,0.0,7.22,,Apache-2.0,handwriting,60,60.0,False,,51.29181031614756,0.46299853550004855,0.6367979290000164,0.11666666666666667,0.0,0.5606941542689224,0.5609475830107231,0.8806108706108706,0.5331010452961672,0.1807022607022607,0.17901371776371777,0.7043196155696154,0.0,0.43930584573107756,0.407592,0.002207369934930067,,
+20261004-205730_TPU-v6e-1_standard,TPU-v6e-1,tesseract,Tesseract 5,classic,classic,ok,,0.24,0.0,7.22,,Apache-2.0,stress,55,55.0,False,,0.7809042500953896,1.6454416210000318,3.0163517706500445,0.09090909090909091,0.0,0.18980823843639003,0.19017372500924754,0.2531858839709205,0.15040896137381413,0.8432078804261138,0.8622435345824805,0.04684737450842857,0.0,0.81019176156361,0.407592,0.14498576488240378,,

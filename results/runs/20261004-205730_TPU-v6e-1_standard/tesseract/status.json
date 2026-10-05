@@ -1,0 +1,99 @@
+{
+  "engine": "tesseract",
+  "status": "ok",
+  "started": 1791147462.925242,
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "tracks": {
+    "books": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 9.768,
+      "pages_per_s": 5.118556064146453,
+      "latency_n": 8,
+      "latency_p50_s": 2.784178256500013,
+      "latency_p95_s": 4.028273297000015,
+      "latencies_s": [
+        3.0144,
+        3.6847,
+        2.456,
+        3.7234,
+        4.1924,
+        2.0762,
+        1.6746,
+        2.554
+      ]
+    },
+    "docs": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 12.734,
+      "pages_per_s": 3.9265679004414697,
+      "latency_n": 8,
+      "latency_p50_s": 2.142709775999947,
+      "latency_p95_s": 5.349854906299993,
+      "latencies_s": [
+        1.7052,
+        6.7423,
+        0.7454,
+        2.7638,
+        1.913,
+        2.6964,
+        2.3724,
+        1.7473
+      ]
+    },
+    "handwriting": {
+      "n": 60,
+      "n_planned": 60,
+      "partial": false,
+      "wall_s": 1.17,
+      "pages_per_s": 51.29181031614756,
+      "latency_n": 8,
+      "latency_p50_s": 0.46299853550004855,
+      "latency_p95_s": 0.6367979290000164,
+      "latencies_s": [
+        0.2785,
+        0.4857,
+        0.6525,
+        0.5716,
+        0.3578,
+        0.3444,
+        0.6076,
+        0.4403
+      ]
+    },
+    "stress": {
+      "n": 55,
+      "n_planned": 55,
+      "partial": false,
+      "wall_s": 70.431,
+      "pages_per_s": 0.7809042500953896,
+      "latency_n": 8,
+      "latency_p50_s": 1.6454416210000318,
+      "latency_p95_s": 3.0163517706500445,
+      "latencies_s": [
+        1.5969,
+        1.5204,
+        1.8483,
+        1.77,
+        3.6453,
+        1.694,
+        0.7165,
+        1.3321
+      ]
+    }
+  },
+  "load_s": 0.24,
+  "versions": {
+    "tesseract": "tesseract 5.3.4"
+  },
+  "warmup_s": 3.04,
+  "peak_rss_gb": 7.22,
+  "peak_vram_gb": 0.0,
+  "finished": 1791147622.2680762,
+  "install_s": 12.3,
+  "wall_s": 171.7
+}

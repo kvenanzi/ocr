@@ -1,0 +1,80 @@
+[32m[INFO] 2026-10-02 23:43:39,039 [RapidOCR] base.py:23: Using engine_name: onnxruntime[0m
+[32m[INFO] 2026-10-02 23:43:39,124 [RapidOCR] download_file.py:60: File exists and is valid: /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/PP-OCRv6_det_small.onnx[0m
+[32m[INFO] 2026-10-02 23:43:39,124 [RapidOCR] main.py:63: Using /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/PP-OCRv6_det_small.onnx[0m
+[32m[INFO] 2026-10-02 23:43:39,191 [RapidOCR] base.py:23: Using engine_name: onnxruntime[0m
+[32m[INFO] 2026-10-02 23:43:39,193 [RapidOCR] download_file.py:60: File exists and is valid: /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/ch_ppocr_mobile_v2.0_cls_mobile.onnx[0m
+[32m[INFO] 2026-10-02 23:43:39,193 [RapidOCR] main.py:63: Using /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/ch_ppocr_mobile_v2.0_cls_mobile.onnx[0m
+[32m[INFO] 2026-10-02 23:43:39,240 [RapidOCR] base.py:23: Using engine_name: onnxruntime[0m
+[32m[INFO] 2026-10-02 23:43:39,300 [RapidOCR] download_file.py:60: File exists and is valid: /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/PP-OCRv6_rec_small.onnx[0m
+[32m[INFO] 2026-10-02 23:43:39,301 [RapidOCR] main.py:63: Using /content/ocrbench_envs/classic/lib/python3.13/site-packages/rapidocr/models/PP-OCRv6_rec_small.onnx[0m
+[rapidocr] track books
+  [books] latency page 1/8: 3.9s
+  [books] latency page 2/8: 4.8s
+  [books] latency page 3/8: 3.9s
+  [books] latency page 4/8: 4.7s
+  [books] latency page 5/8: 5.0s
+  [books] latency page 6/8: 3.7s
+  [books] latency page 7/8: 2.9s
+  [books] latency page 8/8: 3.8s
+  [books] batch of 50 pages...
+  [books] 8/50 pages  0.51 p/s
+  [books] 16/50 pages  0.48 p/s
+  [books] 24/50 pages  0.45 p/s
+  [books] 32/50 pages  0.49 p/s
+  [books] 40/50 pages  0.52 p/s
+  [books] 48/50 pages  0.53 p/s
+  [books] 50/50 pages  0.53 p/s
+[rapidocr] track docs
+  [docs] latency page 1/8: 3.6s
+  [docs] latency page 2/8: 3.8s
+  [docs] latency page 3/8: 2.6s
+  [docs] latency page 4/8: 5.4s
+  [docs] latency page 5/8: 3.7s
+  [docs] latency page 6/8: 4.9s
+  [docs] latency page 7/8: 3.4s
+  [docs] latency page 8/8: 3.4s
+  [docs] batch of 50 pages...
+  [docs] 8/50 pages  0.52 p/s
+  [docs] 16/50 pages  0.37 p/s
+  [docs] 24/50 pages  0.34 p/s
+  [docs] 32/50 pages  0.34 p/s
+  [docs] 40/50 pages  0.38 p/s
+  [docs] 48/50 pages  0.38 p/s
+  [docs] 50/50 pages  0.38 p/s
+[rapidocr] track handwriting
+  [handwriting] latency page 1/8: 1.3s
+  [handwriting] latency page 2/8: 1.3s
+  [handwriting] latency page 3/8: 1.3s
+  [handwriting] latency page 4/8: 1.3s
+  [handwriting] latency page 5/8: 1.3s
+  [handwriting] latency page 6/8: 1.3s
+  [handwriting] latency page 7/8: 1.3s
+  [handwriting] latency page 8/8: 1.3s
+  [handwriting] batch of 60 pages...
+  [handwriting] 8/60 pages  1.59 p/s
+  [handwriting] 16/60 pages  1.54 p/s
+  [handwriting] 24/60 pages  1.51 p/s
+  [handwriting] 32/60 pages  1.48 p/s
+[33m[WARNING] 2026-10-02 23:49:12,607 [RapidOCR] main.py:132: The text detection result is empty[0m
+  [handwriting] 40/60 pages  1.49 p/s
+  [handwriting] 48/60 pages  1.41 p/s
+[33m[WARNING] 2026-10-02 23:49:21,950 [RapidOCR] main.py:132: The text detection result is empty[0m
+  [handwriting] 56/60 pages  1.42 p/s
+  [handwriting] 60/60 pages  1.42 p/s
+[rapidocr] track stress
+  [stress] latency page 1/8: 3.4s
+  [stress] latency page 2/8: 2.8s
+  [stress] latency page 3/8: 1.8s
+  [stress] latency page 4/8: 3.3s
+  [stress] latency page 5/8: 3.5s
+  [stress] latency page 6/8: 3.5s
+  [stress] latency page 7/8: 3.7s
+  [stress] latency page 8/8: 2.9s
+  [stress] batch of 55 pages...
+  [stress] 8/55 pages  0.65 p/s
+  [stress] 16/55 pages  0.65 p/s
+  [stress] 24/55 pages  0.67 p/s
+  [stress] 32/55 pages  0.71 p/s
+  [stress] 40/55 pages  0.75 p/s
+  [stress] 48/55 pages  0.76 p/s
+  [stress] 55/55 pages  0.73 p/s

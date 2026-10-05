@@ -1,0 +1,60 @@
+{"id": "iam_00023", "text": "", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264, "error": "Traceback (most recent call last):\n  File \"/content/ocr/ocrbench/worker.py\", line 108, in _predict_safely\n    preds = engine.predict(paths)\n  File \"/content/ocr/ocrbench/engines/ocrmypdf_engine.py\", line 47, in predict\n    return pmap(self._one, image_paths, self.workers)\nRuntimeError: ocrmypdf exit 7: \n    1 [tesseract] Error during processing.\n\nSubprocessOutputError\n\n"}
+{"id": "iam_00030", "text": "CrO Any ui / oud bstluate balled eyes. They shipped\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00059", "text": "rel phous\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00064", "text": "Le ET | Ee Ant He. poblmes bd once hes K Com err ers cor\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00071", "text": "Showing Hal Such Changes are part of a\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00079", "text": "ba A\n/ a\nheren\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00126", "text": "und coulel Le cut off df the text man Longer Han\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00143", "text": "op cltuctn fo tle val gold 4l Liter\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00188", "text": "The Shaw e's dalli Üh writes the Decalague\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00258", "text": "Ca TON E\nSIÈGE (O avem: eedow\nN f o Soeech. C2) Qi er Herb\n>\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00264", "text": "Nokar Gre CHRAURES Ww Wee Mk binds oll the \" howd-\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00280", "text": "reereSeu ^v ; (3) Yiep\\ua- iu — Yeevese x\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00289", "text": "Md we Answer , Ind the Lord af God aawe vs lax freedows\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00343", "text": "fever assseralen HK hartes is Ardbihs land\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00364", "text": "Ufo thetdte/ves , vo Mar they éccou e\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00371", "text": "", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00373", "text": "", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00403", "text": "CNW a AjSu deck and A WIN\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00468", "text": "p pere of fit Marke or Lf. Ag\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00478", "text": "\\cA\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00588", "text": "ra quesh re aud auswer aed tus is poled\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00608", "text": "n elf unr tree |\nThe Hoty Spint waa deste t lal places\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00749", "text": "ARMES (oo an:\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00819", "text": "VO +\n\nsuki c\\ieur ewideuce ALO\n\n&Xeee er\n", "finish_reason": null, "n_tokens": null, "seconds": 3.2460371010833264}
+{"id": "iam_00969", "text": "exweex& wide, Noove kine cools Kine Smolcing\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01020", "text": "vooA?À on Whe vetet où. o- er ONE\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01023", "text": "Prmong the rakives 04 Doha budtrobion \\inzards\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01091", "text": "A hötch- patch of all ssrtis of fishes Thot Erich\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01104", "text": "nod e euam ZOMeEMer Ror ammal\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01238", "text": "eot aua Con Fa, Papeete wa a\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01366", "text": "Qa Muy lett. known Ae Chor ont do sorting.\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01417", "text": "at  latsFeld to the arent modern church of St. Mark?s\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01452", "text": "amd of SeHe of excellent Romer, Seaeraries Our\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01455", "text": "", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01805", "text": "L) e] ne Owe dows the fast Fein abeud\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01857", "text": "", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01898", "text": "Where are your gouts i Lily-yo and Fla lacked at\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01908", "text": "i Me. To know is als good. Because we canndt move\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01970", "text": "", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01983", "text": "ty on n fe Ar; Here mue ne ale -\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_01993", "text": "Ih the exceptional darıty he was EVen able Fo\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_02060", "text": "ne wd Vl. uut v. § spas al {\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_02081", "text": "ho ald | Abang o te Ada. “No, lue\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_02109", "text": "G\n\"ex\nABU\nfa\nd.\nLP\nHe [ep\nGt\nbetray\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_02171", "text": "celebrations, amcl thee friendly welcome\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_02216", "text": "Aile Ein wae peerless, bly Wis aut\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_02279", "text": "ok yard ana uns Kal aly ^a iic: [e nea Au ant\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_02371", "text": "In\n\nmee Ba) pagus 7\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4694206186666747}
+{"id": "iam_02384", "text": "ipe oun ia ee\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02463", "text": "Ales all US then, we ke appart he\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02522", "text": "Vene f He ire expect) oul |” ( youd, We\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02552", "text": "lhe dd ^ tou What te uate of /£, but 1}\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02640", "text": "J, dur aah bey enol werd. [L Jan bh\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02655", "text": "wea Ky \" you de ev ban\" “Ty only nel bon\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02684", "text": "5 CON fon Rum SO Hat phe can d oul to do hen Aopprg,\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02725", "text": "fue couldn't num what May m bear Alia aliut. f\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02733", "text": "about thew pelaouslup. So wheu Nivel\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02750", "text": "regle veadily. Ce Low could Wise! ave.\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02765", "text": "", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}
+{"id": "iam_02838", "text": "fac fore off, tHe Coaft a A\n", "finish_reason": null, "n_tokens": null, "seconds": 0.4485939294166504}

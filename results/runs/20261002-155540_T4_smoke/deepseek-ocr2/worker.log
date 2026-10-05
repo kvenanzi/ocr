@@ -1,0 +1,341 @@
+INFO 10-02 17:13:24 [api_utils.py:286] non-default args: {'trust_remote_code': True, 'dtype': 'float16', 'max_model_len': 8192, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'limit_mm_per_prompt': {'image': 1}, 'mm_processor_cache_gb': 0, 'logits_processors': [<class 'vllm.model_executor.models.deepseek_ocr.NGramPerReqLogitsProcessor'>], 'model': 'deepseek-ai/DeepSeek-OCR-2'}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+INFO 10-02 17:13:36 [model.py:692] Resolved architecture: DeepseekOCR2ForCausalLM
+WARNING 10-02 17:13:36 [model.py:2364] Casting torch.bfloat16 to torch.float16.
+INFO 10-02 17:13:36 [model.py:2030] Using max model len 8192
+WARNING 10-02 17:13:36 [model.py:994] Model does not support mm_device_do_normalize, forcing mm_device_do_normalize = False.
+INFO 10-02 17:13:40 [scheduler.py:288] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 10-02 17:13:40 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+WARNING 10-02 17:13:40 [vllm.py:716] Model Runner V2 does not yet support custom logits processors; using the V1 model runner instead.
+(EngineCore pid=43785) INFO 10-02 17:13:50 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='deepseek-ai/DeepSeek-OCR-2', speculative_config=None, tokenizer='deepseek-ai/DeepSeek-OCR-2', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.float16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=deepseek-ai/DeepSeek-OCR-2, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=43785) INFO 10-02 17:13:51 [parallel_state.py:1827] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_0d7a566a1c564893b306c289a0f327d8 backend=nccl
+(EngineCore pid=43785) INFO 10-02 17:13:51 [parallel_state.py:2267] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank 0, EPLB rank N/A
+(EngineCore pid=43785) WARNING 10-02 17:13:53 [topk_topp_sampler.py:85] FlashInfer top-p/top-k sampling unavailable: unsupported compute capability 7.5; falling back. Set VLLM_USE_FLASHINFER_SAMPLER=0 to silence.
+(EngineCore pid=43785) INFO 10-02 17:13:53 [gpu_model_runner.py:5317] Starting to load model deepseek-ai/DeepSeek-OCR-2...
+(EngineCore pid=43785) INFO 10-02 17:13:53 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(EngineCore pid=43785) ERROR 10-02 17:13:53 [fa_utils.py:212] Cannot use FA version 2 is not supported due to FA2 is only supported on devices with compute capability >= 8
+(EngineCore pid=43785) INFO 10-02 17:13:53 [cuda.py:538] Using TRITON_ATTN attention backend out of potential backends: ['TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=43785) INFO 10-02 17:13:53 [unquantized.py:319] Using TRITON Unquantized MoE backend out of potential backends: ['FlashInfer TRTLLM', 'FlashInfer CUTLASS', 'TRITON', 'BATCHED_TRITON'].
+INFO 10-02 17:14:03 [base.py:261] Multi-modal warmup completed in 13.364s
+(EngineCore pid=43785) INFO 10-02 17:14:16 [weight_utils.py:558] Time spent downloading weights for deepseek-ai/DeepSeek-OCR-2: 21.566920 seconds
+(EngineCore pid=43785) INFO 10-02 17:14:16 [weight_utils.py:895] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 6.31 GiB. Available RAM: 46.91 GiB.
+(EngineCore pid=43785) INFO 10-02 17:14:16 [weight_utils.py:918] Auto-prefetch is disabled because the filesystem (OVERLAY) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=43785) 
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+(EngineCore pid=43785) 
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:03<00:00,  3.60s/it]
+(EngineCore pid=43785) 
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:03<00:00,  3.60s/it]
+(EngineCore pid=43785) 
+(EngineCore pid=43785) INFO 10-02 17:14:20 [default_loader.py:430] Loading weights took 3.77 seconds
+(EngineCore pid=43785) INFO 10-02 17:14:20 [unquantized.py:400] Using MoEPrepareAndFinalizeNoDPEPModular
+(EngineCore pid=43785) INFO 10-02 17:14:20 [unquantized.py:401] Using TritonExperts MoE backend
+(EngineCore pid=43785) INFO 10-02 17:14:21 [gpu_model_runner.py:5416] Model loading took 6.33 GiB memory and 26.653424 seconds
+(EngineCore pid=43785) INFO 10-02 17:14:21 [utils.py:320] Using LBNHC KV cache layout.
+(EngineCore pid=43785) INFO 10-02 17:14:21 [gpu_model_runner.py:6496] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 9 image items of the maximum feature size.
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366] EngineCore failed to start.
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366] Traceback (most recent call last):
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 1328, in run_engine_core
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return func(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 1085, in __init__
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     super().__init__(
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     ~~~~~~~~~~~~~~~~^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         vllm_config,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         ^^^^^^^^^^^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     ...<3 lines>...
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         internal_dp_balancing,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         ^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     )
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     ^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 145, in __init__
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return func(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 308, in _initialize_kv_caches
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     available_gpu_memory = self.model_executor.determine_available_memory()
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 149, in determine_available_memory
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return self.collective_rpc("determine_available_memory")
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/executor/uniproc_executor.py", line 103, in collective_rpc
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return func(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return func(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/worker/gpu_worker.py", line 572, in determine_available_memory
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     self.model_runner.profile_run()
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/worker/gpu_model_runner.py", line 6512, in profile_run
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     dummy_encoder_outputs = self.model.embed_multimodal(
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         **batched_dummy_mm_inputs
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     )
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepseek_ocr2.py", line 427, in embed_multimodal
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     vision_embeddings = self._process_image_input(image_input)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepseek_ocr2.py", line 415, in _process_image_input
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     vision_features = self._pixel_values_to_embedding(
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         pixel_values=pixel_values,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         images_crop=images_crop,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         images_spatial_crop=images_spatial_crop,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     )
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepseek_ocr2.py", line 391, in _pixel_values_to_embedding
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     global_features = self._encode_global_features(image_ori)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepseek_ocr2.py", line 354, in _encode_global_features
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     global_features_1 = self.sam_model(image_tensor)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return self._call_impl(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return forward_call(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepencoder.py", line 355, in forward
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     x = blk(x)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return self._call_impl(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return forward_call(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepencoder.py", line 423, in forward
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     x = self.attn(x)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return self._call_impl(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return forward_call(*args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepencoder.py", line 509, in forward
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     x = deepencoder_rel_pos_attention(
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         q,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     ...<5 lines>...
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         self.scale,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     )
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepencoder.py", line 170, in deepencoder_rel_pos_attention
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     _deepencoder_rel_pos_attention_kernel[grid](
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         q,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         ^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     ...<19 lines>...
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         num_stages=2,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         ^^^^^^^^^^^^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     )
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     ^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/runtime/jit.py", line 370, in <lambda>
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]                                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/runtime/jit.py", line 739, in run
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     kernel = self._do_compile(key, signature, device, constexprs, options, attrs, warmup)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/runtime/jit.py", line 884, in _do_compile
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     kernel = self.compile(src, target=target, options=options.__dict__)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/compiler/compiler.py", line 307, in compile
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     module = src.make_ir(target, options, codegen_fns, module_map, context)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/compiler/compiler.py", line 80, in make_ir
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]                        module_map=module_map)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366] triton.compiler.errors.CompilationError: at 61:23:
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     q_offsets = (
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         batch * stride_qb
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         + head * stride_qh
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         + offs_m[:, None] * stride_qm
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]         + offs_d[None, :] * stride_qd
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     )
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     q = tl.load(q_ptr + q_offsets, mask=mask_m[:, None], other=0.0)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366] 
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     row_max = tl.full([BLOCK_M], -float("inf"), tl.float32)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     row_sum = tl.zeros([BLOCK_M], tl.float32)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     accumulator = tl.zeros([BLOCK_M, BLOCK_D], tl.float32)
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]     qk_scale = scale * LOG2E
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366]                        ^
+(EngineCore pid=43785) ERROR 10-02 17:14:23 [core.py:1366] NameError("Cannot access global variable LOG2E from within @jit'ed function. Triton kernels can only access global variables that are instanstiated as constexpr (`x = triton.language.constexpr(42)`). Note that this is different from annotating a variable as constexpr (`x: triton.language.constexpr = 42`), which is not supported.  Alternatively, set the envvar TRITON_ALLOW_NON_CONSTEXPR_GLOBALS=1, but we do not promise to support this forever.")
+(EngineCore pid=43785) Process EngineCore:
+(EngineCore pid=43785) Traceback (most recent call last):
+(EngineCore pid=43785)   File "/usr/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+(EngineCore pid=43785)     self.run()
+(EngineCore pid=43785)     ~~~~~~~~^^
+(EngineCore pid=43785)   File "/usr/lib/python3.13/multiprocessing/process.py", line 108, in run
+(EngineCore pid=43785)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=43785)     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 1370, in run_engine_core
+(EngineCore pid=43785)     raise e
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 1328, in run_engine_core
+(EngineCore pid=43785)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=43785)     return func(*args, **kwargs)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 1085, in __init__
+(EngineCore pid=43785)     super().__init__(
+(EngineCore pid=43785)     ~~~~~~~~~~~~~~~~^
+(EngineCore pid=43785)         vllm_config,
+(EngineCore pid=43785)         ^^^^^^^^^^^^
+(EngineCore pid=43785)     ...<3 lines>...
+(EngineCore pid=43785)         internal_dp_balancing,
+(EngineCore pid=43785)         ^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785)     )
+(EngineCore pid=43785)     ^
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 145, in __init__
+(EngineCore pid=43785)     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=43785)     return func(*args, **kwargs)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 308, in _initialize_kv_caches
+(EngineCore pid=43785)     available_gpu_memory = self.model_executor.determine_available_memory()
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 149, in determine_available_memory
+(EngineCore pid=43785)     return self.collective_rpc("determine_available_memory")
+(EngineCore pid=43785)            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/executor/uniproc_executor.py", line 103, in collective_rpc
+(EngineCore pid=43785)     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=43785)     return func(*args, **kwargs)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=43785)     return func(*args, **kwargs)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/worker/gpu_worker.py", line 572, in determine_available_memory
+(EngineCore pid=43785)     self.model_runner.profile_run()
+(EngineCore pid=43785)     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/worker/gpu_model_runner.py", line 6512, in profile_run
+(EngineCore pid=43785)     dummy_encoder_outputs = self.model.embed_multimodal(
+(EngineCore pid=43785)         **batched_dummy_mm_inputs
+(EngineCore pid=43785)     )
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepseek_ocr2.py", line 427, in embed_multimodal
+(EngineCore pid=43785)     vision_embeddings = self._process_image_input(image_input)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepseek_ocr2.py", line 415, in _process_image_input
+(EngineCore pid=43785)     vision_features = self._pixel_values_to_embedding(
+(EngineCore pid=43785)         pixel_values=pixel_values,
+(EngineCore pid=43785)         images_crop=images_crop,
+(EngineCore pid=43785)         images_spatial_crop=images_spatial_crop,
+(EngineCore pid=43785)     )
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepseek_ocr2.py", line 391, in _pixel_values_to_embedding
+(EngineCore pid=43785)     global_features = self._encode_global_features(image_ori)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepseek_ocr2.py", line 354, in _encode_global_features
+(EngineCore pid=43785)     global_features_1 = self.sam_model(image_tensor)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+(EngineCore pid=43785)     return self._call_impl(*args, **kwargs)
+(EngineCore pid=43785)            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+(EngineCore pid=43785)     return forward_call(*args, **kwargs)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepencoder.py", line 355, in forward
+(EngineCore pid=43785)     x = blk(x)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+(EngineCore pid=43785)     return self._call_impl(*args, **kwargs)
+(EngineCore pid=43785)            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+(EngineCore pid=43785)     return forward_call(*args, **kwargs)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepencoder.py", line 423, in forward
+(EngineCore pid=43785)     x = self.attn(x)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+(EngineCore pid=43785)     return self._call_impl(*args, **kwargs)
+(EngineCore pid=43785)            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+(EngineCore pid=43785)     return forward_call(*args, **kwargs)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepencoder.py", line 509, in forward
+(EngineCore pid=43785)     x = deepencoder_rel_pos_attention(
+(EngineCore pid=43785)         q,
+(EngineCore pid=43785)     ...<5 lines>...
+(EngineCore pid=43785)         self.scale,
+(EngineCore pid=43785)     )
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/model_executor/models/deepencoder.py", line 170, in deepencoder_rel_pos_attention
+(EngineCore pid=43785)     _deepencoder_rel_pos_attention_kernel[grid](
+(EngineCore pid=43785)     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+(EngineCore pid=43785)         q,
+(EngineCore pid=43785)         ^^
+(EngineCore pid=43785)     ...<19 lines>...
+(EngineCore pid=43785)         num_stages=2,
+(EngineCore pid=43785)         ^^^^^^^^^^^^^
+(EngineCore pid=43785)     )
+(EngineCore pid=43785)     ^
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/runtime/jit.py", line 370, in <lambda>
+(EngineCore pid=43785)     return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+(EngineCore pid=43785)                                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/runtime/jit.py", line 739, in run
+(EngineCore pid=43785)     kernel = self._do_compile(key, signature, device, constexprs, options, attrs, warmup)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/runtime/jit.py", line 884, in _do_compile
+(EngineCore pid=43785)     kernel = self.compile(src, target=target, options=options.__dict__)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/compiler/compiler.py", line 307, in compile
+(EngineCore pid=43785)     module = src.make_ir(target, options, codegen_fns, module_map, context)
+(EngineCore pid=43785)   File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/triton/compiler/compiler.py", line 80, in make_ir
+(EngineCore pid=43785)     return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,
+(EngineCore pid=43785)                        module_map=module_map)
+(EngineCore pid=43785) triton.compiler.errors.CompilationError: at 61:23:
+(EngineCore pid=43785)     q_offsets = (
+(EngineCore pid=43785)         batch * stride_qb
+(EngineCore pid=43785)         + head * stride_qh
+(EngineCore pid=43785)         + offs_m[:, None] * stride_qm
+(EngineCore pid=43785)         + offs_d[None, :] * stride_qd
+(EngineCore pid=43785)     )
+(EngineCore pid=43785)     q = tl.load(q_ptr + q_offsets, mask=mask_m[:, None], other=0.0)
+(EngineCore pid=43785) 
+(EngineCore pid=43785)     row_max = tl.full([BLOCK_M], -float("inf"), tl.float32)
+(EngineCore pid=43785)     row_sum = tl.zeros([BLOCK_M], tl.float32)
+(EngineCore pid=43785)     accumulator = tl.zeros([BLOCK_M, BLOCK_D], tl.float32)
+(EngineCore pid=43785)     qk_scale = scale * LOG2E
+(EngineCore pid=43785)                        ^
+(EngineCore pid=43785) NameError("Cannot access global variable LOG2E from within @jit'ed function. Triton kernels can only access global variables that are instanstiated as constexpr (`x = triton.language.constexpr(42)`). Note that this is different from annotating a variable as constexpr (`x: triton.language.constexpr = 42`), which is not supported.  Alternatively, set the envvar TRITON_ALLOW_NON_CONSTEXPR_GLOBALS=1, but we do not promise to support this forever.")
+INFO 10-02 17:14:23 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+Traceback (most recent call last):
+  File "/content/ocr/ocrbench/worker.py", line 173, in main
+    engine.load()
+    ~~~~~~~~~~~^^
+  File "/content/ocr/ocrbench/engines/vllm_engine.py", line 120, in load
+    self.llm = LLM(**kw)
+               ~~~^^^^^^
+  File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        engine_args=engine_args, usage_context=UsageContext.LLM_CLASS
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/llm_engine.py", line 184, in from_engine_args
+    return cls(
+        vllm_config=vllm_config,
+    ...<4 lines>...
+        multiprocess_mode=enable_multiprocessing,
+    )
+  File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/llm_engine.py", line 109, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        multiprocess_mode=multiprocess_mode,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        renderer=renderer,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core_client.py", line 122, in make_client
+    return SyncMPClient(
+        vllm_config,
+    ...<2 lines>...
+        renderer=renderer,
+    )
+  File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+  File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core_client.py", line 880, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        asyncio_mode=False,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        renderer=renderer,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+    with launch_core_engines(
+         ~~~~~~~~~~~~~~~~~~~^
+        vllm_config, executor_class, log_stats, addresses
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as engine_launch:
+    ^
+  File "/usr/lib/python3.13/contextlib.py", line 148, in __exit__
+    next(self.gen)
+    ~~~~^^^^^^^^^^
+  File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+    wait_for_engine_startup(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        handshake_socket,
+        ^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        launch,
+        ^^^^^^^
+    )
+    ^
+  File "/content/ocrbench_envs/vllm/lib/python3.13/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+    raise RuntimeError(
+    ...<8 lines>...
+    )
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

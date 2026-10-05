@@ -1,0 +1,56 @@
+[tesseract] track books
+  [books] latency page 1/8: 4.4s
+  [books] latency page 2/8: 5.2s
+  [books] latency page 3/8: 3.5s
+  [books] latency page 4/8: 5.2s
+  [books] latency page 5/8: 6.0s
+  [books] latency page 6/8: 2.9s
+  [books] latency page 7/8: 2.4s
+  [books] latency page 8/8: 3.8s
+  [books] batch of 50 pages...
+  [books] 16/50 pages  0.65 p/s
+  [books] 32/50 pages  0.70 p/s
+  [books] 48/50 pages  0.67 p/s
+  [books] 50/50 pages  0.64 p/s
+[tesseract] track docs
+  [docs] latency page 1/8: 2.5s
+  [docs] latency page 2/8: 9.8s
+  [docs] latency page 3/8: 1.1s
+  [docs] latency page 4/8: 4.0s
+  [docs] latency page 5/8: 2.7s
+  [docs] latency page 6/8: 3.9s
+  [docs] latency page 7/8: 3.4s
+  [docs] latency page 8/8: 2.5s
+  [docs] batch of 50 pages...
+  [docs] 16/50 pages  0.58 p/s
+  [docs] 32/50 pages  0.55 p/s
+  [docs] 48/50 pages  0.61 p/s
+  [docs] 50/50 pages  0.61 p/s
+[tesseract] track handwriting
+  [handwriting] latency page 1/8: 0.3s
+  [handwriting] latency page 2/8: 0.6s
+  [handwriting] latency page 3/8: 0.8s
+  [handwriting] latency page 4/8: 0.7s
+  [handwriting] latency page 5/8: 0.4s
+  [handwriting] latency page 6/8: 0.5s
+  [handwriting] latency page 7/8: 0.8s
+  [handwriting] latency page 8/8: 0.6s
+  [handwriting] batch of 60 pages...
+  [handwriting] 16/60 pages  7.23 p/s
+  [handwriting] 32/60 pages  7.18 p/s
+  [handwriting] 48/60 pages  7.14 p/s
+  [handwriting] 60/60 pages  7.11 p/s
+[tesseract] track stress
+  [stress] latency page 1/8: 2.3s
+  [stress] latency page 2/8: 2.1s
+  [stress] latency page 3/8: 2.6s
+  [stress] latency page 4/8: 2.5s
+  [stress] latency page 5/8: 5.1s
+  [stress] latency page 6/8: 2.4s
+  [stress] latency page 7/8: 1.1s
+  [stress] latency page 8/8: 1.9s
+  [stress] batch of 55 pages...
+  [stress] 16/55 pages  1.26 p/s
+  [stress] 32/55 pages  0.24 p/s
+  [stress] 48/55 pages  0.34 p/s
+  [stress] 55/55 pages  0.37 p/s

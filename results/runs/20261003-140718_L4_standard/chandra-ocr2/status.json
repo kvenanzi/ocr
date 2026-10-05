@@ -1,0 +1,62 @@
+{
+  "engine": "chandra-ocr2",
+  "status": "partial",
+  "started": 1791036472.2008135,
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "tracks": {
+    "books": {
+      "n": 50,
+      "n_planned": 50,
+      "partial": false,
+      "wall_s": 346.427,
+      "pages_per_s": 0.1443304222860232,
+      "latency_n": 8,
+      "latency_p50_s": 33.46792676100017,
+      "latency_p95_s": 39.39052752290015
+    },
+    "docs": {
+      "n": 32,
+      "n_planned": 50,
+      "partial": true,
+      "wall_s": 333.886,
+      "pages_per_s": 0.09584123662721962,
+      "latency_n": 8,
+      "latency_p50_s": 45.86209364999968,
+      "latency_p95_s": 85.9127369644499
+    },
+    "handwriting": {
+      "n": 60,
+      "n_planned": 60,
+      "partial": false,
+      "wall_s": 12.44,
+      "pages_per_s": 4.823306117923872,
+      "latency_n": 8,
+      "latency_p50_s": 1.608684786999902,
+      "latency_p95_s": 1.767964157400229
+    },
+    "stress": {
+      "n": 55,
+      "n_planned": 55,
+      "partial": false,
+      "wall_s": 197.378,
+      "pages_per_s": 0.278653097618633,
+      "latency_n": 8,
+      "latency_p50_s": 30.089016609000055,
+      "latency_p95_s": 30.376701398049885
+    }
+  },
+  "load_s": 431.46,
+  "versions": {
+    "vllm": "0.30.0",
+    "vllm-tpu": null,
+    "torch": "2.13.0+cu132",
+    "transformers": "5.16.1"
+  },
+  "warmup_s": 33.99,
+  "peak_rss_gb": 13.62,
+  "peak_vram_gb": 19.49,
+  "finished": 1791038722.5620692,
+  "install_s": 32.6,
+  "wall_s": 2285.3
+}

@@ -1,0 +1,1501 @@
+... [94 earlier lines trimmed]
+Downloading processor_config.json: 100%|██████████| 411/411 [00:00<00:00, 1.53MB/s]
+
+Downloading text_recognition model to /root/.cache/datalab/models/text_recognition/2025_09_23:  92%|█████████▏| 11/12 [00:00<00:00, 22.83it/s]
+
+Downloading model.safetensors:   0%|          | 0.00/1.34G [00:00<?, ?B/s][A
+
+Downloading model.safetensors:   0%|          | 5.00M/1.34G [00:00<00:30, 46.6MB/s][A
+
+Downloading model.safetensors:   1%|          | 10.0M/1.34G [00:00<00:29, 49.2MB/s][A
+
+Downloading model.safetensors:   1%|          | 15.0M/1.34G [00:00<00:28, 50.4MB/s][A
+
+Downloading model.safetensors:   1%|▏         | 20.0M/1.34G [00:00<00:27, 51.0MB/s][A
+
+Downloading model.safetensors:   2%|▏         | 28.0M/1.34G [00:00<00:22, 61.9MB/s][A
+
+Downloading model.safetensors:   3%|▎         | 37.0M/1.34G [00:00<00:19, 72.5MB/s][A
+
+Downloading model.safetensors:   4%|▎         | 49.0M/1.34G [00:00<00:18, 73.5MB/s][A
+
+Downloading model.safetensors:   5%|▍         | 64.0M/1.34G [00:00<00:14, 95.1MB/s][A
+
+Downloading model.safetensors:   5%|▌         | 72.0M/1.34G [00:00<00:15, 90.9MB/s][A
+
+Downloading model.safetensors:   6%|▌         | 80.0M/1.34G [00:01<00:16, 82.1MB/s][A
+
+Downloading model.safetensors:   7%|▋         | 95.0M/1.34G [00:01<00:14, 95.0MB/s][A
+
+Downloading model.safetensors:   8%|▊         | 109M/1.34G [00:01<00:12, 107MB/s]  [A
+
+Downloading model.safetensors:   8%|▊         | 116M/1.34G [00:01<00:13, 97.8MB/s][A
+
+Downloading model.safetensors:   9%|▉         | 126M/1.34G [00:01<00:13, 96.5MB/s][A
+
+Downloading model.safetensors:  10%|█         | 139M/1.34G [00:01<00:12, 107MB/s] [A
+
+Downloading model.safetensors:  11%|█         | 147M/1.34G [00:01<00:13, 98.7MB/s][A
+
+Downloading model.safetensors:  12%|█▏        | 158M/1.34G [00:01<00:13, 96.6MB/s][A
+
+Downloading model.safetensors:  13%|█▎        | 173M/1.34G [00:02<00:11, 113MB/s] [A
+
+Downloading model.safetensors:  13%|█▎        | 183M/1.34G [00:02<00:11, 110MB/s][A
+
+Downloading model.safetensors:  14%|█▍        | 191M/1.34G [00:02<00:12, 101MB/s][A
+
+Downloading model.safetensors:  15%|█▍        | 204M/1.34G [00:02<00:11, 110MB/s][A
+
+Downloading model.safetensors:  15%|█▌        | 212M/1.34G [00:02<00:12, 100MB/s][A
+
+Downloading model.safetensors:  16%|█▌        | 220M/1.34G [00:02<00:14, 84.2MB/s][A
+
+Downloading model.safetensors:  17%|█▋        | 234M/1.34G [00:02<00:11, 100MB/s] [A
+
+Downloading model.safetensors:  17%|█▋        | 238M/1.34G [00:02<00:14, 83.6MB/s][A
+
+Downloading model.safetensors:  18%|█▊        | 248M/1.34G [00:02<00:13, 88.3MB/s][A
+
+Downloading model.safetensors:  19%|█▊        | 255M/1.34G [00:02<00:14, 83.3MB/s][A
+
+Downloading model.safetensors:  20%|█▉        | 269M/1.34G [00:03<00:13, 85.3MB/s][A
+
+Downloading model.safetensors:  20%|██        | 281M/1.34G [00:03<00:12, 91.4MB/s][A
+
+Downloading model.safetensors:  21%|██        | 287M/1.34G [00:03<00:13, 82.7MB/s][A
+
+Downloading model.safetensors:  22%|██▏       | 299M/1.34G [00:03<00:13, 81.0MB/s][A
+
+Downloading model.safetensors:  23%|██▎       | 314M/1.34G [00:03<00:11, 98.8MB/s][A
+
+Downloading model.safetensors:  23%|██▎       | 320M/1.34G [00:03<00:12, 88.3MB/s][A
+
+Downloading model.safetensors:  24%|██▍       | 330M/1.34G [00:03<00:13, 83.7MB/s][A
+
+Downloading model.safetensors:  25%|██▍       | 338M/1.34G [00:04<00:13, 81.1MB/s][A
+
+Downloading model.safetensors:  25%|██▌       | 346M/1.34G [00:04<00:13, 80.1MB/s][A
+
+Downloading model.safetensors:  26%|██▌       | 359M/1.34G [00:04<00:11, 91.7MB/s][A
+
+Downloading model.safetensors:  27%|██▋       | 375M/1.34G [00:04<00:10, 104MB/s] [A
+
+Downloading model.safetensors:  28%|██▊       | 391M/1.34G [00:04<00:08, 115MB/s][A
+
+Downloading model.safetensors:  30%|██▉       | 406M/1.34G [00:04<00:09, 110MB/s][A
+
+Downloading model.safetensors:  31%|███       | 422M/1.34G [00:04<00:08, 115MB/s][A
+
+Downloading model.safetensors:  31%|███▏      | 430M/1.34G [00:04<00:09, 106MB/s][A
+
+Downloading model.safetensors:  32%|███▏      | 435M/1.34G [00:04<00:10, 92.1MB/s][A
+
+Downloading model.safetensors:  33%|███▎      | 447M/1.34G [00:05<00:10, 95.2MB/s][A
+
+Downloading model.safetensors:  34%|███▎      | 463M/1.34G [00:05<00:09, 103MB/s] [A
+
+Downloading model.safetensors:  35%|███▍      | 479M/1.34G [00:05<00:08, 110MB/s][A
+
+Downloading model.safetensors:  36%|███▌      | 495M/1.34G [00:05<00:07, 116MB/s][A
+
+Downloading model.safetensors:  37%|███▋      | 510M/1.34G [00:05<00:07, 122MB/s][A
+
+Downloading model.safetensors:  38%|███▊      | 526M/1.34G [00:05<00:07, 124MB/s][A
+
+Downloading model.safetensors:  39%|███▉      | 541M/1.34G [00:05<00:06, 131MB/s][A
+
+Downloading model.safetensors:  40%|████      | 552M/1.34G [00:05<00:06, 127MB/s][A
+
+Downloading model.safetensors:  41%|████      | 562M/1.34G [00:06<00:07, 121MB/s][A
+
+Downloading model.safetensors:  42%|████▏     | 574M/1.34G [00:06<00:07, 116MB/s][A
+
+Downloading model.safetensors:  43%|████▎     | 588M/1.34G [00:06<00:06, 124MB/s][A
+
+Downloading model.safetensors:  43%|████▎     | 596M/1.34G [00:06<00:07, 111MB/s][A
+
+Downloading model.safetensors:  44%|████▍     | 606M/1.34G [00:06<00:07, 106MB/s][A
+
+Downloading model.safetensors:  45%|████▌     | 622M/1.34G [00:06<00:06, 114MB/s][A
+
+Downloading model.safetensors:  46%|████▋     | 635M/1.34G [00:06<00:06, 118MB/s][A
+
+Downloading model.safetensors:  47%|████▋     | 643M/1.34G [00:06<00:07, 108MB/s][A
+
+Downloading model.safetensors:  48%|████▊     | 654M/1.34G [00:06<00:06, 108MB/s][A
+
+Downloading model.safetensors:  49%|████▊     | 668M/1.34G [00:07<00:06, 117MB/s][A
+
+Downloading model.safetensors:  49%|████▉     | 677M/1.34G [00:07<00:06, 110MB/s][A
+
+Downloading model.safetensors:  50%|█████     | 687M/1.34G [00:07<00:06, 108MB/s][A
+
+Downloading model.safetensors:  51%|█████     | 702M/1.34G [00:07<00:06, 114MB/s][A
+
+Downloading model.safetensors:  52%|█████▏    | 718M/1.34G [00:07<00:05, 120MB/s][A
+
+Downloading model.safetensors:  53%|█████▎    | 733M/1.34G [00:07<00:05, 118MB/s][A
+
+Downloading model.safetensors:  55%|█████▍    | 749M/1.34G [00:07<00:05, 120MB/s][A
+
+Downloading model.safetensors:  56%|█████▌    | 765M/1.34G [00:07<00:05, 117MB/s][A
+
+Downloading model.safetensors:  57%|█████▋    | 781M/1.34G [00:08<00:05, 115MB/s][A
+
+Downloading model.safetensors:  58%|█████▊    | 797M/1.34G [00:08<00:05, 116MB/s][A
+
+Downloading model.safetensors:  59%|█████▉    | 813M/1.34G [00:08<00:04, 121MB/s][A
+
+Downloading model.safetensors:  60%|██████    | 829M/1.34G [00:08<00:04, 124MB/s][A
+
+Downloading model.safetensors:  62%|██████▏   | 845M/1.34G [00:08<00:04, 121MB/s][A
+
+Downloading model.safetensors:  63%|██████▎   | 861M/1.34G [00:08<00:04, 119MB/s][A
+
+Downloading model.safetensors:  64%|██████▍   | 876M/1.34G [00:08<00:04, 127MB/s][A
+
+Downloading model.safetensors:  64%|██████▍   | 884M/1.34G [00:08<00:04, 116MB/s][A
+
+Downloading model.safetensors:  65%|██████▌   | 893M/1.34G [00:09<00:04, 109MB/s][A
+
+Downloading model.safetensors:  66%|██████▌   | 908M/1.34G [00:09<00:04, 120MB/s][A
+
+Downloading model.safetensors:  67%|██████▋   | 917M/1.34G [00:09<00:04, 113MB/s][A
+
+Downloading model.safetensors:  67%|██████▋   | 926M/1.34G [00:09<00:04, 106MB/s][A
+
+Downloading model.safetensors:  69%|██████▊   | 941M/1.34G [00:09<00:04, 110MB/s][A
+
+Downloading model.safetensors:  70%|██████▉   | 957M/1.34G [00:09<00:03, 111MB/s][A
+
+Downloading model.safetensors:  71%|███████   | 971M/1.34G [00:09<00:03, 120MB/s][A
+
+Downloading model.safetensors:  72%|███████▏  | 982M/1.34G [00:09<00:03, 116MB/s][A
+
+Downloading model.safetensors:  72%|███████▏  | 992M/1.34G [00:09<00:03, 111MB/s][A
+
+Downloading model.safetensors:  73%|███████▎  | 0.98G/1.34G [00:10<00:03, 106MB/s][A
+
+Downloading model.safetensors:  74%|███████▍  | 1.00G/1.34G [00:10<00:03, 115MB/s][A
+
+Downloading model.safetensors:  75%|███████▍  | 1.00G/1.34G [00:10<00:07, 47.6MB/s][A
+
+Downloading model.safetensors:  76%|███████▌  | 1.02G/1.34G [00:10<00:05, 63.8MB/s][A
+
+Downloading model.safetensors:  77%|███████▋  | 1.03G/1.34G [00:10<00:04, 72.8MB/s][A
+
+Downloading model.safetensors:  78%|███████▊  | 1.04G/1.34G [00:11<00:03, 89.7MB/s][A
+
+Downloading model.safetensors:  79%|███████▊  | 1.05G/1.34G [00:11<00:03, 97.6MB/s][A
+
+Downloading model.safetensors:  79%|███████▉  | 1.06G/1.34G [00:11<00:03, 93.1MB/s][A
+
+Downloading model.safetensors:  80%|████████  | 1.07G/1.34G [00:11<00:02, 103MB/s] [A
+
+Downloading model.safetensors:  81%|████████▏ | 1.09G/1.34G [00:11<00:02, 107MB/s][A
+
+Downloading model.safetensors:  82%|████████▏ | 1.10G/1.34G [00:11<00:02, 119MB/s][A
+
+Downloading model.safetensors:  83%|████████▎ | 1.11G/1.34G [00:11<00:02, 107MB/s][A
+
+Downloading model.safetensors:  84%|████████▎ | 1.12G/1.34G [00:11<00:02, 107MB/s][A
+
+Downloading model.safetensors:  85%|████████▍ | 1.13G/1.34G [00:11<00:01, 114MB/s][A
+
+Downloading model.safetensors:  85%|████████▌ | 1.14G/1.34G [00:12<00:01, 110MB/s][A
+
+Downloading model.safetensors:  86%|████████▋ | 1.16G/1.34G [00:12<00:01, 114MB/s][A
+
+Downloading model.safetensors:  87%|████████▋ | 1.17G/1.34G [00:12<00:01, 114MB/s][A
+
+Downloading model.safetensors:  88%|████████▊ | 1.18G/1.34G [00:12<00:01, 120MB/s][A
+
+Downloading model.safetensors:  89%|████████▉ | 1.19G/1.34G [00:12<00:02, 77.3MB/s][A
+
+Downloading model.safetensors:  90%|████████▉ | 1.20G/1.34G [00:12<00:01, 87.6MB/s][A
+
+Downloading model.safetensors:  91%|█████████ | 1.21G/1.34G [00:12<00:01, 89.2MB/s][A
+
+Downloading model.safetensors:  92%|█████████▏| 1.23G/1.34G [00:12<00:01, 99.3MB/s][A
+
+Downloading model.safetensors:  93%|█████████▎| 1.25G/1.34G [00:13<00:00, 111MB/s] [A
+
+Downloading model.safetensors:  94%|█████████▍| 1.26G/1.34G [00:13<00:00, 113MB/s][A
+
+Downloading model.safetensors:  95%|█████████▌| 1.28G/1.34G [00:13<00:00, 122MB/s][A
+
+Downloading model.safetensors:  96%|█████████▌| 1.29G/1.34G [00:13<00:00, 122MB/s][A
+
+Downloading model.safetensors:  96%|█████████▋| 1.29G/1.34G [00:13<00:00, 106MB/s][A
+
+Downloading model.safetensors:  98%|█████████▊| 1.31G/1.34G [00:13<00:00, 114MB/s][A
+
+Downloading model.safetensors:  99%|█████████▊| 1.32G/1.34G [00:13<00:00, 125MB/s][A
+
+Downloading model.safetensors: 100%|█████████▉| 1.34G/1.34G [00:13<00:00, 120MB/s][A
+Downloading model.safetensors: 100%|██████████| 1.34G/1.34G [00:13<00:00, 103MB/s]
+
+Downloading text_recognition model to /root/.cache/datalab/models/text_recognition/2025_09_23: 100%|██████████| 12/12 [00:14<00:00,  1.22s/it]
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.65s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.65s/it]
+
+Recognizing Text:   0%|          | 0/35 [00:00<?, ?it/s]
+Recognizing Text:   3%|▎         | 1/35 [00:01<00:40,  1.18s/it]
+Recognizing Text:   6%|▌         | 2/35 [00:01<00:22,  1.50it/s]
+Recognizing Text:   9%|▊         | 3/35 [00:01<00:13,  2.40it/s]
+Recognizing Text:  14%|█▍        | 5/35 [00:01<00:06,  4.67it/s]
+Recognizing Text:  20%|██        | 7/35 [00:01<00:04,  6.68it/s]
+Recognizing Text:  26%|██▌       | 9/35 [00:02<00:07,  3.62it/s]
+Recognizing Text:  46%|████▌     | 16/35 [00:02<00:01,  9.54it/s]
+Recognizing Text:  91%|█████████▏| 32/35 [00:03<00:00, 26.26it/s]
+Recognizing Text: 100%|██████████| 35/35 [00:03<00:00, 11.40it/s]
+[surya] track books
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s]
+
+Recognizing Text:   0%|          | 0/35 [00:00<?, ?it/s]
+Recognizing Text:   3%|▎         | 1/35 [00:00<00:17,  1.95it/s]
+Recognizing Text:   6%|▌         | 2/35 [00:00<00:12,  2.56it/s]
+Recognizing Text:   9%|▊         | 3/35 [00:00<00:08,  3.76it/s]
+Recognizing Text:  14%|█▍        | 5/35 [00:01<00:04,  6.73it/s]
+Recognizing Text:  20%|██        | 7/35 [00:01<00:03,  8.79it/s]
+Recognizing Text:  26%|██▌       | 9/35 [00:02<00:06,  3.92it/s]
+Recognizing Text:  46%|████▌     | 16/35 [00:02<00:01, 10.26it/s]
+Recognizing Text:  91%|█████████▏| 32/35 [00:02<00:00, 28.03it/s]
+Recognizing Text: 100%|██████████| 35/35 [00:02<00:00, 14.59it/s]
+  [books] latency page 1/8: 3.3s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.58it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.58it/s]
+
+Recognizing Text:   0%|          | 0/40 [00:00<?, ?it/s]
+Recognizing Text:   2%|▎         | 1/40 [00:00<00:22,  1.77it/s]
+Recognizing Text:   5%|▌         | 2/40 [00:00<00:13,  2.89it/s]
+Recognizing Text:  10%|█         | 4/40 [00:01<00:07,  4.54it/s]
+Recognizing Text:  12%|█▎        | 5/40 [00:01<00:11,  3.09it/s]
+Recognizing Text:  18%|█▊        | 7/40 [00:02<00:10,  3.28it/s]
+Recognizing Text:  22%|██▎       | 9/40 [00:02<00:06,  4.72it/s]
+Recognizing Text:  45%|████▌     | 18/40 [00:02<00:01, 14.58it/s]
+Recognizing Text:  90%|█████████ | 36/40 [00:02<00:00, 37.39it/s]
+Recognizing Text: 100%|██████████| 40/40 [00:02<00:00, 14.30it/s]
+  [books] latency page 2/8: 3.7s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.68it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.68it/s]
+
+Recognizing Text:   0%|          | 0/32 [00:00<?, ?it/s]
+Recognizing Text:   3%|▎         | 1/32 [00:00<00:13,  2.29it/s]
+Recognizing Text:   9%|▉         | 3/32 [00:00<00:04,  6.32it/s]
+Recognizing Text:  16%|█▌        | 5/32 [00:00<00:04,  6.55it/s]
+Recognizing Text:  25%|██▌       | 8/32 [00:00<00:02, 10.63it/s]
+Recognizing Text:  31%|███▏      | 10/32 [00:01<00:03,  6.86it/s]
+Recognizing Text:  38%|███▊      | 12/32 [00:02<00:04,  4.91it/s]
+Recognizing Text:  53%|█████▎    | 17/32 [00:02<00:01,  9.32it/s]
+Recognizing Text:  88%|████████▊ | 28/32 [00:02<00:00, 20.87it/s]
+Recognizing Text: 100%|██████████| 32/32 [00:02<00:00, 13.05it/s]
+  [books] latency page 3/8: 3.3s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.54it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.54it/s]
+
+Recognizing Text:   0%|          | 0/40 [00:00<?, ?it/s]
+Recognizing Text:   2%|▎         | 1/40 [00:00<00:22,  1.76it/s]
+Recognizing Text:   5%|▌         | 2/40 [00:00<00:17,  2.18it/s]
+Recognizing Text:  10%|█         | 4/40 [00:01<00:12,  2.92it/s]
+Recognizing Text:  12%|█▎        | 5/40 [00:01<00:12,  2.71it/s]
+Recognizing Text:  15%|█▌        | 6/40 [00:02<00:12,  2.76it/s]
+Recognizing Text:  35%|███▌      | 14/40 [00:02<00:02, 10.89it/s]
+Recognizing Text:  82%|████████▎ | 33/40 [00:02<00:00, 33.68it/s]
+Recognizing Text: 100%|██████████| 40/40 [00:02<00:00, 15.41it/s]
+  [books] latency page 4/8: 3.5s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s]
+
+Recognizing Text:   0%|          | 0/44 [00:00<?, ?it/s]
+Recognizing Text:   2%|▏         | 1/44 [00:00<00:28,  1.53it/s]
+Recognizing Text:   7%|▋         | 3/44 [00:00<00:09,  4.47it/s]
+Recognizing Text:   9%|▉         | 4/44 [00:00<00:07,  5.31it/s]
+Recognizing Text:  11%|█▏        | 5/44 [00:01<00:06,  6.04it/s]
+Recognizing Text:  14%|█▎        | 6/44 [00:01<00:06,  5.76it/s]
+Recognizing Text:  18%|█▊        | 8/44 [00:01<00:05,  6.77it/s]
+Recognizing Text:  20%|██        | 9/44 [00:02<00:11,  3.06it/s]
+Recognizing Text:  30%|██▉       | 13/44 [00:02<00:04,  6.62it/s]
+Recognizing Text:  64%|██████▎   | 28/44 [00:02<00:00, 23.74it/s]
+Recognizing Text:  89%|████████▊ | 39/44 [00:03<00:00, 23.45it/s]
+Recognizing Text: 100%|██████████| 44/44 [00:03<00:00, 21.62it/s]
+Recognizing Text: 100%|██████████| 44/44 [00:03<00:00, 13.21it/s]
+  [books] latency page 5/8: 4.3s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.73it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.73it/s]
+
+Recognizing Text:   0%|          | 0/28 [00:00<?, ?it/s]
+Recognizing Text:   4%|▎         | 1/28 [00:00<00:11,  2.33it/s]
+Recognizing Text:   7%|▋         | 2/28 [00:00<00:09,  2.68it/s]
+Recognizing Text:  18%|█▊        | 5/28 [00:00<00:03,  7.12it/s]
+Recognizing Text:  25%|██▌       | 7/28 [00:01<00:04,  4.88it/s]
+Recognizing Text:  29%|██▊       | 8/28 [00:01<00:03,  5.23it/s]
+Recognizing Text:  32%|███▏      | 9/28 [00:01<00:04,  4.60it/s]
+Recognizing Text:  46%|████▋     | 13/28 [00:02<00:01,  8.98it/s]
+Recognizing Text:  64%|██████▍   | 18/28 [00:02<00:00, 15.05it/s]
+Recognizing Text:  89%|████████▉ | 25/28 [00:02<00:00, 24.28it/s]
+Recognizing Text: 100%|██████████| 28/28 [00:03<00:00,  9.18it/s]
+  [books] latency page 6/8: 3.9s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s]
+
+Recognizing Text:   0%|          | 0/23 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/23 [00:00<00:07,  3.04it/s]
+Recognizing Text:  22%|██▏       | 5/23 [00:00<00:01, 11.82it/s]
+Recognizing Text:  30%|███       | 7/23 [00:00<00:01, 11.19it/s]
+Recognizing Text:  39%|███▉      | 9/23 [00:00<00:01, 10.95it/s]
+Recognizing Text:  48%|████▊     | 11/23 [00:01<00:01,  8.91it/s]
+Recognizing Text:  57%|█████▋    | 13/23 [00:01<00:02,  4.93it/s]
+Recognizing Text:  65%|██████▌   | 15/23 [00:02<00:01,  6.35it/s]
+Recognizing Text:  91%|█████████▏| 21/23 [00:02<00:00, 12.44it/s]
+Recognizing Text: 100%|██████████| 23/23 [00:02<00:00, 10.19it/s]
+  [books] latency page 7/8: 3.0s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.65it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.65it/s]
+
+Recognizing Text:   0%|          | 0/34 [00:00<?, ?it/s]
+Recognizing Text:   3%|▎         | 1/34 [00:00<00:16,  1.98it/s]
+Recognizing Text:   6%|▌         | 2/34 [00:00<00:09,  3.25it/s]
+Recognizing Text:   9%|▉         | 3/34 [00:00<00:06,  4.47it/s]
+Recognizing Text:  18%|█▊        | 6/34 [00:00<00:03,  9.31it/s]
+Recognizing Text:  24%|██▎       | 8/34 [00:01<00:06,  3.77it/s]
+Recognizing Text:  29%|██▉       | 10/34 [00:02<00:04,  5.22it/s]
+Recognizing Text:  35%|███▌      | 12/34 [00:02<00:03,  6.81it/s]
+Recognizing Text:  59%|█████▉    | 20/34 [00:02<00:00, 16.67it/s]
+Recognizing Text:  97%|█████████▋| 33/34 [00:02<00:00, 33.28it/s]
+Recognizing Text: 100%|██████████| 34/34 [00:02<00:00, 13.81it/s]
+  [books] latency page 8/8: 3.3s
+  [books] batch of 50 pages...
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.86s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.86s/it]
+
+Recognizing Text:   0%|          | 0/276 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/276 [00:03<16:59,  3.71s/it]
+Recognizing Text:   3%|▎         | 7/276 [00:03<01:49,  2.45it/s]
+Recognizing Text:   6%|▌         | 17/276 [00:03<00:36,  7.17it/s]
+Recognizing Text:   8%|▊         | 22/276 [00:04<00:26,  9.75it/s]
+Recognizing Text:  10%|▉         | 27/276 [00:04<00:19, 12.75it/s]
+Recognizing Text:  12%|█▏        | 32/276 [00:04<00:19, 12.65it/s]
+Recognizing Text:  13%|█▎        | 36/276 [00:05<00:20, 11.79it/s]
+Recognizing Text:  14%|█▍        | 39/276 [00:05<00:18, 12.61it/s]
+Recognizing Text:  15%|█▌        | 42/276 [00:05<00:22, 10.41it/s]
+Recognizing Text:  16%|█▌        | 44/276 [00:06<00:26,  8.70it/s]
+Recognizing Text:  18%|█▊        | 49/276 [00:06<00:18, 12.46it/s]
+Recognizing Text:  20%|█▉        | 54/276 [00:06<00:15, 14.66it/s]
+Recognizing Text:  26%|██▌       | 71/276 [00:06<00:06, 33.77it/s]
+Recognizing Text:  36%|███▌      | 100/276 [00:06<00:02, 69.72it/s]
+Recognizing Text:  57%|█████▋    | 156/276 [00:06<00:00, 147.24it/s]
+Recognizing Text:  81%|████████  | 223/276 [00:06<00:00, 238.07it/s]
+Recognizing Text:  93%|█████████▎| 258/276 [00:07<00:00, 254.83it/s]
+Recognizing Text: 100%|██████████| 276/276 [00:08<00:00, 33.68it/s] 
+  [books] 8/50 pages  0.55 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.73s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.73s/it]
+
+Recognizing Text:   0%|          | 0/604 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/604 [00:02<28:39,  2.85s/it]
+Recognizing Text:   1%|          | 4/604 [00:03<05:59,  1.67it/s]
+Recognizing Text:   1%|          | 5/604 [00:03<06:11,  1.61it/s]
+Recognizing Text:   1%|          | 6/604 [00:03<04:56,  2.01it/s]
+Recognizing Text:   1%|▏         | 8/604 [00:04<03:07,  3.19it/s]
+Recognizing Text:   6%|▋         | 39/604 [00:04<00:18, 30.58it/s]
+Recognizing Text:  10%|█         | 61/604 [00:04<00:14, 36.87it/s]
+Recognizing Text:  22%|██▏       | 135/604 [00:05<00:06, 69.81it/s]
+Recognizing Text:  31%|███▏      | 190/604 [00:05<00:05, 82.29it/s]
+Recognizing Text:  40%|████      | 242/604 [00:06<00:04, 89.00it/s]
+Recognizing Text:  42%|████▏     | 252/604 [00:06<00:04, 85.44it/s]
+Recognizing Text:  43%|████▎     | 261/604 [00:07<00:05, 59.59it/s]
+Recognizing Text:  44%|████▍     | 268/604 [00:07<00:06, 49.33it/s]
+Recognizing Text:  45%|████▌     | 274/604 [00:07<00:07, 45.04it/s]
+Recognizing Text:  48%|████▊     | 290/604 [00:07<00:05, 55.79it/s]
+Recognizing Text:  49%|████▉     | 298/604 [00:08<00:07, 40.00it/s]
+Recognizing Text:  51%|█████     | 306/604 [00:08<00:06, 42.69it/s]
+Recognizing Text:  54%|█████▍    | 327/604 [00:08<00:04, 62.10it/s]
+Recognizing Text:  57%|█████▋    | 342/604 [00:08<00:03, 72.32it/s]
+Recognizing Text:  58%|█████▊    | 352/604 [00:09<00:04, 51.55it/s]
+Recognizing Text:  66%|██████▌   | 397/604 [00:09<00:02, 103.22it/s]
+Recognizing Text:  74%|███████▍  | 447/604 [00:09<00:00, 160.33it/s]
+Recognizing Text:  83%|████████▎ | 502/604 [00:09<00:00, 221.71it/s]
+Recognizing Text:  88%|████████▊ | 532/604 [00:09<00:00, 230.66it/s]
+Recognizing Text:  93%|█████████▎| 561/604 [00:09<00:00, 218.98it/s]
+Recognizing Text:  97%|█████████▋| 587/604 [00:09<00:00, 196.70it/s]
+Recognizing Text: 100%|██████████| 604/604 [00:09<00:00, 60.43it/s] 
+  [books] 16/50 pages  0.52 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.85s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.85s/it]
+
+Recognizing Text:   0%|          | 0/417 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/417 [00:03<23:20,  3.37s/it]
+Recognizing Text:   1%|          | 3/417 [00:05<11:18,  1.64s/it]
+Recognizing Text:   1%|▏         | 6/417 [00:05<04:31,  1.51it/s]
+Recognizing Text:   2%|▏         | 10/417 [00:05<02:13,  3.04it/s]
+Recognizing Text:   5%|▍         | 20/417 [00:05<00:48,  8.23it/s]
+Recognizing Text:   7%|▋         | 30/417 [00:06<00:27, 14.04it/s]
+Recognizing Text:   8%|▊         | 35/417 [00:06<00:31, 12.11it/s]
+Recognizing Text:   9%|▉         | 39/417 [00:06<00:31, 11.90it/s]
+Recognizing Text:  10%|█         | 43/417 [00:07<00:26, 14.04it/s]
+Recognizing Text:  11%|█         | 46/417 [00:07<00:24, 15.25it/s]
+Recognizing Text:  13%|█▎        | 53/417 [00:07<00:23, 15.75it/s]
+Recognizing Text:  16%|█▌        | 65/417 [00:07<00:13, 26.81it/s]
+Recognizing Text:  21%|██        | 86/417 [00:07<00:06, 49.90it/s]
+Recognizing Text:  26%|██▌       | 109/417 [00:08<00:06, 50.14it/s]
+Recognizing Text:  35%|███▍      | 145/417 [00:08<00:03, 86.48it/s]
+Recognizing Text:  42%|████▏     | 174/417 [00:08<00:03, 77.68it/s]
+Recognizing Text:  56%|█████▌    | 232/417 [00:09<00:01, 134.40it/s]
+Recognizing Text:  61%|██████    | 254/417 [00:09<00:01, 140.29it/s]
+Recognizing Text:  66%|██████▌   | 274/417 [00:09<00:01, 120.83it/s]
+Recognizing Text:  70%|██████▉   | 291/417 [00:09<00:01, 94.79it/s] 
+Recognizing Text:  73%|███████▎  | 304/417 [00:10<00:01, 79.47it/s]
+Recognizing Text:  76%|███████▌  | 315/417 [00:10<00:01, 75.93it/s]
+Recognizing Text:  78%|███████▊  | 325/417 [00:10<00:01, 62.85it/s]
+Recognizing Text:  81%|████████  | 336/417 [00:10<00:01, 68.30it/s]
+Recognizing Text:  87%|████████▋ | 363/417 [00:10<00:00, 99.93it/s]
+Recognizing Text:  92%|█████████▏| 383/417 [00:10<00:00, 116.67it/s]
+Recognizing Text:  95%|█████████▌| 398/417 [00:11<00:00, 99.42it/s] 
+Recognizing Text:  99%|█████████▉| 413/417 [00:11<00:00, 107.75it/s]
+Recognizing Text: 100%|██████████| 417/417 [00:11<00:00, 37.14it/s] 
+  [books] 24/50 pages  0.49 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.65s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.65s/it]
+
+Recognizing Text:   0%|          | 0/264 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/264 [00:03<14:05,  3.22s/it]
+Recognizing Text:  12%|█▏        | 32/264 [00:03<00:20, 11.36it/s]
+Recognizing Text:  14%|█▎        | 36/264 [00:04<00:19, 11.80it/s]
+Recognizing Text:  16%|█▌        | 41/264 [00:04<00:16, 13.84it/s]
+Recognizing Text:  17%|█▋        | 45/264 [00:04<00:14, 15.48it/s]
+Recognizing Text:  19%|█▉        | 50/264 [00:04<00:12, 16.89it/s]
+Recognizing Text:  20%|██        | 53/264 [00:04<00:13, 15.41it/s]
+Recognizing Text:  22%|██▏       | 59/264 [00:04<00:10, 20.03it/s]
+Recognizing Text:  25%|██▌       | 67/264 [00:05<00:07, 27.31it/s]
+Recognizing Text:  28%|██▊       | 74/264 [00:05<00:05, 32.55it/s]
+Recognizing Text:  38%|███▊      | 100/264 [00:05<00:02, 69.70it/s]
+Recognizing Text:  54%|█████▍    | 143/264 [00:05<00:00, 133.58it/s]
+Recognizing Text:  69%|██████▉   | 182/264 [00:05<00:00, 180.11it/s]
+Recognizing Text:  77%|███████▋  | 204/264 [00:05<00:00, 181.60it/s]
+Recognizing Text:  85%|████████▌ | 225/264 [00:06<00:00, 49.26it/s] 
+Recognizing Text:  91%|█████████ | 240/264 [00:07<00:00, 47.51it/s]
+Recognizing Text:  95%|█████████▌| 252/264 [00:07<00:00, 53.30it/s]
+Recognizing Text: 100%|██████████| 264/264 [00:07<00:00, 50.20it/s]
+Recognizing Text: 100%|██████████| 264/264 [00:07<00:00, 34.20it/s]
+  [books] 32/50 pages  0.51 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.65s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.66s/it]
+
+Recognizing Text:   0%|          | 0/276 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/276 [00:04<19:59,  4.36s/it]
+Recognizing Text:   1%|          | 2/276 [00:04<08:29,  1.86s/it]
+Recognizing Text:   1%|          | 3/276 [00:04<05:40,  1.25s/it]
+Recognizing Text:   2%|▏         | 5/276 [00:05<02:34,  1.75it/s]
+Recognizing Text:   2%|▏         | 6/276 [00:05<02:10,  2.07it/s]
+Recognizing Text:   3%|▎         | 7/276 [00:05<01:44,  2.58it/s]
+Recognizing Text:   3%|▎         | 9/276 [00:05<01:15,  3.54it/s]
+Recognizing Text:   4%|▍         | 11/276 [00:06<00:55,  4.75it/s]
+Recognizing Text:   5%|▍         | 13/276 [00:06<00:40,  6.51it/s]
+Recognizing Text:   7%|▋         | 19/276 [00:06<00:18, 13.92it/s]
+Recognizing Text:  10%|▉         | 27/276 [00:06<00:10, 24.90it/s]
+Recognizing Text:  13%|█▎        | 37/276 [00:06<00:06, 39.26it/s]
+Recognizing Text:  24%|██▍       | 66/276 [00:06<00:02, 70.67it/s]
+Recognizing Text:  39%|███▉      | 108/276 [00:06<00:01, 136.39it/s]
+Recognizing Text:  62%|██████▏   | 170/276 [00:06<00:00, 238.98it/s]
+Recognizing Text:  82%|████████▏ | 225/276 [00:07<00:00, 287.26it/s]
+Recognizing Text:  94%|█████████▍| 259/276 [00:07<00:00, 254.23it/s]
+Recognizing Text: 100%|██████████| 276/276 [00:09<00:00, 28.84it/s] 
+  [books] 40/50 pages  0.51 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.67s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.67s/it]
+
+Recognizing Text:   0%|          | 0/250 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/250 [00:04<17:02,  4.11s/it]
+Recognizing Text:   1%|          | 3/250 [00:04<04:38,  1.13s/it]
+Recognizing Text:   2%|▏         | 5/250 [00:04<02:21,  1.73it/s]
+Recognizing Text:   4%|▎         | 9/250 [00:04<01:00,  3.98it/s]
+Recognizing Text:   7%|▋         | 17/250 [00:04<00:24,  9.38it/s]
+Recognizing Text:   8%|▊         | 21/250 [00:05<00:25,  8.83it/s]
+Recognizing Text:  10%|▉         | 24/250 [00:05<00:25,  8.83it/s]
+Recognizing Text:  10%|█         | 26/250 [00:05<00:26,  8.42it/s]
+Recognizing Text:  12%|█▏        | 30/250 [00:05<00:19, 11.52it/s]
+Recognizing Text:  13%|█▎        | 33/250 [00:06<00:15, 13.65it/s]
+Recognizing Text:  15%|█▍        | 37/250 [00:06<00:13, 15.96it/s]
+Recognizing Text:  16%|█▋        | 41/250 [00:06<00:10, 19.49it/s]
+Recognizing Text:  18%|█▊        | 44/250 [00:06<00:09, 20.96it/s]
+Recognizing Text:  20%|██        | 50/250 [00:06<00:06, 28.62it/s]
+Recognizing Text:  22%|██▏       | 54/250 [00:06<00:07, 26.87it/s]
+Recognizing Text:  24%|██▍       | 60/250 [00:06<00:05, 32.88it/s]
+Recognizing Text:  27%|██▋       | 67/250 [00:06<00:04, 40.58it/s]
+Recognizing Text:  32%|███▏      | 81/250 [00:07<00:02, 63.26it/s]
+Recognizing Text:  37%|███▋      | 92/250 [00:07<00:02, 73.34it/s]
+Recognizing Text:  47%|████▋     | 118/250 [00:07<00:01, 119.40it/s]
+Recognizing Text:  63%|██████▎   | 158/250 [00:07<00:00, 191.57it/s]
+Recognizing Text:  74%|███████▍  | 186/250 [00:07<00:00, 195.30it/s]
+Recognizing Text:  88%|████████▊ | 219/250 [00:07<00:00, 229.12it/s]
+Recognizing Text:  97%|█████████▋| 243/250 [00:08<00:00, 130.21it/s]
+Recognizing Text: 100%|██████████| 250/250 [00:15<00:00, 16.20it/s] 
+  [books] 48/50 pages  0.48 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:01<00:00,  1.12s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:01<00:00,  1.12s/it]
+
+Recognizing Text:   0%|          | 0/60 [00:00<?, ?it/s]
+Recognizing Text:   2%|▏         | 1/60 [00:00<00:49,  1.18it/s]
+Recognizing Text:   5%|▌         | 3/60 [00:00<00:15,  3.78it/s]
+Recognizing Text:  10%|█         | 6/60 [00:01<00:07,  7.25it/s]
+Recognizing Text:  17%|█▋        | 10/60 [00:01<00:04, 12.46it/s]
+Recognizing Text:  23%|██▎       | 14/60 [00:01<00:03, 13.44it/s]
+Recognizing Text:  27%|██▋       | 16/60 [00:01<00:04, 10.94it/s]
+Recognizing Text:  30%|███       | 18/60 [00:01<00:03, 11.10it/s]
+Recognizing Text:  40%|████      | 24/60 [00:02<00:01, 18.57it/s]
+Recognizing Text:  72%|███████▏  | 43/60 [00:02<00:00, 47.15it/s]
+Recognizing Text: 100%|██████████| 60/60 [00:02<00:00, 69.43it/s]
+Recognizing Text: 100%|██████████| 60/60 [00:02<00:00, 25.25it/s]
+  [books] 50/50 pages  0.48 p/s
+[surya] track docs
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s]
+
+Recognizing Text:   0%|          | 0/26 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/26 [00:00<00:06,  3.69it/s]
+Recognizing Text:  12%|█▏        | 3/26 [00:00<00:03,  7.58it/s]
+Recognizing Text:  15%|█▌        | 4/26 [00:00<00:02,  7.87it/s]
+Recognizing Text:  23%|██▎       | 6/26 [00:00<00:02,  8.55it/s]
+Recognizing Text:  27%|██▋       | 7/26 [00:01<00:06,  2.87it/s]
+Recognizing Text:  35%|███▍      | 9/26 [00:01<00:04,  4.08it/s]
+Recognizing Text:  54%|█████▍    | 14/26 [00:02<00:01,  9.01it/s]
+Recognizing Text:  69%|██████▉   | 18/26 [00:02<00:00, 12.54it/s]
+Recognizing Text:  85%|████████▍ | 22/26 [00:02<00:00, 15.33it/s]
+Recognizing Text:  96%|█████████▌| 25/26 [00:02<00:00, 13.46it/s]
+Recognizing Text: 100%|██████████| 26/26 [00:02<00:00,  9.58it/s]
+  [docs] latency page 1/8: 3.2s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.80it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.79it/s]
+
+Recognizing Text:   0%|          | 0/39 [00:00<?, ?it/s]
+Recognizing Text:   3%|▎         | 1/39 [00:00<00:17,  2.11it/s]
+Recognizing Text:  10%|█         | 4/39 [00:00<00:04,  7.38it/s]
+Recognizing Text:  15%|█▌        | 6/39 [00:01<00:05,  6.01it/s]
+Recognizing Text:  21%|██        | 8/39 [00:01<00:04,  7.69it/s]
+Recognizing Text:  26%|██▌       | 10/39 [00:01<00:04,  6.27it/s]
+Recognizing Text:  33%|███▎      | 13/39 [00:01<00:03,  8.33it/s]
+Recognizing Text:  38%|███▊      | 15/39 [00:02<00:03,  6.03it/s]
+Recognizing Text:  49%|████▊     | 19/39 [00:02<00:02,  9.63it/s]
+Recognizing Text:  79%|███████▉  | 31/39 [00:02<00:00, 22.63it/s]
+Recognizing Text: 100%|██████████| 39/39 [00:02<00:00, 14.27it/s]
+  [docs] latency page 2/8: 3.2s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.40it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.40it/s]
+
+Recognizing Text:   0%|          | 0/35 [00:00<?, ?it/s]
+Recognizing Text:   3%|▎         | 1/35 [00:00<00:09,  3.44it/s]
+Recognizing Text:  31%|███▏      | 11/35 [00:00<00:00, 29.15it/s]
+Recognizing Text:  80%|████████  | 28/35 [00:00<00:00, 58.84it/s]
+Recognizing Text: 100%|██████████| 35/35 [00:03<00:00,  7.98it/s]
+Recognizing Text: 100%|██████████| 35/35 [00:03<00:00, 10.45it/s]
+  [docs] latency page 3/8: 3.7s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.63it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.63it/s]
+
+Recognizing Text:   0%|          | 0/99 [00:00<?, ?it/s]
+Recognizing Text:   1%|          | 1/99 [00:00<01:18,  1.25it/s]
+Recognizing Text:   2%|▏         | 2/99 [00:01<00:45,  2.12it/s]
+Recognizing Text:   9%|▉         | 9/99 [00:01<00:07, 12.25it/s]
+Recognizing Text:  13%|█▎        | 13/99 [00:01<00:05, 15.56it/s]
+Recognizing Text:  16%|█▌        | 16/99 [00:01<00:05, 15.17it/s]
+Recognizing Text:  25%|██▌       | 25/99 [00:01<00:02, 28.49it/s]
+Recognizing Text:  30%|███       | 30/99 [00:01<00:02, 28.37it/s]
+Recognizing Text:  35%|███▌      | 35/99 [00:01<00:01, 32.66it/s]
+Recognizing Text:  40%|████      | 40/99 [00:02<00:01, 29.76it/s]
+Recognizing Text:  44%|████▍     | 44/99 [00:02<00:02, 22.19it/s]
+Recognizing Text:  62%|██████▏   | 61/99 [00:02<00:00, 45.61it/s]
+Recognizing Text:  88%|████████▊ | 87/99 [00:02<00:00, 82.98it/s]
+Recognizing Text: 100%|██████████| 99/99 [00:02<00:00, 36.34it/s]
+  [docs] latency page 4/8: 3.3s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.99it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.99it/s]
+
+Recognizing Text:   0%|          | 0/82 [00:00<?, ?it/s]
+Recognizing Text:   1%|          | 1/82 [00:00<00:48,  1.66it/s]
+Recognizing Text:   7%|▋         | 6/82 [00:00<00:06, 10.89it/s]
+Recognizing Text:  24%|██▍       | 20/82 [00:00<00:01, 38.54it/s]
+Recognizing Text:  44%|████▍     | 36/82 [00:00<00:00, 63.43it/s]
+Recognizing Text:  56%|█████▌    | 46/82 [00:01<00:00, 64.81it/s]
+Recognizing Text:  67%|██████▋   | 55/82 [00:01<00:01, 24.71it/s]
+Recognizing Text:  76%|███████▌  | 62/82 [00:02<00:00, 28.80it/s]
+Recognizing Text:  95%|█████████▌| 78/82 [00:02<00:00, 44.65it/s]
+Recognizing Text: 100%|██████████| 82/82 [00:02<00:00, 32.51it/s]
+  [docs] latency page 5/8: 3.0s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.73it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.73it/s]
+
+Recognizing Text:   0%|          | 0/53 [00:00<?, ?it/s]
+Recognizing Text:   2%|▏         | 1/53 [00:00<00:21,  2.44it/s]
+Recognizing Text:  13%|█▎        | 7/53 [00:00<00:04,  9.85it/s]
+Recognizing Text:  17%|█▋        | 9/53 [00:00<00:03, 11.15it/s]
+Recognizing Text:  21%|██        | 11/53 [00:01<00:05,  8.24it/s]
+Recognizing Text:  26%|██▋       | 14/53 [00:01<00:04,  9.48it/s]
+Recognizing Text:  30%|███       | 16/53 [00:01<00:05,  7.37it/s]
+Recognizing Text:  36%|███▌      | 19/53 [00:02<00:05,  6.78it/s]
+Recognizing Text:  49%|████▉     | 26/53 [00:02<00:02, 13.22it/s]
+Recognizing Text:  70%|██████▉   | 37/53 [00:02<00:00, 25.03it/s]
+Recognizing Text:  81%|████████  | 43/53 [00:02<00:00, 29.61it/s]
+Recognizing Text:  91%|█████████ | 48/53 [00:03<00:00, 28.90it/s]
+Recognizing Text: 100%|██████████| 53/53 [00:03<00:00, 30.67it/s]
+Recognizing Text: 100%|██████████| 53/53 [00:03<00:00, 16.69it/s]
+  [docs] latency page 6/8: 3.7s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s]
+
+Recognizing Text:   0%|          | 0/35 [00:00<?, ?it/s]
+Recognizing Text:   3%|▎         | 1/35 [00:00<00:13,  2.59it/s]
+Recognizing Text:  11%|█▏        | 4/35 [00:00<00:03,  8.08it/s]
+Recognizing Text:  17%|█▋        | 6/35 [00:00<00:03,  9.00it/s]
+Recognizing Text:  23%|██▎       | 8/35 [00:01<00:04,  6.46it/s]
+Recognizing Text:  26%|██▌       | 9/35 [00:01<00:03,  6.57it/s]
+Recognizing Text:  29%|██▊       | 10/35 [00:01<00:03,  6.95it/s]
+Recognizing Text:  34%|███▍      | 12/35 [00:01<00:03,  6.68it/s]
+Recognizing Text:  51%|█████▏    | 18/35 [00:01<00:01, 14.38it/s]
+Recognizing Text:  77%|███████▋  | 27/35 [00:02<00:00, 27.14it/s]
+Recognizing Text:  97%|█████████▋| 34/35 [00:02<00:00, 34.70it/s]
+Recognizing Text: 100%|██████████| 35/35 [00:02<00:00, 15.74it/s]
+  [docs] latency page 7/8: 2.7s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.08it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.08it/s]
+
+Recognizing Text:   0%|          | 0/40 [00:00<?, ?it/s]
+Recognizing Text:   2%|▎         | 1/40 [00:00<00:16,  2.38it/s]
+Recognizing Text:   8%|▊         | 3/40 [00:00<00:06,  5.79it/s]
+Recognizing Text:  12%|█▎        | 5/40 [00:00<00:04,  8.71it/s]
+Recognizing Text:  30%|███       | 12/40 [00:00<00:01, 22.54it/s]
+Recognizing Text:  40%|████      | 16/40 [00:01<00:02, 11.82it/s]
+Recognizing Text:  48%|████▊     | 19/40 [00:01<00:01, 12.71it/s]
+Recognizing Text:  57%|█████▊    | 23/40 [00:01<00:01, 16.32it/s]
+Recognizing Text:  88%|████████▊ | 35/40 [00:01<00:00, 33.54it/s]
+Recognizing Text: 100%|██████████| 40/40 [00:02<00:00, 17.62it/s]
+  [docs] latency page 8/8: 2.7s
+  [docs] batch of 50 pages...
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.14s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.14s/it]
+
+Recognizing Text:   0%|          | 0/409 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/409 [00:02<18:29,  2.72s/it]
+Recognizing Text:   1%|          | 5/409 [00:03<03:11,  2.11it/s]
+Recognizing Text:   2%|▏         | 8/409 [00:03<01:52,  3.55it/s]
+Recognizing Text:   2%|▏         | 10/409 [00:03<01:24,  4.71it/s]
+Recognizing Text:   3%|▎         | 12/409 [00:03<01:05,  6.03it/s]
+Recognizing Text:   3%|▎         | 14/409 [00:03<00:52,  7.46it/s]
+Recognizing Text:   4%|▍         | 17/409 [00:03<00:37, 10.34it/s]
+Recognizing Text:   5%|▌         | 22/409 [00:03<00:24, 16.12it/s]
+Recognizing Text:   6%|▌         | 25/409 [00:04<00:22, 16.89it/s]
+Recognizing Text:   8%|▊         | 34/409 [00:04<00:12, 29.39it/s]
+Recognizing Text:   9%|▉         | 38/409 [00:04<00:12, 30.20it/s]
+Recognizing Text:  12%|█▏        | 51/409 [00:04<00:07, 50.06it/s]
+Recognizing Text:  14%|█▍        | 57/409 [00:04<00:12, 28.16it/s]
+Recognizing Text:  20%|█▉        | 81/409 [00:04<00:05, 58.12it/s]
+Recognizing Text:  27%|██▋       | 112/409 [00:05<00:04, 61.43it/s]
+Recognizing Text:  33%|███▎      | 135/409 [00:05<00:03, 81.30it/s]
+Recognizing Text:  40%|███▉      | 162/409 [00:05<00:02, 106.78it/s]
+Recognizing Text:  43%|████▎     | 177/409 [00:06<00:02, 83.48it/s] 
+Recognizing Text:  54%|█████▎    | 219/409 [00:06<00:01, 132.30it/s]
+Recognizing Text:  66%|██████▌   | 270/409 [00:06<00:00, 192.80it/s]
+Recognizing Text:  73%|███████▎  | 297/409 [00:06<00:00, 203.83it/s]
+Recognizing Text:  79%|███████▉  | 323/409 [00:06<00:00, 198.46it/s]
+Recognizing Text:  85%|████████▍ | 347/409 [00:06<00:00, 191.71it/s]
+Recognizing Text:  90%|█████████ | 369/409 [00:06<00:00, 172.33it/s]
+Recognizing Text:  95%|█████████▌| 389/409 [00:06<00:00, 156.65it/s]
+Recognizing Text: 100%|█████████▉| 407/409 [00:07<00:00, 93.07it/s] 
+Recognizing Text: 100%|██████████| 409/409 [00:08<00:00, 49.59it/s]
+  [docs] 8/50 pages  0.67 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.11s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.12s/it]
+
+Recognizing Text:   0%|          | 0/1172 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/1172 [00:03<1:03:21,  3.25s/it]
+Recognizing Text:   0%|          | 2/1172 [00:03<28:52,  1.48s/it]  
+Recognizing Text:   0%|          | 5/1172 [00:03<08:45,  2.22it/s]
+Recognizing Text:   1%|          | 7/1172 [00:03<05:40,  3.42it/s]
+Recognizing Text:   2%|▏         | 21/1172 [00:03<01:14, 15.42it/s]
+Recognizing Text:   2%|▏         | 27/1172 [00:04<00:59, 19.13it/s]
+Recognizing Text:   3%|▎         | 32/1172 [00:04<00:58, 19.52it/s]
+Recognizing Text:   3%|▎         | 39/1172 [00:04<00:43, 25.98it/s]
+Recognizing Text:   5%|▍         | 54/1172 [00:04<00:38, 29.33it/s]
+Recognizing Text:   7%|▋         | 77/1172 [00:04<00:21, 51.46it/s]
+Recognizing Text:  11%|█         | 124/1172 [00:05<00:16, 61.87it/s]
+Recognizing Text:  15%|█▌        | 180/1172 [00:06<00:13, 75.61it/s]
+Recognizing Text:  18%|█▊        | 212/1172 [00:06<00:10, 95.55it/s]
+Recognizing Text:  19%|█▉        | 226/1172 [00:06<00:10, 90.97it/s]
+Recognizing Text:  20%|██        | 238/1172 [00:07<00:17, 54.44it/s]
+Recognizing Text:  21%|██        | 247/1172 [00:07<00:21, 43.83it/s]
+Recognizing Text:  22%|██▏       | 254/1172 [00:07<00:20, 43.82it/s]
+Recognizing Text:  22%|██▏       | 260/1172 [00:08<00:22, 41.06it/s]
+Recognizing Text:  23%|██▎       | 266/1172 [00:08<00:21, 42.53it/s]
+Recognizing Text:  24%|██▍       | 283/1172 [00:08<00:14, 59.70it/s]
+Recognizing Text:  25%|██▍       | 291/1172 [00:08<00:25, 34.23it/s]
+Recognizing Text:  25%|██▌       | 297/1172 [00:08<00:24, 36.37it/s]
+Recognizing Text:  26%|██▌       | 305/1172 [00:09<00:20, 41.35it/s]
+Recognizing Text:  27%|██▋       | 322/1172 [00:09<00:13, 61.53it/s]
+Recognizing Text:  29%|██▉       | 343/1172 [00:09<00:15, 52.78it/s]
+Recognizing Text:  32%|███▏      | 377/1172 [00:09<00:09, 87.87it/s]
+Recognizing Text:  34%|███▍      | 403/1172 [00:10<00:11, 69.12it/s]
+Recognizing Text:  37%|███▋      | 434/1172 [00:10<00:07, 94.94it/s]
+Recognizing Text:  39%|███▊      | 453/1172 [00:10<00:06, 105.66it/s]
+Recognizing Text:  40%|████      | 469/1172 [00:11<00:10, 65.52it/s] 
+Recognizing Text:  41%|████      | 481/1172 [00:11<00:10, 68.37it/s]
+Recognizing Text:  42%|████▏     | 492/1172 [00:11<00:11, 59.67it/s]
+Recognizing Text:  43%|████▎     | 501/1172 [00:11<00:11, 59.03it/s]
+Recognizing Text:  43%|████▎     | 509/1172 [00:11<00:11, 57.48it/s]
+Recognizing Text:  44%|████▍     | 516/1172 [00:12<00:17, 37.23it/s]
+Recognizing Text:  45%|████▍     | 522/1172 [00:12<00:16, 39.03it/s]
+Recognizing Text:  45%|████▌     | 533/1172 [00:12<00:13, 48.27it/s]
+Recognizing Text:  46%|████▋     | 544/1172 [00:12<00:10, 57.28it/s]
+Recognizing Text:  47%|████▋     | 552/1172 [00:12<00:10, 59.50it/s]
+Recognizing Text:  48%|████▊     | 562/1172 [00:12<00:09, 67.10it/s]
+Recognizing Text:  49%|████▉     | 576/1172 [00:13<00:13, 42.61it/s]
+Recognizing Text:  51%|█████     | 594/1172 [00:13<00:09, 60.21it/s]
+Recognizing Text:  52%|█████▏    | 614/1172 [00:13<00:06, 80.63it/s]
+Recognizing Text:  54%|█████▍    | 630/1172 [00:14<00:10, 53.15it/s]
+Recognizing Text:  56%|█████▌    | 652/1172 [00:14<00:07, 69.94it/s]
+Recognizing Text:  57%|█████▋    | 670/1172 [00:14<00:06, 83.59it/s]
+Recognizing Text:  58%|█████▊    | 683/1172 [00:14<00:08, 55.16it/s]
+Recognizing Text:  60%|█████▉    | 699/1172 [00:15<00:07, 66.65it/s]
+Recognizing Text:  61%|██████▏   | 720/1172 [00:15<00:05, 83.57it/s]
+Recognizing Text:  63%|██████▎   | 735/1172 [00:15<00:07, 59.83it/s]
+Recognizing Text:  64%|██████▎   | 746/1172 [00:15<00:06, 64.83it/s]
+Recognizing Text:  65%|██████▌   | 763/1172 [00:15<00:05, 78.85it/s]
+Recognizing Text:  66%|██████▋   | 777/1172 [00:16<00:04, 86.34it/s]
+Recognizing Text:  67%|██████▋   | 788/1172 [00:16<00:05, 67.95it/s]
+Recognizing Text:  68%|██████▊   | 797/1172 [00:16<00:08, 46.80it/s]
+Recognizing Text:  70%|██████▉   | 819/1172 [00:16<00:05, 69.54it/s]
+Recognizing Text:  72%|███████▏  | 848/1172 [00:17<00:04, 65.26it/s]
+Recognizing Text:  74%|███████▍  | 868/1172 [00:17<00:03, 80.25it/s]
+Recognizing Text:  78%|███████▊  | 911/1172 [00:17<00:03, 82.91it/s]
+Recognizing Text:  85%|████████▍ | 992/1172 [00:18<00:01, 152.91it/s]
+Recognizing Text:  90%|█████████ | 1058/1172 [00:18<00:00, 216.50it/s]
+Recognizing Text:  94%|█████████▍| 1099/1172 [00:18<00:00, 238.11it/s]
+Recognizing Text:  97%|█████████▋| 1132/1172 [00:18<00:00, 240.33it/s]
+Recognizing Text:  99%|█████████▉| 1163/1172 [00:19<00:00, 118.51it/s]
+Recognizing Text: 100%|██████████| 1172/1172 [00:19<00:00, 60.00it/s] 
+  [docs] 16/50 pages  0.43 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.02s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.02s/it]
+
+Recognizing Text:   0%|          | 0/1195 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/1195 [00:02<45:45,  2.30s/it]
+Recognizing Text:   0%|          | 2/1195 [00:02<23:56,  1.20s/it]
+Recognizing Text:   0%|          | 4/1195 [00:02<10:02,  1.98it/s]
+Recognizing Text:   0%|          | 5/1195 [00:03<08:30,  2.33it/s]
+Recognizing Text:   1%|          | 6/1195 [00:03<07:29,  2.65it/s]
+Recognizing Text:   1%|          | 8/1195 [00:03<05:12,  3.80it/s]
+Recognizing Text:   1%|          | 11/1195 [00:03<03:02,  6.47it/s]
+Recognizing Text:   2%|▏         | 24/1195 [00:03<00:53, 21.95it/s]
+Recognizing Text:   4%|▍         | 47/1195 [00:04<00:22, 51.80it/s]
+Recognizing Text:   5%|▌         | 62/1195 [00:04<00:28, 39.74it/s]
+Recognizing Text:   8%|▊         | 100/1195 [00:04<00:13, 79.31it/s]
+Recognizing Text:  10%|▉         | 115/1195 [00:05<00:19, 54.96it/s]
+Recognizing Text:  11%|█         | 126/1195 [00:05<00:22, 46.82it/s]
+Recognizing Text:  11%|█         | 134/1195 [00:05<00:21, 48.93it/s]
+Recognizing Text:  12%|█▏        | 147/1195 [00:05<00:18, 57.57it/s]
+Recognizing Text:  14%|█▍        | 173/1195 [00:06<00:19, 51.19it/s]
+Recognizing Text:  18%|█▊        | 210/1195 [00:06<00:11, 84.09it/s]
+Recognizing Text:  19%|█▉        | 226/1195 [00:07<00:15, 61.18it/s]
+Recognizing Text:  20%|██        | 239/1195 [00:07<00:14, 66.46it/s]
+Recognizing Text:  21%|██        | 250/1195 [00:07<00:24, 38.90it/s]
+Recognizing Text:  22%|██▏       | 258/1195 [00:08<00:22, 41.25it/s]
+Recognizing Text:  22%|██▏       | 267/1195 [00:08<00:20, 45.68it/s]
+Recognizing Text:  23%|██▎       | 278/1195 [00:08<00:25, 36.26it/s]
+Recognizing Text:  24%|██▍       | 290/1195 [00:08<00:20, 43.68it/s]
+Recognizing Text:  26%|██▌       | 307/1195 [00:09<00:15, 58.20it/s]
+Recognizing Text:  27%|██▋       | 325/1195 [00:09<00:11, 75.20it/s]
+Recognizing Text:  28%|██▊       | 336/1195 [00:09<00:17, 48.90it/s]
+Recognizing Text:  29%|██▉       | 347/1195 [00:09<00:15, 53.23it/s]
+Recognizing Text:  31%|███       | 368/1195 [00:09<00:11, 73.14it/s]
+Recognizing Text:  32%|███▏      | 379/1195 [00:10<00:11, 70.91it/s]
+Recognizing Text:  33%|███▎      | 389/1195 [00:10<00:16, 47.72it/s]
+Recognizing Text:  33%|███▎      | 397/1195 [00:10<00:15, 51.93it/s]
+Recognizing Text:  35%|███▍      | 417/1195 [00:10<00:10, 72.75it/s]
+Recognizing Text:  38%|███▊      | 449/1195 [00:11<00:11, 64.88it/s]
+Recognizing Text:  40%|███▉      | 473/1195 [00:11<00:08, 83.41it/s]
+Recognizing Text:  41%|████      | 485/1195 [00:11<00:08, 86.18it/s]
+Recognizing Text:  42%|████▏     | 496/1195 [00:11<00:09, 75.90it/s]
+Recognizing Text:  42%|████▏     | 506/1195 [00:12<00:14, 48.33it/s]
+Recognizing Text:  43%|████▎     | 517/1195 [00:12<00:12, 54.41it/s]
+Recognizing Text:  44%|████▍     | 525/1195 [00:12<00:13, 49.48it/s]
+Recognizing Text:  45%|████▍     | 534/1195 [00:12<00:12, 53.22it/s]
+Recognizing Text:  47%|████▋     | 560/1195 [00:13<00:11, 54.33it/s]
+Recognizing Text:  51%|█████     | 606/1195 [00:13<00:05, 103.24it/s]
+Recognizing Text:  52%|█████▏    | 621/1195 [00:13<00:07, 73.54it/s] 
+Recognizing Text:  54%|█████▎    | 640/1195 [00:13<00:06, 87.80it/s]
+Recognizing Text:  57%|█████▋    | 678/1195 [00:14<00:06, 81.43it/s]
+Recognizing Text:  58%|█████▊    | 695/1195 [00:14<00:05, 88.66it/s]
+Recognizing Text:  59%|█████▉    | 708/1195 [00:14<00:05, 82.76it/s]
+Recognizing Text:  61%|██████    | 725/1195 [00:14<00:05, 92.70it/s]
+Recognizing Text:  62%|██████▏   | 737/1195 [00:15<00:07, 64.09it/s]
+Recognizing Text:  63%|██████▎   | 754/1195 [00:15<00:05, 75.45it/s]
+Recognizing Text:  64%|██████▍   | 765/1195 [00:15<00:05, 72.11it/s]
+Recognizing Text:  65%|██████▍   | 774/1195 [00:15<00:06, 69.79it/s]
+Recognizing Text:  67%|██████▋   | 796/1195 [00:16<00:06, 58.39it/s]
+Recognizing Text:  71%|███████   | 851/1195 [00:16<00:04, 82.63it/s]
+Recognizing Text:  76%|███████▌  | 903/1195 [00:17<00:03, 94.85it/s]
+Recognizing Text:  79%|███████▉  | 943/1195 [00:17<00:02, 122.84it/s]
+Recognizing Text:  81%|████████▏ | 971/1195 [00:17<00:01, 116.12it/s]
+Recognizing Text:  90%|████████▉ | 1073/1195 [00:17<00:00, 224.54it/s]
+Recognizing Text:  94%|█████████▍| 1123/1195 [00:17<00:00, 260.36it/s]
+Recognizing Text:  97%|█████████▋| 1163/1195 [00:17<00:00, 280.18it/s]
+Recognizing Text: 100%|██████████| 1195/1195 [00:18<00:00, 62.93it/s] 
+  [docs] 24/50 pages  0.39 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.15s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.15s/it]
+
+Recognizing Text:   0%|          | 0/790 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/790 [00:03<49:21,  3.75s/it]
+Recognizing Text:   0%|          | 2/790 [00:04<22:18,  1.70s/it]
+Recognizing Text:   1%|          | 4/790 [00:04<09:21,  1.40it/s]
+Recognizing Text:   1%|          | 6/790 [00:04<06:07,  2.14it/s]
+Recognizing Text:   1%|▏         | 10/790 [00:04<02:49,  4.59it/s]
+Recognizing Text:   2%|▏         | 12/790 [00:04<02:21,  5.48it/s]
+Recognizing Text:   2%|▏         | 14/790 [00:05<01:54,  6.77it/s]
+Recognizing Text:   3%|▎         | 20/790 [00:05<00:59, 12.93it/s]
+Recognizing Text:   4%|▎         | 29/790 [00:05<00:32, 23.25it/s]
+Recognizing Text:   4%|▍         | 34/790 [00:05<00:28, 26.21it/s]
+Recognizing Text:   5%|▍         | 38/790 [00:05<00:27, 27.51it/s]
+Recognizing Text:   5%|▌         | 43/790 [00:05<00:27, 27.25it/s]
+Recognizing Text:   7%|▋         | 53/790 [00:06<00:33, 22.17it/s]
+Recognizing Text:   9%|▉         | 72/790 [00:06<00:16, 42.40it/s]
+Recognizing Text:  11%|█▏        | 90/790 [00:06<00:11, 60.66it/s]
+Recognizing Text:  16%|█▌        | 123/790 [00:07<00:12, 55.29it/s]
+Recognizing Text:  21%|██        | 164/790 [00:07<00:06, 92.38it/s]
+Recognizing Text:  23%|██▎       | 179/790 [00:07<00:08, 70.02it/s]
+Recognizing Text:  25%|██▍       | 194/790 [00:07<00:07, 76.71it/s]
+Recognizing Text:  26%|██▌       | 206/790 [00:08<00:07, 79.30it/s]
+Recognizing Text:  28%|██▊       | 222/790 [00:08<00:06, 89.14it/s]
+Recognizing Text:  30%|██▉       | 234/790 [00:08<00:10, 51.00it/s]
+Recognizing Text:  31%|███       | 243/790 [00:09<00:19, 27.63it/s]
+Recognizing Text:  32%|███▏      | 250/790 [00:10<00:20, 26.31it/s]
+Recognizing Text:  32%|███▏      | 256/790 [00:10<00:21, 24.63it/s]
+Recognizing Text:  34%|███▎      | 265/790 [00:10<00:17, 30.12it/s]
+Recognizing Text:  34%|███▍      | 271/790 [00:10<00:15, 32.61it/s]
+Recognizing Text:  35%|███▌      | 277/790 [00:10<00:14, 35.13it/s]
+Recognizing Text:  36%|███▌      | 282/790 [00:10<00:14, 35.56it/s]
+Recognizing Text:  36%|███▋      | 287/790 [00:12<00:43, 11.57it/s]
+Recognizing Text:  38%|███▊      | 301/790 [00:12<00:24, 19.78it/s]
+Recognizing Text:  39%|███▉      | 307/790 [00:12<00:21, 22.88it/s]
+Recognizing Text:  40%|███▉      | 314/790 [00:12<00:17, 27.91it/s]
+Recognizing Text:  41%|████      | 325/790 [00:12<00:12, 37.92it/s]
+Recognizing Text:  43%|████▎     | 337/790 [00:13<00:14, 31.87it/s]
+Recognizing Text:  44%|████▍     | 348/790 [00:13<00:11, 40.04it/s]
+Recognizing Text:  45%|████▌     | 357/790 [00:13<00:09, 45.53it/s]
+Recognizing Text:  46%|████▌     | 364/790 [00:13<00:09, 44.92it/s]
+Recognizing Text:  47%|████▋     | 373/790 [00:13<00:08, 50.36it/s]
+Recognizing Text:  48%|████▊     | 383/790 [00:13<00:07, 55.08it/s]
+Recognizing Text:  50%|████▉     | 392/790 [00:14<00:10, 37.40it/s]
+Recognizing Text:  52%|█████▏    | 411/790 [00:14<00:06, 57.60it/s]
+Recognizing Text:  54%|█████▍    | 428/790 [00:14<00:04, 72.70it/s]
+Recognizing Text:  57%|█████▋    | 450/790 [00:15<00:05, 57.73it/s]
+Recognizing Text:  60%|██████    | 474/790 [00:15<00:03, 79.13it/s]
+Recognizing Text:  64%|██████▍   | 504/790 [00:15<00:03, 71.86it/s]
+Recognizing Text:  67%|██████▋   | 531/790 [00:15<00:02, 93.28it/s]
+Recognizing Text:  71%|███████   | 560/790 [00:16<00:02, 90.83it/s]
+Recognizing Text:  80%|███████▉  | 631/790 [00:16<00:00, 167.95it/s]
+Recognizing Text:  84%|████████▍ | 662/790 [00:16<00:00, 184.26it/s]
+Recognizing Text:  91%|█████████▏| 721/790 [00:16<00:00, 248.35it/s]
+Recognizing Text:  95%|█████████▌| 754/790 [00:16<00:00, 256.39it/s]
+Recognizing Text:  99%|█████████▉| 786/790 [00:17<00:00, 107.09it/s]
+Recognizing Text: 100%|██████████| 790/790 [00:17<00:00, 44.42it/s] 
+  [docs] 32/50 pages  0.38 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.05s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.05s/it]
+
+Recognizing Text:   0%|          | 0/237 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/237 [00:03<13:42,  3.49s/it]
+Recognizing Text:   1%|▏         | 3/237 [00:03<03:41,  1.05it/s]
+Recognizing Text:   3%|▎         | 6/237 [00:03<01:30,  2.56it/s]
+Recognizing Text:   4%|▍         | 9/237 [00:03<00:51,  4.39it/s]
+Recognizing Text:   5%|▌         | 12/237 [00:03<00:34,  6.53it/s]
+Recognizing Text:   6%|▋         | 15/237 [00:04<00:26,  8.37it/s]
+Recognizing Text:   7%|▋         | 17/237 [00:04<00:22,  9.61it/s]
+Recognizing Text:  10%|▉         | 23/237 [00:04<00:12, 16.60it/s]
+Recognizing Text:  11%|█▏        | 27/237 [00:04<00:10, 20.16it/s]
+Recognizing Text:  13%|█▎        | 31/237 [00:04<00:09, 20.65it/s]
+Recognizing Text:  17%|█▋        | 40/237 [00:04<00:05, 32.91it/s]
+Recognizing Text:  19%|█▉        | 45/237 [00:04<00:05, 34.93it/s]
+Recognizing Text:  21%|██        | 50/237 [00:05<00:05, 36.79it/s]
+Recognizing Text:  24%|██▍       | 58/237 [00:05<00:03, 45.03it/s]
+Recognizing Text:  27%|██▋       | 65/237 [00:05<00:03, 48.87it/s]
+Recognizing Text:  30%|██▉       | 71/237 [00:05<00:03, 49.20it/s]
+Recognizing Text:  35%|███▌      | 84/237 [00:05<00:02, 67.34it/s]
+Recognizing Text:  41%|████      | 96/237 [00:05<00:01, 77.63it/s]
+Recognizing Text:  48%|████▊     | 114/237 [00:05<00:01, 100.46it/s]
+Recognizing Text:  54%|█████▍    | 129/237 [00:05<00:00, 109.30it/s]
+Recognizing Text:  59%|█████▉    | 141/237 [00:06<00:01, 94.68it/s] 
+Recognizing Text:  64%|██████▎   | 151/237 [00:06<00:00, 93.13it/s]
+Recognizing Text:  68%|██████▊   | 161/237 [00:06<00:01, 65.57it/s]
+Recognizing Text:  71%|███████▏  | 169/237 [00:06<00:01, 60.37it/s]
+Recognizing Text:  74%|███████▍  | 176/237 [00:06<00:01, 60.55it/s]
+Recognizing Text:  78%|███████▊  | 185/237 [00:06<00:00, 55.91it/s]
+Recognizing Text:  81%|████████  | 192/237 [00:07<00:00, 51.87it/s]
+Recognizing Text:  84%|████████▍ | 199/237 [00:07<00:00, 54.81it/s]
+Recognizing Text:  86%|████████▋ | 205/237 [00:07<00:00, 55.11it/s]
+Recognizing Text:  90%|████████▉ | 213/237 [00:07<00:00, 60.11it/s]
+Recognizing Text:  94%|█████████▎| 222/237 [00:07<00:00, 66.73it/s]
+Recognizing Text:  97%|█████████▋| 229/237 [00:07<00:00, 66.67it/s]
+Recognizing Text: 100%|█████████▉| 236/237 [00:07<00:00, 58.60it/s]
+Recognizing Text: 100%|██████████| 237/237 [00:08<00:00, 28.65it/s]
+  [docs] 40/50 pages  0.42 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.15s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.15s/it]
+
+Recognizing Text:   0%|          | 0/934 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/934 [00:02<42:30,  2.73s/it]
+Recognizing Text:   0%|          | 2/934 [00:02<18:37,  1.20s/it]
+Recognizing Text:   0%|          | 3/934 [00:03<11:53,  1.30it/s]
+Recognizing Text:   0%|          | 4/934 [00:03<11:03,  1.40it/s]
+Recognizing Text:   1%|          | 8/934 [00:03<03:41,  4.17it/s]
+Recognizing Text:   1%|▏         | 13/934 [00:03<01:51,  8.27it/s]
+Recognizing Text:   2%|▏         | 21/934 [00:04<00:56, 16.08it/s]
+Recognizing Text:   4%|▍         | 41/934 [00:04<00:22, 40.06it/s]
+Recognizing Text:   6%|▌         | 57/934 [00:04<00:24, 35.55it/s]
+Recognizing Text:  10%|█         | 96/934 [00:04<00:11, 75.95it/s]
+Recognizing Text:  12%|█▏        | 111/934 [00:05<00:14, 56.66it/s]
+Recognizing Text:  15%|█▍        | 140/934 [00:05<00:09, 81.52it/s]
+Recognizing Text:  18%|█▊        | 165/934 [00:05<00:10, 70.78it/s]
+Recognizing Text:  20%|██        | 191/934 [00:06<00:08, 90.65it/s]
+Recognizing Text:  22%|██▏       | 210/934 [00:06<00:07, 101.31it/s]
+Recognizing Text:  24%|██▍       | 225/934 [00:06<00:11, 62.76it/s] 
+Recognizing Text:  26%|██▌       | 240/934 [00:06<00:09, 71.06it/s]
+Recognizing Text:  28%|██▊       | 261/934 [00:06<00:07, 87.94it/s]
+Recognizing Text:  31%|███       | 288/934 [00:07<00:09, 69.95it/s]
+Recognizing Text:  35%|███▍      | 323/934 [00:07<00:06, 101.33it/s]
+Recognizing Text:  36%|███▋      | 340/934 [00:08<00:07, 76.87it/s] 
+Recognizing Text:  40%|███▉      | 372/934 [00:08<00:05, 104.02it/s]
+Recognizing Text:  42%|████▏     | 396/934 [00:08<00:06, 86.45it/s] 
+Recognizing Text:  48%|████▊     | 446/934 [00:08<00:03, 136.63it/s]
+Recognizing Text:  50%|█████     | 469/934 [00:09<00:04, 97.33it/s] 
+Recognizing Text:  56%|█████▌    | 523/934 [00:09<00:04, 97.43it/s]
+Recognizing Text:  62%|██████▏   | 576/934 [00:10<00:03, 106.47it/s]
+Recognizing Text:  69%|██████▊   | 642/934 [00:10<00:02, 116.24it/s]
+Recognizing Text:  74%|███████▍  | 694/934 [00:10<00:01, 127.03it/s]
+Recognizing Text:  88%|████████▊ | 823/934 [00:11<00:00, 236.35it/s]
+Recognizing Text:  95%|█████████▍| 885/934 [00:11<00:00, 280.36it/s]
+Recognizing Text: 100%|█████████▉| 932/934 [00:11<00:00, 164.49it/s]
+Recognizing Text: 100%|██████████| 934/934 [00:12<00:00, 73.42it/s] 
+  [docs] 48/50 pages  0.43 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.34it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.34it/s]
+
+Recognizing Text:   0%|          | 0/229 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/229 [00:01<05:47,  1.53s/it]
+Recognizing Text:  29%|██▉       | 67/229 [00:01<00:02, 56.81it/s]
+Recognizing Text:  54%|█████▍    | 124/229 [00:01<00:00, 108.74it/s]
+Recognizing Text:  72%|███████▏  | 164/229 [00:02<00:00, 87.01it/s] 
+Recognizing Text:  83%|████████▎ | 191/229 [00:02<00:00, 70.12it/s]
+Recognizing Text:  92%|█████████▏| 210/229 [00:03<00:00, 67.47it/s]
+Recognizing Text:  98%|█████████▊| 225/229 [00:03<00:00, 49.50it/s]
+Recognizing Text: 100%|██████████| 229/229 [00:08<00:00, 27.96it/s]
+  [docs] 50/50 pages  0.41 p/s
+[surya] track handwriting
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.66it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  2.66it/s]
+
+Recognizing Text:   0%|          | 0/1 [00:00<?, ?it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]
+  [handwriting] latency page 1/8: 1.4s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  4.21it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  4.20it/s]
+
+Recognizing Text:   0%|          | 0/1 [00:00<?, ?it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.31s/it]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.32s/it]
+  [handwriting] latency page 2/8: 1.6s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.27it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.27it/s]
+
+Recognizing Text:   0%|          | 0/1 [00:00<?, ?it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.05s/it]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.05s/it]
+  [handwriting] latency page 3/8: 1.4s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.78it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.77it/s]
+
+Recognizing Text:   0%|          | 0/1 [00:00<?, ?it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.72s/it]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.72s/it]
+  [handwriting] latency page 4/8: 2.0s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.49it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.49it/s]
+
+Recognizing Text:   0%|          | 0/1 [00:00<?, ?it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]
+  [handwriting] latency page 5/8: 1.3s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.38it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.38it/s]
+
+Recognizing Text:   0%|          | 0/1 [00:00<?, ?it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.08s/it]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.08s/it]
+  [handwriting] latency page 6/8: 1.4s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.34it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s]
+
+Recognizing Text:   0%|          | 0/1 [00:00<?, ?it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.22s/it]
+Recognizing Text: 100%|██████████| 1/1 [00:01<00:00,  1.22s/it]
+  [handwriting] latency page 7/8: 1.5s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.76it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.76it/s]
+
+Recognizing Text:   0%|          | 0/1 [00:00<?, ?it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:00<00:00,  1.04it/s]
+Recognizing Text: 100%|██████████| 1/1 [00:00<00:00,  1.04it/s]
+  [handwriting] latency page 8/8: 1.2s
+  [handwriting] batch of 60 pages...
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.49it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.49it/s]
+
+Recognizing Text:   0%|          | 0/8 [00:00<?, ?it/s]
+Recognizing Text:  12%|█▎        | 1/8 [00:01<00:08,  1.18s/it]
+Recognizing Text:  75%|███████▌  | 6/8 [00:01<00:00,  5.41it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  4.76it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  4.15it/s]
+  [handwriting] 8/60 pages  2.69 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s]
+
+Recognizing Text:   0%|          | 0/8 [00:00<?, ?it/s]
+Recognizing Text:  12%|█▎        | 1/8 [00:01<00:08,  1.16s/it]
+Recognizing Text:  38%|███▊      | 3/8 [00:01<00:01,  2.79it/s]
+Recognizing Text:  62%|██████▎   | 5/8 [00:01<00:00,  4.63it/s]
+Recognizing Text:  88%|████████▊ | 7/8 [00:01<00:00,  6.35it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  4.69it/s]
+  [handwriting] 16/60 pages  2.81 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.54it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.54it/s]
+
+Recognizing Text:   0%|          | 0/8 [00:00<?, ?it/s]
+Recognizing Text:  12%|█▎        | 1/8 [00:00<00:04,  1.65it/s]
+Recognizing Text:  25%|██▌       | 2/8 [00:00<00:02,  2.10it/s]
+Recognizing Text:  50%|█████     | 4/8 [00:01<00:00,  4.42it/s]
+Recognizing Text:  75%|███████▌  | 6/8 [00:01<00:00,  6.41it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  8.04it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  5.49it/s]
+  [handwriting] 24/60 pages  2.94 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.55it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.55it/s]
+
+Recognizing Text:   0%|          | 0/8 [00:00<?, ?it/s]
+Recognizing Text:  12%|█▎        | 1/8 [00:01<00:07,  1.05s/it]
+Recognizing Text:  38%|███▊      | 3/8 [00:01<00:01,  2.95it/s]
+Recognizing Text:  62%|██████▎   | 5/8 [00:01<00:00,  4.75it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  8.08it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  5.18it/s]
+  [handwriting] 32/60 pages  2.98 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.52it/s]
+
+Recognizing Text:   0%|          | 0/8 [00:00<?, ?it/s]
+Recognizing Text:  12%|█▎        | 1/8 [00:00<00:02,  2.51it/s]
+Recognizing Text:  25%|██▌       | 2/8 [00:01<00:03,  1.71it/s]
+Recognizing Text:  62%|██████▎   | 5/8 [00:01<00:00,  4.66it/s]
+Recognizing Text:  88%|████████▊ | 7/8 [00:01<00:00,  6.45it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  5.34it/s]
+  [handwriting] 40/60 pages  3.02 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.57it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.57it/s]
+
+Recognizing Text:   0%|          | 0/8 [00:00<?, ?it/s]
+Recognizing Text:  12%|█▎        | 1/8 [00:00<00:05,  1.32it/s]
+Recognizing Text:  25%|██▌       | 2/8 [00:01<00:03,  1.82it/s]
+Recognizing Text:  75%|███████▌  | 6/8 [00:01<00:00,  6.73it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  5.94it/s]
+  [handwriting] 48/60 pages  3.09 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.58it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.58it/s]
+
+Recognizing Text:   0%|          | 0/8 [00:00<?, ?it/s]
+Recognizing Text:  12%|█▎        | 1/8 [00:01<00:07,  1.12s/it]
+Recognizing Text:  50%|█████     | 4/8 [00:01<00:01,  3.60it/s]
+Recognizing Text:  88%|████████▊ | 7/8 [00:01<00:00,  6.24it/s]
+Recognizing Text: 100%|██████████| 8/8 [00:01<00:00,  5.19it/s]
+  [handwriting] 56/60 pages  3.10 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.11it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.11it/s]
+
+Recognizing Text:   0%|          | 0/4 [00:00<?, ?it/s]
+Recognizing Text:  25%|██▌       | 1/4 [00:00<00:02,  1.32it/s]
+Recognizing Text:  50%|█████     | 2/4 [00:00<00:00,  2.25it/s]
+Recognizing Text: 100%|██████████| 4/4 [00:01<00:00,  3.81it/s]
+  [handwriting] 60/60 pages  3.05 p/s
+[surya] track stress
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.88it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.88it/s]
+
+Recognizing Text:   0%|          | 0/24 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/24 [00:00<00:17,  1.28it/s]
+Recognizing Text:   8%|▊         | 2/24 [00:01<00:13,  1.59it/s]
+Recognizing Text:  12%|█▎        | 3/24 [00:01<00:09,  2.33it/s]
+Recognizing Text:  17%|█▋        | 4/24 [00:02<00:10,  1.91it/s]
+Recognizing Text:  25%|██▌       | 6/24 [00:02<00:04,  3.60it/s]
+Recognizing Text:  29%|██▉       | 7/24 [00:02<00:04,  3.67it/s]
+Recognizing Text:  42%|████▏     | 10/24 [00:02<00:02,  6.47it/s]
+Recognizing Text:  71%|███████   | 17/24 [00:02<00:00, 15.20it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00, 23.72it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00,  8.17it/s]
+  [stress] latency page 1/8: 3.6s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.25it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s]
+
+Recognizing Text:   0%|          | 0/24 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/24 [00:00<00:14,  1.55it/s]
+Recognizing Text:   8%|▊         | 2/24 [00:01<00:12,  1.73it/s]
+Recognizing Text:  12%|█▎        | 3/24 [00:01<00:08,  2.48it/s]
+Recognizing Text:  17%|█▋        | 4/24 [00:02<00:10,  1.94it/s]
+Recognizing Text:  25%|██▌       | 6/24 [00:02<00:04,  3.66it/s]
+Recognizing Text:  29%|██▉       | 7/24 [00:02<00:04,  3.69it/s]
+Recognizing Text:  42%|████▏     | 10/24 [00:02<00:02,  6.47it/s]
+Recognizing Text:  71%|███████   | 17/24 [00:02<00:00, 15.12it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00, 23.56it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00,  8.44it/s]
+  [stress] latency page 2/8: 3.2s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  6.76it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  6.75it/s]
+
+Recognizing Text:   0%|          | 0/24 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/24 [00:00<00:15,  1.53it/s]
+Recognizing Text:   8%|▊         | 2/24 [00:01<00:12,  1.74it/s]
+Recognizing Text:  12%|█▎        | 3/24 [00:01<00:08,  2.52it/s]
+Recognizing Text:  17%|█▋        | 4/24 [00:02<00:10,  1.98it/s]
+Recognizing Text:  25%|██▌       | 6/24 [00:02<00:04,  3.72it/s]
+Recognizing Text:  29%|██▉       | 7/24 [00:02<00:04,  3.76it/s]
+Recognizing Text:  42%|████▏     | 10/24 [00:02<00:02,  6.60it/s]
+Recognizing Text:  71%|███████   | 17/24 [00:02<00:00, 15.46it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00, 24.06it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00,  8.57it/s]
+  [stress] latency page 3/8: 3.0s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.88it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.88it/s]
+
+Recognizing Text:   0%|          | 0/24 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/24 [00:00<00:17,  1.29it/s]
+Recognizing Text:   8%|▊         | 2/24 [00:01<00:13,  1.60it/s]
+Recognizing Text:  12%|█▎        | 3/24 [00:01<00:08,  2.35it/s]
+Recognizing Text:  17%|█▋        | 4/24 [00:02<00:10,  1.90it/s]
+Recognizing Text:  25%|██▌       | 6/24 [00:02<00:05,  3.59it/s]
+Recognizing Text:  29%|██▉       | 7/24 [00:02<00:04,  3.66it/s]
+Recognizing Text:  42%|████▏     | 10/24 [00:02<00:02,  6.45it/s]
+Recognizing Text:  71%|███████   | 17/24 [00:02<00:00, 15.14it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00, 23.62it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00,  8.17it/s]
+  [stress] latency page 4/8: 3.6s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.87it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.87it/s]
+
+Recognizing Text:   0%|          | 0/24 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/24 [00:00<00:17,  1.29it/s]
+Recognizing Text:   8%|▊         | 2/24 [00:01<00:13,  1.59it/s]
+Recognizing Text:  12%|█▎        | 3/24 [00:01<00:08,  2.34it/s]
+Recognizing Text:  17%|█▋        | 4/24 [00:02<00:10,  1.90it/s]
+Recognizing Text:  25%|██▌       | 6/24 [00:02<00:05,  3.58it/s]
+Recognizing Text:  29%|██▉       | 7/24 [00:02<00:04,  3.64it/s]
+Recognizing Text:  42%|████▏     | 10/24 [00:02<00:02,  6.40it/s]
+Recognizing Text:  71%|███████   | 17/24 [00:02<00:00, 15.03it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00, 23.50it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00,  8.13it/s]
+  [stress] latency page 5/8: 3.7s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.76it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.76it/s]
+
+Recognizing Text:   0%|          | 0/24 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/24 [00:01<00:32,  1.43s/it]
+Recognizing Text:   8%|▊         | 2/24 [00:01<00:19,  1.11it/s]
+Recognizing Text:  12%|█▎        | 3/24 [00:02<00:12,  1.74it/s]
+Recognizing Text:  17%|█▋        | 4/24 [00:02<00:12,  1.63it/s]
+Recognizing Text:  25%|██▌       | 6/24 [00:02<00:05,  3.13it/s]
+Recognizing Text:  29%|██▉       | 7/24 [00:03<00:05,  3.29it/s]
+Recognizing Text:  42%|████▏     | 10/24 [00:03<00:02,  5.91it/s]
+Recognizing Text:  71%|███████   | 17/24 [00:03<00:00, 14.07it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:03<00:00, 22.21it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:03<00:00,  6.67it/s]
+  [stress] latency page 6/8: 4.4s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.35it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  1.35it/s]
+
+Recognizing Text:   0%|          | 0/23 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/23 [00:01<00:42,  1.91s/it]
+Recognizing Text:   9%|▊         | 2/23 [00:02<00:22,  1.09s/it]
+Recognizing Text:  13%|█▎        | 3/23 [00:03<00:19,  1.00it/s]
+Recognizing Text:  22%|██▏       | 5/23 [00:03<00:08,  2.15it/s]
+Recognizing Text:  26%|██▌       | 6/23 [00:03<00:06,  2.46it/s]
+Recognizing Text:  39%|███▉      | 9/23 [00:03<00:02,  4.72it/s]
+Recognizing Text:  70%|██████▉   | 16/23 [00:03<00:00, 11.73it/s]
+Recognizing Text: 100%|██████████| 23/23 [00:04<00:00, 19.18it/s]
+Recognizing Text: 100%|██████████| 23/23 [00:04<00:00,  5.63it/s]
+  [stress] latency page 7/8: 5.4s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.27it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:00<00:00,  3.27it/s]
+
+Recognizing Text:   0%|          | 0/24 [00:00<?, ?it/s]
+Recognizing Text:   4%|▍         | 1/24 [00:00<00:14,  1.54it/s]
+Recognizing Text:   8%|▊         | 2/24 [00:01<00:12,  1.73it/s]
+Recognizing Text:  12%|█▎        | 3/24 [00:01<00:08,  2.48it/s]
+Recognizing Text:  17%|█▋        | 4/24 [00:02<00:10,  1.96it/s]
+Recognizing Text:  25%|██▌       | 6/24 [00:02<00:04,  3.68it/s]
+Recognizing Text:  29%|██▉       | 7/24 [00:02<00:04,  3.71it/s]
+Recognizing Text:  42%|████▏     | 10/24 [00:02<00:02,  6.50it/s]
+Recognizing Text:  71%|███████   | 17/24 [00:02<00:00, 15.24it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00, 23.64it/s]
+Recognizing Text: 100%|██████████| 24/24 [00:02<00:00,  8.47it/s]
+  [stress] latency page 8/8: 3.2s
+  [stress] batch of 55 pages...
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.16s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.16s/it]
+
+Recognizing Text:   0%|          | 0/191 [00:00<?, ?it/s]
+Recognizing Text:   1%|          | 1/191 [00:05<17:03,  5.38s/it]
+Recognizing Text:   5%|▍         | 9/191 [00:06<01:44,  1.75it/s]
+Recognizing Text:   9%|▉         | 17/191 [00:07<00:48,  3.58it/s]
+Recognizing Text:  13%|█▎        | 24/191 [00:08<00:43,  3.87it/s]
+Recognizing Text:  17%|█▋        | 32/191 [00:08<00:26,  6.05it/s]
+Recognizing Text:  25%|██▌       | 48/191 [00:09<00:14, 10.16it/s]
+Recognizing Text:  29%|██▉       | 56/191 [00:09<00:10, 13.03it/s]
+Recognizing Text:  38%|███▊      | 72/191 [00:09<00:05, 20.51it/s]
+Recognizing Text:  42%|████▏     | 80/191 [00:10<00:04, 24.84it/s]
+Recognizing Text:  50%|█████     | 96/191 [00:10<00:02, 37.67it/s]
+Recognizing Text:  80%|███████▉  | 152/191 [00:10<00:00, 100.14it/s]
+Recognizing Text:  92%|█████████▏| 176/191 [00:10<00:00, 112.68it/s]
+Recognizing Text: 100%|██████████| 191/191 [00:10<00:00, 18.36it/s] 
+  [stress] 8/55 pages  0.54 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.87s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.87s/it]
+
+Recognizing Text:   0%|          | 0/282 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/282 [00:02<12:39,  2.70s/it]
+Recognizing Text:   1%|▏         | 4/282 [00:02<02:35,  1.79it/s]
+Recognizing Text:   3%|▎         | 8/282 [00:03<01:05,  4.17it/s]
+Recognizing Text:   4%|▍         | 11/282 [00:03<00:53,  5.04it/s]
+Recognizing Text:   5%|▌         | 15/282 [00:03<00:43,  6.20it/s]
+Recognizing Text:   8%|▊         | 23/282 [00:03<00:21, 12.25it/s]
+Recognizing Text:   9%|▉         | 26/282 [00:04<00:20, 12.50it/s]
+Recognizing Text:  14%|█▍        | 39/282 [00:04<00:09, 25.63it/s]
+Recognizing Text:  22%|██▏       | 62/282 [00:04<00:04, 45.04it/s]
+Recognizing Text:  31%|███       | 87/282 [00:04<00:02, 71.43it/s]
+Recognizing Text:  50%|█████     | 142/282 [00:04<00:00, 143.66it/s]
+Recognizing Text:  67%|██████▋   | 189/282 [00:04<00:00, 196.11it/s]
+Recognizing Text:  77%|███████▋  | 216/282 [00:06<00:01, 55.06it/s] 
+Recognizing Text:  83%|████████▎ | 235/282 [00:06<00:00, 59.34it/s]
+Recognizing Text:  91%|█████████ | 256/282 [00:06<00:00, 71.44it/s]
+Recognizing Text:  97%|█████████▋| 274/282 [00:06<00:00, 82.30it/s]
+Recognizing Text: 100%|██████████| 282/282 [00:06<00:00, 40.33it/s]
+  [stress] 16/55 pages  0.61 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.21s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.21s/it]
+
+Recognizing Text:   0%|          | 0/328 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/328 [00:03<18:01,  3.31s/it]
+Recognizing Text:   2%|▏         | 7/328 [00:03<01:55,  2.77it/s]
+Recognizing Text:   3%|▎         | 11/328 [00:03<01:12,  4.35it/s]
+Recognizing Text:   5%|▍         | 15/328 [00:03<00:49,  6.27it/s]
+Recognizing Text:   5%|▌         | 18/328 [00:04<00:39,  7.85it/s]
+Recognizing Text:   6%|▋         | 21/328 [00:04<00:32,  9.58it/s]
+Recognizing Text:   8%|▊         | 25/328 [00:04<00:24, 12.40it/s]
+Recognizing Text:   9%|▊         | 28/328 [00:04<00:27, 10.92it/s]
+Recognizing Text:  10%|█         | 33/328 [00:04<00:18, 15.83it/s]
+Recognizing Text:  11%|█         | 36/328 [00:05<00:17, 16.71it/s]
+Recognizing Text:  12%|█▏        | 39/328 [00:05<00:16, 17.42it/s]
+Recognizing Text:  17%|█▋        | 56/328 [00:05<00:10, 25.77it/s]
+Recognizing Text:  31%|███       | 101/328 [00:05<00:02, 80.08it/s]
+Recognizing Text:  35%|███▌      | 116/328 [00:05<00:02, 81.08it/s]
+Recognizing Text:  48%|████▊     | 159/328 [00:06<00:01, 138.40it/s]
+Recognizing Text:  80%|███████▉  | 262/328 [00:06<00:00, 285.32it/s]
+Recognizing Text:  95%|█████████▌| 313/328 [00:06<00:00, 224.26it/s]
+Recognizing Text: 100%|██████████| 328/328 [00:07<00:00, 41.35it/s] 
+  [stress] 24/55 pages  0.62 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.36s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.36s/it]
+
+Recognizing Text:   0%|          | 0/311 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/311 [00:02<14:21,  2.78s/it]
+Recognizing Text:  14%|█▎        | 42/311 [00:02<00:13, 20.25it/s]
+Recognizing Text:  21%|██        | 64/311 [00:03<00:09, 26.40it/s]
+Recognizing Text:  52%|█████▏    | 163/311 [00:03<00:01, 88.34it/s]
+Recognizing Text:  66%|██████▌   | 204/311 [00:03<00:00, 115.33it/s]
+Recognizing Text:  77%|███████▋  | 239/311 [00:03<00:00, 114.21it/s]
+Recognizing Text:  86%|████████▌ | 266/311 [00:04<00:00, 98.04it/s] 
+Recognizing Text:  92%|█████████▏| 286/311 [00:04<00:00, 103.42it/s]
+Recognizing Text:  98%|█████████▊| 304/311 [00:05<00:00, 63.09it/s] 
+Recognizing Text: 100%|██████████| 311/311 [00:05<00:00, 59.07it/s]
+  [stress] 32/55 pages  0.67 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.10s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:03<00:00,  3.10s/it]
+
+Recognizing Text:   0%|          | 0/270 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/270 [00:02<12:00,  2.68s/it]
+Recognizing Text:  16%|█▋        | 44/270 [00:02<00:10, 21.94it/s]
+Recognizing Text:  24%|██▍       | 66/270 [00:03<00:06, 31.44it/s]
+Recognizing Text:  36%|███▌      | 96/270 [00:03<00:03, 52.18it/s]
+Recognizing Text:  53%|█████▎    | 143/270 [00:03<00:01, 93.33it/s]
+Recognizing Text:  64%|██████▎   | 172/270 [00:03<00:01, 80.29it/s]
+Recognizing Text:  71%|███████▏  | 193/270 [00:03<00:00, 93.90it/s]
+Recognizing Text:  79%|███████▉  | 214/270 [00:03<00:00, 108.98it/s]
+Recognizing Text:  87%|████████▋ | 235/270 [00:04<00:00, 124.78it/s]
+Recognizing Text:  97%|█████████▋| 261/270 [00:04<00:00, 137.67it/s]
+Recognizing Text: 100%|██████████| 270/270 [00:04<00:00, 55.62it/s] 
+  [stress] 40/55 pages  0.70 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.64s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.64s/it]
+
+Recognizing Text:   0%|          | 0/232 [00:00<?, ?it/s]
+Recognizing Text:   0%|          | 1/232 [00:01<07:14,  1.88s/it]
+Recognizing Text:  11%|█         | 25/232 [00:02<00:12, 16.72it/s]
+Recognizing Text:  24%|██▎       | 55/232 [00:02<00:04, 40.97it/s]
+Recognizing Text:  37%|███▋      | 85/232 [00:02<00:02, 51.15it/s]
+Recognizing Text:  47%|████▋     | 109/232 [00:02<00:01, 67.16it/s]
+Recognizing Text:  54%|█████▍    | 125/232 [00:02<00:01, 77.57it/s]
+Recognizing Text:  60%|█████▉    | 139/232 [00:02<00:01, 85.36it/s]
+Recognizing Text:  66%|██████▌   | 153/232 [00:04<00:03, 22.61it/s]
+Recognizing Text:  70%|███████   | 163/232 [00:05<00:03, 21.96it/s]
+Recognizing Text:  75%|███████▍  | 173/232 [00:05<00:02, 26.03it/s]
+Recognizing Text:  80%|███████▉  | 185/232 [00:05<00:01, 33.18it/s]
+Recognizing Text:  95%|█████████▌| 221/232 [00:05<00:00, 65.56it/s]
+Recognizing Text: 100%|██████████| 232/232 [00:05<00:00, 39.73it/s]
+  [stress] 48/55 pages  0.72 p/s
+
+Detecting bboxes:   0%|          | 0/1 [00:00<?, ?it/s]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.96s/it]
+Detecting bboxes: 100%|██████████| 1/1 [00:02<00:00,  2.96s/it]
+
+Recognizing Text:   0%|          | 0/171 [00:00<?, ?it/s]
+Recognizing Text:   1%|          | 1/171 [00:04<12:46,  4.51s/it]
+Recognizing Text:   6%|▌         | 10/171 [00:04<00:54,  2.93it/s]
+Recognizing Text:   8%|▊         | 14/171 [00:07<01:13,  2.13it/s]
+Recognizing Text:  11%|█         | 19/171 [00:08<00:50,  2.98it/s]
+Recognizing Text:  15%|█▌        | 26/171 [00:08<00:28,  5.01it/s]
+Recognizing Text:  23%|██▎       | 39/171 [00:08<00:15,  8.29it/s]
+Recognizing Text:  32%|███▏      | 55/171 [00:09<00:07, 15.40it/s]
+Recognizing Text:  39%|███▉      | 67/171 [00:09<00:04, 21.34it/s]
+Recognizing Text:  50%|█████     | 86/171 [00:09<00:02, 34.86it/s]
+Recognizing Text:  72%|███████▏  | 123/171 [00:09<00:00, 66.48it/s]
+Recognizing Text:  92%|█████████▏| 158/171 [00:09<00:00, 97.02it/s]
+Recognizing Text: 100%|██████████| 171/171 [00:09<00:00, 17.81it/s]
+  [stress] 55/55 pages  0.69 p/s

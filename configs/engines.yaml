@@ -1,0 +1,400 @@
+# Engine registry. Every engine runs in its own subprocess inside its family's venv.
+#
+#   kind       classic | ocr_vlm (OCR-specialised VLM) | vlm (general-purpose VLM)
+#   family     venv to run in (see ocrbench/envs.py); family_<kind> overrides per accelerator
+#   impl       module[:class] under ocrbench/engines
+#   requires   hardware: which accelerators it may run on (cpu engines also run on GPU/TPU hosts)
+#              min_vram_gb: weights + KV cache headroom; bf16: needs a bf16 GPU (not T4)
+#   default    false = only runs when named explicitly with --engines
+#   caps       what the output carries beyond text (for the capabilities table)
+#   params     engine-specific; VLM settings are copied from each model card
+
+engines:
+
+  # ------------------------------------------------------------------ classic OCR
+  - id: tesseract
+    name: Tesseract 5
+    kind: classic
+    family: classic
+    impl: tesseract
+    license: Apache-2.0
+    requires: {hardware: [cpu, gpu, tpu]}
+    caps: {boxes: true}
+    params: {lang: eng+fra+deu+lat, config: "--oem 1 --psm 3"}
+
+  - id: ocrmypdf
+    name: OCRmyPDF (Tesseract + cleanup)
+    kind: classic
+    family: classic
+    impl: ocrmypdf_engine
+    license: MPL-2.0
+    requires: {hardware: [cpu, gpu, tpu]}
+    caps: {boxes: true}
+    params: {lang: eng+fra+deu+lat, flags: ["--deskew", "--clean", "--rotate-pages"], image_dpi: 300}
+
+  - id: rapidocr
+    name: RapidOCR (PP-OCRv6, ONNX)
+    kind: classic
+    family: classic
+    impl: rapidocr_engine
+    license: Apache-2.0
+    requires: {hardware: [cpu, gpu, tpu]}
+    caps: {boxes: true}
+    params: {}
+
+  - id: easyocr
+    name: EasyOCR
+    kind: classic
+    family: classic
+    impl: easyocr_engine
+    license: Apache-2.0
+    requires: {hardware: [cpu, gpu, tpu]}   # on a TPU VM: torch on the host CPU
+    caps: {boxes: true}
+    params: {langs: [en, fr, de, la]}
+
+  - id: doctr
+    name: docTR
+    kind: classic
+    family: classic
+    impl: doctr_engine
+    license: Apache-2.0
+    requires: {hardware: [cpu, gpu, tpu]}   # on a TPU VM: torch on the host CPU
+    caps: {boxes: true}
+    params: {det_arch: fast_base, reco_arch: parseq}
+
+  - id: paddleocr
+    name: PaddleOCR 3 (PP-OCRv6)
+    kind: classic
+    family: paddle
+    impl: paddle_classic
+    license: Apache-2.0
+    # GPU only: on CPU, Paddle 3.x needs oneDNN disabled and manages ~0.01 pages/s.
+    # The same PP-OCR models run fast on CPU via ONNX: see `rapidocr`.
+    requires: {hardware: [gpu]}
+    caps: {boxes: true}
+    params: {}
+
+  - id: surya
+    name: Surya 0.17 (classic)
+    kind: classic
+    family: surya
+    impl: surya_classic
+    license: GPL-3.0 code / OpenRAIL model
+    requires: {hardware: [gpu], min_vram_gb: 8}
+    caps: {boxes: true}
+    params: {}
+
+  # ------------------------------------------------------------------ OCR-specialised VLMs
+  - id: paddleocr-vl
+    name: PaddleOCR-VL 1.6
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 0.96
+    license: Apache-2.0
+    requires: {hardware: [gpu], min_vram_gb: 6}
+    caps: {layout: true, tables: true, math: true}
+    # Whole-page "OCR:" prompt. The official product also runs a layout model and OCRs
+    # each region; that pipeline would likely score higher on complex pages.
+    env: {VLLM_USE_FLASHINFER_SAMPLER: "0"}
+    params:
+      model: PaddlePaddle/PaddleOCR-VL-1.6
+      trust_remote_code: true
+      prompt: "OCR:"
+      llm_kwargs: {max_num_batched_tokens: 16384, enable_prefix_caching: false, mm_processor_cache_gb: 0}
+      sampling: {temperature: 0.0, max_tokens: 6144}
+
+  - id: ovisocr2
+    name: OvisOCR2
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 0.85
+    license: Apache-2.0
+    requires: {hardware: [gpu], min_vram_gb: 6}
+    caps: {layout: true, tables: true, math: true}
+    params:
+      model: ATH-MaaS/OvisOCR2
+      prompt: OVIS_OCR2
+      max_pixels: 8294400
+      llm_kwargs: {gdn_prefill_backend: triton}
+      chat_kwargs: {chat_template_kwargs: {enable_thinking: false}}
+      sampling: {temperature: 0.0, max_tokens: 8192}
+      postprocess: [drop_bbox_img_tags, trim_repeats]
+
+  - id: lightonocr2
+    name: LightOnOCR-2 1B
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 1.0
+    license: Apache-2.0
+    requires: {hardware: [gpu], min_vram_gb: 6}
+    caps: {layout: true, tables: true, math: true}
+    params:
+      model: lightonai/LightOnOCR-2-1B
+      prompt: null            # image only
+      max_side: 1540
+      dtype_no_bf16: float32  # fp16 on T4 produced runaway garbage (0% accuracy, max_tokens every page)
+      llm_kwargs: {mm_processor_cache_gb: 0, enable_prefix_caching: false}
+      sampling: {temperature: 0.2, top_p: 0.9, max_tokens: 4096}
+
+  - id: glm-ocr
+    name: GLM-OCR
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 1.33
+    license: MIT
+    requires: {hardware: [gpu], min_vram_gb: 8}
+    caps: {tables: true, math: true}
+    # Whole-page use; the official SDK runs layout detection + per-region recognition.
+    params:
+      model: zai-org/GLM-OCR
+      prompt: "Text Recognition:"
+      sampling: {temperature: 0.0, top_k: 1, repetition_penalty: 1.1, max_tokens: 8192}
+      postprocess: [strip_think]
+
+  - id: granite-docling
+    name: Granite-Docling 258M
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 0.26
+    license: Apache-2.0
+    requires: {hardware: [gpu], min_vram_gb: 4}
+    caps: {layout: true, tables: true, math: true, boxes: true}
+    params:
+      model: ibm-granite/granite-docling-258M
+      revision: untied
+      prompt: "Convert this page to docling."
+      max_model_len: 8192     # the model's context limit
+      dtype_no_bf16: float32  # fp16 on T4 outputs "!!!!" (model card)
+      # fp32 vision activations on full-page 300-dpi scans OOM'd a T4 at the default 0.85
+      gpu_memory_utilization: 0.6
+      llm_kwargs: {max_num_seqs: 8}
+      batch_size: 8
+      sampling: {temperature: 0.0, max_tokens: 6144, skip_special_tokens: false}
+      postprocess: [doctags]
+
+  - id: dots-mocr
+    name: dots.mocr
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 3.04
+    license: MIT
+    requires: {hardware: [gpu], min_vram_gb: 12}
+    caps: {layout: true, tables: true, math: true}
+    # "prompt_ocr" mode: plain text, page headers/footers excluded by design.
+    params:
+      model: dots-studio/dots.mocr
+      trust_remote_code: true
+      prompt: "Extract the text content from this image."
+      text_prefix: "<|img|><|imgpad|><|endofimg|>"
+      max_pixels: 11289600
+      chat_kwargs: {chat_template_content_format: string}
+      sampling: {temperature: 0.1, top_p: 0.9, max_tokens: 8192}
+
+  - id: deepseek-ocr2
+    name: DeepSeek-OCR 2
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 3.39
+    license: Apache-2.0
+    requires: {hardware: [gpu], min_vram_gb: 14}
+    caps: {layout: true, tables: true, math: true, boxes: true}
+    params:
+      model: deepseek-ai/DeepSeek-OCR-2
+      trust_remote_code: true
+      mode: generate
+      raw_prompt: "<image>\n<|grounding|>Convert the document to markdown. "
+      max_model_len: 8192
+      llm_kwargs:
+        logits_processors: ["vllm.model_executor.models.deepseek_ocr:NGramPerReqLogitsProcessor"]
+        enable_prefix_caching: false
+        mm_processor_cache_gb: 0
+      sampling:
+        temperature: 0.0
+        max_tokens: 6144
+        skip_special_tokens: false
+        extra_args: {ngram_size: 30, window_size: 90, whitelist_token_ids: [128821, 128822]}
+      postprocess: [deepseek]
+
+  - id: chandra-ocr2
+    name: Chandra OCR 2
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 5.3
+    license: OpenRAIL-M (modified)
+    requires: {hardware: [gpu], min_vram_gb: 20}
+    caps: {layout: true, tables: true, math: true, boxes: true}
+    params:
+      model: datalab-to/chandra-ocr-2
+      prompt: CHANDRA_OCR
+      max_model_len: 18000
+      max_pixels: 6291456
+      llm_kwargs: {mm_processor_kwargs: {min_pixels: 3136, max_pixels: 6291456}}
+      sampling: {temperature: 0.0, top_p: 0.1, max_tokens: 8192}
+
+  - id: surya-ocr2
+    name: Surya OCR 2 (VLM)
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 0.69
+    license: OpenRAIL
+    requires: {hardware: [gpu], min_vram_gb: 6}
+    caps: {layout: true, tables: true, math: true, boxes: true}
+    # surya 0.22's full-page mode (HIGH_ACCURACY_BBOX_PROMPT), served directly.
+    params:
+      model: datalab-to/surya-ocr-2
+      prompt: SURYA2_FULL_PAGE
+      max_model_len: 18000
+      max_pixels: 6291456
+      llm_kwargs: {mm_processor_kwargs: {min_pixels: 3136, max_pixels: 6291456}}
+      sampling: {temperature: 0.0, max_tokens: 8192}
+
+  - id: olmocr2
+    name: olmOCR 2 7B (FP8)
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 8.3
+    license: Apache-2.0
+    requires: {hardware: [gpu], min_vram_gb: 20}
+    caps: {tables: true, math: true}
+    params:
+      model: allenai/olmOCR-2-7B-1025-FP8
+      prompt: OLMOCR_V4
+      text_first: true
+      max_side: 1288
+      limit_mm_per_prompt: {image: 1, video: 0}
+      sampling: {temperature: 0.1, max_tokens: 8000}
+      postprocess: [strip_front_matter]
+
+  - id: nanonets-ocr2
+    name: Nanonets-OCR2 3B
+    kind: ocr_vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 3.75
+    license: unspecified (Qwen2.5-VL-3B base)
+    default: false
+    requires: {hardware: [gpu], min_vram_gb: 12}
+    caps: {tables: true, math: true}
+    params:
+      model: nanonets/Nanonets-OCR2-3B
+      prompt: NANONETS
+      sampling: {temperature: 0.0, repetition_penalty: 1.0, max_tokens: 8192}
+      postprocess: [drop_img_descriptions]
+
+  # ------------------------------------------------------------------ general-purpose VLMs
+  - id: qwen3.5-2b
+    name: Qwen3.5 2B
+    kind: vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 2.27
+    license: Apache-2.0
+    requires: {hardware: [gpu], min_vram_gb: 10}
+    caps: {tables: true, math: true}
+    params: &qwen35
+      model: Qwen/Qwen3.5-2B
+      prompt: GENERAL_OCR
+      max_pixels: 4718592
+      limit_mm_per_prompt: {image: 1, video: 0}
+      chat_kwargs: {chat_template_kwargs: {enable_thinking: false}}
+      sampling: {temperature: 0.0, max_tokens: 8192}
+      postprocess: [strip_think]
+
+  - id: qwen3.5-9b
+    name: Qwen3.5 9B
+    kind: vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 9.65
+    license: Apache-2.0
+    requires: {hardware: [gpu], min_vram_gb: 30}
+    caps: {tables: true, math: true}
+    params:
+      <<: *qwen35
+      model: Qwen/Qwen3.5-9B
+
+  - id: qwen3-vl-8b
+    name: Qwen3-VL 8B
+    kind: vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 8.77
+    license: Apache-2.0
+    default: false
+    requires: {hardware: [gpu], min_vram_gb: 28}
+    caps: {tables: true, math: true}
+    params:
+      model: Qwen/Qwen3-VL-8B-Instruct
+      prompt: GENERAL_OCR
+      max_pixels: 4718592
+      limit_mm_per_prompt: {image: 1, video: 0}
+      sampling: {temperature: 0.0, max_tokens: 8192}
+
+  - id: gemma4-e4b
+    name: Gemma 4 E4B
+    kind: vlm
+    family: vllm
+    impl: vllm_engine
+    size_b: 8.0
+    license: Apache-2.0
+    requires: {hardware: [gpu], min_vram_gb: 22, bf16: true}
+    caps: {tables: true}
+    params:
+      model: google/gemma-4-E4B-it
+      prompt: GENERAL_OCR
+      limit_mm_per_prompt: {image: 1, audio: 0}
+      llm_kwargs:
+        hf_overrides: {vision_config: {default_output_length: 1120}, vision_soft_tokens_per_image: 1120}
+        mm_processor_kwargs: {max_soft_tokens: 1120}
+      sampling: {temperature: 0.0, max_tokens: 8192}
+
+  # Same engine id on GPU and TPU, so the hardware table compares like with like.
+  - id: qwen2.5-vl-3b
+    name: Qwen2.5-VL 3B
+    kind: vlm
+    family: vllm
+    family_tpu: vllm-tpu
+    impl: vllm_engine
+    size_b: 3.75
+    license: Qwen Research (non-commercial)
+    requires: {hardware: [gpu, tpu], min_vram_gb: 10, min_hbm_gb: 16}
+    caps: {tables: true}
+    params: &qwen25
+      model: Qwen/Qwen2.5-VL-3B-Instruct
+      prompt: GENERAL_OCR
+      max_pixels: 1003520
+      max_model_len: 8192
+      limit_mm_per_prompt: {image: 1, video: 0}
+      sampling: {temperature: 0.0, max_tokens: 4096}
+      tpu_llm_kwargs:
+        enable_chunked_prefill: false
+        max_num_seqs: 8
+        dtype: bfloat16
+        gpu_memory_utilization: 0.95
+        mm_processor_kwargs: {max_pixels: 1003520}
+      batch_size: 16
+
+  - id: qwen2.5-vl-7b
+    name: Qwen2.5-VL 7B
+    kind: vlm
+    family: vllm
+    family_tpu: vllm-tpu
+    impl: vllm_engine
+    size_b: 8.29
+    license: Apache-2.0
+    requires: {hardware: [gpu, tpu], min_vram_gb: 22, min_hbm_gb: 32}
+    caps: {tables: true}
+    params:
+      <<: *qwen25
+      model: Qwen/Qwen2.5-VL-7B-Instruct
+      gpu_memory_utilization: 0.92  # at 0.85 an L4 (22.5 GB) had 0.28 GiB left for KV cache, < one 8k request
