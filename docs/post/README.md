@@ -10,44 +10,23 @@
 
 OCR is the step that turns a picture of text into text a computer can search and process. For decades it was done by specialised programs such as Tesseract. In the last two years, AI models that read images and write text, the same kind of model used in modern chat assistants, have been trained to do it as well, and several are free to download and run. This study measured 22 of these programs and models to find which are most accurate, how fast they are, and what they cost on the cloud computers most people can rent.
 
-Each one read four kinds of material with known correct answers:
-
-- pages from old printed natural-history books (1708–1913);
-- modern PDF documents, checked with a set of automatic tests;
-- single lines of English handwriting;
-- clean printed pages made deliberately worse (blurred, rotated, speckled, photographed at an angle, and so on).
-
-Each one was run on up to five rented machines: four with graphics processors, from the cheapest Google Colab offers to the most expensive, and one with Google's own AI chip (a TPU).
+Each one read four kinds of material with known correct answers: pages from old printed natural-history books (1708–1913), modern PDF documents checked with a set of automatic tests, single lines of English handwriting, and clean printed pages made deliberately worse (blurred, rotated, speckled, photographed at an angle, and so on). Each was run on up to five rented machines: four with graphics processors, from the cheapest Google Colab offers to the most expensive, and one with Google's own AI chip (a TPU).
 
 1. **The AI models are much more accurate than the traditional programs.** Of the 15 AI models, 14 score higher on average than the best traditional program. The best AI model averaged 94.7% correct; the best traditional program, 72.8%. The traditional programs read old books well but fail on handwriting and on page layouts with columns or tables.
 2. **A general-purpose AI model does nearly as well as one trained only for reading documents.** Qwen3.5-9B, a general model, came third of 22.
-3. **Which program is best depends on the material.** The model that reads old books best is not the one that handles modern documents best, and the order among the AI models on those two kinds of material is almost unrelated. Several failures came from one specific property of the material:
-   - a two-column page layout;
-   - a decorative page header that made two models repeat themselves until they stopped;
-   - handwritten lines, on which one model wrote nothing and another invented sentences.
+3. **Which program is best depends on the material.** The model that reads old books best is not the one that handles modern documents best, and the order among the AI models on those two kinds of material is almost unrelated. Several failures came from one specific property of the material: a two-column page layout, a decorative page header that made two models repeat themselves until they stopped, and handwritten lines, on which one model wrote nothing and two others added text that was not on the page.
 4. **Cost differs by a factor of eight among the good models.** Reading a million pages would cost about \$39 with the cheapest accurate model on the cheapest suitable machine, and about \$326 with the most accurate model. Models a few points less accurate cost between an eighth and a half as much as the most accurate one.
 5. **The mid-priced machine is usually the cheapest per page.** The fastest machine read pages 3.6 to 5.3 times faster than the mid-priced one but costs five times as much per hour. The cheapest machine was too slow for most of the AI models. Google's TPU read a full page as fast as the fastest graphics processor, but it slows down sharply when each image has a different size.
 
-Every result that looked wrong was investigated, and §5 reports the cause and the evidence for each:
-
-- a program that produced random characters on the newest graphics card, because of a software build that did not support that card;
-- a page that crashed one program on every machine;
-- the ground truth of one Latin book, which contains characters no program can produce.
+Every result that looked wrong was investigated, and §5 reports the cause and the evidence for each. Among them were a program that produced random characters on the newest graphics card, because of a software build that did not support that card; a page that crashed one program on every machine; and the ground truth of one Latin book, which contains characters no program can produce.
 
 ## 1. Background
 
 ### 1.1 Classic OCR
 
-The classic engines split OCR into stages: find lines or words on the page, then recognise the characters in each. Tesseract, begun at Hewlett-Packard and released as open source in 2005, is the reference open engine ([Smith 2007](#references)). Its version 4 and later recognise each line with an LSTM network, and it runs on a CPU. OCRmyPDF ([Barlow 2026](#references)) wraps Tesseract in a pipeline that straightens, cleans, and rotates each page before recognition and writes a searchable PDF. Comparing it with plain Tesseract measures what that image cleanup adds.
+The classic engines split OCR into stages: find lines or words on the page, then recognise the characters in each. Tesseract, begun at Hewlett-Packard and released as open source in 2005, is the reference open engine ([Smith 2007](#references)). Its version 4 and later recognise each line with an LSTM network, and it runs on a CPU. OCRmyPDF ([Barlow 2026](#references)) wraps Tesseract in a pipeline that straightens, cleans, and rotates each page before recognition and writes a searchable PDF; comparing it with plain Tesseract measures what that image cleanup adds.
 
-Four of the other engines detect text regions with one neural network and recognise them with a second:
-
-- **PaddleOCR**, whose PP-OCR models ([Du et al 2020](#references); [Cui et al 2025a](#references)) are now in their sixth version, PP-OCRv6 ([Zhang et al 2026b](#references); [PaddlePaddle 2026a](#references)).
-- **RapidOCR**, which runs the same PP-OCR models through ONNX Runtime ([RapidAI 2021](#references)).
-- **EasyOCR**, which pairs the CRAFT detector ([Baek et al 2019](#references)) with a CRNN recogniser ([Shi et al 2017](#references); [JaidedAI 2024](#references)).
-- **docTR** ([Mindee 2021](#references)), run here with the FAST detector ([Chen et al 2021](#references)) and the PARSeq recogniser ([Bautista & Atienza 2022](#references)).
-
-Surya 0.17 ([Paruchuri 2025](#references)) is a line-level OCR toolkit from Datalab that is also built from neural detection and recognition models.
+Four of the other engines detect text regions with one neural network and recognise them with a second. PaddleOCR's PP-OCR models ([Du et al 2020](#references); [Cui et al 2025a](#references)) are now in their sixth version, PP-OCRv6 ([Zhang et al 2026b](#references); [PaddlePaddle 2026a](#references)), and RapidOCR runs the same models through ONNX Runtime ([RapidAI 2021](#references)). EasyOCR pairs the CRAFT detector ([Baek et al 2019](#references)) with a CRNN recogniser ([Shi et al 2017](#references); [JaidedAI 2024](#references)), and docTR ([Mindee 2021](#references)) was run here with the FAST detector ([Chen et al 2021](#references)) and the PARSeq recogniser ([Bautista & Atienza 2022](#references)). Surya 0.17 ([Paruchuri 2025](#references)) is a line-level OCR toolkit from Datalab, built from the same kind of detection and recognition models.
 
 ### 1.2 OCR with vision-language models
 
@@ -65,34 +44,13 @@ A vision-language model reads an image and generates text, one token at a time. 
 | OvisOCR2 ([Lu et al 2026](#references); [ATH-MaaS 2026](#references)) | A post-trained Qwen3.5-0.8B | Not the earlier Ovis architecture ([Lu et al 2024](#references)) |
 | Granite-Docling-258M ([IBM 2025](#references)) | | Writes the DocTags markup of SmolDocling ([Nassar et al 2025](#references)), which a library converts to text |
 
-Five general VLMs were run with the same plain transcription prompt:
-
-- Qwen3.5 2B and 9B ([Qwen 2026](#references));
-- Gemma 4 E4B ([Gemma Team et al 2026](#references); [Google 2026a](#references));
-- Qwen2.5-VL 3B and 7B ([Bai et al 2025a](#references)), which are also the only models in the set that the TPU backend of vLLM supports ([vLLM 2026b](#references)).
+Five general VLMs were run with the same plain transcription prompt: Qwen3.5 2B and 9B ([Qwen 2026](#references)), Gemma 4 E4B ([Gemma Team et al 2026](#references); [Google 2026a](#references)), and Qwen2.5-VL 3B and 7B ([Bai et al 2025a](#references)). The last two are also the only models in the set that the TPU backend of vLLM supports ([vLLM 2026b](#references)).
 
 ### 1.3 Existing evaluations
 
-**FineBooks** ([Majstorovic & van Strien 2026](#references)) compared open VLMs on historical books.
+FineBooks ([Majstorovic & van Strien 2026](#references)) compared open VLMs on historical books. Its ground truth is a set of expert transcriptions of 2,165 pages from six Biodiversity Heritage Library ([BHL 2026](#references)) volumes, made by the IMPACT and BHL-Europe projects and published as `finebooks/bhl-impact-gt` ([FineBooks 2026a](#references)). It scores the character error rate (CER), the Levenshtein edit distance ([Levenshtein 1966](#references)) between output and reference divided by the length of the reference, in two modes: *diplomatic*, which counts the modern "s" written for a printed long s (ſ) as an error, and *reading*, which normalises such differences. dots.mocr scored best in the blog post (97.6% reading accuracy); on the later leaderboard ([FineBooks 2026b](#references)) dots.ocr and dots.mocr are statistically tied, followed by OvisOCR2 and a kraken pipeline with PP-OCRv6. FineBooks does not score throughput, and it excludes handwriting and multi-column layouts.
 
-- **Ground truth:** expert transcriptions of 2,165 pages from six Biodiversity Heritage Library ([BHL 2026](#references)) volumes, made by the IMPACT and BHL-Europe projects and published as `finebooks/bhl-impact-gt` ([FineBooks 2026a](#references)).
-- **Scoring:** character error rate (CER), the Levenshtein edit distance ([Levenshtein 1966](#references)) between output and reference divided by the length of the reference. It is reported in two modes:
-  - *diplomatic*, which counts the modern "s" written for a printed long s (ſ) as an error;
-  - *reading*, which normalises such differences.
-- **Results:** dots.mocr scored best in the blog post (97.6% reading accuracy). On the later leaderboard ([FineBooks 2026b](#references)) dots.ocr and dots.mocr are statistically tied, followed by OvisOCR2 and a kraken pipeline with PP-OCRv6.
-- **Scope:** throughput is not scored, and handwriting and multi-column layouts are excluded.
-
-**olmOCR-bench** ([Poznanski et al 2025a](#references); [AllenAI 2025b](#references)) scores modern PDFs with 7,010 unit tests rather than a reference transcription:
-
-- a sentence is present;
-- a header is absent;
-- passage A precedes passage B;
-- a table cell lies under a given heading;
-- a formula renders the same way in KaTeX.
-
-The score is the mean of the per-category pass rates.
-
-**IAM** ([Marti & Bunke 2002](#references)) is the standard database of English handwriting; `Teklia/IAM-line` ([Teklia 2024](#references)) distributes it as single lines with transcriptions.
+olmOCR-bench ([Poznanski et al 2025a](#references); [AllenAI 2025b](#references)) scores modern PDFs with 7,010 unit tests rather than a reference transcription. Each test checks one property of the output: that a sentence is present, that a header is absent, that passage A precedes passage B, that a table cell lies under a given heading, or that a formula renders the same way in KaTeX. The score is the mean of the per-category pass rates. IAM ([Marti & Bunke 2002](#references)) is the standard database of English handwriting, and `Teklia/IAM-line` ([Teklia 2024](#references)) distributes it as single lines with transcriptions.
 
 ### 1.4 The claims tested
 
@@ -111,29 +69,13 @@ The criteria by which each claim is judged in §6.1 were written after the runs 
 
 Every track was sampled with seed 1234. Pages were rendered or converted to PNG before any engine saw them, so every engine received identical images.
 
-**Historical books** (50 pages; CC-BY 3.0)
+**Historical books** (50 pages; CC-BY 3.0). The FineBooks ground truth holds 2,165 pages from six volumes. After pages with fewer than 200 characters of text (plates and blank pages) were dropped, the sample was stratified by volume, giving 8 or 9 pages from each. Two volumes are in English (*Birds of Great Britain* and *Conchologia Iconica*), one in German, one in French (Cuvier's *Histoire naturelle des poissons*), one in French and German (*Trudy Russkago entomologicheskago obshchestva*), and one in Latin (*Piscium querelae et vindiciae*, 1708). The reference for each page is the volume's own transcription, which keeps the long s and ligatures.
 
-- **Sample:** stratified by volume from the FineBooks ground truth, after dropping pages with fewer than 200 characters of text (plates and blank pages). The ground truth holds 2,165 pages from six volumes, so the sample is 8 or 9 pages from each volume.
-- **Languages:** two English volumes (*Birds of Great Britain*, *Conchologia Iconica*), one German, one French (Cuvier's *Histoire naturelle des poissons*), one French and German (*Trudy Russkago entomologicheskago obshchestva*), and one Latin (*Piscium querelae et vindiciae*, 1708).
-- **Reference:** the volume's own transcription, which keeps the long s and ligatures.
+**Modern documents** (50 PDFs; ODC-BY). Ten PDFs were sampled from each of five olmOCR-bench categories (headers and footers, long tiny text, multi-column, old scans, and tables), with all the tests attached to each PDF: 292 category tests, plus one baseline test per page that checks for any output and for repetition at the end. Each PDF was rendered at 2,048 pixels on its longest side, the resolution olmOCR uses for API models. The two mathematics categories were excluded, because their tests render LaTeX with KaTeX in a headless Chromium browser, which the benchmark does not install. The docs score is therefore the text-and-table subset of olmOCR-bench and is not comparable with published overall scores.
 
-**Modern documents** (50 PDFs; ODC-BY)
+**Handwriting** (60 lines; MIT, with IAM's own research terms). Random lines from the 2,915-line test split of `Teklia/IAM-line`, each image 128 pixels high. IAM transcriptions are tokenised ("it 's a good start ."), so the references were detokenised to normal spacing before scoring.
 
-- **Sample:** ten PDFs from each of five olmOCR-bench categories (headers and footers, long tiny text, multi-column, old scans, tables), with all the tests attached to each PDF. That is 292 category tests, plus one baseline test per page that checks for any output and for repetition at the end.
-- **Rendering:** each PDF was rendered at 2,048 pixels on its longest side, the resolution olmOCR uses for API models.
-- **Exclusions:** the two mathematics categories were excluded, because their tests render LaTeX with KaTeX in a headless Chromium browser, which the benchmark does not install. The docs score is therefore the text-and-table subset of olmOCR-bench and is not comparable with published overall scores.
-
-**Handwriting** (60 lines; MIT, with IAM's own research terms)
-
-- **Sample:** random lines from the 2,915-line test split of `Teklia/IAM-line`.
-- **Images:** 128 pixels high.
-- **Reference:** IAM transcriptions are tokenised ("it 's a good start ."), so the references were detokenised to normal spacing before scoring.
-
-**Synthetic pages** (55 pages)
-
-- **Base pages:** five pages rendered at 300 DPI from public-domain passages (Darwin, Austen, Melville, Lincoln, and some accented French and German): two prose pages, one two-column page, one table, and one invoice.
-- **Levels:** each base page at eleven levels: clean, 150 DPI, 75 DPI, blur, noise, 3° rotation, 8° rotation, JPEG quality 10, low contrast, photocopy, and a simulated phone photograph.
-- **Ground truth:** the rendered text, so it is exact.
+**Synthetic pages** (55 pages). Five base pages were rendered at 300 DPI from public-domain passages (Darwin, Austen, Melville, Lincoln, and some accented French and German): two prose pages, one two-column page, one table, and one invoice. Each was then produced at eleven levels: clean, 150 DPI, 75 DPI, blur, noise, 3° rotation, 8° rotation, JPEG quality 10, low contrast, photocopy, and a simulated phone photograph. The ground truth is the rendered text, so it is exact.
 
 ## 3. Method
 
@@ -164,24 +106,11 @@ All VLMs were served with vLLM 0.30 ([Kwon et al 2023](#references)) and Hugging
 | Gemma 4 E4B | general VLM | 8B | general prompt | greedy, 1,120 image tokens |
 | Qwen2.5-VL 3B and 7B | general VLM | 3.8B, 8.3B | general prompt | greedy, at most 1.0 megapixels |
 
-Two further models are in the registry but were not run by default:
-
-- **Nanonets-OCR2-3B** ([Mandal et al 2025](#references)) is a fine-tune of Qwen2.5-VL-3B whose card states no licence.
-- **Qwen3-VL-8B** ([Bai et al 2025b](#references)) is the predecessor of Qwen3.5-9B, which was run.
-
-Both were left out to keep each runtime's session within its time and compute budget.
+Two further models are in the registry but were not run by default, to keep each runtime's session within its time and compute budget. Nanonets-OCR2-3B ([Mandal et al 2025](#references)) is a fine-tune of Qwen2.5-VL-3B whose card states no licence, and Qwen3-VL-8B ([Bai et al 2025b](#references)) is the predecessor of Qwen3.5-9B, which was run.
 
 ### 3.2 Isolation
 
-The engines need incompatible versions of PyTorch, Transformers, and PaddlePaddle. Each family therefore runs in its own virtual environment:
-
-- classic;
-- Paddle;
-- Surya;
-- vLLM;
-- vLLM-TPU, on Python 3.12, because vllm-tpu 0.30 publishes builds for Python 3.12 only.
-
-Each engine runs in its own process group, which is killed after the engine finishes. This was necessary: in an early run, a vLLM worker process left behind by one model held 12.7 GB of GPU memory and caused every later model to fail. Downloaded model weights are deleted after each model, because the disk of a Colab runtime cannot hold all of them at once.
+The engines need incompatible versions of PyTorch, Transformers, and PaddlePaddle, so each family runs in its own virtual environment: one for the classic engines, one each for Paddle, Surya, and vLLM, and one for vLLM-TPU, which runs on Python 3.12 because vllm-tpu 0.30 publishes builds for Python 3.12 only. Each engine runs in its own process group, which is killed after the engine finishes. This was necessary: in an early run, a vLLM worker process left behind by one model held 12.7 GB of GPU memory and caused every later model to fail. Downloaded model weights are deleted after each model, because the disk of a Colab runtime cannot hold all of them at once.
 
 ### 3.3 Hardware
 
@@ -195,44 +124,19 @@ Each engine runs in its own process group, which is killed after the engine fini
 
 Colab sells compute units at \$9.99 per 100 ([Google 2026b](#references)). Google does not publish a rate per runtime. The GPU rates are third-party measurements ([McCormick 2024](#references)), and the TPU rate was read from the Colab resources panel during the run.
 
-An engine runs on a runtime only if the runtime has enough accelerator memory for it, supports bfloat16 if the engine needs it, and is supported by the engine's backend. This is why:
-
-- five engines were skipped on the T4 and one on the L4 for memory, one of which, Gemma 4, also needs bfloat16;
-- only Qwen2.5-VL and the CPU engines ran on the TPU.
+An engine runs on a runtime only if the runtime has enough accelerator memory for it, supports bfloat16 if the engine needs it, and is supported by the engine's backend. Five engines were therefore skipped on the T4 and one on the L4 for memory (one of the five, Gemma 4, also needs bfloat16), and only Qwen2.5-VL and the CPU engines ran on the TPU.
 
 On the T4, which has no bfloat16, VLMs run in float16. LightOnOCR-2 and Granite-Docling run in float32 there, because in float16 they produce no usable text: in the smoke runs LightOnOCR-2 scored 0% and reached its token limit on every page, and Granite-Docling's card warns that it outputs only exclamation marks ([IBM 2025](#references)).
 
 ### 3.4 Measurement
 
-**Accuracy.** For text tracks, accuracy is 1 − CER, with CER computed per page in *reading* mode and capped at 1 per page, then averaged over pages.
-
-- **Reading mode:** before comparison, both output and reference are reduced to plain text:
-  - Markdown, HTML, LaTeX, and model-specific tokens are stripped;
-  - Unicode is normalised with NFKC;
-  - the long s is mapped to s;
-  - quotation marks and dashes are unified;
-  - words hyphenated at line ends are joined.
-- **Case:** unlike FineBooks, case is not folded.
-- **The cap:** a page on which a model repeats itself to its token limit can have a CER of several units, because the output is many times longer than the reference. The cap keeps one such page from outweighing the rest of the sample, and counts it as a complete failure.
-
-For the docs track, accuracy is olmOCR-bench's score: the pass rate within each test category, then the mean over categories. The baseline test counts as a sixth category.
-
-**Other quality measures.**
-
-- **Loop rate:** the share of pages that end in a repeated sequence or that stopped at the token limit.
-- **Empty rate:** the share of pages with no output.
+**Accuracy.** For text tracks, accuracy is 1 − CER, with CER computed per page in *reading* mode and capped at 1 per page, then averaged over pages. Reading mode reduces both output and reference to plain text before comparison: Markdown, HTML, LaTeX, and model-specific tokens are stripped, Unicode is normalised with NFKC, the long s is mapped to s, quotation marks and dashes are unified, and words hyphenated at line ends are joined. Unlike FineBooks, it does not fold case. The cap matters because a page on which a model repeats itself to its token limit can have a CER of several units, its output being many times longer than the reference; the cap keeps one such page from outweighing the rest of the sample and counts it as a complete failure. For the docs track, accuracy is olmOCR-bench's score: the pass rate within each test category, then the mean over categories, with the baseline test counted as a sixth category. Two further measures describe failures: the loop rate, the share of pages that end in a repeated sequence or that stopped at the token limit, and the empty rate, the share of pages with no output.
 
 **Speed.** Each engine first reads one page that is not timed (warm-up). Then, on each track, it reads up to eight pages one at a time (latency), and then all pages in batches (throughput). Throughput is reported in full pages per second over the three full-page tracks. Handwriting lines, about one twentieth the size of a page, are reported separately.
 
 **Cost.** Cost per 1,000 pages is the runtime's hourly price divided by its throughput. It counts only time spent reading. Model loading, which took from 0.2 seconds (Tesseract) to 11 minutes (Qwen3.5-2B on a T4), is reported separately, and so is the time spent installing software.
 
-**Time budget.** Each engine on each runtime had a reading budget of 25 minutes, raised to 45 or 60 minutes for the slow-hardware sessions listed in Appendix A.
-
-- **Load time:** excluded, with a separate 30-minute allowance.
-- **Sharing between tracks:** the budget is shared evenly between tracks, and time left by a track that finishes early returns to tracks that were cut short.
-- **Batch size:** each batch is sized so that it can finish within the time remaining.
-
-An engine that runs out of time is reported as partial, with the number of pages it scored.
+**Time budget.** Each engine on each runtime had a reading budget of 25 minutes, raised to 45 or 60 minutes for the slow-hardware sessions listed in Appendix A. Load time is excluded and has a separate 30-minute allowance. The budget is shared evenly between tracks, time left by a track that finishes early returns to tracks that were cut short, and each batch is sized so that it can finish within the time remaining. An engine that runs out of time is reported as partial, with the number of pages it scored.
 
 **Statistics.** Intervals are 95% percentile bootstraps over pages ([Efron 1979](#references)), 2,000 resamples. For the docs track, pages are resampled and the category pass rates recomputed. The overall interval resamples each track independently. Rank agreement is Spearman's ρ ([Spearman 1904](#references)).
 
@@ -240,13 +144,7 @@ An engine that runs out of time is reported as partial, with the number of pages
 
 ### 3.5 The reference runtime
 
-Accuracy should not depend on hardware, and in this benchmark it did not:
-
-- across runtimes, the accuracy of an engine on a track varied by a median of 0.04 points;
-- the largest difference is 4.3 points, for Granite-Docling on the synthetic pages;
-- this counts every complete, unbroken track that ran on more than one runtime.
-
-All accuracy figures below come from one runtime, the G4. It is the only runtime on which all 22 engines read every page, with the final version of the code. PaddleOCR's figures come from its rerun after the fix described in §5.1.
+Accuracy should not depend on hardware, and in this benchmark it did not. Over every complete, unbroken track that ran on more than one runtime, the accuracy of an engine on a track varied across runtimes by a median of 0.04 points; the largest difference is 4.3 points, for Granite-Docling on the synthetic pages. All accuracy figures below therefore come from one runtime, the G4, the only runtime on which all 22 engines read every page with the final version of the code. PaddleOCR's figures come from its rerun after the fix described in §5.1.
 
 ## 4. Results
 
@@ -293,20 +191,9 @@ Five engines form the Pareto set (Figure 1): PaddleOCR-VL (\$0.039, 85.4%), Ovis
 
 *Figure 2. Accuracy by track (G4 run), engines in order of mean accuracy. Books, handwriting, and synthetic: 1 − CER; docs: olmOCR-bench pass rate. Data: `figures/data.json`.*
 
-The best engine differs by track:
+The best engine differs by track: Chandra OCR 2 on books (98.0%), dots.mocr on docs (84.2%) and handwriting (98.0%), and Chandra again on the synthetic pages, with no errors on any of the 55 and olmOCR 2 and Qwen3.5-9B within 0.01 points of it.
 
-- Chandra OCR 2 on books (98.0%);
-- dots.mocr on docs (84.2%) and handwriting (98.0%);
-- Chandra on the synthetic pages, with no errors on any of the 55. olmOCR 2 and Qwen3.5-9B are within 0.01 points.
-
-Rank agreement between tracks, over all 22 engines, ranges from ρ = 0.50 (books and docs) to 0.76 (handwriting and synthetic). Much of it comes from the separation between classic engines and VLMs. Among the 15 VLMs alone, the order on books and the order on docs are almost unrelated (ρ = 0.22), and the other pairs lie between 0.43 and 0.70. Individual engines show the dependence more directly:
-
-- PaddleOCR-VL is fourth on books (97.0%) and last of the VLMs on docs (48.8%).
-- DeepSeek-OCR 2 is third on docs (78.9%) and last of the VLMs except Granite-Docling on handwriting (73.6%).
-- Tesseract is within 2.3 points of the best engine on books (95.7%) and scores 43.9% on handwriting.
-- Surya 0.17, a classic engine, reads handwriting at 95.2%, within 3 points of the best VLM, and scores 32.3% on docs.
-
-The reasons are specific, and §4.3–4.6 identify them.
+Rank agreement between tracks, over all 22 engines, ranges from ρ = 0.50 (books and docs) to 0.76 (handwriting and synthetic). Much of it comes from the separation between classic engines and VLMs. Among the 15 VLMs alone, the order on books and the order on docs are almost unrelated (ρ = 0.22), and the other pairs lie between 0.43 and 0.70. Individual engines show the dependence more directly. PaddleOCR-VL is fourth on books (97.0%) and last of the VLMs on docs (48.8%). DeepSeek-OCR 2 is third on docs (78.9%) and last of the VLMs except Granite-Docling on handwriting (73.6%). Tesseract is within 2.3 points of the best engine on books (95.7%) and scores 43.9% on handwriting, and Surya 0.17, a classic engine, reads handwriting at 95.2%, within 3 points of the best VLM, while scoring 32.3% on docs. The reasons are specific, and §4.3–4.6 identify them.
 
 ### 4.3 Historical books
 
@@ -361,12 +248,7 @@ dots.mocr:  Ichtyitas reperiri ſcribit Valentinus Prodr. Hiſtor. Nat.
 
 On the sampled Latin pages, 3.5% of the reference characters, after normalisation, are of these two kinds. In the French volume the share is 0.2%, and in the other four volumes it is zero. No engine can output a private-use code point that stands for a ligature only in the transcribers' font. Every such character costs at least one edit, and two when the engine writes the two letters the ligature represents. The best engine on Latin pages has a CER of 8.5%, consistent with a floor of 4–7% from the reference alone.
 
-**Repetition on a decorative header.** The running head of the Latin volume is a page number set between printer's ornaments. Two models fail on it:
-
-- On three of the eight Latin pages, LightOnOCR-2 transcribes the ornaments as LaTeX symbols (`$\mathcal{O} \mathcal{O} \mathcal{O} …`) and repeats them until its 4,096-token limit, a CER of 4.3 to 5.4 before the cap. On a fourth it reads the text correctly, writes the header and a Greek quotation as LaTeX, and appends a paragraph of English commentary on how an image would be embedded in Markdown. That output is three times the length of the 412-character reference (CER 2.2).
-- Surya OCR 2 repeats `&amp;` in the same header on two pages, until its 8,192-token limit.
-
-Each of these pages counts as a CER of 1 after the cap. That is why LightOnOCR-2, which is within 2 points of the best engine on every other language, scores 89.8% on books overall.
+**Repetition on a decorative header.** The running head of the Latin volume is a page number set between printer's ornaments, and two models fail on it. On three of the eight Latin pages, LightOnOCR-2 transcribes the ornaments as LaTeX symbols (`$\mathcal{O} \mathcal{O} \mathcal{O} …`) and repeats them until its 4,096-token limit, a CER of 4.3 to 5.4 before the cap. On a fourth it reads the text correctly, writes the header and a Greek quotation as LaTeX, and appends a paragraph of English commentary on how an image would be embedded in Markdown; that output is three times the length of the 412-character reference (CER 2.2). Surya OCR 2 repeats `&amp;` in the same header on two pages, until its 8,192-token limit. Each of these pages counts as a CER of 1 after the cap. That is why LightOnOCR-2, which is within 2 points of the best engine on every other language, scores 89.8% on books overall.
 
 **Comparison with FineBooks.** The comparison covers the nine engines that both this study and the FineBooks leaderboard ([FineBooks 2026b](#references)) evaluated:
 
@@ -382,12 +264,7 @@ Each of these pages counts as a CER of 1 after the cap. That is why LightOnOCR-2
 | DeepSeek-OCR 2 | 93.8 | 82.9 (74.5–90.5) |
 | Tesseract 5 | 93.6 | 95.7 (94.3–97.1) |
 
-The rank orders agree (ρ = 0.77). The two large differences have identified causes:
-
-- **LightOnOCR-2:** FineBooks excludes pages on which a model loops from its CER and reports them as a separate loop rate. This study counts them as failures.
-- **DeepSeek-OCR 2:** its score here includes the two-column volume, where its CER is 50.7%. FineBooks did not evaluate multi-column layouts.
-
-The engines that do not fail in these ways score between 0.1 points lower and 2.1 points higher here than on FineBooks. A plausible cause is that FineBooks scores all 2,165 pages, including sparse pages on which it reports that models differ most, while this sample excludes pages with fewer than 200 characters.
+The rank orders agree (ρ = 0.77). The two large differences have identified causes. FineBooks excludes pages on which a model loops from its CER and reports them as a separate loop rate, while this study counts them as failures, which accounts for LightOnOCR-2. DeepSeek-OCR 2's score here includes the two-column volume, where its CER is 50.7%, and FineBooks did not evaluate multi-column layouts. The engines that do not fail in these ways score between 0.1 points lower and 2.1 points higher here than on FineBooks. A plausible cause is that FineBooks scores all 2,165 pages, including sparse pages on which it reports that models differ most, while this sample excludes pages with fewer than 200 characters.
 
 ### 4.4 Modern documents
 
@@ -411,19 +288,9 @@ Pass rate (%) by olmOCR-bench category, G4 run; 10 PDFs per category. All engine
 
 Two categories account for most of the spread.
 
-**Tables.** The table tests check that a cell lies under a heading or beside another cell, which requires the output to contain a table, in Markdown or HTML. Several engines produce no table structure, and therefore pass none of these tests:
+**Tables.** The table tests check that a cell lies under a heading or beside another cell, which requires the output to contain a table, in Markdown or HTML. Every classic engine outputs plain lines, and PaddleOCR-VL with its whole-page `OCR:` prompt produces no table structure either, so they pass none of these tests. GLM-OCR, whose `Text Recognition:` prompt asks for text, passes 32%. Both models are designed to be run inside a pipeline in which a layout model finds tables and a table prompt reads them ([Cui et al 2025b](#references); [ZAI 2026](#references)). This study ran them on whole pages, which understates what those pipelines achieve on documents with tables; PaddleOCR-VL's docs score of 48.8% is a result for whole-page use, not for the product.
 
-- every classic engine, because they output plain lines;
-- PaddleOCR-VL with its whole-page `OCR:` prompt.
-
-GLM-OCR, whose `Text Recognition:` prompt asks for text, passes 32%. Both models are designed to be run inside a pipeline in which a layout model finds tables and a table prompt reads them ([Cui et al 2025b](#references); [ZAI 2026](#references)). This study ran them on whole pages, which understates what those pipelines achieve on documents with tables. PaddleOCR-VL's docs score of 48.8% is a result for whole-page use, not for the product.
-
-**Headers and footers.** These tests pass only if the page header and footer are *absent* from the output, since olmOCR-bench treats them as content that should not appear in a text extraction. Two groups of models pass them:
-
-- models trained to omit page furniture: dots.mocr in plain-text mode ([rednote 2026](#references)), olmOCR 2, and DeepSeek-OCR 2, at 95%;
-- GLM-OCR at 100% and Granite-Docling at 95%.
-
-Models that transcribe everything fail them: OvisOCR2 (14%) and LightOnOCR-2 (18%). LightOnOCR's own report of its olmOCR-bench score leaves this category out ([Taghadouini et al 2026b](#references)). This is a disagreement about the task, not about reading. The books ground truth includes running heads and page numbers, so the same behaviour that passes these tests loses characters on the books track.
+**Headers and footers.** These tests pass only if the page header and footer are *absent* from the output, since olmOCR-bench treats them as content that should not appear in a text extraction. The models trained to omit page furniture pass them: dots.mocr in plain-text mode ([rednote 2026](#references)), olmOCR 2, and DeepSeek-OCR 2 at 95%, as do GLM-OCR at 100% and Granite-Docling at 95%. Models that transcribe everything fail them: OvisOCR2 (14%) and LightOnOCR-2 (18%). LightOnOCR's own report of its olmOCR-bench score leaves this category out ([Taghadouini et al 2026b](#references)). This is a disagreement about the task, not about reading. The books ground truth includes running heads and page numbers, so the same behaviour that passes these tests loses characters on the books track.
 
 **Multi-column.** The two-column failure of §4.3 appears again: PaddleOCR and RapidOCR pass 6% of the reading-order tests, against 71% for Tesseract.
 
@@ -431,32 +298,30 @@ Models that transcribe everything fail them: OvisOCR2 (14%) and LightOnOCR-2 (18
 
 ### 4.5 Handwriting
 
-The 60 lines separate the engines more sharply than any other track: from 98.0% (dots.mocr) to 4.7% (Granite-Docling). Eleven VLMs and the classic Surya 0.17 score between 95% and 98%. Four VLMs score well below the rest, each for a different reason, and each confirmed against the IAM reference:
+The 60 lines separate the engines more sharply than any other track, from 98.0% (dots.mocr) to 4.7% (Granite-Docling). Eleven VLMs and the classic Surya 0.17 score between 95% and 98%. Four VLMs score well below the rest, each for a different reason, and each was checked against the IAM reference.
 
-- **Granite-Docling (4.7%)** returns no text for 56 of the 60 lines. Its median output is 12 tokens per line, and after conversion from DocTags it contains no text at all. DocTags marks a figure with a `<picture>` element and four location tokens ([Nassar et al 2025](#references)). An element of that kind, around which no text is written, is consistent with the token counts, but the raw outputs were not stored, so this interpretation is an inference. Granite-Docling is trained to convert documents, and its card does not mention handwriting ([IBM 2025](#references)).
-- **DeepSeek-OCR 2 (73.6%)** returns no text for 4 lines and a CER of at least 1 for 8. Where it fails, it writes a fluent sentence that is not on the page:
+Granite-Docling (4.7%) returns no text for 56 of the 60 lines. Its median output is 12 tokens per line, and after conversion from DocTags it contains no text at all. DocTags marks a figure with a `<picture>` element and four location tokens ([Nassar et al 2025](#references)); an element of that kind, with no text written around it, is consistent with the token counts, but the raw outputs were not stored, so this interpretation is an inference. Granite-Docling is trained to convert documents, and its card does not mention handwriting ([IBM 2025](#references)).
 
-  ```text
-  reference:  simple and coherent plan. To understand how
-  output:     had been able to achieve their goals, it is necessary to understand how they had achieved them.
-  ```
-  ```text
-  reference:  man could only be regarded as a machine.
-  output:     was could only be required as a valuable.
-  ```
+DeepSeek-OCR 2 (73.6%) returns no text for 4 lines and has a CER of at least 1 on 8. Where it fails, it writes a fluent sentence that is not on the page:
 
-- **Surya OCR 2 (84.5%)** has a CER above 20% on 11 of the 60 lines. On 7 of them it reads the line correctly and then continues with an invented next line, so that its output is more than 1.3 times the length of the reference. On one line the continuation repeats until its token limit, and one line it labels as an image and does not transcribe:
+```text
+reference:  simple and coherent plan. To understand how
+output:     had been able to achieve their goals, it is necessary to understand how they had achieved them.
 
-  ```text
-  reference:  showing that such changes are part of a
-  output:     showing that such changes are part of a<br/>series of changes in the same way.
-  ```
+reference:  man could only be regarded as a machine.
+output:     was could only be required as a valuable.
+```
 
-- **Gemma 4 E4B (89.2%)** often stops partway through a line ("into themselves," for "into themselves, so that they become").
+Surya OCR 2 (84.5%) has a CER above 20% on 11 of the 60 lines. On 7 of them it reads the line correctly and then continues with an invented next line, so that its output is more than 1.3 times the length of the reference. On one line the continuation repeats until its token limit, and one line it labels as an image and does not transcribe:
 
-**Classic engines.** Apart from Surya 0.17 (95.2%) and PaddleOCR (85.9%), the classic engines score 44–64% on handwriting. Tesseract, OCRmyPDF, and RapidOCR return nothing for 6 or 7 of the 60 lines.
+```text
+reference:  showing that such changes are part of a
+output:     showing that such changes are part of a<br/>series of changes in the same way.
+```
 
-**OCRmyPDF.** It fails on one handwriting line, `iam_00023` (1,748 × 128 pixels), with "Tesseract: Error during processing". It does so on all five runtimes (on the A100 during the single-page pass, §5.1). Plain Tesseract reads the same image without error. The failure is therefore in one of OCRmyPDF's steps before or around Tesseract (deskew, cleaning, or rotation detection on a page 0.43 inches high at 300 DPI); which one was not isolated. The page is scored as a failure.
+Gemma 4 E4B (89.2%) often stops partway through a line ("into themselves," for "into themselves, so that they become").
+
+Apart from Surya 0.17 (95.2%) and PaddleOCR (85.9%), the classic engines score 44–64% on handwriting, and Tesseract, OCRmyPDF, and RapidOCR return nothing for 6 or 7 of the 60 lines. OCRmyPDF also fails on one line, `iam_00023` (1,748 × 128 pixels), with "Tesseract: Error during processing", and does so on all five runtimes (on the A100 during the single-page pass, §5.1). Plain Tesseract reads the same image without error, so the failure is in one of OCRmyPDF's steps before or around Tesseract (deskew, cleaning, or rotation detection on a page 0.43 inches high at 300 DPI); which one was not isolated. The page is scored as a failure.
 
 ### 4.6 Degraded pages
 
@@ -473,11 +338,7 @@ Eleven of the 15 VLMs have a CER below 1% at nine or more of the eleven levels (
 | Qwen3.5-2B | 75 DPI | 20% |
 | DeepSeek-OCR 2 | 3° rotation | 12% |
 
-The classic engines show the expected pattern:
-
-- **Tesseract** is error-free on clean pages and fails on noise (55%), 8° rotation (82%), and the phone photograph (34%).
-- **OCRmyPDF**, despite its deskew step, is no better on 8° rotation (78%) and is worse at 75 DPI (37%, against 4% for Tesseract). A likely cause of the second is that its cleaning step removes detail from an image that is already of low resolution; this was not isolated.
-- **PaddleOCR, RapidOCR, Surya 0.17, and docTR** have a nearly constant error of 13–23% at every level, including clean pages. It comes from particular base pages, not from the degradations. PaddleOCR, RapidOCR, and Surya fail the two-column page (65–66% CER), the layout problem of §4.3. docTR reads the two-column page correctly and fails the table and invoice pages (67% and 44%).
+The classic engines show the expected pattern. Tesseract is error-free on clean pages and fails on noise (55%), 8° rotation (82%), and the phone photograph (34%). OCRmyPDF, despite its deskew step, is no better on 8° rotation (78%) and is worse at 75 DPI (37%, against 4% for Tesseract); a likely cause of the second is that its cleaning step removes detail from an image that is already of low resolution, which was not isolated. PaddleOCR, RapidOCR, Surya 0.17, and docTR have a nearly constant error of 13–23% at every level, including clean pages, which comes from particular base pages rather than from the degradations. PaddleOCR, RapidOCR, and Surya fail the two-column page (65–66% CER), the layout problem of §4.3; docTR reads the two-column page correctly and fails the table and invoice pages (67% and 44%).
 
 The leaderboard's automatic "most robust" category named Qwen2.5-VL-7B, whose CER is 3.5 points *lower* on degraded pages than on clean ones. That is not robustness. There is one page per layout at each level, and Qwen2.5-VL-7B's errors are on the two-column page (50% CER at five levels, including clean) and the invoice (25% at four). Whether it fails on those pages varies from level to level independently of the degradation. With five pages per level, a difference between clean and degraded pages is reliable only for engines that read the clean pages without error. Among those, Chandra OCR 2 read all 55 pages with no error, and olmOCR 2 and Qwen3.5-9B with CER below 0.01%. These are the most robust engines in this sample.
 
@@ -509,19 +370,9 @@ The G4 costs 5.1 times as much per hour as the L4, so for most VLMs the L4 has t
 
 The cheapest runtime for a CPU engine is therefore the one with the lowest price per CPU, which in this set is the T4 or the TPU host.
 
-**The T4.** It is cheap per hour and slow per page for VLMs. It has no bfloat16, and FlashAttention-2, the attention kernel vLLM uses by default on newer GPUs, does not support it ([Dao 2023](#references)). On it:
+**The T4.** It is cheap per hour and slow per page for VLMs. It has no bfloat16, and FlashAttention-2, the attention kernel vLLM uses by default on newer GPUs, does not support it ([Dao 2023](#references)). On it, dots.mocr read 0.010 pages per second (\$3.33 per 1,000 pages) and DeepSeek-OCR 2 read 0.014 (\$2.31). For DeepSeek-OCR 2, vLLM's log records that it found no tuned configuration for the mixture-of-experts kernel on the T4 and used a default ("Using default MoE config. Performance might be sub-optimal! Config file not found at … `device_name=Tesla_T4.json`"). PaddleOCR-VL is the only VLM that remains practical on a T4: 0.44 pages per second, \$0.074 per 1,000 pages.
 
-- dots.mocr read 0.010 pages per second, which is \$3.33 per 1,000 pages;
-- DeepSeek-OCR 2 read 0.014, which is \$2.31 per 1,000 pages.
-
-For DeepSeek-OCR 2, vLLM's log records that it found no tuned configuration for the mixture-of-experts kernel on the T4 and used a default ("Using default MoE config. Performance might be sub-optimal! Config file not found at … `device_name=Tesla_T4.json`"). PaddleOCR-VL is the only VLM that remains practical on a T4: 0.44 pages per second, \$0.074 per 1,000 pages.
-
-**The TPU v6e-1.** It ran Qwen2.5-VL-3B and -7B through vllm-tpu:
-
-- **Single pages:** for a full page it matches the G4 exactly: 3.35 seconds per book page for the 3B model on both runtimes.
-- **Batches:** throughput was 44–45% of the G4's for both models.
-- **Cost:** \$0.310 per 1,000 pages for the 3B model and \$0.419 for the 7B, which is 25% and 38% above their cheapest GPU (the A100, at \$0.248 and \$0.303).
-- **Accuracy:** the same as on the GPUs (Qwen2.5-VL-3B: 85.8% on books on the TPU, 82.7–84.2% on the GPUs).
+**The TPU v6e-1.** It ran Qwen2.5-VL-3B and -7B through vllm-tpu. For a single full page it matches the G4 exactly: 3.35 seconds per book page for the 3B model on both runtimes. In batches its throughput was 44–45% of the G4's for both models, which puts its cost at \$0.310 per 1,000 pages for the 3B model and \$0.419 for the 7B, 25% and 38% above their cheapest GPU (the A100, at \$0.248 and \$0.303). Its accuracy is the same as on the GPUs: Qwen2.5-VL-3B scored 85.8% on books on the TPU and 82.7–84.2% on the GPUs.
 
 The TPU is slow when inputs vary in size. On handwriting it took 13–21 seconds per line, against 0.1 seconds on the G4, and the 3B and 7B models took the same time per line. Of the eight synthetic pages read one at a time, the two that were slow (18–22 seconds, against 3.1–7.1 for the others) are the first pages of a new size. The cause is compilation: JAX compiles a function separately for each new shape of input ([JAX 2026](#references)). The full pages are similar in size, so few new compilations are needed. Every handwriting line has a different width, so nearly every line triggers one. Padding images to a small set of sizes would remove most of these compilations; it was not tried.
 
@@ -531,22 +382,17 @@ Every run that failed, was skipped, or produced a value that looked wrong is lis
 
 ### 5.1 Failures found and fixed
 
-- **PaddleOCR on the G4 returned random characters.** On the first G4 run, the classic PaddleOCR engine scored 0% on books, handwriting, and synthetic pages, against 84–86% on every other runtime. Its output was a sequence of unrelated Chinese characters and symbols for an English bird book (`額俞臺姓W逻裔0逮哥戊隶独迈`). It reported no error.
-  - **Cause:** the G4's RTX PRO 6000 is a Blackwell GPU, compute capability 12.0 ([NVIDIA 2026](#references)), which needs CUDA 12.8 or later ([NVIDIA 2025](#references)). The benchmark had installed PaddlePaddle's CUDA 12.6 build.
-  - **Fix:** the CUDA 12.9 build, which Paddle publishes for these GPUs ([PaddlePaddle 2026c](#references); [PaddlePaddle 2026d](#references)), is now installed on any GPU of compute capability 10 or higher.
-  - **Result:** on rerun, PaddleOCR scored 84.3% on books, matching the other runtimes.
-  - **Safeguard:** the leaderboard now marks any result more than 25 points below the same engine on another runtime as suspect (§3.4).
-- **Qwen2.5-VL-7B did not start on the L4.** After its weights were loaded, 0.28 GiB of the 22.5 GB was left for the key-value cache, and one request of 8,192 tokens needs 0.44 GiB. Raising vLLM's memory share from 0.85 to 0.92 fixed it.
-- **Chandra OCR 2 and Qwen2.5-VL-7B on the L4 ran out of time.** In the first L4 run, Chandra spent its 25 minutes on the first three tracks and scored no synthetic pages. Two changes followed:
-  - the budget is now shared between tracks;
-  - time left over is returned to tracks that were cut short.
+**PaddleOCR on the G4 returned random characters.** On the first G4 run, the classic PaddleOCR engine scored 0% on books, handwriting, and synthetic pages, against 84–86% on every other runtime. Its output was a sequence of unrelated Chinese characters and symbols for an English bird book (`額俞臺姓W逻裔0逮哥戊隶独迈`), and it reported no error. The G4's RTX PRO 6000 is a Blackwell GPU, compute capability 12.0 ([NVIDIA 2026](#references)), which needs CUDA 12.8 or later ([NVIDIA 2025](#references)), and the benchmark had installed PaddlePaddle's CUDA 12.6 build. The CUDA 12.9 build, which Paddle publishes for these GPUs ([PaddlePaddle 2026c](#references); [PaddlePaddle 2026d](#references)), is now installed on any GPU of compute capability 10 or higher, and on rerun PaddleOCR scored 84.3% on books, matching the other runtimes. To catch failures of this kind, the leaderboard now marks any result more than 25 points below the same engine on another runtime as suspect (§3.4).
 
-  The rerun, with a 45-minute budget, scored 197 of 215 Chandra items and 195 of 215 for Qwen2.5-VL-7B. Their accuracy figures come from the complete G4 run.
-- **One batch ran 30 minutes past the budget.** On the T4, a single batch of 32 pages for DeepSeek-OCR 2 took 38 minutes, because the worker checked the clock only between batches. Batches are now sized to fit the time remaining.
-- **vLLM's prefix cache made repeated pages look fast.** The batch pass begins with the pages the latency pass has just read. vLLM's automatic prefix caching, which reuses the stored computation of a prompt it has already seen, including its image ([vLLM 2026a](#references)), skipped most of the work on those pages. On the T4, dots.mocr read its first four batch pages at 9 seconds each, against 93 seconds for a new page. The worker used that rate to size its next batch, which then took 60 minutes. Prefix caching is now off for every VLM, since every page is new in real use.
+**Qwen2.5-VL-7B did not start on the L4.** After its weights were loaded, 0.28 GiB of the 22.5 GB was left for the key-value cache, and one request of 8,192 tokens needs 0.44 GiB. Raising vLLM's memory share from 0.85 to 0.92 fixed it.
 
-  The runs on the A100, L4, and T4 were made with it on. On the A100 and L4, the first batch of each track, which contained the repeated pages, was not consistently faster per page than the second, which did not: the ratio of second to first ranged from 0.42 to 2.9 with no consistent direction. The effect is therefore within the variation between pages there. On the T4, where reading the image dominates the cost, the throughput of image-heavy models such as dots.mocr is overstated. The G4 and TPU runs were made with it off.
-- **OCRmyPDF lost its handwriting track on the A100.** The failing line `iam_00023` (§4.5) occurred during the latency pass, which did not then catch errors page by page, so the whole track was lost. The latency pass now handles a failed page like the batch pass does. OCRmyPDF's handwriting score comes from later runs.
+**Chandra OCR 2 and Qwen2.5-VL-7B on the L4 ran out of time.** In the first L4 run, Chandra spent its 25 minutes on the first three tracks and scored no synthetic pages. The budget is now shared between tracks, and time left over is returned to tracks that were cut short. The rerun, with a 45-minute budget, scored 197 of 215 Chandra items and 195 of 215 for Qwen2.5-VL-7B. Their accuracy figures come from the complete G4 run.
+
+**One batch ran 30 minutes past the budget.** On the T4, a single batch of 32 pages for DeepSeek-OCR 2 took 38 minutes, because the worker checked the clock only between batches. Batches are now sized to fit the time remaining.
+
+**vLLM's prefix cache made repeated pages look fast.** The batch pass begins with the pages the latency pass has just read. vLLM's automatic prefix caching, which reuses the stored computation of a prompt it has already seen, including its image ([vLLM 2026a](#references)), skipped most of the work on those pages. On the T4, dots.mocr read its first four batch pages at 9 seconds each, against 93 seconds for a new page. The worker used that rate to size its next batch, which then took 60 minutes. Prefix caching is now off for every VLM, since every page is new in real use. The runs on the A100, L4, and T4 were made with it on. On the A100 and L4, the first batch of each track, which contained the repeated pages, was not consistently faster per page than the second, which did not: the ratio of second to first ranged from 0.42 to 2.9 with no consistent direction. The effect is therefore within the variation between pages there. On the T4, where reading the image dominates the cost, the throughput of image-heavy models such as dots.mocr is overstated. The G4 and TPU runs were made with it off.
+
+**OCRmyPDF lost its handwriting track on the A100.** The failing line `iam_00023` (§4.5) occurred during the latency pass, which did not then catch errors page by page, so the whole track was lost. The latency pass now handles a failed page like the batch pass does. OCRmyPDF's handwriting score comes from later runs.
 
 ### 5.2 Skipped runs
 
@@ -585,18 +431,10 @@ The TPU v5e-1 was planned and not run. The Colab account's compute units were ex
 
 ### 6.2 What to use
 
-These recommendations follow from the results on this sample. They should be checked on a sample of the reader's own material before a large run.
+These recommendations follow from the results on this sample, and should be checked on a sample of the reader's own material before a large run.
 
-- **Historical printed books in Latin script.**
-  - OvisOCR2 and PaddleOCR-VL read them at 97% for \$0.04–0.07 per 1,000 pages on an L4.
-  - Chandra OCR 2 and dots.mocr score up to 0.7 points higher, at 3.5 to 8.4 times the cost.
-  - Tesseract on a CPU reads them at 95.7%. Its page segmentation handles two-column pages, which the other classic engines do not.
-  - Any engine should be checked for repetition on decorative headers.
-  - The FineBooks ground truth's Latin volume cannot be read without error by any engine.
-- **Modern PDFs with tables and columns.**
-  - dots.mocr or olmOCR 2 (84% and 83% of the tests), or DeepSeek-OCR 2 (79%) at a third of the cost of dots.mocr.
-  - A plain-text prompt produces no tables. PaddleOCR-VL and GLM-OCR should be used with their layout pipelines for such documents.
-  - Whether headers and footers should be kept is a decision about the task, and the models differ in what they do by default.
+- **Historical printed books in Latin script.** OvisOCR2 and PaddleOCR-VL read them at 97% for \$0.04–0.07 per 1,000 pages on an L4; Chandra OCR 2 and dots.mocr score up to 0.7 points higher, at 3.5 to 8.4 times the cost. Tesseract on a CPU reads them at 95.7%, and its page segmentation handles two-column pages, which the other classic engines do not. Any engine should be checked for repetition on decorative headers, and no engine can read the Latin volume of the FineBooks ground truth without error.
+- **Modern PDFs with tables and columns.** dots.mocr or olmOCR 2 (84% and 83% of the tests), or DeepSeek-OCR 2 (79%) at a third of the cost of dots.mocr. A plain-text prompt produces no tables, so PaddleOCR-VL and GLM-OCR should be used with their layout pipelines for such documents. Whether headers and footers should be kept is a decision about the task, and the models differ in what they do by default.
 - **Handwritten lines in English.** Eleven VLMs and the classic Surya 0.17 score 95–98%. Granite-Docling, DeepSeek-OCR 2, Surya OCR 2, and Gemma 4 should not be used for handwriting without further testing.
 - **Badly degraded scans.** olmOCR 2, Chandra OCR 2, or Qwen3.5-9B, which made essentially no errors on any of the 55 synthetic pages.
 - **No GPU.** Tesseract is the most accurate CPU engine (67.8% mean, 95.7% on books), and its speed scales with the number of cores.
@@ -608,10 +446,8 @@ These recommendations follow from the results on this sample. They should be che
 - **The books track is six volumes.** With 8 or 9 pages from each, one volume with an unusual property, the two-column *Conchologia Iconica* or the Latin volume with its ornaments and private-use characters, moves an engine's score by several points. The comparison with FineBooks, which scores all 2,165 pages, agrees in rank order.
 - **Whole-page prompts.** Every VLM was run on whole pages with one prompt. PaddleOCR-VL and GLM-OCR are designed to run behind a layout model, and dots.mocr, Chandra, and Surya OCR 2 have layout modes that were not used. The results describe whole-page use.
 - **One docs subset.** The mathematics categories, which hold 48% of olmOCR-bench's tests, were excluded.
-- **Different conventions in the ground truth.**
-  - Books references include page furniture, and the docs tests penalise it.
-  - The reading normalisation does not fold case, where FineBooks does.
-  - Both choices affect engines differently.
+- **Different conventions in the ground truth.** Books references include page furniture, which the docs tests penalise, and the reading normalisation does not fold case, where FineBooks does. Both choices affect engines differently.
+
 - **Training data.** IAM and olmOCR-bench are public, and the synthetic pages use famous public-domain passages. Some models may have seen them during training. A model that has memorised Darwin's opening paragraph could reproduce it from a page it cannot read, so the synthetic track may overstate robustness for such models. The FineBooks ground truth was published in August 2026, after most of these models were released, although the books themselves are available as page images and earlier OCR.
 - **Sampling.** LightOnOCR-2, dots.mocr, and olmOCR 2 use temperatures of 0.1–0.2 as their cards recommend. Seeds are fixed, but these results can vary slightly between runs.
 - **Prices.** Compute-unit rates come from a third party and from the Colab interface, and change over time. Costs exclude model loading, up to 11 minutes per model, and software installation, which are fixed costs per session. The relative costs between runtimes are more reliable than the absolute amounts.
@@ -627,10 +463,7 @@ These recommendations follow from the results on this sample. They should be che
 
 ## 8. Reproduction
 
-- **Code, data preparation, and results.** [github.com/kvenanzi/ocr](https://github.com/kvenanzi/ocr).
-  - The notebook `notebooks/ocr_benchmark_colab.ipynb` runs the benchmark on any Colab runtime and pushes the results to the repository.
-  - `results/runs/` holds every run: predictions, timings, page scores, and the code version in each run's `env.json`.
-  - `results/LEADERBOARD.md` is the automatically generated leaderboard.
+- **Code, data preparation, and results:** [github.com/kvenanzi/ocr](https://github.com/kvenanzi/ocr). The notebook `notebooks/ocr_benchmark_colab.ipynb` runs the benchmark on any Colab runtime and pushes the results to the repository; `results/runs/` holds every run, with its predictions, timings, page scores, and code version (in `env.json`); and `results/LEADERBOARD.md` is the automatically generated leaderboard.
 - **Every number and figure in this post.** `tools/post_analysis.py` regenerates them from `results/runs/` into `docs/post/figures/`, including `data.json`.
 - **Software.** vLLM 0.30.0, Transformers 5.16, PaddlePaddle 3.3.1, PaddleOCR 3.7.0, surya-ocr 0.17.1, Tesseract 5.3.4, OCRmyPDF 17.13, vllm-tpu 0.30.0.
 
@@ -638,18 +471,10 @@ These recommendations follow from the results on this sample. They should be che
 
 All times UTC. Commit hashes refer to [github.com/kvenanzi/ocr](https://github.com/kvenanzi/ocr).
 
-- **2026-10-02, T4 smoke runs** (`20261002-155540_T4_smoke` at `9d4518b`; `20261002-182556_T4_smoke` at `9d82c67`). Four to eleven pages per track, to test the pipeline. Fixes, in commits `b9f28a1` through `a2de873`:
-  - virtual environments created with `uv venv --seed`, because Colab's Python lacks `ensurepip`;
-  - a vLLM worker process left over from one model held 12.7 GB and caused every later model to fail; engines now run in their own process group, which is killed afterwards;
-  - Transformers pinned below 5.17, which removed a class vLLM 0.30 imports;
-  - OCRmyPDF called through the engine's own Python;
-  - the reading-time budget separated from model loading;
-  - fatal GPU errors stop the engine instead of scoring empty pages;
-  - LightOnOCR-2 and Granite-Docling in float32 on the T4.
+- **2026-10-02, T4 smoke runs** (`20261002-155540_T4_smoke` at `9d4518b`; `20261002-182556_T4_smoke` at `9d82c67`). Four to eleven pages per track, to test the pipeline. The fixes, in commits `b9f28a1` through `a2de873`: virtual environments are created with `uv venv --seed`, because Colab's Python lacks `ensurepip`; each engine runs in its own process group, which is killed afterwards, after a vLLM worker process left over from one model held 12.7 GB and caused every later model to fail; Transformers is pinned below 5.17, which removed a class vLLM 0.30 imports; OCRmyPDF is called through the engine's own Python; the reading-time budget is separated from model loading; fatal GPU errors stop the engine instead of scoring empty pages; and LightOnOCR-2 and Granite-Docling run in float32 on the T4.
+
 - **2026-10-02 19:55, A100-40GB** (`20261002-195503_A100-40GB_standard`, `6cbf41e`). 22 engines; 21 complete. OCRmyPDF lost its handwriting track to the latency-pass error of §5.1, fixed in `721b3c7`.
-- **2026-10-02 23:19, L4** (`20261002-231955_L4_standard`, `721b3c7`). 20 engines (Qwen3.5-9B skipped for memory). Two problems, fixed in `4864247`:
-  - Chandra OCR 2 scored no synthetic pages (time budget);
-  - Qwen2.5-VL-7B did not start (key-value cache).
+- **2026-10-02 23:19, L4** (`20261002-231955_L4_standard`, `721b3c7`). 20 engines (Qwen3.5-9B skipped for memory). Two problems, fixed in `4864247`: Chandra OCR 2 scored no synthetic pages (time budget), and Qwen2.5-VL-7B did not start (key-value cache).
 - **2026-10-03 14:07, L4 rerun of those two** (`20261003-140718_L4_standard`, `4864247`, 45-minute budget). Both partial: the documents track was cut by its even share of time while later tracks finished early. Time is now returned to tracks that were cut short (`c38110c`).
 - **2026-10-03 16:33, T4 session A** (`20261003-163357_T4_standard`, `c38110c`, 60-minute budget). Eleven engines. DeepSeek-OCR 2 read 0.014 pages per second, and one batch exceeded the budget by 30 minutes. Batches are now sized to the time left (`670efe5`).
 - **2026-10-03 21:46, T4 session B** (`20261003-214642_T4_standard`, `670efe5`, 60-minute budget). Six engines; five complete. dots.mocr scored 36 pages because of the prefix-cache effect of §5.1. Prefix caching off and batch size taken from the slower of the single-page and batch rates in `2e32d5b`.
