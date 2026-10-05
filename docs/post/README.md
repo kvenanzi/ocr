@@ -4,44 +4,7 @@
 |---|---|---|---|---|
 | 2026-10-05 | 2026-10-05 | finished | likely[^conf] | 4 |
 
-> **Abstract.** Four claims about optical character recognition (OCR) are common in practice:
->
-> - general-purpose vision-language models (VLMs) can do OCR;
-> - PaddleOCR, dots, and Surya offer a good balance of accuracy and cost at large scale;
-> - mass digitisation needs pipelines built for the material;
-> - results depend on the type of material.
->
-> I tested them on 22 open-weight engines and five Google Colab runtimes (T4, L4, A100-40GB, G4, TPU v6e-1). The engines were 7 classic OCR libraries, 10 OCR-specialised VLMs, and 5 general VLMs.
->
-> **Material.** Four tracks, each with known answers:
->
-> - 50 pages of historical printed books from the FineBooks ground truth ([Majstorovic & van Strien 2026](#references));
-> - 50 modern PDFs scored with olmOCR-bench's unit tests ([Poznanski et al 2025a](#references));
-> - 60 handwritten lines from IAM ([Marti & Bunke 2002](#references));
-> - 55 synthetic pages at eleven levels of degradation.
->
-> **Accuracy.** Measured on the one runtime where every engine read every page. The mean accuracy over the four tracks ranges from 59.6% (EasyOCR) to 94.7% (dots.mocr, 95% CI 93.0–96.1). olmOCR 2 is second at 94.3% (92.6–95.6), and a general model, Qwen3.5-9B, is third at 92.5% (90.6–94.1).
->
-> **Cost.** On the cheapest runtime for each engine, cost ranges from \$0.039 per 1,000 pages (PaddleOCR-VL on an L4) to \$0.326 (dots.mocr on an A100). Five engines form the set for which no other engine is both more accurate and cheaper: PaddleOCR-VL, OvisOCR2, GLM-OCR, olmOCR 2, and dots.mocr.
->
-> **Material dependence.** Across the 15 VLMs, the rank order on historical books and the rank order on modern documents are almost unrelated (Spearman ρ 0.22). The best engine differs between tracks. Three failure types each changed scores by more than 25 points:
->
-> - **Layout:** classic engines read the two columns of a nineteenth-century catalogue line by line across both columns (CER 73–75%), and plain-text prompts produce no tables (0% on table tests).
-> - **Repetition:** models repeat a decorative header until their token limit.
-> - **Line-level handwriting:** Granite-Docling returns no text for 56 of 60 lines; DeepSeek-OCR 2 replaces some lines with fluent invented sentences.
->
-> **Comparison with FineBooks.** On the nine engines both studies tested, the books results agree in rank order with the FineBooks leaderboard (ρ 0.77).
->
-> **Verdicts on the four claims.**
->
-> - The first is supported.
-> - The second is true of PaddleOCR-VL. dots.mocr is the most accurate engine rather than a balance of accuracy and cost, and Surya OCR 2 is both less accurate and more expensive than GLM-OCR and OvisOCR2.
-> - The third is consistent with the evidence but was not tested directly.
-> - The fourth is supported.
->
-> **Hardware.** For these models an L4 is usually the cheapest runtime per page, and the G4 is the fastest. A TPU v6e-1 runs Qwen2.5-VL at G4's single-page speed but costs 25–38% more per page than the cheapest GPU. It also recompiles for each new image size, which makes it impractical for inputs of varying size, such as handwritten lines.
->
-> **Limitations.** Samples of 50–60 items per track, whole-page prompts for every model, and one software stack (vLLM 0.30).
+> **Abstract.** Four claims about optical character recognition (OCR) are common in practice: that general-purpose vision-language models (VLMs) can do OCR, that PaddleOCR, dots, and Surya offer a good balance of accuracy and cost at large scale, that mass digitisation needs pipelines built for the material, and that results depend on the type of material. I tested them on 22 open-weight engines (7 classic OCR libraries, 10 OCR-specialised VLMs, and 5 general VLMs) and five Google Colab runtimes (T4, L4, A100-40GB, G4, TPU v6e-1), using four tracks with known answers: 50 pages of historical printed books from the FineBooks ground truth ([Majstorovic & van Strien 2026](#references)), 50 modern PDFs scored with the unit tests of olmOCR-bench ([Poznanski et al 2025a](#references)), 60 handwritten lines from IAM ([Marti & Bunke 2002](#references)), and 55 synthetic pages at eleven levels of degradation. On the one runtime where every engine read every page, mean accuracy over the four tracks ranges from 59.6% (EasyOCR) to 94.7% (dots.mocr, 95% CI 93.0–96.1), followed by olmOCR 2 at 94.3% (92.6–95.6) and a general model, Qwen3.5-9B, at 92.5% (90.6–94.1). On each engine's cheapest runtime, cost ranges from \$0.039 per 1,000 pages (PaddleOCR-VL on an L4) to \$0.326 (dots.mocr on an A100), and five engines form the set for which no other engine is both more accurate and cheaper: PaddleOCR-VL, OvisOCR2, GLM-OCR, olmOCR 2, and dots.mocr. Results depend strongly on material: among the 15 VLMs, the rank order on historical books and on modern documents is almost unrelated (Spearman ρ 0.22), the best engine differs between tracks, and three kinds of failure each changed scores by more than 25 points. Classic engines read the two columns of a nineteenth-century catalogue line by line across both (CER 73–75%), and plain-text prompts produce no tables; two models repeat a decorative header until their token limit; and on handwritten lines Granite-Docling returns no text for 56 of 60 while DeepSeek-OCR 2 replaces some lines with fluent invented sentences. On the nine engines both studies tested, the books results agree in rank order with the FineBooks leaderboard (ρ 0.77). The first claim is supported. The second holds for PaddleOCR-VL; dots.mocr is the most accurate engine rather than a balanced one, and Surya OCR 2 is both less accurate and more expensive than GLM-OCR and OvisOCR2. The third is consistent with the evidence but was not tested directly, and the fourth is supported. For these models an L4 is usually the cheapest runtime per page and the G4 the fastest; a TPU v6e-1 runs Qwen2.5-VL at the G4's single-page speed but costs 25–38% more per page than the cheapest GPU, and recompiles for each new image size, which makes it impractical for inputs of varying size such as handwritten lines. Limitations: samples of 50–60 items per track, whole-page prompts for every model, and one software stack (vLLM 0.30).
 
 ## Summary without the terminology
 
@@ -786,12 +749,7 @@ All times UTC. Commit hashes refer to [github.com/kvenanzi/ocr](https://github.c
 
 ## Footnotes
 
-[^conf]: Status and confidence tags follow the gwern.net convention, with the confidence word taken from the [Kesselman 2008](#references) scale.
-
-    - **Whole document:** tagged "likely".
-    - **"Highly likely":** that VLMs as a group read all four kinds of material more accurately than classic engines (the gap exceeds every interval), and the identified causes of the failures in §5. Each failure was traced to specific pages and outputs, and those outputs are in the repository.
-    - **"Likely":** the order among the top seven engines, whose intervals overlap, and the cost figures, whose compute-unit rates come from a third party.
-    - **"Possible":** the extension of these results to material unlike the samples, such as Fraktur type, full handwritten pages, or other languages.
+[^conf]: Status and confidence tags follow the gwern.net convention, with the confidence word taken from the [Kesselman 2008](#references) scale. The document is tagged "likely" as a whole. That VLMs as a group read all four kinds of material more accurately than classic engines is "highly likely", since the gap exceeds every interval, and so are the identified causes of the failures in §5, each of which was traced to specific pages and outputs that are in the repository. The order among the top seven engines, whose intervals overlap, is "likely", as are the cost figures, whose compute-unit rates come from a third party. That these results extend to material unlike the samples, such as Fraktur type, full handwritten pages, or other languages, is "possible".
 
 [^api]: API models such as Gemini, GPT, and Claude were excluded. They charge per page or per token, which makes cost a matter of the provider's price rather than of hardware. Their weights also cannot be run on a rented runtime, so the hardware comparison would not apply.
 
