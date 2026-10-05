@@ -1,0 +1,70 @@
+{
+  "spec": {
+    "id": "qwen2.5-vl-3b",
+    "name": "Qwen2.5-VL 3B",
+    "kind": "vlm",
+    "family": "vllm",
+    "family_tpu": "vllm-tpu",
+    "impl": "vllm_engine",
+    "size_b": 3.75,
+    "license": "Qwen Research (non-commercial)",
+    "requires": {
+      "hardware": [
+        "gpu",
+        "tpu"
+      ],
+      "min_vram_gb": 10,
+      "min_hbm_gb": 16
+    },
+    "caps": {
+      "tables": true
+    },
+    "params": {
+      "model": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "prompt": "GENERAL_OCR",
+      "max_pixels": 1003520,
+      "max_model_len": 8192,
+      "limit_mm_per_prompt": {
+        "image": 1,
+        "video": 0
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "max_tokens": 4096
+      },
+      "tpu_llm_kwargs": {
+        "enable_chunked_prefill": false,
+        "max_num_seqs": 8,
+        "dtype": "bfloat16",
+        "gpu_memory_utilization": 0.95,
+        "mm_processor_kwargs": {
+          "max_pixels": 1003520
+        }
+      },
+      "batch_size": 16
+    }
+  },
+  "hardware": {
+    "tag": "TPU-v6e-1",
+    "kind": "tpu",
+    "accelerator": "v6e-1",
+    "vram_gb": 32.0,
+    "compute_capability": 0.0,
+    "num_devices": 1,
+    "cpu_count": 44,
+    "cpu_model": "AMD EPYC 9B14",
+    "ram_gb": 172.9,
+    "driver": "",
+    "in_colab": true,
+    "bf16": true
+  },
+  "out": "/content/ocr/results/runs/20261005-140416_TPU-v6e-1_standard/qwen2.5-vl-3b",
+  "latency_n": 8,
+  "tracks": {
+    "books": "/content/ocrbench_data/standard/books/manifest.jsonl",
+    "docs": "/content/ocrbench_data/standard/docs/manifest.jsonl",
+    "handwriting": "/content/ocrbench_data/standard/handwriting/manifest.jsonl",
+    "stress": "/content/ocrbench_data/standard/stress/manifest.jsonl"
+  },
+  "timeout_s": 1500
+}

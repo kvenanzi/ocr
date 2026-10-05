@@ -1,0 +1,400 @@
+ERROR 10-05 14:41:03 [tpu_info.py:40] Unable to poll TPU GCE Metadata. Got status code: 404 and content: 
+INFO 10-05 14:41:03 [__init__.py:75] TPU info: node_name=None | tpu_type=v6e-1 | worker_id=0 | num_chips=1 | num_cores_per_chip=1
+/content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/cloud_tpu_init.py:88: UserWarning: Transparent hugepages are not enabled. TPU runtime startup and shutdown time should be significantly improved on TPU v5e and newer. If not already set, you may need to enable transparent hugepages in your VM image (sudo sh -c "echo always > /sys/kernel/mm/transparent_hugepage/enabled")
+  warnings.warn(
+WARNING 10-05 14:41:06 [tpu_platform.py:543] Pin memory is not supported on TPU.
+INFO 10-05 14:41:14 [tpu_platform.py:232] Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e.
+WARNING 10-05 14:41:17 [importing.py:83] Triton is installed, but `triton.backends` could not be imported. Disabling Triton.
+INFO 10-05 14:41:17 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+INFO 10-05 14:41:22 [attention_interface.py:58] Using default RPA kernel
+WARNING 10-05 14:41:22 [interface.py:365] Failed to import from vllm._C: ModuleNotFoundError("No module named 'vllm._C'")
+INFO 10-05 14:41:22 [tpu_platform.py:232] Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e.
+INFO 10-05 14:41:22 [tpu_platform.py:232] Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e.
+INFO 10-05 14:41:22 [tpu_platform.py:232] Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e.
+INFO 10-05 14:41:22 [tpu_platform.py:232] Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e.
+INFO 10-05 14:41:22 [tpu_platform.py:232] Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e.
+INFO 10-05 14:41:22 [tpu_platform.py:232] Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e.
+INFO 10-05 14:41:22 [tpu_platform.py:232] Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e.
+INFO 10-05 14:41:22 [tpu_platform.py:232] Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e.
+INFO 10-05 14:41:24 [__init__.py:113] Registered model loader `<class 'tpu_inference.models.jax.utils.weight_utils.JaxDummyModelLoader'>` with load format `jax_dummy`
+INFO 10-05 14:41:24 [__init__.py:113] Registered model loader `<class 'tpu_inference.models.common.pathways_dummy_loader.PathwaysDummyModelLoader'>` with load format `pathways_dummy`
+WARNING 10-05 14:41:25 [indexer_topk.py:35] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+INFO 10-05 14:41:25 [__init__.py:113] Registered model loader `<class 'tpu_inference.models.vllm.vllm_model_loader.IncrementalModelLoader'>` with load format `tpu_streaming_loader`
+WARNING 10-05 14:41:25 [__init__.py:102] Load format `runai_streamer` is already registered, and will be overwritten by the new loader class `<class 'tpu_inference.models.vllm.vllm_model_loader.RunaiIncrementalModelLoader'>`.
+INFO 10-05 14:41:25 [__init__.py:113] Registered model loader `<class 'tpu_inference.models.vllm.vllm_model_loader.RunaiIncrementalModelLoader'>` with load format `runai_streamer`
+INFO 10-05 14:41:25 [api_utils.py:286] non-default args: {'dtype': 'bfloat16', 'max_model_len': 8192, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.95, 'max_num_seqs': 8, 'disable_log_stats': True, 'limit_mm_per_prompt': {'image': 1, 'video': 0}, 'mm_processor_kwargs': {'max_pixels': 1003520}, 'enable_chunked_prefill': False, 'model': 'Qwen/Qwen2.5-VL-3B-Instruct'}
+INFO 10-05 14:41:35 [model.py:696] Resolved architecture: Qwen2_5_VLForConditionalGeneration
+INFO 10-05 14:41:35 [model.py:2104] Using max model len 8192
+WARNING 10-05 14:41:38 [arg_utils.py:2871] This model does not officially support disabling chunked prefill. Disabling this manually may cause the engine to crash or produce incorrect outputs.
+
+Parse safetensors files:   0%|          | 0/2 [00:00<?, ?it/s]
+Parse safetensors files:  50%|█████     | 1/2 [00:00<00:00,  2.37it/s]
+Parse safetensors files: 100%|██████████| 2/2 [00:00<00:00,  4.55it/s]
+WARNING 10-05 14:41:39 [vllm.py:1695] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 10-05 14:41:39 [kernel.py:408] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+INFO 10-05 14:41:39 [tpu_platform.py:288] Initialized sharding configuration: ShardingConfigManager(total_devices=1, sharding_strategy=ShardingStrategy(tensor_parallelism=1, expert_parallelism=1, sequence_parallelism=1, data_parallelism=1, attention_data_parallelism=1, attention_data_expert_parallelism=1, decode_context_parallelism=1, prefill_context_parallelism=1), mm_encoder_tp_mode=weights, device_indexes=None)
+INFO 10-05 14:41:39 [model_loader.py:718] Resolved MODEL_IMPL_TYPE 'auto' to 'flax_nnx'
+WARNING 10-05 14:41:39 [tpu_platform.py:398] [tpu_platform] Disabling mm_device_do_normalize: the JAX-native multimodal path normalizes images in the CPU processor; device-side FusedInputNorm only exists in the vLLM model implementation.
+INFO 10-05 14:41:39 [tpu_platform.py:436] Force using UniProcExecutor for JAX on single host without pipeline parallelism.
+WARNING 10-05 14:41:39 [tpu_platform.py:468] TPU does not support running Multimodal models without setting `--disable_chunked_mm_input`. If you are serving a multimodal model, please explicitly add the `--disable-chunked-mm-input` flag to your server command to avoid execution failures.
+WARNING 10-05 14:41:39 [vllm.py:732] Model Runner V2 requires Triton; using the V1 model runner instead.
+INFO 10-05 14:41:39 [compilation.py:331] Enabled custom fusions: norm_quant, act_quant
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(EngineCore pid=80498) INFO 10-05 14:41:46 [core.py:129] Initializing a V1 LLM engine (v0.30.0) with config: model='Qwen/Qwen2.5-VL-3B-Instruct', speculative_config=None, tokenizer='Qwen/Qwen2.5-VL-3B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=None, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=Qwen/Qwen2.5-VL-3B-Instruct, enable_prefix_caching=False, enable_chunked_prefill=False, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'eager', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': None, 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': None, 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': None, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=80498) INFO 10-05 14:41:51 [parallel_state.py:1817] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/tmp6kkle8w5 backend=gloo
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+(EngineCore pid=80498) INFO 10-05 14:41:51 [parallel_state.py:2261] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=80498) INFO 10-05 14:41:52 [tpu_runner.py:879] Init mesh | mesh=Mesh('data': 1, 'model': 1, axis_types=(Auto, Auto))
+(EngineCore pid=80498) INFO 10-05 14:41:52 [utils.py:224] Prepared token paddings: [16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
+(EngineCore pid=80498) INFO 10-05 14:41:52 [utils.py:170] Prepared request paddings: [8]
+(EngineCore pid=80498) INFO 10-05 14:41:52 [utils.py:189] Prepared attn request paddings: [8]
+(EngineCore pid=80498) INFO 10-05 14:41:52 [compilation_manager.py:78] Enabling JAX compile cache.
+(EngineCore pid=80498) INFO 10-05 14:41:52 [tpu_worker.py:472] Init worker | rank=0 | is_first_rank=True | is_last_rank=True | topology_order_id=0 | is_driver_worker=True | hbm=[(0.0, 31.24)]GiB |self.devices=[TpuDevice(id=0, process_index=0, coords=(0,0,0), core_on_chip=0)] | total devices=[TpuDevice(id=0, process_index=0, coords=(0,0,0), core_on_chip=0)] | local_devices=[TpuDevice(id=0, process_index=0, coords=(0,0,0), core_on_chip=0)]
+(EngineCore pid=80498) INFO 10-05 14:41:52 [model_loader.py:674] Loading model with MODEL_IMPL_TYPE=auto
+(EngineCore pid=80498) INFO 10-05 14:41:52 [model_loader.py:718] Resolved MODEL_IMPL_TYPE 'auto' to 'flax_nnx'
+(EngineCore pid=80498) [transformers] `SiglipImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `SiglipImageProcessor` instead.
+/content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/transformers/models/qwen2_vl/image_processing_qwen2_vl.py:129: FutureWarning: Passing `min_pixels` and `max_pixels` to a processor call is deprecated and will be removed in v5.23. Pass in `size={'longest_edge': xxx, 'shortest_edge': xxx} to override the target size.`
+  warnings.warn(
+INFO 10-05 14:41:55 [base.py:255] Multi-modal warmup completed in 8.851s
+(EngineCore pid=80498) INFO 10-05 14:42:01 [weight_utils.py:153] Downloading weights from HF Qwen/Qwen2.5-VL-3B-Instruct
+(EngineCore pid=80498) INFO 10-05 14:42:26 [weight_utils.py:175] Loading weights from /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-VL-3B-Instruct/snapshots/66285546d2b821cf421d4f5eb2576359d3770cd3/model-00001-of-00002.safetensors
+(EngineCore pid=80498) INFO 10-05 14:42:26 [weight_utils.py:175] Loading weights from /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-VL-3B-Instruct/snapshots/66285546d2b821cf421d4f5eb2576359d3770cd3/model-00002-of-00002.safetensors
+(EngineCore pid=80498) INFO 10-05 14:42:33 [tpu_runner.py:1298] Cleared JIT caches after weight loading
+(EngineCore pid=80498) INFO 10-05 14:42:33 [tpu_runner.py:1300] Init model | hbm=[(6.99, 31.24)]GiB
+(EngineCore pid=80498) INFO 10-05 14:42:33 [tpu_platform.py:512] Using cache_config.block_size: 256 instead of overriding with _align_hybrid_block_size() since we set mamba_page_size_padded in kv_cache_manager.py
+(EngineCore pid=80498) INFO 10-05 14:42:33 [tpu_platform.py:204] Cannot use None backend on TPU. Setting to FLASH_ATTN.
+(EngineCore pid=80498) INFO 10-05 14:42:33 [tpu_platform.py:207] Using FLASH_ATTN backend.
+(EngineCore pid=80498) INFO 10-05 14:42:33 [utils.py:320] Using LBNHC KV cache layout.
+(EngineCore pid=80498) INFO 10-05 14:42:33 [tpu_worker.py:558] Memory statistics | total_hbm_limit_gb=31.24GiB | total_hbm_limit_cap_gb=29.68GiB | total_hbm_used_gb=6.99GiB | total_hbm_avail_gb=22.69GiB
+(EngineCore pid=80498) INFO 10-05 14:42:33 [kv_cache_utils.py:2432] TPU KV cache size: 660,736 tokens, Maximum concurrency for 8,192 tokens per request: 80.66x
+(EngineCore pid=80498) INFO 10-05 14:42:33 [compilation_manager.py:979] Compiling sampling with different input shapes.
+(EngineCore pid=80498) INFO 10-05 14:42:34 [compilation_manager.py:149] Precompile worker0 sample --> {'num_reqs': 8, 'do_sampling': True, 'logprobs': True, 'allow_distributed_sampling': True}
+(EngineCore pid=80498) INFO 10-05 14:42:35 [compilation_manager.py:200] Compilation of worker0 sample --> {'num_reqs': 8, 'do_sampling': True, 'logprobs': True, 'allow_distributed_sampling': True} finished in 1.11 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:35 [compilation_manager.py:149] Precompile worker0 sample --> {'num_reqs': 8, 'do_sampling': True, 'logprobs': False, 'allow_distributed_sampling': True}
+(EngineCore pid=80498) INFO 10-05 14:42:36 [compilation_manager.py:200] Compilation of worker0 sample --> {'num_reqs': 8, 'do_sampling': True, 'logprobs': False, 'allow_distributed_sampling': True} finished in 1.09 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:36 [compilation_manager.py:149] Precompile worker0 sample --> {'num_reqs': 8, 'do_sampling': False, 'logprobs': True, 'allow_distributed_sampling': True}
+(EngineCore pid=80498) INFO 10-05 14:42:36 [compilation_manager.py:200] Compilation of worker0 sample --> {'num_reqs': 8, 'do_sampling': False, 'logprobs': True, 'allow_distributed_sampling': True} finished in 0.20 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:36 [compilation_manager.py:149] Precompile worker0 sample --> {'num_reqs': 8, 'do_sampling': False, 'logprobs': False, 'allow_distributed_sampling': True}
+(EngineCore pid=80498) INFO 10-05 14:42:36 [compilation_manager.py:200] Compilation of worker0 sample --> {'num_reqs': 8, 'do_sampling': False, 'logprobs': False, 'allow_distributed_sampling': True} finished in 0.20 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:36 [compilation_manager.py:1080] Compiling gather_logprobs with different input shapes.
+(EngineCore pid=80498) INFO 10-05 14:42:36 [compilation_manager.py:149] Precompile worker0 gather_logprobs --> {'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:37 [compilation_manager.py:200] Compilation of worker0 gather_logprobs --> {'num_reqs': 8} finished in 0.64 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:37 [compilation_manager.py:1143] Compiling compute_and_gather_prompt_logprobs with different input shapes.
+(EngineCore pid=80498) INFO 10-05 14:42:37 [compilation_manager.py:149] Precompile worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 16}
+(EngineCore pid=80498) INFO 10-05 14:42:38 [compilation_manager.py:200] Compilation of worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 16} finished in 0.65 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:38 [compilation_manager.py:149] Precompile worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 32}
+(EngineCore pid=80498) INFO 10-05 14:42:40 [compilation_manager.py:200] Compilation of worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 32} finished in 2.47 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:40 [compilation_manager.py:149] Precompile worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 64}
+(EngineCore pid=80498) INFO 10-05 14:42:43 [compilation_manager.py:200] Compilation of worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 64} finished in 2.49 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:43 [compilation_manager.py:149] Precompile worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 128}
+(EngineCore pid=80498) INFO 10-05 14:42:45 [compilation_manager.py:200] Compilation of worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 128} finished in 2.47 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:45 [compilation_manager.py:149] Precompile worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 256}
+(EngineCore pid=80498) INFO 10-05 14:42:48 [compilation_manager.py:200] Compilation of worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 256} finished in 2.47 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:48 [compilation_manager.py:149] Precompile worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 512}
+(EngineCore pid=80498) INFO 10-05 14:42:50 [compilation_manager.py:200] Compilation of worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 512} finished in 2.50 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:50 [compilation_manager.py:149] Precompile worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 1024}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:200] Compilation of worker0 compute_and_gather_prompt_logprobs --> {'num_tokens': 1024} finished in 2.50 [secs].
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:1152] Skipping precompilation of compute_and_gather_prompt_logprobs for num_tokens=2048, as it exceeds the MAX_PRECOMPILE_PROMPT_TOKENS=1024 limit to avoid redundant host CPU JAX tracing for long sequence lengths.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:1152] Skipping precompilation of compute_and_gather_prompt_logprobs for num_tokens=4096, as it exceeds the MAX_PRECOMPILE_PROMPT_TOKENS=1024 limit to avoid redundant host CPU JAX tracing for long sequence lengths.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:1152] Skipping precompilation of compute_and_gather_prompt_logprobs for num_tokens=8192, as it exceeds the MAX_PRECOMPILE_PROMPT_TOKENS=1024 limit to avoid redundant host CPU JAX tracing for long sequence lengths.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:240] Warm-up call pass finished in 0.00 [secs] over 4 tasks.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [kv_cache_manager.py:895] Compact-mamba sizing was not set; defaulting mamba_num_blocks to 9 (max_num_reqs=8, spec_stride=1, divisor=1).
+(EngineCore pid=80498) INFO 10-05 14:42:53 [kv_cache_manager.py:1027] Hybrid KV cache layout: num_kv_cache_groups=1, num_kv_cache_tensors=1, kv_cache_config.num_blocks=2581, duplicate_shared_layers=False
+(EngineCore pid=80498) INFO 10-05 14:42:53 [kv_cache_manager.py:1055] Init kv-cache | num_total_layers=36 | num_blocks=[2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581, 2581] | regular_attn_layers=36 | regular_attn_shape=(num_blocks, (256, 2, 2, 128)) | regular_attn_sharding=NamedSharding(mesh=Mesh('data': 1, 'model': 1, axis_types=(Auto, Auto)), spec=P('data', None, 'model'), memory_kind=device) | regular_attn_dtype=bfloat16 | hbm=[(29.68, 31.24)]Gb
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:248] Precompile all the subgraphs with possible input shapes.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 16, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 32, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 64, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 128, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 256, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 512, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 1024, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 2048, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 4096, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:149] Precompile worker0 backbone --> {'num_tokens': 8192, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:42:53 [compilation_manager.py:172] AOT lower skipped for worker0 backbone (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:240] Warm-up call pass finished in 68.85 [secs] over 10 tasks.
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 16}
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 16}
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 32}
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 32}
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 64}
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 64}
+(EngineCore pid=80498) INFO 10-05 14:44:02 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 128}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 128}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 256}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 256}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 512}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 512}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 1024}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 1024}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 2048}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 2048}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 4096}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 4096}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger --> {'num_tokens': 8192}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:149] Precompile input_embeddings_merger_text_only --> {'num_tokens': 8192}
+(EngineCore pid=80498) INFO 10-05 14:44:03 [compilation_manager.py:172] AOT lower skipped for input_embeddings_merger_text_only (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:240] Warm-up call pass finished in 6.24 [secs] over 20 tasks.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 16, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 32, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 64, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 128, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 256, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 512, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 1024, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 2048, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 4096, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:149] Precompile worker0 backbone with embeds --> {'num_tokens': 8192, 'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:44:09 [compilation_manager.py:172] AOT lower skipped for worker0 backbone with embeds (not a jit); will compile in warmup.
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:240] Warm-up call pass finished in 62.66 [secs] over 10 tasks.
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 8, 'next_tokens_size': 8}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[8], int32[8].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 8, 'next_tokens_size': 8} finished in 0.05 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 8, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 8, 'next_tokens_size': 8} finished in 0.00 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 16, 'next_tokens_size': 16}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[16], int32[16].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 16, 'next_tokens_size': 16} finished in 0.05 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 16, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 16, 'next_tokens_size': 8} finished in 0.05 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 32, 'next_tokens_size': 32}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[32], int32[32].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 32, 'next_tokens_size': 32} finished in 0.06 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 32, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 32, 'next_tokens_size': 8} finished in 0.06 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 64, 'next_tokens_size': 64}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[64], int32[64].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 64, 'next_tokens_size': 64} finished in 0.07 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 64, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 64, 'next_tokens_size': 8} finished in 0.07 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 128, 'next_tokens_size': 128}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[128], int32[128].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 128, 'next_tokens_size': 128} finished in 0.09 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 128, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 128, 'next_tokens_size': 8} finished in 0.09 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:12 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 256, 'next_tokens_size': 256}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[256], int32[256].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 256, 'next_tokens_size': 256} finished in 0.09 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 256, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 256, 'next_tokens_size': 8} finished in 0.09 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 512, 'next_tokens_size': 512}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[512], int32[512].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 512, 'next_tokens_size': 512} finished in 0.09 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 512, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 512, 'next_tokens_size': 8} finished in 0.10 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 1024, 'next_tokens_size': 1024}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[1024], int32[1024].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 1024, 'next_tokens_size': 1024} finished in 0.10 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 1024, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 1024, 'next_tokens_size': 8} finished in 0.10 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 2048, 'next_tokens_size': 2048}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[2048], int32[2048].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 2048, 'next_tokens_size': 2048} finished in 0.09 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 2048, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 2048, 'next_tokens_size': 8} finished in 0.10 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 4096, 'next_tokens_size': 4096}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[4096], int32[4096].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 4096, 'next_tokens_size': 4096} finished in 0.09 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:13 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 4096, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 4096, 'next_tokens_size': 8} finished in 0.10 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 8192, 'next_tokens_size': 8192}
+(EngineCore pid=80498) /content/ocrbench_envs/vllm-tpu/lib/python3.12/site-packages/jax/_src/interpreters/mlir.py:1379: UserWarning: Some donated buffers were not usable: int32[8192], int32[8192].
+(EngineCore pid=80498) See an explanation at https://docs.jax.dev/en/latest/faq.html#buffer-donation.
+(EngineCore pid=80498)   warnings.warn("Some donated buffers were not usable:"
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 8192, 'next_tokens_size': 8192} finished in 0.09 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile _substitute_placeholder_token_fn --> {'num_tokens': 8192, 'next_tokens_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of _substitute_placeholder_token_fn --> {'num_tokens': 8192, 'next_tokens_size': 8} finished in 0.10 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:240] Warm-up call pass finished in 0.01 [secs] over 22 tasks.
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:892] Compiling select_from_array with different input shapes.
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:859] Compiling select_from_array for worker0 select all logits.
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 16, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 16, 'index_size': 8} finished in 0.03 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 32, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 32, 'index_size': 8} finished in 0.03 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 64, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 64, 'index_size': 8} finished in 0.04 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 128, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 128, 'index_size': 8} finished in 0.05 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 256, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 256, 'index_size': 8} finished in 0.06 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 512, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 512, 'index_size': 8} finished in 0.10 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 1024, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 1024, 'index_size': 8} finished in 0.17 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:14 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 2048, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 2048, 'index_size': 8} finished in 0.31 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 4096, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 4096, 'index_size': 8} finished in 0.03 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:149] Precompile select_from_array [worker0 select all logits] --> {'array_size': 8192, 'index_size': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:200] Compilation of select_from_array [worker0 select all logits] --> {'array_size': 8192, 'index_size': 8} finished in 0.03 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:939] Compiling compute_logits with different input shapes.
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:149] Precompile worker0 compute_logits --> {'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:200] Compilation of worker0 compute_logits --> {'num_reqs': 8} finished in 0.23 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:1929] Compiling structured_decoding with different input shapes.
+(EngineCore pid=80498) INFO 10-05 14:45:15 [compilation_manager.py:149] Precompile structured_decode --> {'num_reqs': 8}
+(EngineCore pid=80498) INFO 10-05 14:45:16 [compilation_manager.py:200] Compilation of structured_decode --> {'num_reqs': 8} finished in 1.35 [secs].
+(EngineCore pid=80498) INFO 10-05 14:45:16 [compilation_manager.py:240] Warm-up call pass finished in 0.00 [secs] over 1 tasks.
+(EngineCore pid=80498) INFO 10-05 14:45:16 [core.py:376] init engine (profile, create kv cache, warmup model) took 162.95 s (compilation: 143.46 s)
+(EngineCore pid=80498) INFO 10-05 14:45:17 [kernel.py:408] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+(EngineCore pid=80498) INFO 10-05 14:45:17 [tpu_platform.py:288] Initialized sharding configuration: ShardingConfigManager(total_devices=1, sharding_strategy=ShardingStrategy(tensor_parallelism=1, expert_parallelism=1, sequence_parallelism=1, data_parallelism=1, attention_data_parallelism=1, attention_data_expert_parallelism=1, decode_context_parallelism=1, prefill_context_parallelism=1), mm_encoder_tp_mode=weights, device_indexes=None)
+(EngineCore pid=80498) INFO 10-05 14:45:17 [tpu_platform.py:436] Force using UniProcExecutor for JAX on single host without pipeline parallelism.
+(EngineCore pid=80498) WARNING 10-05 14:45:17 [tpu_platform.py:468] TPU does not support running Multimodal models without setting `--disable_chunked_mm_input`. If you are serving a multimodal model, please explicitly add the `--disable-chunked-mm-input` flag to your server command to avoid execution failures.
+INFO 10-05 14:45:18 [hf.py:642] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+(EngineCore pid=80498) WARNING 10-05 14:45:19 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=5120, kv_seq_len=5120, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+[qwen2.5-vl-3b] track books
+  [books] latency page 1/8: 3.5s
+  [books] latency page 2/8: 4.3s
+  [books] latency page 3/8: 3.0s
+  [books] latency page 4/8: 4.2s
+  [books] latency page 5/8: 4.4s
+  [books] latency page 6/8: 2.8s
+  [books] latency page 7/8: 2.0s
+  [books] latency page 8/8: 3.2s
+  [books] batch of 50 pages...
+(EngineCore pid=80498) WARNING 10-05 14:46:55 [tpu_runner.py:1634] Should not schedule a request that does nothing!
+  [books] 16/50 pages  0.32 p/s
+(EngineCore pid=80498) WARNING 10-05 14:46:59 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=4992, kv_seq_len=4992, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+(EngineCore pid=80498) WARNING 10-05 14:47:57 [tpu_runner.py:1634] Should not schedule a request that does nothing!
+  [books] 32/50 pages  0.29 p/s
+(EngineCore pid=80498) WARNING 10-05 14:48:44 [tpu_runner.py:1634] Should not schedule a request that does nothing!
+  [books] 48/50 pages  0.30 p/s
+  [books] 50/50 pages  0.31 p/s
+[qwen2.5-vl-3b] track docs
+  [docs] latency page 1/8: 2.2s
+  [docs] latency page 2/8: 21.3s
+  [docs] latency page 3/8: 1.0s
+  [docs] latency page 4/8: 1.8s
+  [docs] latency page 5/8: 4.2s
+  [docs] latency page 6/8: 6.3s
+  [docs] latency page 7/8: 4.2s
+  [docs] latency page 8/8: 2.8s
+  [docs] batch of 50 pages...
+(EngineCore pid=80498) WARNING 10-05 14:50:21 [tpu_runner.py:1634] Should not schedule a request that does nothing!
+  [docs] 16/50 pages  0.32 p/s
+(EngineCore pid=80498) WARNING 10-05 14:51:28 [tpu_runner.py:1634] Should not schedule a request that does nothing!
+  [docs] 32/50 pages  0.28 p/s
+  [docs] 48/50 pages  0.23 p/s
+  [docs] 50/50 pages  0.22 p/s
+[qwen2.5-vl-3b] track handwriting
+(EngineCore pid=80498) WARNING 10-05 14:53:22 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=1280, kv_seq_len=1280, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] latency page 1/8: 16.9s
+  [handwriting] latency page 2/8: 15.1s
+(EngineCore pid=80498) WARNING 10-05 14:53:54 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=1664, kv_seq_len=1664, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] latency page 3/8: 21.1s
+  [handwriting] latency page 4/8: 21.2s
+(EngineCore pid=80498) WARNING 10-05 14:54:36 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=1152, kv_seq_len=1152, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] latency page 5/8: 14.7s
+  [handwriting] latency page 6/8: 15.6s
+(EngineCore pid=80498) WARNING 10-05 14:55:06 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=1408, kv_seq_len=1408, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] latency page 7/8: 20.9s
+(EngineCore pid=80498) WARNING 10-05 14:55:27 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=1024, kv_seq_len=1024, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] latency page 8/8: 13.0s
+  [handwriting] batch of 60 pages...
+(EngineCore pid=80498) WARNING 10-05 14:56:16 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=1920, kv_seq_len=1920, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+(EngineCore pid=80498) WARNING 10-05 14:56:47 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=1536, kv_seq_len=1536, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] 16/60 pages  0.13 p/s
+(EngineCore pid=80498) WARNING 10-05 14:57:43 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=896, kv_seq_len=896, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+(EngineCore pid=80498) WARNING 10-05 14:58:39 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=2560, kv_seq_len=2560, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] 31/60 pages  0.11 p/s
+(EngineCore pid=80498) WARNING 10-05 15:00:11 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=2048, kv_seq_len=2048, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+(EngineCore pid=80498) WARNING 10-05 15:00:29 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=256, kv_seq_len=256, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] 37/60 pages  0.12 p/s
+(EngineCore pid=80498) WARNING 10-05 15:00:53 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=1792, kv_seq_len=1792, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] 41/60 pages  0.11 p/s
+(EngineCore pid=80498) WARNING 10-05 15:01:44 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=768, kv_seq_len=768, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] 42/60 pages  0.11 p/s
+  [handwriting] 43/60 pages  0.11 p/s
+[qwen2.5-vl-3b] track stress
+  [stress] latency page 1/8: 3.2s
+  [stress] latency page 2/8: 3.1s
+(EngineCore pid=80498) WARNING 10-05 15:02:24 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=2688, kv_seq_len=2688, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [stress] latency page 3/8: 17.9s
+  [stress] latency page 4/8: 3.2s
+  [stress] latency page 5/8: 3.2s
+  [stress] latency page 6/8: 3.2s
+  [stress] latency page 7/8: 19.2s
+  [stress] latency page 8/8: 3.1s
+  [stress] batch of 55 pages...
+  [stress] 16/55 pages  1.43 p/s
+  [stress] 32/55 pages  1.62 p/s
+  [stress] 48/55 pages  1.75 p/s
+  [stress] 55/55 pages  1.66 p/s
+[qwen2.5-vl-3b] track handwriting: resuming at page 44
+(EngineCore pid=80498) WARNING 10-05 15:04:21 [tuned_params.py:84] No tuned block sizes found for flash attention with tuning key: TuningKey(batch_size=1, num_heads=16, q_seq_len=512, kv_seq_len=512, head_dim=80, q_dtype='bfloat16', kv_dtype='bfloat16'), falling back to the default block size heuristic.
+  [handwriting] 59/60 pages  0.12 p/s
+  [handwriting] 60/60 pages  0.12 p/s
+INFO 10-05 15:05:49 [core_client.py:756] [shutdown] MPClient: start timeout=default
+INFO 10-05 15:05:49 [core_client.py:758] [shutdown] MPClient: stopping engine manager
+INFO 10-05 15:05:49 [utils.py:633] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=80498) INFO 10-05 15:05:49 [core.py:1409] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=80498) INFO 10-05 15:05:49 [core.py:1558] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=80498) INFO 10-05 15:05:49 [core.py:1589] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=80498) INFO 10-05 15:05:49 [core.py:1422] [shutdown] EngineCore: exiting busy loop
+(EngineCore pid=80498) WARNING 10-05 15:05:51 [parallel_state.py:2463] torch.accelerator.empty_host_cache() only available in Pytorch >=2.9
+INFO 10-05 15:05:53 [core_client.py:760] [shutdown] MPClient: engine manager stopped
+INFO 10-05 15:05:53 [core_client.py:761] [shutdown] MPClient: cleaning up background resources
+INFO 10-05 15:05:53 [core_client.py:763] [shutdown] MPClient: complete
