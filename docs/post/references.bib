@@ -1,0 +1,723 @@
+% References for "OCR benchmark". md2qmd.py matches [Surname YYYY](#references) by first author's surname and year.
+% All entries verified 2026-10-05 against the live source (arXiv API, Crossref/DOI, Hugging Face, GitHub, vendor docs).
+% Disambiguation letters (cite as e.g. "Poznanski et al 2025a"; the year field stays plain):
+%   cui2025a = PaddleOCR 3.0 report; cui2025b = PaddleOCR-VL paper
+%   zhang2026a = PaddleOCR-VL-1.6 report; zhang2026b = PP-OCRv6 paper
+%   paddlepaddle2026a = PaddleOCR v3.7.0 release notes (PP-OCRv6); 2026b = PaddleOCR-VL-1.6 model card;
+%     2026c = PaddlePaddle Linux pip install page (cu129); 2026d = PaddleOCR-VL Blackwell tutorial
+%   taghadouini2026a = LightOnOCR arXiv paper; taghadouini2026b = LightOnOCR-2 HF blog
+%   datalab2026a = chandra-ocr-2 card; datalab2026b = surya-ocr-2 card
+%   allenai2025a = olmOCR-2-7B-1025-FP8 card; allenai2025b = olmOCR-bench dataset card
+%   poznanski2025a = olmOCR; poznanski2025b = olmOCR 2
+%   bai2025a = Qwen2.5-VL report; bai2025b = Qwen3-VL report
+%   google2026a = gemma-4-E4B-it card; google2026b = Colab pricing page
+%   finebooks2026a = bhl-impact-gt dataset card; finebooks2026b = BHL OCR leaderboard Space
+%   vllm2026a = Automatic Prefix Caching docs; vllm2026b = tpu-inference repo
+
+% ---- Classic OCR ----
+
+@inproceedings{smith2007,
+  author    = {Smith, Ray},
+  title     = {An Overview of the {Tesseract} {OCR} Engine},
+  booktitle = {Ninth International Conference on Document Analysis and Recognition ({ICDAR} 2007)},
+  volume    = {2},
+  pages     = {629--633},
+  publisher = {IEEE},
+  year      = {2007},
+  doi       = {10.1109/ICDAR.2007.4376991},
+  url       = {https://doi.org/10.1109/ICDAR.2007.4376991}
+}
+
+@misc{barlow2026,
+  author       = {Barlow, James R.},
+  title        = {{OCRmyPDF}: adds an {OCR} text layer to scanned {PDF} files},
+  year         = {2026},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/ocrmypdf/OCRmyPDF},
+  note         = {Version 17 (v17.0.0 released 2026-01-30; latest v17.13.0, 2026-09-28). Repository created 2013. MPL-2.0. Accessed 2026-10-05}
+}
+
+@misc{du2020,
+  author        = {Du, Yuning and Li, Chenxia and Guo, Ruoyu and Yin, Xiaoting and Liu, Weiwei and Zhou, Jun and Bai, Yifan and Yu, Zilin and Yang, Yehua and Dang, Qingqing and Wang, Haoshuang},
+  title         = {{PP-OCR}: A Practical Ultra Lightweight {OCR} System},
+  year          = {2020},
+  eprint        = {2009.09941},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2009.09941}
+}
+
+@misc{cui2025a,
+  author        = {Cui, Cheng and Sun, Ting and Lin, Manhui and Gao, Tingquan and Zhang, Yubo and Liu, Jiaxuan and Wang, Xueqing and Zhang, Zelun and Zhou, Changda and Liu, Hongen and Zhang, Yue and Lv, Wenyu and Huang, Kui and Zhang, Yichao and Zhang, Jing and Zhang, Jun and Liu, Yi and Yu, Dianhai and Ma, Yanjun},
+  title         = {{PaddleOCR} 3.0 Technical Report},
+  year          = {2025},
+  eprint        = {2507.05595},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2507.05595}
+}
+
+@misc{zhang2026b,
+  author        = {Zhang, Yubo and Wang, Xueqing and Lin, Manhui and Zhang, Yue and Deng, Penglongyi and Sun, Ting and Gao, Tingquan and Zhang, Zelun and Liu, Jiaxuan and Zhou, Changda and Liu, Hongen and Liang, Suyin and Cui, Cheng and Liu, Yi and Yu, Dianhai and Ma, Yanjun},
+  title         = {{PP-OCRv6}: From 1.5M to 34.5M Parameters, Surpassing Billion-Scale {VLMs} on {OCR} Tasks},
+  year          = {2026},
+  eprint        = {2606.13108},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2606.13108}
+}
+
+@misc{paddlepaddle2026a,
+  author       = {{PaddlePaddle}},
+  title        = {{PaddleOCR} v3.7.0 release notes: Release {PP-OCRv6}},
+  year         = {2026},
+  howpublished = {GitHub release, PaddlePaddle/PaddleOCR},
+  url          = {https://github.com/PaddlePaddle/PaddleOCR/releases/tag/v3.7.0},
+  note         = {Released 2026-06-11. See also the PP-OCRv6 documentation page https://www.paddleocr.ai/latest/en/version3.x/algorithm/PP-OCRv6/PP-OCRv6.html and model cards https://huggingface.co/PaddlePaddle/PP-OCRv6_medium_det, https://huggingface.co/PaddlePaddle/PP-OCRv6_medium_rec. Accessed 2026-10-05}
+}
+
+@misc{mindee2021,
+  author       = {{Mindee}},
+  title        = {{docTR}: Document Text Recognition},
+  year         = {2021},
+  publisher    = {GitHub},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/mindee/doctr},
+  note         = {Year as in the project's own recommended citation; benchmark used python-doctr v1.1.x (v1.1.0 released 2026-08-21). Apache-2.0. Accessed 2026-10-05}
+}
+
+@misc{chen2021,
+  author        = {Chen, Zhe and Wang, Jiahao and Wang, Wenhai and Chen, Guo and Xie, Enze and Luo, Ping and Lu, Tong},
+  title         = {{FAST}: Faster Arbitrarily-Shaped Text Detector with Minimalist Kernel Representation},
+  year          = {2021},
+  eprint        = {2111.02394},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2111.02394}
+}
+
+@inproceedings{bautista2022,
+  author        = {Bautista, Darwin and Atienza, Rowel},
+  title         = {Scene Text Recognition with Permuted Autoregressive Sequence Models},
+  booktitle     = {Computer Vision -- {ECCV} 2022},
+  series        = {Lecture Notes in Computer Science},
+  volume        = {13688},
+  pages         = {178--196},
+  publisher     = {Springer},
+  year          = {2022},
+  doi           = {10.1007/978-3-031-19815-1_11},
+  eprint        = {2207.06966},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2207.06966}
+}
+
+@misc{jaidedai2024,
+  author       = {{JaidedAI}},
+  title        = {{EasyOCR}: Ready-to-use {OCR} with 80+ supported languages},
+  year         = {2024},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/JaidedAI/EasyOCR},
+  note         = {Version 1.7.2 (latest release, 2024-09-24). Repository created 2020. Apache-2.0. Accessed 2026-10-05}
+}
+
+@inproceedings{baek2019,
+  author        = {Baek, Youngmin and Lee, Bado and Han, Dongyoon and Yun, Sangdoo and Lee, Hwalsuk},
+  title         = {Character Region Awareness for Text Detection},
+  booktitle     = {2019 {IEEE/CVF} Conference on Computer Vision and Pattern Recognition ({CVPR})},
+  pages         = {9357--9366},
+  publisher     = {IEEE},
+  year          = {2019},
+  doi           = {10.1109/CVPR.2019.00959},
+  eprint        = {1904.01941},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/1904.01941}
+}
+
+@article{shi2017,
+  author        = {Shi, Baoguang and Bai, Xiang and Yao, Cong},
+  title         = {An End-to-End Trainable Neural Network for Image-Based Sequence Recognition and Its Application to Scene Text Recognition},
+  journal       = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume        = {39},
+  number        = {11},
+  pages         = {2298--2304},
+  year          = {2017},
+  doi           = {10.1109/TPAMI.2016.2646371},
+  eprint        = {1507.05717},
+  archivePrefix = {arXiv},
+  url           = {https://doi.org/10.1109/TPAMI.2016.2646371}
+}
+
+@misc{rapidai2021,
+  author       = {{RapidAI}},
+  title        = {{RapidOCR}: {OCR} Toolbox},
+  year         = {2021},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/RapidAI/RapidOCR},
+  note         = {Year as in the project's own recommended citation (author given there as "RapidAI Team"); benchmark used rapidocr >= 3.9 (v3.9.0 released 2026-06-23). Apache-2.0. Accessed 2026-10-05}
+}
+
+@misc{paruchuri2025,
+  author       = {Paruchuri, Vikas and {Datalab Team}},
+  title        = {Surya: A lightweight document {OCR} and analysis toolkit},
+  year         = {2025},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/datalab-to/surya},
+  note         = {Entry as in the project's own recommended citation; benchmark pinned surya-ocr 0.17.1 (released 2026-01-30). Code Apache-2.0; model weights modified AI Pubs OpenRAIL-M. Accessed 2026-10-05}
+}
+
+
+% ---- OCR vision-language models ----
+
+% PaddleOCR-VL family
+@misc{cui2025b,
+  author        = {Cui, Cheng and Sun, Ting and Liang, Suyin and Gao, Tingquan and Zhang, Zelun and Liu, Jiaxuan and Wang, Xueqing and Zhou, Changda and Liu, Hongen and Lin, Manhui and Zhang, Yue and Zhang, Yubo and Zheng, Handong and Zhang, Jing and Zhang, Jun and Liu, Yi and Yu, Dianhai and Ma, Yanjun},
+  title         = {{PaddleOCR-VL}: Boosting Multilingual Document Parsing via a 0.9{B} Ultra-Compact Vision-Language Model},
+  year          = {2025},
+  eprint        = {2510.14528},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2510.14528},
+  note          = {arXiv preprint}
+}
+
+@misc{cui2026,
+  author        = {Cui, Cheng and Sun, Ting and Liang, Suyin and Gao, Tingquan and Zhang, Zelun and Liu, Jiaxuan and Wang, Xueqing and Zhou, Changda and Liu, Hongen and Lin, Manhui and Zhang, Yue and Zhang, Yubo and Liu, Yi and Yu, Dianhai and Ma, Yanjun},
+  title         = {{PaddleOCR-VL-1.5}: Towards a Multi-Task 0.9{B} {VLM} for Robust In-the-Wild Document Parsing},
+  year          = {2026},
+  eprint        = {2601.21957},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2601.21957},
+  note          = {arXiv preprint}
+}
+
+@misc{zhang2026a,
+  author        = {Zhang, Zelun and Liu, Hongen and Liang, Suyin and Zhang, Yubo and Xiang, Yiqing and Liu, Jiaxuan and Sun, Ting and Lin, Manhui and Zhang, Yue and Zhou, Changda and Gao, Tingquan and Cui, Cheng and Liu, Yi and Yu, Dianhai and Ma, Yanjun},
+  title         = {{PaddleOCR-VL-1.6}: Expanding the Frontier of Document Parsing with Under-Optimized Region Refinement and Progressive Post-Training},
+  year          = {2026},
+  eprint        = {2606.03264},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2606.03264},
+  note          = {arXiv preprint}
+}
+
+@misc{paddlepaddle2026b,
+  author       = {{PaddlePaddle}},
+  title        = {{PaddleOCR-VL-1.6}},
+  year         = {2026},
+  howpublished = {\url{https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6}},
+  url          = {https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6},
+  note         = {Hugging Face model card, released 2026-05-28, accessed 2026-10-05}
+}
+
+% OvisOCR2 / Ovis
+@misc{lu2026,
+  author        = {Lu, Shiyin and Li, Yinglun and Xia, Yu and Chen, Yuhui and Ji, An-Yang and Jiang, Jun-Peng and Chen, Qing-Guo and Zhao, Jianshan and Lin, En and Li, Haijun and Qin, Cheng and Xu, Zhao and Luo, Weihua},
+  title         = {{OvisOCR2} Technical Report},
+  year          = {2026},
+  eprint        = {2607.13639},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2607.13639},
+  note          = {arXiv preprint}
+}
+
+@misc{athmaas2026,
+  author       = {{ATH-MaaS}},
+  title        = {{OvisOCR2}},
+  year         = {2026},
+  howpublished = {\url{https://huggingface.co/ATH-MaaS/OvisOCR2}},
+  url          = {https://huggingface.co/ATH-MaaS/OvisOCR2},
+  note         = {Hugging Face model card (base model Qwen/Qwen3.5-0.8B), repository created 2026-07-13, accessed 2026-10-05}
+}
+
+@misc{lu2024,
+  author        = {Lu, Shiyin and Li, Yang and Chen, Qing-Guo and Xu, Zhao and Luo, Weihua and Zhang, Kaifu and Ye, Han-Jia},
+  title         = {{Ovis}: Structural Embedding Alignment for Multimodal Large Language Model},
+  year          = {2024},
+  eprint        = {2405.20797},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2405.20797},
+  note          = {arXiv preprint}
+}
+
+% LightOnOCR
+@misc{taghadouini2026a,
+  author        = {Taghadouini, Said and Cavaill{\`e}s, Adrien and Aubertin, Baptiste},
+  title         = {{LightOnOCR}: A 1{B} End-to-End Multilingual Vision-Language Model for State-of-the-Art {OCR}},
+  year          = {2026},
+  eprint        = {2601.14251},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2601.14251},
+  note          = {arXiv preprint}
+}
+
+@misc{taghadouini2026b,
+  author       = {Taghadouini, Said and Cavaill{\`e}s, Adrien and Aubertin, Baptiste},
+  title        = {{LightOnOCR-2-1B}: a lightweight high-performance end-to-end {OCR} model family},
+  year         = {2026},
+  howpublished = {\url{https://huggingface.co/blog/lightonai/lightonocr-2}},
+  url          = {https://huggingface.co/blog/lightonai/lightonocr-2},
+  note         = {Hugging Face blog, published 2026-01-19}
+}
+
+@misc{lighton2026,
+  author       = {{LightOn}},
+  title        = {{LightOnOCR-2-1B}},
+  year         = {2026},
+  howpublished = {\url{https://huggingface.co/lightonai/LightOnOCR-2-1B}},
+  url          = {https://huggingface.co/lightonai/LightOnOCR-2-1B},
+  note         = {Hugging Face model card, repository created 2026-01-16, accessed 2026-10-05}
+}
+
+% GLM-OCR
+@misc{duan2026,
+  author        = {Duan, Shuaiqi and Xue, Yadong and Wang, Weihan and Su, Zhe and Liu, Huan and Yang, Sheng and Gan, Guobing and Wang, Guo and Wang, Zihan and Yan, Shengdong and Jin, Dexin and Zhang, Yuxuan and Wen, Guohong and Wang, Yanfeng and Zhang, Yutao and Zhang, Xiaohan and Hong, Wenyi and Cen, Yukuo and Yin, Da and Chen, Bin and Yu, Wenmeng and Gu, Xiaotao and Tang, Jie},
+  title         = {{GLM-OCR} Technical Report},
+  year          = {2026},
+  eprint        = {2603.10910},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2603.10910},
+  note          = {arXiv preprint}
+}
+
+@misc{zai2026,
+  author       = {{ZAI}},
+  title        = {{GLM-OCR}},
+  year         = {2026},
+  howpublished = {\url{https://huggingface.co/zai-org/GLM-OCR}},
+  url          = {https://huggingface.co/zai-org/GLM-OCR},
+  note         = {Hugging Face model card (Z.ai, org zai-org), repository created 2026-01-30, accessed 2026-10-05. SDK: https://github.com/zai-org/GLM-OCR}
+}
+
+% Granite-Docling / SmolDocling
+@misc{ibm2025,
+  author       = {{IBM}},
+  title        = {granite-docling-258{M}},
+  year         = {2025},
+  howpublished = {\url{https://huggingface.co/ibm-granite/granite-docling-258M}},
+  url          = {https://huggingface.co/ibm-granite/granite-docling-258M},
+  note         = {Hugging Face model card (IBM Research), release date 2025-09-17, accessed 2026-10-05}
+}
+
+@misc{nassar2025,
+  author        = {Nassar, Ahmed and Marafioti, Andres and Omenetti, Matteo and Lysak, Maksym and Livathinos, Nikolaos and Auer, Christoph and Morin, Lucas and Teixeira de Lima, Rafael and Kim, Yusik and Gurbuz, A. Said and Dolfi, Michele and Farr{\'e}, Miquel and Staar, Peter W. J.},
+  title         = {{SmolDocling}: An ultra-compact vision-language model for end-to-end multi-modal document conversion},
+  year          = {2025},
+  eprint        = {2503.11576},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2503.11576},
+  note          = {arXiv preprint}
+}
+
+% dots.ocr / dots.mocr
+@misc{rednote2025,
+  author       = {{rednote}},
+  title        = {dots.ocr},
+  year         = {2025},
+  howpublished = {\url{https://huggingface.co/rednote-hilab/dots.ocr}},
+  url          = {https://huggingface.co/rednote-hilab/dots.ocr},
+  note         = {Hugging Face model card by rednote-hilab (now redirects to dots-studio/dots.ocr), released 2025-07-30, accessed 2026-10-05. Code: https://github.com/rednote-hilab/dots.ocr}
+}
+
+@misc{rednote2026,
+  author       = {{rednote}},
+  title        = {dots.mocr},
+  year         = {2026},
+  howpublished = {\url{https://huggingface.co/dots-studio/dots.mocr}},
+  url          = {https://huggingface.co/dots-studio/dots.mocr},
+  note         = {Hugging Face model card (dots-studio, formerly rednote-hilab/dots.mocr), repository created 2026-03-19, accessed 2026-10-05. Code: https://github.com/rednote-hilab/dots.mocr}
+}
+
+@misc{zheng2026,
+  author        = {Zheng, Handong and Li, Yumeng and Zhang, Kaile and Xin, Liang and Zhao, Guangwei and Liu, Hao and Chen, Jiayu and Lou, Jie and Fu, Qi and Yang, Rui and Jiang, Shuo and Luo, Weijian and Su, Weijie and Zhang, Weijun and Zhu, Xingyu and Li, Yabin and Ma, Yiwei and Chen, Yu and Ji, Yuqiu and Yu, Zhaohui and Yang, Guang and Zhang, Colin and Zhang, Lei and Liu, Yuliang and Bai, Xiang},
+  title         = {Multimodal {OCR}: Parse Anything from Documents},
+  year          = {2026},
+  eprint        = {2603.13032},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2603.13032},
+  note          = {arXiv preprint (dots.mocr)}
+}
+
+
+% ---- OCR vision-language models (cont.): DeepSeek-OCR, Datalab, olmOCR, Nanonets; general VLMs: Qwen, Gemma ----
+
+@misc{wei2025,
+  author        = {Wei, Haoran and Sun, Yaofeng and Li, Yukun},
+  title         = {{DeepSeek-OCR}: Contexts Optical Compression},
+  year          = {2025},
+  eprint        = {2510.18234},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  doi           = {10.48550/arXiv.2510.18234},
+  url           = {https://arxiv.org/abs/2510.18234},
+  note          = {Model card: https://huggingface.co/deepseek-ai/DeepSeek-OCR}
+}
+
+@misc{wei2026,
+  author        = {Wei, Haoran and Sun, Yaofeng and Li, Yukun},
+  title         = {{DeepSeek-OCR} 2: Visual Causal Flow},
+  year          = {2026},
+  eprint        = {2601.20552},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  doi           = {10.48550/arXiv.2601.20552},
+  url           = {https://arxiv.org/abs/2601.20552},
+  note          = {Model card: https://huggingface.co/deepseek-ai/DeepSeek-OCR-2; code: https://github.com/deepseek-ai/DeepSeek-OCR-2}
+}
+
+@misc{datalab2026a,
+  author       = {{Datalab}},
+  title        = {Chandra {OCR} 2 (datalab-to/chandra-ocr-2)},
+  year         = {2026},
+  howpublished = {Hugging Face model card},
+  url          = {https://huggingface.co/datalab-to/chandra-ocr-2},
+  note         = {Hugging Face model card, accessed 2026-10-05}
+}
+
+@misc{datalab2026b,
+  author       = {{Datalab}},
+  title        = {Surya {OCR} 2 (datalab-to/surya-ocr-2)},
+  year         = {2026},
+  howpublished = {Hugging Face model card},
+  url          = {https://huggingface.co/datalab-to/surya-ocr-2},
+  note         = {Hugging Face model card, accessed 2026-10-05}
+}
+
+@misc{allenai2025a,
+  author       = {{AllenAI}},
+  title        = {{olmOCR-2-7B-1025-FP8}},
+  year         = {2025},
+  howpublished = {Hugging Face model card},
+  url          = {https://huggingface.co/allenai/olmOCR-2-7B-1025-FP8},
+  note         = {Hugging Face model card, accessed 2026-10-05}
+}
+
+@misc{poznanski2025a,
+  author        = {Poznanski, Jake and Rangapur, Aman and Borchardt, Jon and Dunkelberger, Jason and Huff, Regan and Lin, Daniel and Wilhelm, Christopher and Lo, Kyle and Soldaini, Luca},
+  title         = {{olmOCR}: Unlocking Trillions of Tokens in {PDFs} with Vision Language Models},
+  year          = {2025},
+  eprint        = {2502.18443},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2502.18443},
+  url           = {https://arxiv.org/abs/2502.18443}
+}
+
+@misc{poznanski2025b,
+  author        = {Poznanski, Jake and Soldaini, Luca and Lo, Kyle},
+  title         = {{olmOCR} 2: Unit Test Rewards for Document {OCR}},
+  year          = {2025},
+  eprint        = {2510.19817},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  doi           = {10.48550/arXiv.2510.19817},
+  url           = {https://arxiv.org/abs/2510.19817}
+}
+
+@misc{mandal2025,
+  author       = {Mandal, Souvik and Talewar, Ashish and Thakuria, Siddhant and Ahuja, Paras and Juvatkar, Prathamesh},
+  title        = {{Nanonets-OCR2}: A model for transforming documents into structured markdown with intelligent content recognition and semantic tagging},
+  year         = {2025},
+  howpublished = {Hugging Face model card},
+  url          = {https://huggingface.co/nanonets/Nanonets-OCR2-3B},
+  note         = {Hugging Face model card, accessed 2026-10-05}
+}
+
+@misc{bai2025a,
+  author        = {Bai, Shuai and Chen, Keqin and Liu, Xuejing and Wang, Jialin and Ge, Wenbin and Song, Sibo and Dang, Kai and Wang, Peng and Wang, Shijie and Tang, Jun and Zhong, Humen and Zhu, Yuanzhi and Yang, Mingkun and Li, Zhaohai and Wan, Jianqiang and Wang, Pengfei and Ding, Wei and Fu, Zheren and Xu, Yiheng and Ye, Jiabo and Zhang, Xi and Xie, Tianbao and Cheng, Zesen and Zhang, Hang and Yang, Zhibo and Xu, Haiyang and Lin, Junyang},
+  title         = {{Qwen2.5-VL} Technical Report},
+  year          = {2025},
+  eprint        = {2502.13923},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  doi           = {10.48550/arXiv.2502.13923},
+  url           = {https://arxiv.org/abs/2502.13923}
+}
+
+@misc{bai2025b,
+  author        = {Bai, Shuai and Cai, Yuxuan and Chen, Ruizhe and Chen, Keqin and Chen, Xionghui and Cheng, Zesen and Deng, Lianghao and Ding, Wei and Gao, Chang and Ge, Chunjiang and Ge, Wenbin and Guo, Zhifang and Huang, Qidong and Huang, Jie and Huang, Fei and Hui, Binyuan and Jiang, Shutong and Li, Zhaohai and Li, Mingsheng and Li, Mei and Li, Kaixin and Lin, Zicheng and Lin, Junyang and Liu, Xuejing and Liu, Jiawei and Liu, Chenglong and Liu, Yang and Liu, Dayiheng and Liu, Shixuan and Lu, Dunjie and Luo, Ruilin and Lv, Chenxu and Men, Rui and Meng, Lingchen and Ren, Xuancheng and Ren, Xingzhang and Song, Sibo and Sun, Yuchong and Tang, Jun and Tu, Jianhong and Wan, Jianqiang and Wang, Peng and Wang, Pengfei and Wang, Qiuyue and Wang, Yuxuan and Xie, Tianbao and Xu, Yiheng and Xu, Haiyang and Xu, Jin and Yang, Zhibo and Yang, Mingkun and Yang, Jianxin and Yang, An and Yu, Bowen and Zhang, Fei and Zhang, Hang and Zhang, Xi and Zheng, Bo and Zhong, Humen and Zhou, Jingren and Zhou, Fan and Zhou, Jing and Zhu, Yuanzhi and Zhu, Ke},
+  title         = {{Qwen3-VL} Technical Report},
+  year          = {2025},
+  eprint        = {2511.21631},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  doi           = {10.48550/arXiv.2511.21631},
+  url           = {https://arxiv.org/abs/2511.21631},
+  note          = {Model card for the evaluated checkpoint: https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct}
+}
+
+@misc{qwen2026,
+  author       = {{Qwen}},
+  title        = {{Qwen3.5}: Towards Native Multimodal Agents},
+  year         = {2026},
+  month        = feb,
+  howpublished = {Qwen blog},
+  url          = {https://qwen.ai/blog?id=qwen3.5},
+  note         = {Citation as given in the model cards https://huggingface.co/Qwen/Qwen3.5-2B and https://huggingface.co/Qwen/Qwen3.5-9B (author ``Qwen Team''), accessed 2026-10-05}
+}
+
+@misc{gemma2026,
+  author        = {{Gemma Team} and El Abd, Sherif and Aggarwal, Vaibhav and Algayres, Robin and Andreev, Alek and Bachem, Olivier and Ballantyne, Ian and Brick, Cormac and C{\u{a}}rbune, Victor and Casbon, Michelle and others},
+  title         = {Gemma 4 Technical Report},
+  year          = {2026},
+  eprint        = {2607.02770},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2607.02770},
+  url           = {https://arxiv.org/abs/2607.02770},
+  note          = {First author listed on arXiv is ``Gemma Team'' (323 authors in total)}
+}
+
+@misc{google2026a,
+  author       = {{Google}},
+  title        = {Gemma 4 {E4B} Instruction-Tuned (google/gemma-4-E4B-it)},
+  year         = {2026},
+  howpublished = {Hugging Face model card},
+  url          = {https://huggingface.co/google/gemma-4-E4B-it},
+  note         = {Hugging Face model card (authors: Google DeepMind), accessed 2026-10-05}
+}
+
+
+% ---- Datasets and evaluations ----
+
+@misc{majstorovic2026,
+  author       = {Majstorovic, Sebastian and {van Strien}, Daniel},
+  title        = {{FineBooks}: are open {OCR} models good enough to unlock historical knowledge?},
+  year         = {2026},
+  month        = aug,
+  howpublished = {Hugging Face community blog (FineBooks organisation), published 2026-08-10},
+  url          = {https://huggingface.co/blog/finebooks/historical-books-ocr-leaderboard},
+  note         = {Accessed 2026-10-05}
+}
+
+@misc{finebooks2026a,
+  author       = {{FineBooks}},
+  title        = {{FineBooks BHL IMPACT Ground Truth} (finebooks/bhl-impact-gt)},
+  year         = {2026},
+  howpublished = {Hugging Face dataset card; ground truth from the IMPACT Centre of Competence / BHL-Europe IMPACT-BHL corpus (2011--2012), CC-BY 3.0},
+  url          = {https://huggingface.co/datasets/finebooks/bhl-impact-gt},
+  note         = {Accessed 2026-10-05}
+}
+
+@misc{finebooks2026b,
+  author       = {{FineBooks}},
+  title        = {{BHL OCR Leaderboard}: historical-text {OCR} on the {IMPACT-BHL} ground truth},
+  year         = {2026},
+  howpublished = {Hugging Face Space (board baked 2026-09-03); evaluation code at https://github.com/finebooks/bhl-ocr-eval},
+  url          = {https://huggingface.co/spaces/finebooks/bhl-ocr-leaderboard},
+  note         = {Accessed 2026-10-05}
+}
+
+@misc{bhl2026,
+  author       = {{BHL}},
+  title        = {Biodiversity Heritage Library},
+  year         = {2026},
+  howpublished = {Website of the Biodiversity Heritage Library consortium},
+  url          = {https://www.biodiversitylibrary.org/},
+  note         = {About page: https://about.biodiversitylibrary.org/. Accessed 2026-10-05}
+}
+
+@misc{allenai2025b,
+  author       = {{AllenAI}},
+  title        = {{olmOCR-bench} (allenai/olmOCR-bench)},
+  year         = {2025},
+  howpublished = {Hugging Face dataset card, ODC-BY-1.0},
+  url          = {https://huggingface.co/datasets/allenai/olmOCR-bench},
+  note         = {Accessed 2026-10-05}
+}
+
+@article{marti2002,
+  author  = {Marti, U.-V. and Bunke, H.},
+  title   = {The {IAM}-database: an {English} sentence database for offline handwriting recognition},
+  journal = {International Journal on Document Analysis and Recognition},
+  year    = {2002},
+  volume  = {5},
+  number  = {1},
+  pages   = {39--46},
+  doi     = {10.1007/s100320200071},
+  url     = {https://doi.org/10.1007/s100320200071}
+}
+
+@misc{teklia2024,
+  author       = {{Teklia}},
+  title        = {{IAM} -- line level (Teklia/IAM-line)},
+  year         = {2024},
+  howpublished = {Hugging Face dataset card, MIT license},
+  url          = {https://huggingface.co/datasets/Teklia/IAM-line},
+  note         = {Accessed 2026-10-05}
+}
+
+@article{levenshtein1966,
+  author  = {Levenshtein, V. I.},
+  title   = {Binary codes capable of correcting deletions, insertions, and reversals},
+  journal = {Soviet Physics Doklady},
+  year    = {1966},
+  volume  = {10},
+  number  = {8},
+  pages   = {707--710},
+  note    = {English translation of Doklady Akademii Nauk SSSR 163(4):845--848 (1965). No DOI exists; URL is the Math-Net.Ru record of the Russian original},
+  url     = {https://www.mathnet.ru/eng/dan31411}
+}
+
+@article{efron1979,
+  author  = {Efron, B.},
+  title   = {Bootstrap Methods: Another Look at the Jackknife},
+  journal = {The Annals of Statistics},
+  year    = {1979},
+  volume  = {7},
+  number  = {1},
+  pages   = {1--26},
+  doi     = {10.1214/aos/1176344552},
+  url     = {https://doi.org/10.1214/aos/1176344552}
+}
+
+@article{spearman1904,
+  author  = {Spearman, C.},
+  title   = {The Proof and Measurement of Association between Two Things},
+  journal = {The American Journal of Psychology},
+  year    = {1904},
+  volume  = {15},
+  number  = {1},
+  pages   = {72--101},
+  doi     = {10.2307/1412159},
+  url     = {https://doi.org/10.2307/1412159}
+}
+
+@mastersthesis{kesselman2008,
+  author = {Kesselman, Rachel F.},
+  title  = {Verbal Probability Expressions in National Intelligence Estimates: A Comprehensive Analysis of Trends from the Fifties through Post 9/11},
+  school = {Mercyhurst College, Department of Intelligence Studies},
+  address = {Erie, Pennsylvania},
+  year   = {2008},
+  month  = may,
+  type   = {{M.S.} thesis (Applied Intelligence)},
+  url    = {https://files.ethz.ch/isn/55739/kesselman_thesis_final.pdf}
+}
+
+
+% ---- Systems ----
+
+@inproceedings{kwon2023,
+  author    = {Kwon, Woosuk and Li, Zhuohan and Zhuang, Siyuan and Sheng, Ying and Zheng, Lianmin and Yu, Cody Hao and Gonzalez, Joseph E. and Zhang, Hao and Stoica, Ion},
+  title     = {Efficient Memory Management for Large Language Model Serving with {PagedAttention}},
+  booktitle = {Proceedings of the 29th Symposium on Operating Systems Principles (SOSP '23)},
+  publisher = {ACM},
+  year      = {2023},
+  month     = oct,
+  pages     = {611--626},
+  doi       = {10.1145/3600006.3613165},
+  eprint    = {2309.06180},
+  archivePrefix = {arXiv},
+  url       = {https://arxiv.org/abs/2309.06180}
+}
+
+@misc{vllm2026a,
+  author       = {{vLLM}},
+  title        = {Automatic Prefix Caching},
+  howpublished = {vLLM documentation (design docs, ``latest'')},
+  year         = {2026},
+  url          = {https://docs.vllm.ai/en/latest/design/prefix_caching/},
+  note         = {Undated living documentation; year is the year accessed. User-facing companion page: https://docs.vllm.ai/en/latest/features/automatic_prefix_caching/. Accessed 2026-10-05}
+}
+
+@misc{vllm2026b,
+  author       = {{vLLM}},
+  title        = {tpu-inference: {TPU} inference for {vLLM}, with unified {JAX} and {PyTorch}},
+  howpublished = {GitHub repository vllm-project/tpu-inference (backend of the \texttt{vllm-tpu} PyPI package)},
+  year         = {2026},
+  url          = {https://github.com/vllm-project/tpu-inference},
+  note         = {README support matrix ``Last Updated: 2026-08-27''. Accessed 2026-10-05}
+}
+
+@misc{jax2026,
+  author       = {{JAX}},
+  title        = {{JAX} -- The Sharp Bits},
+  howpublished = {JAX documentation (``latest'')},
+  year         = {2026},
+  url          = {https://docs.jax.dev/en/latest/notebooks/Common_Gotchas_in_JAX.html},
+  note         = {Undated living documentation; year is the year accessed. See also ``Just-in-time compilation'' (https://docs.jax.dev/en/latest/jit-compilation.html) and ``Ahead-of-time lowering and compilation'' (https://docs.jax.dev/en/latest/aot.html). Accessed 2026-10-05}
+}
+
+@misc{dao2023,
+  author    = {Dao, Tri},
+  title     = {{FlashAttention-2}: Faster Attention with Better Parallelism and Work Partitioning},
+  howpublished = {arXiv preprint; published at the International Conference on Learning Representations (ICLR 2024)},
+  year      = {2023},
+  eprint    = {2307.08691},
+  archivePrefix = {arXiv},
+  url       = {https://arxiv.org/abs/2307.08691},
+  note      = {arXiv preprint submitted 2023-07-17; published at ICLR 2024. Hardware support per https://github.com/Dao-AILab/flash-attention}
+}
+
+@misc{nvidia2025,
+  author       = {{NVIDIA}},
+  title        = {{CUDA} Toolkit 12.8 Release Notes},
+  howpublished = {NVIDIA CUDA documentation archive},
+  year         = {2025},
+  url          = {https://docs.nvidia.com/cuda/archive/12.8.0/cuda-toolkit-release-notes/index.html},
+  note         = {``This release adds compiler support for the following Nvidia Blackwell GPU architectures: SM\_100, SM\_101, SM\_120''. Accessed 2026-10-05}
+}
+
+@misc{nvidia2026,
+  author       = {{NVIDIA}},
+  title        = {{CUDA} {GPU} Compute Capability},
+  howpublished = {NVIDIA Developer},
+  year         = {2026},
+  url          = {https://developer.nvidia.com/cuda-gpus},
+  note         = {Undated living page; year is the year accessed. Lists RTX PRO 6000 Blackwell (Server, Workstation, Max-Q) at compute capability 12.0. Accessed 2026-10-05}
+}
+
+@misc{paddlepaddle2026c,
+  author       = {{PaddlePaddle}},
+  title        = {Install on {Linux} via {PIP}},
+  howpublished = {PaddlePaddle documentation},
+  year         = {2026},
+  url          = {https://www.paddlepaddle.org.cn/documentation/docs/en/install/pip/linux-pip_en.html},
+  note         = {Undated; page shows paddlepaddle-gpu 3.3.0 with wheel indexes cu126, cu129, cu130 (https://www.paddlepaddle.org.cn/packages/stable/cu129/). Year is the year accessed. Accessed 2026-10-05}
+}
+
+@misc{paddlepaddle2026d,
+  author       = {{PaddlePaddle}},
+  title        = {{PaddleOCR-VL} {NVIDIA} {Blackwell}-Architecture {GPUs} Usage Tutorial},
+  howpublished = {PaddleOCR documentation},
+  year         = {2026},
+  url          = {https://www.paddleocr.ai/latest/en/version3.x/pipeline_usage/PaddleOCR-VL-NVIDIA-Blackwell.html},
+  note         = {Undated; year is the year accessed. Accessed 2026-10-05}
+}
+
+@misc{google2026b,
+  author       = {{Google}},
+  title        = {{Colab} Paid Services Pricing},
+  howpublished = {Google Colaboratory pricing/sign-up page},
+  year         = {2026},
+  url          = {https://colab.research.google.com/signup},
+  note         = {Pay As You Go: \$9.99 for 100 compute units, \$49.99 for 500; Colab Pro \$9.99/month; Colab Pro+ \$49.99/month (US prices). Accessed 2026-10-05}
+}
+
+
+@misc{mccormick2024,
+  author       = {McCormick, Chris},
+  title        = {Colab {GPUs} Features \& Pricing},
+  howpublished = {Blog post, mccormickml.com},
+  year         = {2024},
+  month        = apr,
+  url          = {https://mccormickml.com/2024/04/23/colab-gpus-features-and-pricing/},
+  note         = {Posted 2024-04-23, updated March 2026 with per-GPU compute-unit rates. Accessed 2026-10-05}
+}
+
+@inproceedings{wolf2020,
+  author    = {Wolf, Thomas and Debut, Lysandre and Sanh, Victor and Chaumond, Julien and Delangue, Clement and Moi, Anthony and Cistac, Pierric and Rault, Tim and Louf, Remi and Funtowicz, Morgan and Davison, Joe and Shleifer, Sam and von Platen, Patrick and Ma, Clara and Jernite, Yacine and Plu, Julien and Xu, Canwen and Le Scao, Teven and Gugger, Sylvain and Drame, Mariama and Lhoest, Quentin and Rush, Alexander},
+  title     = {Transformers: State-of-the-Art Natural Language Processing},
+  booktitle = {Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations},
+  publisher = {Association for Computational Linguistics},
+  year      = {2020},
+  month     = oct,
+  pages     = {38--45},
+  doi       = {10.18653/v1/2020.emnlp-demos.6},
+  url       = {https://aclanthology.org/2020.emnlp-demos.6/}
+}
