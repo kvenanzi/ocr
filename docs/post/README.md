@@ -8,7 +8,6 @@ description: "22 open OCR engines on historical books, modern PDFs, handwriting,
 
 *Testing four common pieces of advice about reading text from images against 22 free engines, four kinds of material with known answers, and five rented Google Colab machines.*
 
-*Kevin Venanzi · first published 5 October 2026 · rewritten 6 November 2026*
 
 Optical character recognition (OCR) turns a picture of text into text a computer can search. For decades it was done by specialised programs such as Tesseract. In the last two years, AI models that read images and write text have been trained to do it as well, and several are free to download. Four pieces of advice come up again and again when people discuss choosing an OCR system: general-purpose AI models such as Qwen and Gemini can do OCR; PaddleOCR, dots, and Surya give a good balance of accuracy and cost at large scale; large collections need pipelines built for their material; and results depend on the type of material.
 
