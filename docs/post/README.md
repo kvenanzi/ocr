@@ -420,7 +420,7 @@ The smoke-run fixes (`b9f28a1` through `a2de873`): `uv venv --seed`, because Col
 
 I chose the question, set the rules, and edited the text. Claude Code wrote the code, ran the analysis, found the references, and drafted the post.
 
-I am not an OCR or machine-learning specialist. The parts of this post that may look formal, such as tracing every failure to the pages and outputs that caused it and listing every skipped run, are how I check work I could not have produced alone. I have not read the cited papers myself. Claude checked each citation against its source: against the full text, model card, or README where one was open, against the abstract for Kwon et al 2023, and only against the publisher's record for Marti & Bunke 2002, which is cited only to name the IAM dataset. Sentences the sources did not fully support were narrowed or removed.
+I have not read the cited papers myself. Claude checked each citation against its source: against the full text, model card, or README where one was open, against the abstract for Kwon et al 2023, and only against the publisher's record for Marti & Bunke 2002, which is cited only to name the IAM dataset. Sentences the sources did not fully support were narrowed or removed.
 
 ## References
 
